@@ -97,6 +97,8 @@ class RawValue:
     """XPath of the matched node (provenance)."""
     matches: int = 0
     rule: str = ""
+    context: str = ""
+    """The matched node's text before the rule's regex (lets code recover a currency the regex cut off)."""
 
 
 @dataclass
@@ -176,12 +178,14 @@ def run_rule(root: HtmlElement, rule: Rule) -> RawValue:
         result = RawValue(values, node_path, len(nodes), rule.describe())
     else:
         value = None
+        context = ""
         for node in nodes:  # first node that yields a value
             value = _transform(_read(node, rule.attr), rule)
             if value:
                 node_path = root.getroottree().getpath(node)
+                context = text_of(node) if rule.regex else ""
                 break
-        result = RawValue(value or None, node_path, len(nodes), rule.describe())
+        result = RawValue(value or None, node_path, len(nodes), rule.describe(), context)
     if (result.value in (None, "", [])) and rule.fallback is not None:
         return run_rule(root, rule.fallback)
     return result
@@ -268,3 +272,28 @@ def parse_program(data: dict[str, Any]) -> Program:
         return Program.model_validate({k: v for k, v in payload.items() if k in Program.model_fields})
     except ValueError as exc:
         raise ProgramError(f"invalid extractor: {exc}") from exc
+
+
+def raw_values(record: RawRecord, schema: Any) -> dict[str, Any]:
+    """The record's raw values for normalization. A money value whose currency the rule's regex cut off ("1.299,00"
+    out of "1.299,00 €") gets the currency printed next to it in the same element back, so code, not luck, decides
+    the currency."""
+    from sift.normalize.money import detect_currency
+    from sift.schema.model import FieldType
+
+    out: dict[str, Any] = {}
+    for name, raw in record.values.items():
+        value = raw.value
+        spec = schema.field(name) if hasattr(schema, "field") else None
+        if (
+            spec is not None
+            and spec.type == FieldType.money
+            and isinstance(value, str)
+            and raw.context
+            and detect_currency(value) is None
+        ):
+            code = detect_currency(raw.context)
+            if code:
+                value = f"{value} {code}"
+        out[name] = value
+    return out

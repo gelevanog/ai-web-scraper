@@ -57,7 +57,7 @@ from sift.extract.dom import (
 )
 from sift.extract.induce import find_items
 from sift.extract.learn import Sample, check_program, learn, typed
-from sift.extract.program import Program, RawRecord, links, run_detail, run_list
+from sift.extract.program import Program, RawRecord, links, raw_values, run_detail, run_list
 from sift.llm.base import ChatModel
 from sift.llm.counting import CallStats, CountingModel
 from sift.logging_config import get_logger
@@ -620,7 +620,7 @@ class Engine:
         ctx = self._ctx(url, doc, job.default_currency)
         out = []
         for raw in raws:
-            values = {k: v.value for k, v in raw.values.items()}
+            values = raw_values(raw, schema)
             normalized = normalize_record(values, schema, ctx)
             fields_prov = {
                 name: {"rule": v.rule, "node": v.node, "raw": _short(v.value), "matches": v.matches}
@@ -762,9 +762,7 @@ class Engine:
                 check=ext.check,
             )
         raws = self._run_list(ext, url, doc)
-        typed_records = [
-            typed(normalize_record({k: v.value for k, v in r.values.items()}, schema, ctx_for(url, doc))) for r in raws
-        ]
+        typed_records = [typed(normalize_record(raw_values(r, schema), schema, ctx_for(url, doc))) for r in raws]
         is_last = not pagination_links(doc, url) and not links(doc, ext.program.next_page, url)
         signals, similarity = self._health(ext, raws, typed_records, schema, fp, is_last)
         info.similarity = similarity
@@ -1048,7 +1046,7 @@ class Engine:
     ) -> tuple[dict[str, Any], dict[str, Any]]:
         clean, _ = strip_hidden(doc)
         raw = run_detail(clean, ext.program)
-        normalized = normalize_record({k: v.value for k, v in raw.values.items()}, sub, ctx)
+        normalized = normalize_record(raw_values(raw, sub), sub, ctx)
         values = {k: r.value for k, r in normalized.items()}
         prov = {k: {"rule": v.rule, "node": v.node, "raw": _short(v.value)} for k, v in raw.values.items()}
         return values, prov

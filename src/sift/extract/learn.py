@@ -15,7 +15,7 @@ from dataclasses import dataclass, field
 from typing import Any
 
 from sift.extract.dom import HtmlElement, page_lang, skeleton, strip_hidden
-from sift.extract.program import Program, ProgramError, parse_program, run_detail, run_list
+from sift.extract.program import Program, ProgramError, parse_program, raw_values, run_detail, run_list
 from sift.extract.prompts import LEARN, LEARN_DETAIL
 from sift.llm.base import ChatModel, LLMError
 from sift.llm.jsonparse import JSONReplyError, parse_json_object
@@ -84,10 +84,8 @@ def run_program_on(sample: Sample, program: Program, schema: Schema, ctx: Contex
     clean, _ = strip_hidden(sample.doc)
     if program.kind == "detail":
         raw = run_detail(clean, program)
-        return [normalize_record({k: v.value for k, v in raw.values.items()}, schema, ctx)]
-    return [
-        normalize_record({k: v.value for k, v in raw.values.items()}, schema, ctx) for raw in run_list(clean, program)
-    ]
+        return [normalize_record(raw_values(raw, schema), schema, ctx)]
+    return [normalize_record(raw_values(raw, schema), schema, ctx) for raw in run_list(clean, program)]
 
 
 def check_program(
