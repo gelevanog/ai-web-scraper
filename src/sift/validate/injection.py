@@ -30,8 +30,19 @@ class Rule:
 
 
 RULES: tuple[Rule, ...] = (
-    Rule("address.ai", re.compile(rf"\b(?:note|message|instructions?|attention|notice|reminder|warning)\s+(?:to|for)\s+(?:all\s+|any\s+)?(?:automated\s+)?{_AI}", _I), 0.6),
-    Rule("address.ai_prefix", re.compile(rf"(?:^|[.!?]\s+)(?:dear\s+)?(?:automated\s+)?{_AI}(?:\s+\w+){{0,2}}\s*[:,]", _I), 0.45),
+    Rule(
+        "address.ai",
+        re.compile(
+            rf"\b(?:note|message|instructions?|attention|notice|reminder|warning)\s+(?:to|for)\s+(?:all\s+|any\s+)?(?:automated\s+)?{_AI}",
+            _I,
+        ),
+        0.6,
+    ),
+    Rule(
+        "address.ai_prefix",
+        re.compile(rf"(?:^|[.!?]\s+)(?:dear\s+)?(?:automated\s+)?{_AI}(?:\s+\w+){{0,2}}\s*[:,]", _I),
+        0.45,
+    ),
     Rule("address.ai_instruction", re.compile(rf"\b{_AI}\s+(?:instructions?|directive|command|note)\s*:", _I), 0.7),
     Rule(
         "override.ignore",
@@ -44,10 +55,15 @@ RULES: tuple[Rule, ...] = (
     ),
     Rule(
         "steer.values",
-        re.compile(r"\b(?:report|set|list|mark|record|output|return)\s+(?:the\s+)?(?:price|prices|salary|salaries|every|all|each)\b.{0,60}?\b(?:as|to)\b", _I),
+        re.compile(
+            r"\b(?:report|set|list|mark|record|output|return)\s+(?:the\s+)?(?:price|prices|salary|salaries|every|all|each)\b.{0,60}?\b(?:as|to)\b",
+            _I,
+        ),
         0.6,
     ),
-    Rule("steer.schema", re.compile(r"\badd\s+(?:a\s+|an\s+|the\s+)?(?:new\s+)?(?:field|column|property|key)\b", _I), 0.6),
+    Rule(
+        "steer.schema", re.compile(r"\badd\s+(?:a\s+|an\s+|the\s+)?(?:new\s+)?(?:field|column|property|key)\b", _I), 0.6
+    ),
     Rule("steer.exfil", re.compile(r"\b(?:send|post|forward|upload)\b.{0,40}\b(?:to|at)\s+https?://", _I), 0.6),
     Rule("steer.roleplay", re.compile(r"\byou are (?:now|no longer)\b|\bnew instructions?\b|\bsystem\s*:\s", _I), 0.5),
 )
@@ -95,7 +111,9 @@ def quarantine(text: str, findings: list[Finding]) -> str:
     if findings:
         # A flagged block that was split differently: drop any remaining sentence that still scores.
         parts = _SENTENCE.split(out)
-        out = " ".join(p if score(p)[0] < THRESHOLD else "[removed by Sift: text addressed to AI systems]" for p in parts)
+        out = " ".join(
+            p if score(p)[0] < THRESHOLD else "[removed by Sift: text addressed to AI systems]" for p in parts
+        )
     return out
 
 

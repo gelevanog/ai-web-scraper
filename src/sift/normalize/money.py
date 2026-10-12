@@ -48,7 +48,9 @@ _CODES = {"USD", "EUR", "GBP", "CHF", "JPY", "CAD", "AUD", "SEK", "PLN", "NOK", 
 _CODE_RE = re.compile(r"(?<![A-Za-z])(" + "|".join(sorted(_CODES)) + r")(?![A-Za-z])")
 _FREE = re.compile(r"\b(free|gratis|kostenlos|gratuit|no charge|complimentary|free entry|free admission)\b", re.I)
 _UNPRICED = re.compile(r"\b(contact|call|on request|poa|quote|tbd|tba|custom pricing|let's talk)\b", re.I)
-_NUMBER = re.compile(r"(?<![\w])(\d{1,3}(?:[.,'’   ]\d{3})+(?:[.,]\d{1,2})?|\d+(?:[.,]\d{1,2})?)(?:\s?([kKmM])(?![a-zA-Z]))?")
+_NUMBER = re.compile(
+    r"(?<![\w])(\d{1,3}(?:[.,'’   ]\d{3})+(?:[.,]\d{1,2})?|\d+(?:[.,]\d{1,2})?)(?:\s?([kKmM])(?![a-zA-Z]))?"
+)
 _NOW = re.compile(r"\b(now|sale|today|special|offer)\b", re.I)
 
 
@@ -94,7 +96,7 @@ def detect_currency(text: str) -> str | None:
 
 
 def parse_number_token(token: str, suffix: str | None = None) -> float:
-    """"1.299,00" -> 1299.0; "1,299.00" -> 1299.0; "1 299,5" -> 1299.5; "1'299" -> 1299.0; "12,50" -> 12.5."""
+    """ "1.299,00" -> 1299.0; "1,299.00" -> 1299.0; "1 299,5" -> 1299.5; "1'299" -> 1299.0; "12,50" -> 12.5."""
     cleaned = re.sub(r"[   '’]", "", token)
     if "," in cleaned and "." in cleaned:
         if cleaned.rfind(",") > cleaned.rfind("."):
@@ -104,7 +106,11 @@ def parse_number_token(token: str, suffix: str | None = None) -> float:
     elif "," in cleaned:
         head, _, tail = cleaned.rpartition(",")
         # One comma followed by exactly three digits is a thousands separator ("1,299"); otherwise a decimal comma.
-        cleaned = cleaned.replace(",", "") if len(tail) == 3 and cleaned.count(",") >= 1 and head else head.replace(",", "") + "." + tail
+        cleaned = (
+            cleaned.replace(",", "")
+            if len(tail) == 3 and cleaned.count(",") >= 1 and head
+            else head.replace(",", "") + "." + tail
+        )
     elif "." in cleaned:
         head, _, tail = cleaned.rpartition(".")
         if len(tail) == 3 and (cleaned.count(".") > 1 or len(head) <= 3):
@@ -151,7 +157,7 @@ def parse_money(text: str | None, default_currency: str | None = None) -> Money 
 
 
 def parse_money_range(text: str | None, default_currency: str | None = None) -> tuple[Money | None, Money | None]:
-    """"$85k–$110k" -> (85000, 110000); "Up to £60,000" -> (None, 60000); "From €40.000" -> (40000, None)."""
+    """ "$85k–$110k" -> (85000, 110000); "Up to £60,000" -> (None, 60000); "From €40.000" -> (40000, None)."""
     if not text:
         return None, None
     raw = " ".join(str(text).split())
@@ -165,5 +171,7 @@ def parse_money_range(text: str | None, default_currency: str | None = None) -> 
     if re.search(r"\b(up to|max(imum)?|bis zu|jusqu'à)\b", raw, re.I) and len(amounts) == 1:
         return None, Money(amounts[0], currency, raw)
     if len(amounts) == 1:
-        return Money(amounts[0], currency, raw), None if re.search(r"\b(from|ab|à partir de|starting)\b", raw, re.I) else Money(amounts[0], currency, raw)
+        return Money(amounts[0], currency, raw), None if re.search(
+            r"\b(from|ab|à partir de|starting)\b", raw, re.I
+        ) else Money(amounts[0], currency, raw)
     return Money(amounts[0], currency, raw), Money(amounts[1], currency, raw)

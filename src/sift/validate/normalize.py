@@ -111,7 +111,12 @@ def normalize_value(raw: Any, spec: FieldSpec, ctx: Context) -> FieldResult:
         if parsed is None:
             return FieldResult(None, 0.0, raw, ["not a date"])
         relative = bool(re.search(r"(?i)\bago\b|today|yesterday|tomorrow|\bthis\b|\bnext\b|\bin \d", str(raw)))
-        return FieldResult(parsed.isoformat(), 0.9 if relative else 1.0, raw, [f"relative date resolved against {ctx.today}"] if relative else [])
+        return FieldResult(
+            parsed.isoformat(),
+            0.9 if relative else 1.0,
+            raw,
+            [f"relative date resolved against {ctx.today}"] if relative else [],
+        )
     if kind == FieldType.url:
         text = str(raw).strip()
         if text.startswith(("javascript:", "data:", "#", "mailto:")):

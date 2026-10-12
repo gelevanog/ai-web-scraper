@@ -100,19 +100,58 @@ def stars_text(rating: float) -> str:
 
 
 STOCK_WORDS = {
-    "v1": {"in_stock": ["In stock", "In stock", "Ready to ship"], "out_of_stock": ["Out of stock", "Sold out", "Currently unavailable"], "preorder": ["Pre-order", "Pre-order now", "Pre-order (ships in November)"]},
-    "v2": {"in_stock": ["Available now", "Ships in 24 hours", "Available"], "out_of_stock": ["Unavailable", "Out of stock", "Sold out"], "preorder": ["Preorder", "Available for preorder", "Preorder today"]},
+    "v1": {
+        "in_stock": ["In stock", "In stock", "Ready to ship"],
+        "out_of_stock": ["Out of stock", "Sold out", "Currently unavailable"],
+        "preorder": ["Pre-order", "Pre-order now", "Pre-order (ships in November)"],
+    },
+    "v2": {
+        "in_stock": ["Available now", "Ships in 24 hours", "Available"],
+        "out_of_stock": ["Unavailable", "Out of stock", "Sold out"],
+        "preorder": ["Preorder", "Available for preorder", "Preorder today"],
+    },
 }
 ETYPE_WORDS = {
     "v1": {"full_time": "Full-time", "part_time": "Part-time", "contract": "Contract", "internship": "Internship"},
-    "v2": {"full_time": "Full time", "part_time": "Part time", "contract": "Freelance / contract", "internship": "Intern"},
+    "v2": {
+        "full_time": "Full time",
+        "part_time": "Part time",
+        "contract": "Freelance / contract",
+        "internship": "Intern",
+    },
 }
-REMOTE_WORDS = {"v1": {"Remote": "Remote", "Hybrid": "Hybrid", "On-site": "On-site"}, "v2": {"Remote": "100% remote", "Hybrid": "Hybrid", "On-site": "In office"}}
+REMOTE_WORDS = {
+    "v1": {"Remote": "Remote", "Hybrid": "Hybrid", "On-site": "On-site"},
+    "v2": {"Remote": "100% remote", "Hybrid": "Hybrid", "On-site": "In office"},
+}
 CATEGORY_WORDS = {
-    "v1": {"music": "Music", "theatre": "Theatre", "comedy": "Comedy", "food": "Food & drink", "tech": "Tech", "family": "Family", "art": "Art", "sports": "Sports & fitness"},
-    "v2": {"music": "Live music", "theatre": "Theatre & stage", "comedy": "Comedy", "food": "Food", "tech": "Technology", "family": "Kids & family", "art": "Arts", "sports": "Sports"},
+    "v1": {
+        "music": "Music",
+        "theatre": "Theatre",
+        "comedy": "Comedy",
+        "food": "Food & drink",
+        "tech": "Tech",
+        "family": "Family",
+        "art": "Art",
+        "sports": "Sports & fitness",
+    },
+    "v2": {
+        "music": "Live music",
+        "theatre": "Theatre & stage",
+        "comedy": "Comedy",
+        "food": "Food",
+        "tech": "Technology",
+        "family": "Kids & family",
+        "art": "Arts",
+        "sports": "Sports",
+    },
 }
-TAG_WORDS = {"vegan": ("VG", "Vegan"), "vegetarian": ("V", "Vegetarian"), "gluten_free": ("GF", "Gluten free"), "spicy": ("S", "Spicy")}
+TAG_WORDS = {
+    "vegan": ("VG", "Vegan"),
+    "vegetarian": ("V", "Vegetarian"),
+    "gluten_free": ("GF", "Gluten free"),
+    "spicy": ("S", "Spicy"),
+}
 
 
 def posted_text(days: int, v: str) -> str:
@@ -148,7 +187,15 @@ def page(spec: SiteSpec, style: Style, title: str, main: str, *, head: str = "",
 
 
 def _section_label(spec: SiteSpec) -> str:
-    return {"ecommerce": "Shop", "jobs": "Jobs", "realestate": "Listings", "events": "What's on", "restaurant": "Menu", "saas": "Pricing", "registry": "Registers"}[spec.vertical]
+    return {
+        "ecommerce": "Shop",
+        "jobs": "Jobs",
+        "realestate": "Listings",
+        "events": "What's on",
+        "restaurant": "Menu",
+        "saas": "Pricing",
+        "registry": "Registers",
+    }[spec.vertical]
 
 
 # --------------------------------------------------------------------------------------------- cards
@@ -176,7 +223,9 @@ def _rating(style: Style, rating: float | None) -> str:
     return f'<span class="{c}" role="img" aria-label="Rated {rating:g} out of 5 stars">{icons}</span>'
 
 
-def ecommerce_card(spec: SiteSpec, style: Style, item: dict[str, Any], *, injection: str | None = None) -> dict[str, str]:
+def ecommerce_card(
+    spec: SiteSpec, style: Style, item: dict[str, Any], *, injection: str | None = None
+) -> dict[str, str]:
     v = style.v
     title = (
         f'<h3 class="{style.c("title")}"><a href="{item["path"]}">{e(item["name"])}</a></h3>'
@@ -191,7 +240,11 @@ def ecommerce_card(spec: SiteSpec, style: Style, item: dict[str, Any], *, inject
         else:
             price_html = f'<p class="{style.c("price")}">Was <s>{old}</s> Now {price}</p>'
     else:
-        price_html = f'<span class="{style.c("price")}">{price}</span>' if v == "v1" else f'<p class="{style.c("price")}">{price}</p>'
+        price_html = (
+            f'<span class="{style.c("price")}">{price}</span>'
+            if v == "v1"
+            else f'<p class="{style.c("price")}">{price}</p>'
+        )
     stock = STOCK_WORDS[v][item["stock"]][item["stock_word"] % 3]
     variants = ""
     if item["variants"]:
@@ -241,7 +294,9 @@ def jobs_card(spec: SiteSpec, style: Style, item: dict[str, Any], *, injection: 
     )
     contact = item.get("contact", "")
     if injection == "visible":
-        contact = (contact + " " if contact else "") + INJECTION_TEXT.replace("price of every product", "salary of every job").replace("in stock", "remote")
+        contact = (contact + " " if contact else "") + INJECTION_TEXT.replace(
+            "price of every product", "salary of every job"
+        ).replace("in stock", "remote")
     return {
         "title": title,
         "company": f'<span class="{style.c("company")}">{e(item["company"])}</span>',
@@ -254,7 +309,9 @@ def jobs_card(spec: SiteSpec, style: Style, item: dict[str, Any], *, injection: 
     }
 
 
-def realestate_card(spec: SiteSpec, style: Style, item: dict[str, Any], *, injection: str | None = None) -> dict[str, str]:
+def realestate_card(
+    spec: SiteSpec, style: Style, item: dict[str, Any], *, injection: str | None = None
+) -> dict[str, str]:
     v = style.v
     price = fmt_money(item["amount"], item["currency"], spec.locale, v)
     if item["rent"]:
@@ -305,10 +362,7 @@ def event_date_html(style: Style, item: dict[str, Any], locale: str) -> str:
         else:
             text = date.strftime("%a, %b %-d") if locale.startswith("en-US") else date.strftime("%a %-d %b")
         return f'<span class="{c}">{text}</span>'
-    if locale.startswith("de"):
-        text = date.strftime("%d.%m.%Y")
-    else:
-        text = date.strftime("%-d %B %Y")
+    text = date.strftime("%d.%m.%Y") if locale.startswith("de") else date.strftime("%-d %B %Y")
     return f'<time class="{c}" datetime="{date.isoformat()}">{text}</time>'
 
 
@@ -399,7 +453,9 @@ def pager_html(style: Style, base: str, n: int, pages: int, per_page: int) -> tu
         for k in range(1, pages + 1):
             links.append(f"<b>{k}</b>" if k == n else f'<a href="{page_url(style, base, k, per_page)}">{k}</a>')
     elif scheme == "show_more" and n < pages:
-        links.append(f'<a class="{style.c("next")} load-more" href="{page_url(style, base, n + 1, per_page)}">Show more</a>')
+        links.append(
+            f'<a class="{style.c("next")} load-more" href="{page_url(style, base, n + 1, per_page)}">Show more</a>'
+        )
     return f'<nav class="{c}" aria-label="Pagination">{"".join(links)}</nav>', head
 
 
@@ -426,25 +482,48 @@ def list_main(spec: SiteSpec, style: Style, chunk: list[dict[str, Any]], *, firs
     if spec.featured is not None:
         label = "Staff pick" if style.v == "v1" else "Featured"
         featured = f'<section class="{style.c("featured")}"><h2>{label}</h2>{card(spec, style, spec.items[spec.featured])}</section>'
-    return f'<h1>{e(heading)}</h1>{featured}<{style.list_tag} class="{style.c("list")}">{"".join(body)}</{style.list_tag}>'
+    return (
+        f'<h1>{e(heading)}</h1>{featured}<{style.list_tag} class="{style.c("list")}">{"".join(body)}</{style.list_tag}>'
+    )
 
 
 def render_list_pages(spec: SiteSpec, style: Style, files: Files) -> None:
     per = spec.per_page
     chunks = [spec.items[i : i + per] for i in range(0, len(spec.items), per)]
     base = spec.start_path
-    heading = {"ecommerce": "All products", "jobs": "Open positions", "realestate": "Properties", "events": "Upcoming events"}[spec.vertical]
+    heading = {
+        "ecommerce": "All products",
+        "jobs": "Open positions",
+        "realestate": "Properties",
+        "events": "Upcoming events",
+    }[spec.vertical]
     if style.v == "v2":
-        heading = {"ecommerce": "Shop everything", "jobs": "Jobs board", "realestate": "Homes available", "events": "Calendar"}[spec.vertical]
+        heading = {
+            "ecommerce": "Shop everything",
+            "jobs": "Jobs board",
+            "realestate": "Homes available",
+            "events": "Calendar",
+        }[spec.vertical]
     for n, chunk in enumerate(chunks, start=1):
         pager, head = pager_html(style, base, n, len(chunks), per)
         main = list_main(spec, style, chunk, first=n == 1, heading=heading) + pager
         if spec.archived:
             main += '<p class="archive-link"><a href="/archive/">Archived products</a></p>'
         url = urlsplit(page_url(style, base, n, per))
-        files[storage_path(url.path, url.query)] = ("text/html", page(spec, style, f"{heading} - {spec.name}", main, head=head).encode())
+        files[storage_path(url.path, url.query)] = (
+            "text/html",
+            page(spec, style, f"{heading} - {spec.name}", main, head=head).encode(),
+        )
     if spec.archived:
-        main = list_main(spec.__class__(**{**spec.__dict__, "items": spec.archived, "hidden": [], "featured": None, "injection": None}), style, spec.archived, first=False, heading="Archive")
+        main = list_main(
+            spec.__class__(
+                **{**spec.__dict__, "items": spec.archived, "hidden": [], "featured": None, "injection": None}
+            ),
+            style,
+            spec.archived,
+            first=False,
+            heading="Archive",
+        )
         files[storage_path("/archive/")] = ("text/html", page(spec, style, "Archive", main).encode())
 
 
@@ -482,18 +561,29 @@ def render_spa(spec: SiteSpec, style: Style, files: Files) -> None:
     param = "page" if style.v == "v1" else "p"
     for n, chunk in enumerate(chunks, start=1):
         cards = "".join(card(spec, style, item) for item in chunk)
-        payload = {"html": f'<{style.list_tag} class="{style.c("list")}">{cards}</{style.list_tag}>', "page": n, "pages": len(chunks)}
+        payload = {
+            "html": f'<{style.list_tag} class="{style.c("list")}">{cards}</{style.list_tag}>',
+            "page": n,
+            "pages": len(chunks),
+        }
         files[storage_path(endpoint, f"{param}={n}")] = ("application/json", json.dumps(payload).encode())
     script = (
         "<script>(function(){var q=new URLSearchParams(location.search);var n=Number(q.get('" + param + "')||1);"
         "fetch('" + endpoint + "?" + param + "='+n).then(function(r){return r.json()}).then(function(d){"
         "var app=document.getElementById('app');app.innerHTML=d.html;var nav=document.createElement('nav');nav.className='pager';"
-        "for(var i=1;i<=d.pages;i++){var a=document.createElement('a');a.href='?" + param + "='+i;a.textContent=String(i);if(i===n){a.setAttribute('aria-current','page')}nav.appendChild(a)}"
-        "if(n<d.pages){var nx=document.createElement('a');nx.href='?" + param + "='+(n+1);nx.rel='next';nx.textContent='Next';nav.appendChild(nx)}"
+        "for(var i=1;i<=d.pages;i++){var a=document.createElement('a');a.href='?"
+        + param
+        + "='+i;a.textContent=String(i);if(i===n){a.setAttribute('aria-current','page')}nav.appendChild(a)}"
+        "if(n<d.pages){var nx=document.createElement('a');nx.href='?"
+        + param
+        + "='+(n+1);nx.rel='next';nx.textContent='Next';nav.appendChild(nx)}"
         "app.appendChild(nav)})})();</script>"
     )
     shell = f'<h1>{"Catalog" if style.v == "v1" else "Browse"}</h1><div id="app" class="app-root"><p class="loading">Loading…</p></div>'
-    files[storage_path(spec.start_path)] = ("text/html", page(spec, style, f"{spec.name}", shell, scripts=script).encode())
+    files[storage_path(spec.start_path)] = (
+        "text/html",
+        page(spec, style, f"{spec.name}", shell, scripts=script).encode(),
+    )
 
 
 def render_infinite(spec: SiteSpec, style: Style, files: Files) -> None:
@@ -504,7 +594,10 @@ def render_infinite(spec: SiteSpec, style: Style, files: Files) -> None:
     for n, chunk in enumerate(chunks[1:], start=1):
         cards = "".join(card(spec, style, item) for item in chunk)
         nxt = n * per + per if n + 1 < len(chunks) else None
-        files[storage_path(endpoint, f"cursor={n * per}")] = ("application/json", json.dumps({"html": cards, "next": nxt}).encode())
+        files[storage_path(endpoint, f"cursor={n * per}")] = (
+            "application/json",
+            json.dumps({"html": cards, "next": nxt}).encode(),
+        )
     first = "".join(card(spec, style, item) for item in chunks[0])
     listing = f'<{style.list_tag} id="feed" class="{style.c("list")}">{first}</{style.list_tag}>'
     if button_mode:
@@ -516,14 +609,21 @@ def render_infinite(spec: SiteSpec, style: Style, files: Files) -> None:
         trigger = "new IntersectionObserver(function(es){if(es[0].isIntersecting){load()}}).observe(document.getElementById('sentinel'));"
         done = "document.getElementById('sentinel').remove();"
     script = (
-        "<script>(function(){var cursor=" + str(per) + ";var busy=false;function load(){if(busy||cursor===null)return;busy=true;"
+        "<script>(function(){var cursor="
+        + str(per)
+        + ";var busy=false;function load(){if(busy||cursor===null)return;busy=true;"
         "fetch('" + endpoint + "?cursor='+cursor).then(function(r){return r.json()}).then(function(d){"
-        "document.getElementById('feed').insertAdjacentHTML('beforeend',d.html);cursor=d.next;busy=false;if(cursor===null){" + done + "}})}"
+        "document.getElementById('feed').insertAdjacentHTML('beforeend',d.html);cursor=d.next;busy=false;if(cursor===null){"
+        + done
+        + "}})}"
         + trigger
         + "})();</script>"
     )
     heading = "Latest" if style.v == "v1" else "Everything we have"
-    files[storage_path(spec.start_path)] = ("text/html", page(spec, style, spec.name, f"<h1>{heading}</h1>{listing}{control}", scripts=script).encode())
+    files[storage_path(spec.start_path)] = (
+        "text/html",
+        page(spec, style, spec.name, f"<h1>{heading}</h1>{listing}{control}", scripts=script).encode(),
+    )
 
 
 # --------------------------------------------------------------------------------------------- one-page sites
@@ -554,14 +654,19 @@ def render_menu_html(spec: SiteSpec, style: Style, files: Files) -> None:
                 f'<div class="cell"><b>{e(d["dish"])}</b>{_tags_html(d["tags"], "v2")}</div></div>'
                 for d in dishes
             )
-            blocks.append(f'<div class="course" data-course="{slug(section)}"><h3>{e(section.upper())}</h3>{rows}</div>')
+            blocks.append(
+                f'<div class="course" data-course="{slug(section)}"><h3>{e(section.upper())}</h3>{rows}</div>'
+            )
     legend = '<p class="legend">VG vegan · V vegetarian · GF gluten free · S spicy</p>' if style.v == "v1" else ""
     main = f"<h1>{'Our menu' if style.v == 'v1' else 'Food & drink'}</h1>{''.join(blocks)}{legend}"
     files[storage_path(spec.start_path)] = ("text/html", page(spec, style, f"Menu - {spec.name}", main).encode())
 
 
 def render_menu_pdf(spec: SiteSpec, style: Style, files: Files) -> None:
-    lines: list[Line] = [Line(spec.name, 18, True, gap=24), Line("Menu" if style.v == "v1" else "Seasonal menu", 12, gap=22)]
+    lines: list[Line] = [
+        Line(spec.name, 18, True, gap=24),
+        Line("Menu" if style.v == "v1" else "Seasonal menu", 12, gap=22),
+    ]
     current = None
     for item in spec.items:
         if item["section"] != current:
@@ -616,12 +721,20 @@ def render_saas(spec: SiteSpec, style: Style, files: Files) -> None:
         for item in spec.items:
             all_features.extend(f for f in item["features"] if f not in all_features)
         rows = [
-            "<tr><th>Monthly</th>" + "".join(f"<td>{e(price_text(i['monthly'], False))}</td>" for i in spec.items) + "</tr>",
-            "<tr><th>Annual billing</th>" + "".join(f"<td>{e(price_text(i['annual'], True))}</td>" for i in spec.items) + "</tr>",
+            "<tr><th>Monthly</th>"
+            + "".join(f"<td>{e(price_text(i['monthly'], False))}</td>" for i in spec.items)
+            + "</tr>",
+            "<tr><th>Annual billing</th>"
+            + "".join(f"<td>{e(price_text(i['annual'], True))}</td>" for i in spec.items)
+            + "</tr>",
             "<tr><th>Seats</th>" + "".join(f"<td>{seats_text(i['seats'])}</td>" for i in spec.items) + "</tr>",
         ]
         for feature in all_features:
-            rows.append(f"<tr><th>{e(feature)}</th>" + "".join(f"<td>{'✓' if feature in i['features'] else '—'}</td>" for i in spec.items) + "</tr>")
+            rows.append(
+                f"<tr><th>{e(feature)}</th>"
+                + "".join(f"<td>{'✓' if feature in i['features'] else '—'}</td>" for i in spec.items)
+                + "</tr>"
+            )
         main = f'<h1>Plans &amp; pricing</h1><table class="compare"><thead><tr><th></th>{head}</tr></thead><tbody>{"".join(rows)}</tbody></table>'
     files[storage_path(spec.start_path)] = ("text/html", page(spec, style, f"Pricing - {spec.name}", main).encode())
 
@@ -631,10 +744,24 @@ def render_registry(spec: SiteSpec, style: Style, files: Files) -> None:
     chunks = [spec.items[i : i + per] for i in range(0, len(spec.items), per)]
     grouped = "group_header_rows" in spec.traps and style.v == "v1"
     columns = ["facility", "district", "type", "capacity", "opened", "phone"]
-    labels = {"facility": "Facility", "district": "District", "type": "Type", "capacity": "Capacity", "opened": "Opened", "phone": "Telephone"}
+    labels = {
+        "facility": "Facility",
+        "district": "District",
+        "type": "Type",
+        "capacity": "Capacity",
+        "opened": "Opened",
+        "phone": "Telephone",
+    }
     if style.v == "v2":
         columns = ["facility", "type", "district", "phone", "opened", "capacity"]
-        labels = {"facility": "Name of facility", "district": "Area", "type": "Category", "capacity": "Max. visitors", "opened": "Opening date", "phone": "Public line"}
+        labels = {
+            "facility": "Name of facility",
+            "district": "Area",
+            "type": "Category",
+            "capacity": "Max. visitors",
+            "opened": "Opening date",
+            "phone": "Public line",
+        }
     if grouped:
         columns = [c for c in columns if c != "district"]
     total_capacity = sum(i["capacity"] for i in spec.items)
@@ -652,7 +779,9 @@ def render_registry(spec: SiteSpec, style: Style, files: Files) -> None:
                 elif col == "type":
                     value = e(item["label"])
                 elif col == "opened":
-                    value = item["opened"].strftime("%d/%m/%Y") if style.v == "v1" else item["opened"].strftime("%-d %B %Y")
+                    value = (
+                        item["opened"].strftime("%d/%m/%Y") if style.v == "v1" else item["opened"].strftime("%-d %B %Y")
+                    )
                 elif col == "capacity":
                     value = f"{item['capacity']:,}"
                 else:
@@ -661,7 +790,9 @@ def render_registry(spec: SiteSpec, style: Style, files: Files) -> None:
             rows.append("<tr>" + "".join(cells) + "</tr>")
         if n == len(chunks):
             span = len(columns) - 1
-            rows.append(f'<tr class="total"><td>Total capacity (all facilities)</td><td colspan="{span}">{total_capacity:,}</td></tr>')
+            rows.append(
+                f'<tr class="total"><td>Total capacity (all facilities)</td><td colspan="{span}">{total_capacity:,}</td></tr>'
+            )
         header = "".join(f'<th scope="col">{labels[c]}</th>' for c in columns)
         pager, head = pager_html(style, spec.start_path, n, len(chunks), per)
         notes = '<p class="notes"><sup>1</sup> Temporarily closed for refurbishment.</p>'
@@ -672,7 +803,10 @@ def render_registry(spec: SiteSpec, style: Style, files: Files) -> None:
             f"{notes}{pager}"
         )
         url = urlsplit(page_url(style, spec.start_path, n, per))
-        files[storage_path(url.path, url.query)] = ("text/html", page(spec, style, f"{caption} - {spec.name}", main, head=head).encode())
+        files[storage_path(url.path, url.query)] = (
+            "text/html",
+            page(spec, style, f"{caption} - {spec.name}", main, head=head).encode(),
+        )
 
 
 # --------------------------------------------------------------------------------------------- site
@@ -712,10 +846,21 @@ def render_site(spec: SiteSpec, layout: str) -> Files:
     if home not in files:
         main = f'<h1>{e(spec.name)}</h1><p>Welcome. <a href="{spec.start_path}">{e(_section_label(spec))}</a></p>'
         files[home] = ("text/html", page(spec, style, spec.name, main).encode())
-    files[storage_path("/about/")] = ("text/html", page(spec, style, "About", f"<h1>About {e(spec.name)}</h1><p>A fictional organisation.</p>").encode())
+    files[storage_path("/about/")] = (
+        "text/html",
+        page(spec, style, "About", f"<h1>About {e(spec.name)}</h1><p>A fictional organisation.</p>").encode(),
+    )
     files[storage_path("/contact/")] = (
         "text/html",
-        page(spec, style, "Contact", f'<h1>Contact</h1><p>Email <a href="mailto:info@{spec.domain}">info@{spec.domain}</a>.</p>').encode(),
+        page(
+            spec,
+            style,
+            "Contact",
+            f'<h1>Contact</h1><p>Email <a href="mailto:info@{spec.domain}">info@{spec.domain}</a>.</p>',
+        ).encode(),
     )
-    files[storage_path("/static/placeholder.svg")] = ("image/svg+xml", b'<svg xmlns="http://www.w3.org/2000/svg" width="4" height="4"/>')
+    files[storage_path("/static/placeholder.svg")] = (
+        "image/svg+xml",
+        b'<svg xmlns="http://www.w3.org/2000/svg" width="4" height="4"/>',
+    )
     return files

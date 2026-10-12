@@ -29,7 +29,10 @@ _UNITS = {
     "yr": 365,
     "y": 365,
 }
-_AGO = re.compile(r"\b(\d+|an?|one|two|three|four|five|six|seven)\s*(minutes?|mins?|hours?|hrs?|days?|weeks?|wks?|months?|mos?|years?|yrs?|[hdwmy])\.?\s+ago\b", re.I)
+_AGO = re.compile(
+    r"\b(\d+|an?|one|two|three|four|five|six|seven)\s*(minutes?|mins?|hours?|hrs?|days?|weeks?|wks?|months?|mos?|years?|yrs?|[hdwmy])\.?\s+ago\b",
+    re.I,
+)
 _IN = re.compile(r"\bin\s+(\d+|an?|one|two|three|four|five|six|seven)\s+(days?|weeks?|months?)\b", re.I)
 _WORDS = {"a": 1, "an": 1, "one": 1, "two": 2, "three": 3, "four": 4, "five": 5, "six": 6, "seven": 7}
 _WEEKDAYS = ["monday", "tuesday", "wednesday", "thursday", "friday", "saturday", "sunday"]
@@ -124,16 +127,16 @@ def parse_date(text: str | None, today: dt.date, *, day_first: bool | None = Non
             return None
     for pattern, day_group, month_group in ((_DAY_MONTH, 1, 2), (_MONTH_DAY, 2, 1)):
         for match in pattern.finditer(raw):
-            month = _MONTHS.get(match.group(month_group).lower())
-            if not month:
+            month_num = _MONTHS.get(match.group(month_group).lower())
+            if not month_num:
                 continue
             day = int(match.group(day_group))
             if match.group(3):
                 try:
-                    return dt.date(int(match.group(3)), month, day)
+                    return dt.date(int(match.group(3)), month_num, day)
                 except ValueError:
                     return None
-            return _nearest_year(month, day, today)
+            return _nearest_year(month_num, day, today)
     try:
         parsed = dateutil_parser.parse(raw, fuzzy=True, dayfirst=bool(day_first), default=dt.datetime(today.year, 1, 1))
     except (ValueError, OverflowError):
@@ -148,6 +151,4 @@ def day_first_for_locale(lang: str | None) -> bool | None:
     if not lang:
         return None
     lang = lang.lower()
-    if lang in {"en-us", "en_us", "en-ca"} or lang == "en":
-        return False
-    return True
+    return not (lang in {"en-us", "en_us", "en-ca"} or lang == "en")

@@ -8,7 +8,20 @@ import unicodedata
 _WS = re.compile(r"\s+")
 _FOOTNOTE_TAIL = re.compile(r"[\s]*[¹²³⁴⁵⁶⁷⁸⁹⁰*†‡§]+$")
 
-_TRUE = ("yes", "true", "y", "✓", "✔", "available", "in stock", "included", "remote", "100% remote", "fully remote", "on")
+_TRUE = (
+    "yes",
+    "true",
+    "y",
+    "✓",
+    "✔",
+    "available",
+    "in stock",
+    "included",
+    "remote",
+    "100% remote",
+    "fully remote",
+    "on",
+)
 _FALSE = (
     "no",
     "false",
@@ -34,8 +47,27 @@ _FALSE = (
 
 # Common page wording for enum values. Applied only when the target value is one of the field's enum values.
 ENUM_SYNONYMS: dict[str, tuple[str, ...]] = {
-    "in_stock": ("in stock", "available", "ships", "ready to ship", "available now", "in-stock", "instock", "add to cart", "buy now"),
-    "out_of_stock": ("out of stock", "sold out", "unavailable", "currently unavailable", "not available", "out-of-stock", "outofstock", "no stock"),
+    "in_stock": (
+        "in stock",
+        "available",
+        "ships",
+        "ready to ship",
+        "available now",
+        "in-stock",
+        "instock",
+        "add to cart",
+        "buy now",
+    ),
+    "out_of_stock": (
+        "out of stock",
+        "sold out",
+        "unavailable",
+        "currently unavailable",
+        "not available",
+        "out-of-stock",
+        "outofstock",
+        "no stock",
+    ),
     "preorder": ("pre-order", "preorder", "pre order", "coming soon", "available for preorder", "backorder"),
     "sale": ("for sale", "buy", "sale", "freehold", "to buy"),
     "rent": ("for rent", "to rent", "to let", "rental", "per month", "pcm", "/ month", "lease", "let"),
@@ -116,7 +148,11 @@ def match_enum(value: object, allowed: list[str]) -> tuple[str | None, float]:
     best: tuple[str | None, int] = (None, 0)
     for target in allowed:
         for synonym in (*ENUM_SYNONYMS.get(target, ()), target.replace("_", " ")):
-            if len(synonym) >= 3 and re.search(rf"(?<![a-z]){re.escape(synonym)}(?![a-z])", text) and len(synonym) > best[1]:
+            if (
+                len(synonym) >= 3
+                and re.search(rf"(?<![a-z]){re.escape(synonym)}(?![a-z])", text)
+                and len(synonym) > best[1]
+            ):
                 best = (target, len(synonym))
     if best[0]:
         return best[0], 0.7

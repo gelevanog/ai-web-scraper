@@ -19,7 +19,32 @@ from sift.schema.model import FieldSpec, Schema
 from sift.validate.injection import Finding, guard_dom, spotlight
 
 _WORD = re.compile(r"[a-z0-9]+")
-_STOP = {"the", "a", "an", "and", "or", "of", "with", "its", "their", "for", "to", "in", "on", "each", "every", "all", "is", "it", "from", "as", "by", "whether", "get", "also"}
+_STOP = {
+    "the",
+    "a",
+    "an",
+    "and",
+    "or",
+    "of",
+    "with",
+    "its",
+    "their",
+    "for",
+    "to",
+    "in",
+    "on",
+    "each",
+    "every",
+    "all",
+    "is",
+    "it",
+    "from",
+    "as",
+    "by",
+    "whether",
+    "get",
+    "also",
+}
 
 
 @dataclass
@@ -53,7 +78,19 @@ def quoted(phrase: str, request: str) -> bool:
 
 
 def _clean_field(data: dict[str, Any]) -> dict[str, Any]:
-    allowed = {"name", "type", "description", "required", "enum", "items", "fields", "currency", "unit", "contact", "key"}
+    allowed = {
+        "name",
+        "type",
+        "description",
+        "required",
+        "enum",
+        "items",
+        "fields",
+        "currency",
+        "unit",
+        "contact",
+        "key",
+    }
     out = {k: v for k, v in data.items() if k in allowed and v is not None}
     if isinstance(out.get("items"), dict):
         out["items"] = _clean_field({"name": "item", **out["items"]})
@@ -63,7 +100,18 @@ def _clean_field(data: dict[str, Any]) -> dict[str, Any]:
         out.pop("contact", None)
     if isinstance(out.get("type"), str):
         out["type"] = out["type"].strip().lower()
-        out["type"] = {"str": "string", "text": "string", "int": "integer", "float": "number", "bool": "boolean", "price": "money", "currency": "money", "array": "list", "link": "url", "uri": "url"}.get(out["type"], out["type"])
+        out["type"] = {
+            "str": "string",
+            "text": "string",
+            "int": "integer",
+            "float": "number",
+            "bool": "boolean",
+            "price": "money",
+            "currency": "money",
+            "array": "list",
+            "link": "url",
+            "uri": "url",
+        }.get(out["type"], out["type"])
     return out
 
 
@@ -90,7 +138,9 @@ def validate_proposal(
             continue
         name_tokens = _tokens(str(raw.get("name") or "").replace("_", " "))
         if injected_tokens and name_tokens & injected_tokens and not name_tokens & request_tokens:
-            rejected.append({"name": raw.get("name"), "reason": "named after text the injection guard flagged on the page"})
+            rejected.append(
+                {"name": raw.get("name"), "reason": "named after text the injection guard flagged on the page"}
+            )
             continue
         try:
             spec = FieldSpec.model_validate(_clean_field(raw))
@@ -127,7 +177,10 @@ def propose(
         page = skeleton(doc, max_chars=12_000)
         parts.append(f"Sample page ({sample_url}):\n{spotlight(page)}")
     try:
-        reply = model.complete([{"role": "system", "content": SCHEMA.format()}, {"role": "user", "content": "\n\n".join(parts)}], max_tokens=max_tokens)
+        reply = model.complete(
+            [{"role": "system", "content": SCHEMA.format()}, {"role": "user", "content": "\n\n".join(parts)}],
+            max_tokens=max_tokens,
+        )
         data = parse_json_object(reply.text)
     except (JSONReplyError, LLMError) as exc:
         return Proposal(None, findings=findings, error=str(exc)[:300], calls=1)

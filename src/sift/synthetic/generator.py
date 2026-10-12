@@ -43,18 +43,26 @@ def spec_summary(spec: SiteSpec) -> dict[str, Any]:
         "crawl_delay": spec.crawl_delay,
         "detail_fields": spec.detail_fields,
         "layouts": {
-            name: {"naming": s.naming, "item_tag": s.item_tag, "pagination": s.pagination, "wrap": s.wrap, "rating": s.rating_style}
+            name: {
+                "naming": s.naming,
+                "item_tag": s.item_tag,
+                "pagination": s.pagination,
+                "wrap": s.wrap,
+                "rating": s.rating_style,
+            }
             for name, s in styles.items()
         },
     }
 
 
-def generate(out_dir: Path, *, seed: int = 7, today: dt.date = dt.date(2026, 10, 1), clean: bool = True) -> dict[str, Any]:
+def generate(
+    out_dir: Path, *, seed: int = 7, today: dt.date = dt.date(2026, 10, 1), clean: bool = True
+) -> dict[str, Any]:
     specs = build_specs(seed, today)
     if clean and out_dir.exists():
         shutil.rmtree(out_dir)
     digest = hashlib.sha256()
-    counts = {layout: 0 for layout in LAYOUTS}
+    counts = dict.fromkeys(LAYOUTS, 0)
     for layout in LAYOUTS:
         for spec in specs:
             for rel, (_ctype, body) in sorted(render_site(spec, layout).items()):

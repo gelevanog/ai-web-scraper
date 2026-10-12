@@ -46,7 +46,19 @@ _UNIT_RE = re.compile(
     + r")(?![a-zA-Z])",
     re.I,
 )
-_WORD_NUMBERS = {"zero": 0, "one": 1, "two": 2, "three": 3, "four": 4, "five": 5, "six": 6, "seven": 7, "eight": 8, "nine": 9, "ten": 10}
+_WORD_NUMBERS = {
+    "zero": 0,
+    "one": 1,
+    "two": 2,
+    "three": 3,
+    "four": 4,
+    "five": 5,
+    "six": 6,
+    "seven": 7,
+    "eight": 8,
+    "nine": 9,
+    "ten": 10,
+}
 
 
 def parse_number(text: str | None) -> float | None:
@@ -76,7 +88,7 @@ def parse_integer(text: str | None) -> int | None:
     if text is not None and re.search(r"(?i)\b(unlimited|no limit|any number)\b", str(text)):
         return None
     value = parse_number(text)
-    return None if value is None else int(round(value))
+    return None if value is None else round(value)
 
 
 def canonical_unit(unit: str | None) -> str | None:
@@ -98,7 +110,7 @@ def parse_quantity(text: str | None, target_unit: str | None) -> float | None:
     if match and target:
         canonical, factor = _UNITS[match.group(2).lower()]
         if canonical == target:
-            value = parse_number_token(match.group(1).lstrip("+-")) * factor
-            return round(value, 2)
+            converted = parse_number_token(match.group(1).lstrip("+-")) * factor
+            return round(converted, 2)
     value = parse_number(raw)
     return None if value is None else round(value, 2)

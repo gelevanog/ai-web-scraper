@@ -40,7 +40,11 @@ def make_pdf(lines: list[Line]) -> bytes:
     objects.append(b"<< /Type /Font /Subtype /Type1 /BaseFont /Helvetica-Bold /Encoding /WinAnsiEncoding >>")
     for page_lines, pid in zip(pages, page_ids, strict=True):
         stream = b"".join(
-            b"BT /" + (b"F2" if line.bold else b"F1") + f" {line.size} Tf {line.x} {y} Td (".encode() + _escape(line.text) + b") Tj ET\n"
+            b"BT /"
+            + (b"F2" if line.bold else b"F1")
+            + f" {line.size} Tf {line.x} {y} Td (".encode()
+            + _escape(line.text)
+            + b") Tj ET\n"
             for line, y in page_lines
         )
         objects.append(

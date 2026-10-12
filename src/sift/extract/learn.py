@@ -66,7 +66,12 @@ def typed(record: dict[str, FieldResult]) -> dict[str, Any]:
 def _values_equal(a: Any, b: Any) -> bool:
     if isinstance(a, dict) and isinstance(b, dict) and "amount" in a and "amount" in b:
         return abs(float(a["amount"]) - float(b["amount"])) <= 0.011
-    if isinstance(a, float | int) and isinstance(b, float | int) and not isinstance(a, bool) and not isinstance(b, bool):
+    if (
+        isinstance(a, float | int)
+        and isinstance(b, float | int)
+        and not isinstance(a, bool)
+        and not isinstance(b, bool)
+    ):
         return abs(float(a) - float(b)) <= max(0.011, abs(float(b)) * 0.001)
     if isinstance(a, list) and isinstance(b, list):
         return sorted(map(str, (norm_key(x) for x in a))) == sorted(map(str, (norm_key(x) for x in b)))
@@ -80,7 +85,9 @@ def run_program_on(sample: Sample, program: Program, schema: Schema, ctx: Contex
     if program.kind == "detail":
         raw = run_detail(clean, program)
         return [normalize_record({k: v.value for k, v in raw.values.items()}, schema, ctx)]
-    return [normalize_record({k: v.value for k, v in raw.values.items()}, schema, ctx) for raw in run_list(clean, program)]
+    return [
+        normalize_record({k: v.value for k, v in raw.values.items()}, schema, ctx) for raw in run_list(clean, program)
+    ]
 
 
 def check_program(
@@ -118,7 +125,11 @@ def check_program(
             check.fill[spec.name] = 0.0
             continue
         filled = sum(1 for r in all_records if r[spec.name].value not in (None, "", []))
-        raw_unparsed = [r[spec.name].raw for r in all_records if r[spec.name].raw not in (None, "", []) and r[spec.name].value in (None, [])]
+        raw_unparsed = [
+            r[spec.name].raw
+            for r in all_records
+            if r[spec.name].raw not in (None, "", []) and r[spec.name].value in (None, [])
+        ]
         ratio = filled / len(all_records)
         check.fill[spec.name] = round(ratio, 3)
         rule = program.fields[spec.name].describe()
@@ -133,12 +144,16 @@ def check_program(
         if ratio == 0 and not raw_unparsed:
             check.errors.append(f"{spec.name}: rule `{rule}` found nothing in any of {len(all_records)} items")
         elif ratio > 0 and spec.required and ratio < 0.9:
-            check.errors.append(f"{spec.name}: rule `{rule}` is empty in {len(all_records) - filled} of {len(all_records)} items (required field)")
+            check.errors.append(
+                f"{spec.name}: rule `{rule}` is empty in {len(all_records) - filled} of {len(all_records)} items (required field)"
+            )
         elif 0 < ratio < 0.5 and spec.type not in {FieldType.list}:
             check.warnings.append(f"{spec.name}: empty in {len(all_records) - filled} of {len(all_records)} items")
     keys = [record_key(typed(r), schema) for r in all_records]
     if len(all_records) >= 4 and len(set(keys)) <= len(all_records) / 3:
-        check.errors.append(f"records are mostly identical ({len(set(keys))} distinct of {len(all_records)}): the item selector matches the wrong element")
+        check.errors.append(
+            f"records are mostly identical ({len(set(keys))} distinct of {len(all_records)}): the item selector matches the wrong element"
+        )
     if examples:
         first = [typed(r) for r in all_records[: len(examples)]]
         ctx0 = ctx_for(samples[0].url, samples[0].doc)
@@ -153,7 +168,9 @@ def check_program(
                 if _values_equal(got.get(spec.name), exp):
                     agree += 1
                 else:
-                    check.warnings.append(f"{spec.name}: your example says {exp!r} but the rule returned {got.get(spec.name)!r}")
+                    check.warnings.append(
+                        f"{spec.name}: your example says {exp!r} but the rule returned {got.get(spec.name)!r}"
+                    )
         check.agreement = agree / total if total else None
         if check.agreement is not None and check.agreement < 0.75:
             check.errors.append(f"the rules reproduce only {agree} of {total} example values")
@@ -173,17 +190,33 @@ def check_program(
                 agree += _values_equal(data.get(spec.name), ref.get(spec.name))
         check.reference_agreement = agree / total if total else 0.0
         if matched == 0:
-            check.errors.append("none of the records matches a record extracted before the layout change (check the name/title rule)")
+            check.errors.append(
+                "none of the records matches a record extracted before the layout change (check the name/title rule)"
+            )
         elif check.reference_agreement < 0.9:
             check.errors.append(f"only {agree} of {total} values agree with records extracted before the layout change")
     fill_mean = sum(check.fill.values()) / max(len(check.fill), 1)
-    agreement = check.reference_agreement if check.reference_agreement is not None else (check.agreement if check.agreement is not None else 1.0)
+    agreement = (
+        check.reference_agreement
+        if check.reference_agreement is not None
+        else (check.agreement if check.agreement is not None else 1.0)
+    )
     check.score = round(fill_mean * agreement * (0.5 if check.errors else 1.0), 4)
     check.ok = not check.errors
     return check
 
 
-def _prompt(schema: Schema, samples: list[Sample], *, kind: str, fields: list[str] | None, previous: Program | None, reference: list[dict[str, Any]] | None, feedback: list[str], guard: bool) -> tuple[str, str, list[Finding]]:
+def _prompt(
+    schema: Schema,
+    samples: list[Sample],
+    *,
+    kind: str,
+    fields: list[str] | None,
+    previous: Program | None,
+    reference: list[dict[str, Any]] | None,
+    feedback: list[str],
+    guard: bool,
+) -> tuple[str, str, list[Finding]]:
     findings: list[Finding] = []
     pages = []
     for sample in samples[:1]:
@@ -204,13 +237,20 @@ def _prompt(schema: Schema, samples: list[Sample], *, kind: str, fields: list[st
         )
     if reference:
         shown = [{k: v for k, v in r.items() if v not in (None, "", [])} for r in reference[:4]]
-        parts.append("Records extracted from this site before the change (the same data should be on the new pages):\n" + json.dumps(shown, ensure_ascii=False)[:2500])
+        parts.append(
+            "Records extracted from this site before the change (the same data should be on the new pages):\n"
+            + json.dumps(shown, ensure_ascii=False)[:2500]
+        )
     if len(samples) > 1:
         parts.append(f"The rules must also work on {len(samples) - 1} more page(s) of the same template.")
     parts.extend(pages)
     if feedback:
         parts.append("Your previous rules failed these checks; fix them:\n- " + "\n- ".join(feedback[:12]))
-    system = LEARN.format(task="heal_extractor" if previous is not None else "learn_extractor") if kind == "list" else LEARN_DETAIL.format()
+    system = (
+        LEARN.format(task="heal_extractor" if previous is not None else "learn_extractor")
+        if kind == "list"
+        else LEARN_DETAIL.format()
+    )
     return system, "\n\n".join(parts), findings
 
 
@@ -235,14 +275,29 @@ def learn(
     history: list[dict[str, Any]] = []
     findings: list[Finding] = []
     calls = 0
-    sub_schema = Schema(name=schema.name, fields=[f for f in schema.fields if fields is None or f.name in fields]) if fields else schema
+    sub_schema = (
+        Schema(name=schema.name, fields=[f for f in schema.fields if fields is None or f.name in fields])
+        if fields
+        else schema
+    )
     for attempt in range(1, max_attempts + 1):
-        system, user, found = _prompt(schema, samples, kind=kind, fields=fields, previous=previous, reference=reference, feedback=feedback, guard=guard)
+        system, user, found = _prompt(
+            schema,
+            samples,
+            kind=kind,
+            fields=fields,
+            previous=previous,
+            reference=reference,
+            feedback=feedback,
+            guard=guard,
+        )
         if attempt == 1:
             findings.extend(found)
         calls += 1
         try:
-            reply = model.complete([{"role": "system", "content": system}, {"role": "user", "content": user}], max_tokens=max_tokens)
+            reply = model.complete(
+                [{"role": "system", "content": system}, {"role": "user", "content": user}], max_tokens=max_tokens
+            )
             data = parse_json_object(reply.text)
             examples = [e for e in (data.get("examples") or []) if isinstance(e, dict)][:2]
             program = parse_program({**data, "kind": kind})
@@ -256,18 +311,32 @@ def learn(
         if kind == "detail":
             program.item = None
         check = check_program(program, sub_schema, samples, ctx_for, examples=examples, reference=reference)
-        history.append({"attempt": attempt, "errors": check.errors, "warnings": check.warnings[:8], "score": check.score, "items": check.items_per_page})
+        history.append(
+            {
+                "attempt": attempt,
+                "errors": check.errors,
+                "warnings": check.warnings[:8],
+                "score": check.score,
+                "items": check.items_per_page,
+            }
+        )
         if check.score > best[0]:
             best = (check.score, program, check, examples)
         if check.ok:
             return LearnResult(program, True, attempt, calls, check, history, findings, examples)
         feedback = check.errors + check.warnings[:4]
-    _, program, check, examples = best
-    return LearnResult(program, False, len(history), calls, check, history, findings, examples)
+    _, best_program, best_check, best_examples = best
+    return LearnResult(best_program, False, len(history), calls, best_check, history, findings, best_examples)
 
 
 def default_context_factory(today: Any, fx: Any, default_currency: str | None = None) -> ContextFactory:
     def make(url: str, doc: HtmlElement) -> Context:
-        return Context(page_url=url, today=today, fx=fx, day_first=day_first_for_locale(page_lang(doc)), default_currency=default_currency)
+        return Context(
+            page_url=url,
+            today=today,
+            fx=fx,
+            day_first=day_first_for_locale(page_lang(doc)),
+            default_currency=default_currency,
+        )
 
     return make

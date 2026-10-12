@@ -19,8 +19,28 @@ from typing import Any
 from sift.schema.model import FieldType, Schema
 
 EMAIL = re.compile(r"[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,}")
-PHONE = re.compile(r"(?<![\w/])(?:\+\d{1,3}[\s.-]?)?(?:\(\d{2,4}\)[\s.-]?)?\d{2,4}[\s.-]\d{3,4}(?:[\s.-]\d{2,4})?(?![\w/])")
-ROLE_LOCALS = {"info", "hello", "contact", "sales", "support", "office", "bookings", "booking", "lettings", "jobs", "careers", "press", "team", "admin", "enquiries", "reservations", "help"}
+PHONE = re.compile(
+    r"(?<![\w/])(?:\+\d{1,3}[\s.-]?)?(?:\(\d{2,4}\)[\s.-]?)?\d{2,4}[\s.-]\d{3,4}(?:[\s.-]\d{2,4})?(?![\w/])"
+)
+ROLE_LOCALS = {
+    "info",
+    "hello",
+    "contact",
+    "sales",
+    "support",
+    "office",
+    "bookings",
+    "booking",
+    "lettings",
+    "jobs",
+    "careers",
+    "press",
+    "team",
+    "admin",
+    "enquiries",
+    "reservations",
+    "help",
+}
 
 
 @dataclass
@@ -39,8 +59,12 @@ def _clean(text: str, *, business: bool, site_host: str, report: PiiReport, fiel
     def email(match: re.Match[str]) -> str:
         address = match.group(0)
         local, _, domain = address.lower().partition("@")
-        same_site = domain == site_host or site_host.endswith("." + domain) or domain.endswith("." + site_host.removeprefix("www."))
-        if business and (same_site or local in ROLE_LOCALS and same_site):
+        same_site = (
+            domain == site_host
+            or site_host.endswith("." + domain)
+            or domain.endswith("." + site_host.removeprefix("www."))
+        )
+        if business and (same_site or (local in ROLE_LOCALS and same_site)):
             report.kept_business += 1
             return address
         report.removed += 1
@@ -74,7 +98,9 @@ def guard_record(record: dict[str, Any], schema: Schema, *, site_host: str, repo
         if isinstance(value, str) and spec.type in {FieldType.string, FieldType.enum}:
             out[spec.name] = _clean(value, business=business, site_host=site_host, report=report, field_name=spec.name)
         elif isinstance(value, list) and value and all(isinstance(v, str) for v in value):
-            cleaned = [_clean(v, business=business, site_host=site_host, report=report, field_name=spec.name) for v in value]
+            cleaned = [
+                _clean(v, business=business, site_host=site_host, report=report, field_name=spec.name) for v in value
+            ]
             out[spec.name] = [v for v in cleaned if v]
     return out
 
@@ -85,8 +111,8 @@ def contains_pii(value: Any, planted: list[str]) -> list[str]:
     digits_blob = re.sub(r"\D", "", blob)
     found = []
     for item in planted:
-        if "@" in item and item.lower() in blob.lower():
-            found.append(item)
-        elif "@" not in item and re.sub(r"\D", "", item) and re.sub(r"\D", "", item) in digits_blob:
+        if ("@" in item and item.lower() in blob.lower()) or (
+            "@" not in item and re.sub(r"\D", "", item) and re.sub(r"\D", "", item) in digits_blob
+        ):
             found.append(item)
     return found

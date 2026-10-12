@@ -19,14 +19,46 @@ from urllib.parse import urljoin
 from lxml import etree
 from lxml import html as lxml_html
 
-HtmlElement = lxml_html.HtmlElement
+type HtmlElement = lxml_html.HtmlElement
 
 _DROP_TAGS = ("script", "style", "noscript", "template", "svg", "iframe", "canvas", "link", "meta", "head")
 _HIDDEN_STYLE = re.compile(r"display\s*:\s*none|visibility\s*:\s*hidden", re.I)
 _WS = re.compile(r"\s+")
 _FOOTNOTE = re.compile(r"^[\d*†‡§¹²³⁴⁵⁶⁷⁸⁹⁰]{1,3}$")
-_KEEP_ATTRS_SKELETON = ("class", "id", "href", "src", "data-src", "alt", "title", "aria-label", "datetime", "itemprop", "rel", "role", "type", "value", "disabled", "aria-disabled", "colspan", "scope", "lang")
-_KEEP_ATTRS_CLEAN = ("href", "src", "data-src", "alt", "title", "aria-label", "datetime", "disabled", "aria-disabled", "value", "colspan")
+_KEEP_ATTRS_SKELETON = (
+    "class",
+    "id",
+    "href",
+    "src",
+    "data-src",
+    "alt",
+    "title",
+    "aria-label",
+    "datetime",
+    "itemprop",
+    "rel",
+    "role",
+    "type",
+    "value",
+    "disabled",
+    "aria-disabled",
+    "colspan",
+    "scope",
+    "lang",
+)
+_KEEP_ATTRS_CLEAN = (
+    "href",
+    "src",
+    "data-src",
+    "alt",
+    "title",
+    "aria-label",
+    "datetime",
+    "disabled",
+    "aria-disabled",
+    "value",
+    "colspan",
+)
 
 
 def parse(html: str | bytes) -> HtmlElement:
@@ -179,7 +211,9 @@ def skeleton(doc: HtmlElement, *, max_chars: int = 24_000, keep_repeats: int = 3
         for run in runs:
             if len(run) > keep_repeats + 1:
                 extra = run[keep_repeats:]
-                note = etree.Comment(f" {len(extra)} more <{run[0].tag} class=\"{run[0].get('class') or ''}\"> siblings like the ones above ")
+                note = etree.Comment(
+                    f' {len(extra)} more <{run[0].tag} class="{run[0].get("class") or ""}"> siblings like the ones above '
+                )
                 extra[0].addprevious(note)
                 for el in extra:
                     _drop(el)
@@ -249,7 +283,7 @@ class Fingerprint:
 
 def _token(el: HtmlElement) -> str:
     classes = [c for c in (el.get("class") or "").split() if not re.search(r"\d{2,}", c)][:3]
-    return el.tag + ("." + ".".join(sorted(classes)) if classes else "")
+    return str(el.tag) + ("." + ".".join(sorted(classes)) if classes else "")
 
 
 def fingerprint(doc: HtmlElement) -> Fingerprint:

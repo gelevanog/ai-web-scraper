@@ -14,7 +14,22 @@ from typing import Any
 import structlog
 
 _SENSITIVE_KEYS = frozenset(
-    {"text", "content", "messages", "body", "prompt", "answer", "rows", "result", "context", "html", "quote", "reply", "records", "record"}
+    {
+        "text",
+        "content",
+        "messages",
+        "body",
+        "prompt",
+        "answer",
+        "rows",
+        "result",
+        "context",
+        "html",
+        "quote",
+        "reply",
+        "records",
+        "record",
+    }
 )
 
 

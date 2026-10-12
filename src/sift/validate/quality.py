@@ -14,8 +14,7 @@ from sift.validate.normalize import money_amount
 def norm_key(value: Any) -> str:
     if isinstance(value, dict):
         value = value.get("amount")
-    text = re.sub(r"[^a-z0-9]+", " ", str(value or "").lower()).strip()
-    return text
+    return re.sub(r"[^a-z0-9]+", " ", str(value or "").lower()).strip()
 
 
 def record_key(record: dict[str, Any], schema: Schema) -> str:
@@ -67,7 +66,7 @@ def is_sparse(record: dict[str, Any], schema: Schema, typical: float) -> bool:
     """A "record" that fills much less than its siblings (a totals row, a header row repeated in the body)."""
     required_missing = any(record.get(f.name) in (None, "", []) for f in schema.fields if f.required)
     ratio = fill_ratio(record, schema)
-    return required_missing or (typical >= 0.6 and ratio < typical * 0.5)
+    return required_missing or (typical >= 0.6 and ratio <= typical * 0.5)
 
 
 @dataclass
@@ -89,7 +88,11 @@ def anomalies(records: list[dict[str, Any]], schema: Schema, *, factor: float = 
         values: list[tuple[int, float]] = []
         for i, record in enumerate(records):
             raw = record.get(spec.name)
-            number = money_amount(raw) if spec.type == FieldType.money else (float(raw) if isinstance(raw, int | float) and not isinstance(raw, bool) else None)
+            number = (
+                money_amount(raw)
+                if spec.type == FieldType.money
+                else (float(raw) if isinstance(raw, int | float) and not isinstance(raw, bool) else None)
+            )
             if number is not None and number > 0:
                 values.append((i, number))
         if len(values) < 5:
@@ -103,7 +106,12 @@ def anomalies(records: list[dict[str, Any]], schema: Schema, *, factor: float = 
         # prices in one list), not wrong.
         limit = max(1, len(values) // 20)
         if len(high) <= limit:
-            found.extend(Anomaly(i, spec.name, n, median, f"{n:g} is {n / median:.0f}x the median {median:g}") for i, n in high)
+            found.extend(
+                Anomaly(i, spec.name, n, median, f"{n:g} is {n / median:.0f}x the median {median:g}") for i, n in high
+            )
         if len(low) <= limit:
-            found.extend(Anomaly(i, spec.name, n, median, f"{n:g} is under 1/{factor:g} of the median {median:g}") for i, n in low)
+            found.extend(
+                Anomaly(i, spec.name, n, median, f"{n:g} is under 1/{factor:g} of the median {median:g}")
+                for i, n in low
+            )
     return found

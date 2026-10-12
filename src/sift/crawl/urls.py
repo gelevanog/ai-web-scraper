@@ -9,9 +9,43 @@ import posixpath
 from urllib.parse import parse_qsl, urlencode, urljoin, urlsplit, urlunsplit
 
 TRACKING_PARAMS = frozenset(
-    {"gclid", "fbclid", "msclkid", "dclid", "yclid", "mc_cid", "mc_eid", "_ga", "_gl", "ref", "ref_src", "igshid", "sessionid", "sid", "phpsessid", "jsessionid"}
+    {
+        "gclid",
+        "fbclid",
+        "msclkid",
+        "dclid",
+        "yclid",
+        "mc_cid",
+        "mc_eid",
+        "_ga",
+        "_gl",
+        "ref",
+        "ref_src",
+        "igshid",
+        "sessionid",
+        "sid",
+        "phpsessid",
+        "jsessionid",
+    }
 )
-SKIP_SUFFIXES = (".jpg", ".jpeg", ".png", ".gif", ".svg", ".webp", ".ico", ".css", ".js", ".mp4", ".mp3", ".zip", ".woff", ".woff2", ".ttf", ".avif")
+SKIP_SUFFIXES = (
+    ".jpg",
+    ".jpeg",
+    ".png",
+    ".gif",
+    ".svg",
+    ".webp",
+    ".ico",
+    ".css",
+    ".js",
+    ".mp4",
+    ".mp3",
+    ".zip",
+    ".woff",
+    ".woff2",
+    ".ttf",
+    ".avif",
+)
 
 
 def canonicalize(url: str, base: str | None = None) -> str:
@@ -29,7 +63,7 @@ def canonicalize(url: str, base: str | None = None) -> str:
         path = "/"
     if trailing and not path.endswith("/"):
         path += "/"
-    if path.endswith("/index.html") or path.endswith("/index.htm"):
+    if path.endswith(("/index.html", "/index.htm")):
         path = path.rsplit("/", 1)[0] + "/"
     query = [
         (k, v)
@@ -47,7 +81,10 @@ def host_of(url: str) -> str:
 def same_site(a: str, b: str) -> bool:
     """Same registrable-ish host: www.x.com and x.com count as one site."""
     ha, hb = host_of(a), host_of(b)
-    strip = lambda h: h[4:] if h.startswith("www.") else h  # noqa: E731
+
+    def strip(h: str) -> str:
+        return h[4:] if h.startswith("www.") else h
+
     return bool(ha) and strip(ha) == strip(hb)
 
 

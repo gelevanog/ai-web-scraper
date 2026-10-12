@@ -54,7 +54,7 @@ _TOKEN = re.compile(r"[a-z]+")
 
 
 def _affinity(field: str, el: HtmlElement, attr: str) -> float:
-    words = set()
+    words: set[str] = set()
     for part in field.split("_"):
         words.update(AFFINITY.get(part, (part,)))
     hooks = " ".join([el.get("class") or "", el.get("itemprop") or "", el.get("id") or "", attr, el.tag]).lower()
@@ -63,7 +63,7 @@ def _affinity(field: str, el: HtmlElement, attr: str) -> float:
 
 
 def _sig(el: HtmlElement) -> str:
-    return el.tag + "".join("." + c for c in sorted((el.get("class") or "").split()))
+    return str(el.tag) + "".join("." + c for c in sorted((el.get("class") or "").split()))
 
 
 def _css_escape(cls: str) -> str:
@@ -72,7 +72,7 @@ def _css_escape(cls: str) -> str:
 
 def _selector_for(el: HtmlElement) -> str:
     classes = (el.get("class") or "").split()
-    return el.tag + "".join("." + _css_escape(c) for c in classes)
+    return str(el.tag) + "".join("." + _css_escape(c) for c in classes)
 
 
 def _relative(item: HtmlElement, el: HtmlElement) -> str:
@@ -114,7 +114,11 @@ def find_items(doc: HtmlElement, schema: Schema) -> list[HtmlElement]:
                 continue
             evidence = 0.0
             sample = " ".join(texts[:3])
-            if any(f.type == FieldType.money for f in schema.fields) and parse_money(sample) and detect_currency(sample):
+            if (
+                any(f.type == FieldType.money for f in schema.fields)
+                and parse_money(sample)
+                and detect_currency(sample)
+            ):
                 evidence += 1
             if members[0].find(".//a") is not None:
                 evidence += 0.5
@@ -167,7 +171,11 @@ def _value_ok(spec: FieldSpec, value: str | None, attr: str) -> float:
         if attr not in {"href", "src", "data-src"}:
             return 0.0
         if "image" in spec.name or "img" in spec.name or "photo" in spec.name:
-            return 1.0 if attr in {"src", "data-src"} and not value.startswith("data:") and "placeholder" not in value else 0.0
+            return (
+                1.0
+                if attr in {"src", "data-src"} and not value.startswith("data:") and "placeholder" not in value
+                else 0.0
+            )
         return 1.0 if attr == "href" else 0.0
     if kind == FieldType.enum:
         return 1.0 if match_enum(value, list(spec.enum or []))[0] else 0.0
@@ -213,7 +221,11 @@ def _field_rule(spec: FieldSpec, items: list[HtmlElement], used: set[str]) -> Ru
                 sub: dict[str, Rule] = {}
                 for child in children:
                     if child.type == FieldType.boolean:
-                        sub[child.name] = Rule(css="s", attr="exists", negate=True) if members[0].tag == "li" else Rule(css="", attr="disabled")
+                        sub[child.name] = (
+                            Rule(css="s", attr="exists", negate=True)
+                            if members[0].tag == "li"
+                            else Rule(css="", attr="disabled")
+                        )
                     else:
                         sub[child.name] = Rule(css="", attr="text", regex=r"^([^-]+?)(?:\s+-\s+sold out)?$")
                 holder = members[0].getparent()
@@ -242,6 +254,8 @@ def _field_rule(spec: FieldSpec, items: list[HtmlElement], used: set[str]) -> Ru
         if fit == 0:
             continue
         aff = _affinity(spec.name, el, attr)
+        if spec.type == FieldType.string and aff == 0 and key in used:
+            continue
         depth_penalty = 0.02 * rel.count(">")
         score = fit * (1 + aff) - depth_penalty - (0.3 if key in used else 0) - (0.4 if el is first else 0)
         if spec.type == FieldType.number and attr == "data-rating":
@@ -281,7 +295,13 @@ def induce(doc: HtmlElement, schema: Schema) -> tuple[Program | None, list[dict[
         if a.get("href"):
             detail = Rule(css=_relative(items[0], a) or "a", attr="href")
             break
-    program = Program(item=_item_selector(doc, items), fields=fields, next_page=_next_rule(doc), detail_link=detail if missing else None, missing=missing)
+    program = Program(
+        item=_item_selector(doc, items),
+        fields=fields,
+        next_page=_next_rule(doc),
+        detail_link=detail if missing else None,
+        missing=missing,
+    )
     examples: list[dict[str, Any]] = []
     try:
         for raw in run_list(doc, program)[:2]:
@@ -298,9 +318,13 @@ def induce_detail(doc: HtmlElement, schema: Schema) -> Program:
             label = text_of(dt_el).lower()
             if spec.name.replace("_", " ") in label or any(w in label for w in AFFINITY.get(spec.name, ())):
                 if dt_el.tag == "dt":
-                    fields[spec.name] = Rule(xpath=f"//dt[normalize-space()='{text_of(dt_el)}']/following-sibling::dd[1]")
+                    fields[spec.name] = Rule(
+                        xpath=f"//dt[normalize-space()='{text_of(dt_el)}']/following-sibling::dd[1]"
+                    )
                 elif dt_el.tag == "p":
-                    fields[spec.name] = Rule(css=_selector_for(dt_el) + " span" if dt_el.find("span") is not None else _selector_for(dt_el))
+                    fields[spec.name] = Rule(
+                        css=_selector_for(dt_el) + " span" if dt_el.find("span") is not None else _selector_for(dt_el)
+                    )
                 if spec.name in fields:
                     break
     return Program(kind="detail", fields=fields)

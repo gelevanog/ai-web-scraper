@@ -9,6 +9,7 @@
 
 from __future__ import annotations
 
+import itertools
 import threading
 import time
 from collections.abc import Callable
@@ -45,7 +46,7 @@ class RequestLog:
     def min_gap(self, host: str) -> float | None:
         """The shortest interval between two consecutive requests to `host` (None with fewer than two)."""
         times = [e.t for e in self.per_host().get(host, [])]
-        gaps = [b - a for a, b in zip(times, times[1:], strict=False)]
+        gaps = [b - a for a, b in itertools.pairwise(times)]
         return min(gaps) if gaps else None
 
     def max_rate(self, host: str, window: float = 10.0) -> float:
@@ -79,7 +80,7 @@ class RateLimiter:
 
     def set_interval(self, host: str, seconds: float) -> None:
         with self._lock:
-            self._override[host] = max(seconds, self.min_interval)
+            self._override[host] = max(seconds, 0.0)
 
     def interval(self, host: str) -> float:
         return self._override.get(host, self.min_interval)

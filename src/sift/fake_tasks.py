@@ -62,7 +62,9 @@ def learn_detail(messages: Sequence[Message], gullible: bool) -> str:
     return json.dumps({"fields": json.loads(program.model_dump_json(exclude_none=True))["fields"]})
 
 
-_PDF_LINE = re.compile(r"^(?P<a>.+?)\s*\.{3,}\s*(?P<price>\S*\d[\d.,]*\S*)$|^(?P<price2>\S*\d[\d.,]*\S*)\s{2,}(?P<b>.+)$")
+_PDF_LINE = re.compile(
+    r"^(?P<a>.+?)\s*\.{3,}\s*(?P<price>\S*\d[\d.,]*\S*)$|^(?P<price2>\S*\d[\d.,]*\S*)\s{2,}(?P<b>.+)$"
+)
 
 
 def _pdf_records(content: str, schema: Schema) -> list[dict[str, Any]]:
@@ -127,14 +129,20 @@ _SCHEMA_RULES: list[tuple[str, dict[str, Any]]] = [
     (r"billed annually", {"name": "annual_monthly_price", "type": "money"}),
     (r"(?<!monthly )(?<!per-month )\bprice\b", {"name": "price", "type": "money"}),
     (r"\brating\b", {"name": "rating", "type": "number"}),
-    (r"stock status|availability", {"name": "stock_status", "type": "enum", "enum": ["in_stock", "out_of_stock", "preorder"]}),
+    (
+        r"stock status|availability",
+        {"name": "stock_status", "type": "enum", "enum": ["in_stock", "out_of_stock", "preorder"]},
+    ),
     (r"\bimage\b", {"name": "image_url", "type": "url"}),
     (r"product page", {"name": "product_url", "type": "url"}),
     (r"\bcompany\b", {"name": "company", "type": "string"}),
     (r"\blocation\b", {"name": "location", "type": "string"}),
     (r"salary range", {"name": "salary_min", "type": "money"}),
     (r"salary range", {"name": "salary_max", "type": "money"}),
-    (r"employment type", {"name": "employment_type", "type": "enum", "enum": ["full_time", "part_time", "contract", "internship"]}),
+    (
+        r"employment type",
+        {"name": "employment_type", "type": "enum", "enum": ["full_time", "part_time", "contract", "internship"]},
+    ),
     (r"\bremote\b", {"name": "remote", "type": "boolean"}),
     (r"\bposted\b", {"name": "posted_date", "type": "date"}),
     (r"link to the posting", {"name": "job_url", "type": "url"}),

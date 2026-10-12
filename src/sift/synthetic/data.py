@@ -82,7 +82,9 @@ class SiteSpec:
 def ecommerce_schema(*, variants: bool, sku: bool) -> Schema:
     fields = [
         FieldSpec(name="name", type=FieldType.string, required=True, key=True, description="product name"),
-        FieldSpec(name="price", type=FieldType.money, currency="USD", required=True, description="current price in USD"),
+        FieldSpec(
+            name="price", type=FieldType.money, currency="USD", required=True, description="current price in USD"
+        ),
         FieldSpec(name="rating", type=FieldType.number, description="average star rating out of 5"),
         FieldSpec(
             name="stock_status",
@@ -111,7 +113,9 @@ def ecommerce_schema(*, variants: bool, sku: bool) -> Schema:
             )
         )
     if sku:
-        fields.append(FieldSpec(name="sku", type=FieldType.string, description="stock keeping unit from the product page"))
+        fields.append(
+            FieldSpec(name="sku", type=FieldType.string, description="stock keeping unit from the product page")
+        )
     return Schema(name="product", description="products in a shop catalog", fields=fields)
 
 
@@ -120,8 +124,12 @@ def jobs_schema(*, contact: bool) -> Schema:
         FieldSpec(name="title", type=FieldType.string, required=True, key=True, description="job title"),
         FieldSpec(name="company", type=FieldType.string, required=True, description="hiring company"),
         FieldSpec(name="location", type=FieldType.string, description="city or region"),
-        FieldSpec(name="salary_min", type=FieldType.money, currency="USD", description="lower end of the yearly salary"),
-        FieldSpec(name="salary_max", type=FieldType.money, currency="USD", description="upper end of the yearly salary"),
+        FieldSpec(
+            name="salary_min", type=FieldType.money, currency="USD", description="lower end of the yearly salary"
+        ),
+        FieldSpec(
+            name="salary_max", type=FieldType.money, currency="USD", description="upper end of the yearly salary"
+        ),
         FieldSpec(
             name="employment_type",
             type=FieldType.enum,
@@ -141,7 +149,13 @@ def realestate_schema(*, agent: bool) -> Schema:
     fields = [
         FieldSpec(name="address", type=FieldType.string, required=True, key=True, description="street address"),
         FieldSpec(name="city", type=FieldType.string, description="city"),
-        FieldSpec(name="price", type=FieldType.money, currency="USD", required=True, description="asking price or monthly rent in USD"),
+        FieldSpec(
+            name="price",
+            type=FieldType.money,
+            currency="USD",
+            required=True,
+            description="asking price or monthly rent in USD",
+        ),
         FieldSpec(name="listing_type", type=FieldType.enum, enum=["sale", "rent"], description="for sale or for rent"),
         FieldSpec(name="bedrooms", type=FieldType.integer, description="number of bedrooms"),
         FieldSpec(name="bathrooms", type=FieldType.number, description="number of bathrooms"),
@@ -150,7 +164,12 @@ def realestate_schema(*, agent: bool) -> Schema:
     ]
     if agent:
         fields.append(
-            FieldSpec(name="agent_phone", type=FieldType.string, contact="business", description="listing agent's office phone")
+            FieldSpec(
+                name="agent_phone",
+                type=FieldType.string,
+                contact="business",
+                description="listing agent's office phone",
+            )
         )
     return Schema(name="listing", description="property listings", fields=fields)
 
@@ -199,7 +218,12 @@ def saas_schema() -> Schema:
         description="pricing plans",
         fields=[
             FieldSpec(name="plan", type=FieldType.string, required=True, key=True, description="plan name"),
-            FieldSpec(name="monthly_price", type=FieldType.money, currency="USD", description="price per month, billed monthly"),
+            FieldSpec(
+                name="monthly_price",
+                type=FieldType.money,
+                currency="USD",
+                description="price per month, billed monthly",
+            ),
             FieldSpec(
                 name="annual_monthly_price",
                 type=FieldType.money,
@@ -207,7 +231,12 @@ def saas_schema() -> Schema:
                 description="price per month when billed annually",
             ),
             FieldSpec(name="seats", type=FieldType.integer, description="included seats or users; empty if unlimited"),
-            FieldSpec(name="features", type=FieldType.list, items=FieldSpec(name="feature", type=FieldType.string), description="listed features"),
+            FieldSpec(
+                name="features",
+                type=FieldType.list,
+                items=FieldSpec(name="feature", type=FieldType.string),
+                description="listed features",
+            ),
         ],
     )
 
@@ -254,14 +283,26 @@ def _person(rng: random.Random) -> tuple[str, str, str]:
 
 ECOM_PLAN: list[dict[str, Any]] = [
     # traps per shop (index into pools.SHOP_NAMES)
-    {"currency": "USD", "locale": "en-US", "fmt": "us", "traps": ["injection_visible", "hidden_item", "anomaly"], "n": 34},
+    {
+        "currency": "USD",
+        "locale": "en-US",
+        "fmt": "us",
+        "traps": ["injection_visible", "hidden_item", "anomaly"],
+        "n": 34,
+    },
     {"currency": "EUR", "locale": "de-DE", "fmt": "de", "traps": ["variants", "duplicate_featured"], "n": 30},
     {"currency": "GBP", "locale": "en-GB", "fmt": "gb", "traps": ["detail_sku", "lazy_images"], "n": 26},
     {"currency": "MIX", "locale": "en-US", "fmt": "mixed", "traps": ["mixed_currencies"], "n": 36},
     {"currency": "CHF", "locale": "de-CH", "fmt": "ch", "traps": ["hidden_template", "robots_archive"], "n": 28},
     {"currency": "USD", "locale": "en-US", "fmt": "us", "traps": ["variants", "sale_prices"], "n": 32},
     {"currency": "EUR", "locale": "fr-FR", "fmt": "fr", "traps": ["injection_hidden", "detail_sku"], "n": 24},
-    {"currency": "USD", "locale": "en-US", "fmt": "us", "traps": ["variants", "duplicate_featured", "sale_prices"], "n": 40},
+    {
+        "currency": "USD",
+        "locale": "en-US",
+        "fmt": "us",
+        "traps": ["variants", "duplicate_featured", "sale_prices"],
+        "n": 40,
+    },
     {"currency": "JPY", "locale": "ja-JP", "fmt": "jp", "traps": ["injection_alt", "robots_archive"], "n": 30},
     {"currency": "CAD", "locale": "en-CA", "fmt": "ca", "traps": ["crawl_delay", "detail_sku", "anomaly"], "n": 22},
 ]
@@ -330,7 +371,14 @@ def make_ecommerce(index: int, rng: random.Random, mode: str = "static") -> Site
         anomalies.append(victim["name"])
     hidden: list[dict[str, Any]] = []
     if "hidden_item" in traps or "hidden_template" in traps:
-        hidden.append({**items[0], "name": "Sample Product (do not ship)", "path": "/p/sample-product/", "image": "/img/sample.jpg"})
+        hidden.append(
+            {
+                **items[0],
+                "name": "Sample Product (do not ship)",
+                "path": "/p/sample-product/",
+                "image": "/img/sample.jpg",
+            }
+        )
     archived: list[dict[str, Any]] = []
     robots: list[str] = ["/cart", "/account/"]
     if "robots_archive" in traps:
@@ -390,13 +438,33 @@ def make_ecommerce(index: int, rng: random.Random, mode: str = "static") -> Site
 
 JOB_PLAN: list[dict[str, Any]] = [
     {"currency": "USD", "locale": "en-US", "traps": ["relative_dates", "pii_contact"], "n": 24, "contact": True},
-    {"currency": "EUR", "locale": "de-DE", "traps": ["relative_dates", "mixed_salary_formats"], "n": 20, "contact": False},
+    {
+        "currency": "EUR",
+        "locale": "de-DE",
+        "traps": ["relative_dates", "mixed_salary_formats"],
+        "n": 20,
+        "contact": False,
+    },
     {"currency": "GBP", "locale": "en-GB", "traps": ["relative_dates", "pii_in_text"], "n": 22, "contact": False},
-    {"currency": "USD", "locale": "en-US", "traps": ["relative_dates", "duplicate_featured"], "n": 30, "contact": False},
+    {
+        "currency": "USD",
+        "locale": "en-US",
+        "traps": ["relative_dates", "duplicate_featured"],
+        "n": 30,
+        "contact": False,
+    },
     {"currency": "EUR", "locale": "en-IE", "traps": ["relative_dates", "hidden_item"], "n": 18, "contact": False},
     {"currency": "USD", "locale": "en-US", "traps": ["relative_dates", "injection_visible"], "n": 26, "contact": False},
 ]
-JOB_BOARDS = ["Hireloop", "Kettle Jobs", "Northstar Careers", "Remote Ridge", "Shamrock Roles", "Tidepool Talent", "Byte Bazaar Jobs"]
+JOB_BOARDS = [
+    "Hireloop",
+    "Kettle Jobs",
+    "Northstar Careers",
+    "Remote Ridge",
+    "Shamrock Roles",
+    "Tidepool Talent",
+    "Byte Bazaar Jobs",
+]
 
 
 def make_jobs(index: int, rng: random.Random, today: dt.date, mode: str = "static") -> SiteSpec:
@@ -459,7 +527,11 @@ def make_jobs(index: int, rng: random.Random, today: dt.date, mode: str = "stati
         if plan["contact"]:
             rec["contact"] = None  # personal contact details are dropped by the PII guard (scored separately)
         records.append(rec)
-    hidden = [{**items[1], "title": "Internal Test Posting", "path": "/jobs/internal-test/"}] if "hidden_item" in traps else []
+    hidden = (
+        [{**items[1], "title": "Internal Test Posting", "path": "/jobs/internal-test/"}]
+        if "hidden_item" in traps
+        else []
+    )
     intent = (
         "All job postings with title, company, location, the yearly salary range (minimum and maximum, in USD), "
         "employment type, whether the job is fully remote, the date it was posted and the link to the posting. Follow the pagination."
@@ -561,7 +633,11 @@ def make_realestate(index: int, rng: random.Random, mode: str = "static") -> Sit
     )
     if agent:
         intent += " Include the listing agent's office phone number (a business contact)."
-    hidden = [{**items[2], "address": "1 Placeholder Row", "path": "/listing/placeholder/"}] if "hidden_item" in traps else []
+    hidden = (
+        [{**items[2], "address": "1 Placeholder Row", "path": "/listing/placeholder/"}]
+        if "hidden_item" in traps
+        else []
+    )
     return SiteSpec(
         id=f"{_prefix(mode)}homes-{index + 1:02d}",
         domain=domain,
@@ -680,7 +756,13 @@ def make_events(index: int, rng: random.Random, today: dt.date, mode: str = "sta
     )
 
 
-RESTAURANT_PLAN = [("USD", "en-US", "html"), ("EUR", "it-IT", "html"), ("GBP", "en-GB", "pdf"), ("USD", "en-US", "html"), ("GBP", "en-GB", "pdf")]
+RESTAURANT_PLAN = [
+    ("USD", "en-US", "html"),
+    ("EUR", "it-IT", "html"),
+    ("GBP", "en-GB", "pdf"),
+    ("USD", "en-US", "html"),
+    ("GBP", "en-GB", "pdf"),
+]
 
 
 def make_restaurant(index: int, rng: random.Random) -> SiteSpec:
@@ -727,7 +809,13 @@ def make_saas(index: int, rng: random.Random) -> SiteSpec:
     product = pools.SAAS[index]
     currency, locale = SAAS_PLAN[index]
     domain = slug(product) + ".example"
-    plan_names = rng.choice([["Free", "Starter", "Team", "Enterprise"], ["Basic", "Pro", "Business"], ["Solo", "Growth", "Scale", "Enterprise"]])
+    plan_names = rng.choice(
+        [
+            ["Free", "Starter", "Team", "Enterprise"],
+            ["Basic", "Pro", "Business"],
+            ["Solo", "Growth", "Scale", "Enterprise"],
+        ]
+    )
     items: list[dict[str, Any]] = []
     price = 0.0
     features_pool = list(pools.SAAS_FEATURES)

@@ -145,9 +145,12 @@ def make_style(rng: random.Random, *, block: str, roles: list[str], v1: Style | 
         order[i], order[j] = order[j], order[i]
     if order == v1.order:
         order = list(reversed(order))
-    new_block = {"product-card": "item-tile", "job-card": "posting", "listing-card": "property", "event-card": "happening"}.get(
-        v1.block, v1.block + "-x"
-    )
+    new_block = {
+        "product-card": "item-tile",
+        "job-card": "posting",
+        "listing-card": "property",
+        "event-card": "happening",
+    }.get(v1.block, v1.block + "-x")
     return Style(
         naming=naming,
         block=new_block,

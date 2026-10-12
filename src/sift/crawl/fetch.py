@@ -7,6 +7,7 @@ runs exactly as it does for a real site."""
 
 from __future__ import annotations
 
+import contextlib
 import datetime as dt
 import hashlib
 import mimetypes
@@ -80,10 +81,14 @@ class DiskSource:
         base = (self.root / self.layout / host).resolve()
         target = (base / rel).resolve()
         if not str(target).startswith(str(base)) or not target.is_file():
-            # "/catalog" -> "/catalog/" like a static server would.
-            alt = (base / (rel + "/index.html")).resolve() if not query else None
-            if alt is not None and str(alt).startswith(str(base)) and alt.is_file():
-                target = alt
+            # Like a static server: "/catalog" -> "/catalog/", and an unknown query string on a page serves the page
+            # itself (a client-side app reads ?page=2 in the browser).
+            candidates = [rel + "/index.html"] if not query else [url_to_storage(f"https://{host}{path}")]
+            for candidate in candidates:
+                alt = (base / candidate).resolve()
+                if str(alt).startswith(str(base)) and alt.is_file() and not path.endswith(".json"):
+                    target = alt
+                    break
             else:
                 return 404, "text/html", b"<h1>404 Not Found</h1>"
         clean = path.split("?")[0]
@@ -156,7 +161,10 @@ class HttpFetcher:
         self.max_bytes = max_bytes
         self._sleep = sleep
         self._client = httpx.Client(
-            headers={"User-Agent": user_agent, "Accept": "text/html,application/xhtml+xml,application/pdf;q=0.9,*/*;q=0.5"},
+            headers={
+                "User-Agent": user_agent,
+                "Accept": "text/html,application/xhtml+xml,application/pdf;q=0.9,*/*;q=0.5",
+            },
             timeout=timeout,
             follow_redirects=False,
             transport=transport,
@@ -173,7 +181,7 @@ class HttpFetcher:
     def allowed(self, url: str) -> bool:
         allowed = self.robots.allowed(url)
         delay = self.robots.crawl_delay(url)
-        if delay:
+        if delay and delay > self.limiter.interval(host_of(url)):
             self.limiter.set_interval(host_of(url), delay)
         return allowed
 
@@ -221,17 +229,14 @@ class HttpFetcher:
                     target = nxt
                     continue
                 break
-            if result.status in {429, 503} or result.status >= 500:
-                if attempt < self.retries:
-                    delay = 2.0 * (2**attempt)
-                    if result.error and result.error.startswith("retry-after:"):
-                        try:
-                            delay = max(delay, float(result.error.split(":", 1)[1]))
-                        except ValueError:
-                            pass
-                    self.limiter.penalize(host, min(delay, 60.0))
-                    log.info("fetch.retry", url=url, status=result.status, delay=delay)
-                    continue
+            if (result.status in {429, 503} or result.status >= 500) and attempt < self.retries:
+                delay = 2.0 * (2**attempt)
+                if result.error and result.error.startswith("retry-after:"):
+                    with contextlib.suppress(ValueError):
+                        delay = max(delay, float(result.error.split(":", 1)[1]))
+                self.limiter.penalize(host, min(delay, 60.0))
+                log.info("fetch.retry", url=url, status=result.status, delay=delay)
+                continue
             result.url = url
             result.final_url = result.final_url or target
             return result
@@ -319,7 +324,13 @@ class BrowserFetcher:
             log.warning("browser.error", url=url, error=type(exc).__name__)
             return FetchResult(url, 599, via="browser", error=f"{type(exc).__name__}: {str(exc)[:200]}")
         return FetchResult(
-            url, status, "text/html", html.encode("utf-8"), final_url=url, via="browser", elapsed_ms=(time.monotonic() - started) * 1000
+            url,
+            status,
+            "text/html",
+            html.encode("utf-8"),
+            final_url=url,
+            via="browser",
+            elapsed_ms=(time.monotonic() - started) * 1000,
         )
 
     def _expand(self, page: Any, host: str, item_selector: str | None) -> None:
@@ -346,10 +357,8 @@ class BrowserFetcher:
                 page.mouse.wheel(0, 20_000)
                 page.evaluate("window.scrollTo(0, document.body.scrollHeight)")
                 self.actions.append("scroll")
-            try:
+            with contextlib.suppress(Exception):
                 page.wait_for_load_state("networkidle", timeout=5_000)
-            except Exception:
-                pass
             page.wait_for_timeout(250)
             now = size()
             if now <= last:

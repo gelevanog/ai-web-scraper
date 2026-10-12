@@ -62,14 +62,20 @@ def extract(
     compact = schema.model_dump_json(exclude_defaults=True)
     user = f"Schema fields:\n{schema.prompt_lines()}\nSchema JSON: {compact}\n\nPage URL: {url}\n{spotlight(content)}"
     try:
-        reply = model.complete([{"role": "system", "content": DIRECT.format()}, {"role": "user", "content": user}], max_tokens=max_tokens)
+        reply = model.complete(
+            [{"role": "system", "content": DIRECT.format()}, {"role": "user", "content": user}], max_tokens=max_tokens
+        )
         data = parse_json_object(reply.text)
     except (JSONReplyError, LLMError) as exc:
         return DirectResult([], 1, findings, error=str(exc)[:300], input_chars=len(content), truncated=truncated)
     records = data.get("records")
     if not isinstance(records, list):
-        return DirectResult([], 1, findings, error="no records array in the answer", input_chars=len(content), truncated=truncated)
-    return DirectResult([r for r in records if isinstance(r, dict)], 1, findings, input_chars=len(content), truncated=truncated)
+        return DirectResult(
+            [], 1, findings, error="no records array in the answer", input_chars=len(content), truncated=truncated
+        )
+    return DirectResult(
+        [r for r in records if isinstance(r, dict)], 1, findings, input_chars=len(content), truncated=truncated
+    )
 
 
 def grounded(raw: Any, page_text: str, spec_type: FieldType) -> bool:
@@ -92,5 +98,5 @@ def grounded(raw: Any, page_text: str, spec_type: FieldType) -> bool:
         return digits in re.sub(r"\D", "", haystack)
     if spec_type in {FieldType.date, FieldType.url}:
         return True
-    words = [w for w in re.findall(r"[a-z0-9]{3,}", text)]
+    words = list(re.findall(r"[a-z0-9]{3,}", text))
     return bool(words) and sum(1 for w in words if w in haystack) / len(words) >= 0.8

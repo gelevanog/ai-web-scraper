@@ -100,6 +100,7 @@ class RawValue:
 class RawRecord:
     values: dict[str, RawValue] = field(default_factory=dict)
     item_path: str = ""
+    detail_url: str | None = None
 
 
 def _is_xpath(selector: str) -> bool:
@@ -192,6 +193,16 @@ def run_list(doc: HtmlElement, program: Program) -> list[RawRecord]:
         record = RawRecord(item_path=doc.getroottree().getpath(item))
         for name, rule in program.fields.items():
             record.values[name] = run_rule(item, rule)
+        if program.detail_link is not None:
+            link = run_rule(
+                item,
+                program.detail_link.model_copy(
+                    update={
+                        "attr": program.detail_link.attr if program.detail_link.attr not in _SPECIAL_ATTRS else "href"
+                    }
+                ),
+            ).value
+            record.detail_url = link if isinstance(link, str) and link else None
         records.append(record)
     return records
 
