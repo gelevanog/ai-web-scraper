@@ -34,8 +34,8 @@ ENV SIFT_LLM_CACHE_DIR=/home/app/.cache/llm \
     SIFT_LLM_LEDGER=/home/app/.cache/calls.jsonl \
     SIFT_SYNTHETIC_WEB_DIR=/app/data/synthetic_web \
     LOG_FORMAT=json
+RUN mkdir -p /home/app/.cache/llm /app/data/synthetic_web /app/data/exports && chown -R app:app /home/app/.cache /app/data
 USER app
-RUN mkdir -p /home/app/.cache/llm /app/data/synthetic_web /app/data/exports
 
 EXPOSE 8000
 HEALTHCHECK --interval=10s --timeout=5s --start-period=60s --retries=6 \
