@@ -9,6 +9,7 @@ sift heal JOB_ID [--layout v2]              re-crawl a job (unchanged pages skip
 sift export JOB_ID -f csv -o out.csv        export (json, jsonl, csv, parquet), --webhook URL, --table
 sift eval SUITE                             evaluation suites (see `sift eval --help`)
 sift serve / sift worker                    REST API and job worker
+sift mcp [--http --port 8765]               MCP server for Claude Code and Claude Desktop (stdio by default)
 """
 
 from __future__ import annotations
@@ -322,6 +323,20 @@ def serve(
     from sift.api.app import create_app
 
     uvicorn.run(create_app(inline_worker=inline_worker), host=host, port=port, log_level="warning")
+
+
+@app.command("mcp")
+def mcp_server(
+    http: Annotated[bool, typer.Option("--http", help="Streamable HTTP instead of stdio")] = False,
+    host: Annotated[str, typer.Option(help="HTTP bind address (local only by default)")] = "127.0.0.1",
+    port: Annotated[int, typer.Option(help="HTTP port")] = 8765,
+) -> None:
+    """MCP server for Claude Code and Claude Desktop: polite fetch, extractor testing, saved extractors."""
+    from sift.mcp_server import serve as serve_mcp
+
+    if http:
+        console.print(f"Sift MCP server on http://{host}:{port}/mcp")
+    serve_mcp(http=http, host=host, port=port)
 
 
 @app.command()

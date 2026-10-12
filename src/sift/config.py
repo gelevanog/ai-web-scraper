@@ -139,6 +139,14 @@ class Settings(BaseSettings):
     webhook_secret: str = ""
     """Optional HMAC-SHA256 key: the webhook request carries X-Sift-Signature: sha256=<hex>."""
 
+    # ---- MCP server (sift mcp)
+    mcp_allow_private_hosts: bool = False
+    """The MCP tools refuse URLs on localhost, private and link-local addresses (a page read by a model must not
+    steer it into an internal network). True lifts that for a deliberate local test site."""
+    mcp_max_output_chars: int = 24_000
+    """Upper bound on one tool result (Claude Code warns above about 10,000 tokens); longer results are cut with a
+    note."""
+
     # ---- API and worker
     api_token: str = ""
     """If set, every /api request needs `Authorization: Bearer <token>` (the dashboard sends NEXT_PUBLIC_API_TOKEN)."""

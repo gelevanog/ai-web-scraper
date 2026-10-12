@@ -1,5 +1,5 @@
 .DEFAULT_GOAL := help
-.PHONY: help install browser seed serve worker web synthetic-server test test-browser lint format web-lint web-build eval-offline eval-smoke eval-real summary docker-build docker-up clean
+.PHONY: help install browser seed serve worker mcp web synthetic-server test test-browser lint format web-lint web-build eval-offline eval-smoke eval-real summary docker-build docker-up clean
 
 FREE_MODEL ?= nvidia/nemotron-3-super-120b-a12b:free
 FREE_FALLBACKS ?= nvidia/nemotron-3-ultra-550b-a55b:free
@@ -23,6 +23,9 @@ serve:  ## API on http://localhost:8000 with an in-process worker
 
 worker:  ## Job worker (when the API runs without --inline-worker)
 	uv run sift worker
+
+mcp:  ## MCP server over stdio for Claude Code / Claude Desktop (see README)
+	uv run sift mcp
 
 web:  ## Next.js dev server on http://localhost:3000
 	cd web && npm run dev
