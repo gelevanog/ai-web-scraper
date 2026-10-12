@@ -16,6 +16,7 @@ from __future__ import annotations
 import datetime as dt
 import json
 import re
+import threading
 import time
 from concurrent.futures import ThreadPoolExecutor
 from pathlib import Path
@@ -133,6 +134,41 @@ def _traps(site: dict[str, Any], schema: Schema, result: JobResult, score: SiteS
     return out
 
 
+_STORES: dict[str, Any] = {}
+_STORE_LOCK = threading.Lock()
+
+
+def _persist(
+    settings: Settings,
+    site: dict[str, Any],
+    result: JobResult,
+    *,
+    label: str,
+    parent: str | None = None,
+    layout: str = "v1",
+) -> str | None:
+    """With SIFT_EVAL_STORE=1 the evaluation runs are also saved as jobs (the dashboard's screenshots show them)."""
+    import os
+
+    if os.environ.get("SIFT_EVAL_STORE") != "1":
+        return None
+    from sift.services import Services
+
+    with _STORE_LOCK:
+        services = _STORES.get(settings.database_url)
+        if services is None:
+            services = _STORES[settings.database_url] = Services(settings)
+    return services.import_result(
+        result,
+        start_urls=[site["start_url"]],
+        description=site["intent"],
+        name=f"{site['name']} ({label})",
+        model=f"{settings.llm_provider}/{settings.llm_model}" if settings.llm_model else settings.llm_provider,
+        parent_id=parent,
+        options={"synthetic_layout": layout, "evaluation": True},
+    )
+
+
 def evaluate_site(settings: Settings, site: dict[str, Any], *, name: str, strategy: str = "auto") -> dict[str, Any]:
     schema = Schema.model_validate(site["schema"])
     start = [site["start_url"]]
@@ -147,6 +183,7 @@ def evaluate_site(settings: Settings, site: dict[str, Any], *, name: str, strate
         JobConfig(start_urls=start, description=site["intent"], schema=schema, strategy=_strategy(strategy))
     )
     v1_score = score_site(site["id"], schema, site["records"], [r["data"] for r in v1.records])
+    v1_job = _persist(settings, site, v1, label="v1 layout")
     entry["v1"] = {**v1_score.as_dict(), **_run_summary(v1), "extract_ms_p50": _extract_ms(v1)}
     entry["traps_result"] = _traps(site, schema, v1, v1_score)
     entry["politeness"] = v1.politeness
@@ -196,6 +233,7 @@ def evaluate_site(settings: Settings, site: dict[str, Any], *, name: str, strate
             )
         )
         after_score = score_site(site["id"], schema, site["records"], [r["data"] for r in after.records])
+        _persist(settings, site, after, label="re-crawl after the v2 redesign", parent=v1_job, layout="v2")
         healed = [e for e in after.events if e.kind == "healed"]
         failed = [e for e in after.events if e.kind == "heal_failed"]
         heal_calls = sum(

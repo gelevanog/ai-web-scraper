@@ -266,6 +266,53 @@ class Services:
                 )
         return result
 
+    def import_result(
+        self,
+        result: JobResult,
+        *,
+        start_urls: list[str],
+        description: str,
+        name: str,
+        model: str,
+        parent_id: str | None = None,
+        options: dict[str, Any] | None = None,
+    ) -> str:
+        """Stores a finished engine run (e.g. an evaluation run) as a job, with its events, so the dashboard can show
+        it exactly as it happened."""
+        job_id = self.store.create_job(
+            start_urls=start_urls,
+            description=description,
+            schema=result.schema.model_dump(mode="json", exclude_defaults=True) if result.schema else None,
+            options=options or {},
+            name=name,
+            parent_id=parent_id,
+            status="done" if not result.error else "failed",
+        )
+        for event in result.events:
+            self.store.add_event(
+                job_id, ts=event.ts, kind=event.kind, level=event.level, message=event.message, data=event.data
+            )
+        self.save(job_id, result)
+        first = result.events[0].ts if result.events else None
+        last = result.events[-1].ts if result.events else None
+        self.store.update_job(
+            job_id,
+            stats=result.stats,
+            politeness=result.politeness,
+            rejected_fields=result.rejected_fields,
+            model=model,
+            error=result.error,
+            progress={
+                "pages": result.stats["pages"],
+                "records": result.stats["records"],
+                "llm_calls": len(result.calls.calls),
+                "errors": result.stats["errors"],
+            },
+            started_at=dt.datetime.fromisoformat(first) if first else None,
+            finished_at=dt.datetime.fromisoformat(last) if last else None,
+        )
+        return job_id
+
     def save(self, job_id: str, result: JobResult) -> None:
         record_rows = [
             {

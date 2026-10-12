@@ -4,6 +4,7 @@ extractor versions, and an event log that doubles as the audit trail and the hea
 from __future__ import annotations
 
 import datetime as dt
+import threading
 import uuid
 from collections.abc import Iterator
 from contextlib import contextmanager
@@ -32,6 +33,7 @@ from sqlalchemy import (
 from sqlalchemy.engine import Connection
 
 metadata = MetaData()
+_CREATE_LOCK = threading.Lock()
 
 
 def _now() -> dt.datetime:
@@ -144,7 +146,8 @@ class Store:
             kwargs["connect_args"] = {"check_same_thread": False, "timeout": 30}
         self.engine: Engine = create_engine(url, **kwargs)
         self.dialect = self.engine.dialect.name
-        metadata.create_all(self.engine)
+        with _CREATE_LOCK:
+            metadata.create_all(self.engine)
 
     @contextmanager
     def tx(self) -> Iterator[Connection]:

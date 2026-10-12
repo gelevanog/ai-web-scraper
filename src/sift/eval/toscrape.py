@@ -206,6 +206,19 @@ def run_toscrape(settings: Settings, *, name: str, books_pages: int = 3, quotes_
             JobConfig(start_urls=[start], description=intent, schema=schema, max_pages=cap, strategy="auto")
         )
         crawl_seconds = round(time.monotonic() - started, 1)
+        import os
+
+        if os.environ.get("SIFT_EVAL_STORE") == "1":
+            from sift.services import Services
+
+            Services(settings).import_result(
+                result,
+                start_urls=[start],
+                description=intent,
+                name=f"{key}.toscrape.com (evaluation run)",
+                model=f"openrouter/{settings.llm_model}",
+                options={"evaluation": True},
+            )
         truth = books_truth(snap, books_pages) if key == "books" else quotes_truth(snap, quotes_pages)
         score = score_site(key, schema, truth, [r["data"] for r in result.records])
         # Strategy B on the first page, from the snapshot.
