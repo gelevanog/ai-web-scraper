@@ -1,0 +1,158 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+env:
+  UV_LINK_MODE: copy
+  NEXT_TELEMETRY_DISABLED: "1"
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  backend-lint:
+    name: Backend lint and typecheck
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v7
+
+      - name: Install uv
+        uses: astral-sh/setup-uv@v10.2.0
+        with:
+          enable-cache: true
+          cache-dependency-glob: "uv.lock"
+          python-version: "3.12"
+
+      - name: Install dependencies
+        run: uv sync --frozen
+
+      - name: Ruff check
+        run: uv run ruff check src tests
+
+      - name: Ruff format check
+        run: uv run ruff format --check src tests
+
+      - name: mypy (strict)
+        run: uv run mypy
+
+  backend-test:
+    name: Backend tests (SQLite and PostgreSQL)
+    runs-on: ubuntu-latest
+    services:
+      postgres:
+        image: postgres:17-alpine
+        env:
+          POSTGRES_USER: sift
+          POSTGRES_PASSWORD: sift
+          POSTGRES_DB: sift_test
+        ports:
+          - 5432:5432
+        options: >-
+          --health-cmd "pg_isready -U sift"
+          --health-interval 5s
+          --health-timeout 5s
+          --health-retries 10
+    env:
+      # No API keys, no network: the offline model answers every task, the synthetic web is served from disk,
+      # providers are tested against recorded request shapes. Browser tests skip (no Chromium installed).
+      TEST_DATABASE_URL: postgresql://sift:sift@localhost:5432/sift_test
+      REQUIRE_TEST_DB: "1"
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v7
+
+      - name: Install uv
+        uses: astral-sh/setup-uv@v10.2.0
+        with:
+          enable-cache: true
+          cache-dependency-glob: "uv.lock"
+          python-version: "3.12"
+
+      - name: Install dependencies
+        run: uv sync --frozen
+
+      - name: Run tests
+        run: uv run pytest --junitxml=report.xml
+
+      - name: CLI smoke run (offline model)
+        env:
+          SIFT_LLM_PROVIDER: fake
+          SIFT_LLM_LEDGER: ""
+          SIFT_RESULTS_DIR: /tmp/results
+          SIFT_DATABASE_URL: sqlite:////tmp/sift.db
+          SIFT_SYNTHETIC_WEB_DIR: /tmp/synthetic_web
+        run: |
+          uv run sift seed
+          uv run sift eval synthetic --name ci --sites shop-03,jobs-02,registry-01,menu-03 --workers 2
+          uv run sift crawl https://cobalt-audio.example/catalog/ -d "Every product with name, price in USD, rating and stock status. Follow the pagination." -o /tmp/records.jsonl
+          uv run sift jobs
+
+      - name: Upload test report
+        if: always()
+        uses: actions/upload-artifact@v7
+        with:
+          name: junit-report
+          path: report.xml
+
+  frontend:
+    name: Frontend lint, typecheck and build
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: web
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v7
+
+      - name: Install Node.js
+        uses: actions/setup-node@v7
+        with:
+          node-version: 24
+          cache: npm
+          cache-dependency-path: web/package-lock.json
+
+      - name: Install dependencies
+        run: npm ci --no-audit --no-fund
+
+      - name: ESLint
+        run: npm run lint
+
+      - name: Type check
+        run: npm run typecheck
+
+      - name: Build
+        run: npm run build
+
+  docker:
+    name: Docker build
+    runs-on: ubuntu-latest
+    needs: [backend-lint, backend-test, frontend]
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v7
+
+      - name: Set up Docker Buildx
+        uses: docker/setup-buildx-action@v4
+
+      - name: Build API and worker image (no push)
+        uses: docker/build-push-action@v7
+        with:
+          context: .
+          push: false
+          tags: sift-api:ci
+          cache-from: type=gha,scope=api
+          cache-to: type=gha,mode=max,scope=api
+
+      - name: Build web image (no push)
+        uses: docker/build-push-action@v7
+        with:
+          context: web
+          push: false
+          tags: sift-web:ci
+          cache-from: type=gha,scope=web
+          cache-to: type=gha,mode=max,scope=web

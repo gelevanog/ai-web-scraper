@@ -60,7 +60,12 @@ def generate(
 ) -> dict[str, Any]:
     specs = build_specs(seed, today)
     if clean and out_dir.exists():
-        shutil.rmtree(out_dir)
+        # Empty the directory rather than removing it (it may be a mounted volume).
+        for child in out_dir.iterdir():
+            if child.is_dir():
+                shutil.rmtree(child)
+            else:
+                child.unlink()
     digest = hashlib.sha256()
     counts = dict.fromkeys(LAYOUTS, 0)
     for layout in LAYOUTS:

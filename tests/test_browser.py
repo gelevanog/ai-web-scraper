@@ -20,10 +20,14 @@ pytestmark = pytest.mark.browser
 
 
 def run(settings: Settings, site: dict[str, Any]) -> Any:
-    browser_settings = settings.model_copy(update={"browser": "auto", "browser_executable": os.environ.get("SIFT_BROWSER_EXECUTABLE", "")})
+    browser_settings = settings.model_copy(
+        update={"browser": "auto", "browser_executable": os.environ.get("SIFT_BROWSER_EXECUTABLE", "")}
+    )
     engine = Engine(browser_settings, FakeModel(HANDLERS), source=DiskSource(settings.synthetic_web_dir, "v1"))
     schema = Schema.model_validate(site["schema"])
-    result = engine.run(JobConfig(start_urls=[site["start_url"]], description=site["intent"], schema=schema, browser="auto"))
+    result = engine.run(
+        JobConfig(start_urls=[site["start_url"]], description=site["intent"], schema=schema, browser="auto")
+    )
     return result, score_site(site["id"], schema, site["records"], [r["data"] for r in result.records])
 
 

@@ -1,0 +1,81 @@
+{
+ "listed_at": "2026-10-12T04:23:06+00:00",
+ "count": 15,
+ "models": [
+  {
+   "id": "apodex/apodex-1.1-mini:free",
+   "context_length": 262144,
+   "created": 1790875335
+  },
+  {
+   "id": "dots-studio/dots-3-note-preview:free",
+   "context_length": 512000,
+   "created": 1786680361
+  },
+  {
+   "id": "liquid/lfm-2.5-2.6b:free",
+   "context_length": 65536,
+   "created": 1786470519
+  },
+  {
+   "id": "nvidia/nemotron-3.5-lightning:free",
+   "context_length": 1000000,
+   "created": 1786452751
+  },
+  {
+   "id": "thinkingmachines/inkling-small:free",
+   "context_length": 1048576,
+   "created": 1785443117
+  },
+  {
+   "id": "poolside/laguna-s-2.1:free",
+   "context_length": 262144,
+   "created": 1784652683
+  },
+  {
+   "id": "thinkingmachines/inkling:free",
+   "context_length": 1048576,
+   "created": 1784325956
+  },
+  {
+   "id": "poolside/laguna-xs-2.1:free",
+   "context_length": 262144,
+   "created": 1783002429
+  },
+  {
+   "id": "cohere/north-mini-code:free",
+   "context_length": 256000,
+   "created": 1781723748
+  },
+  {
+   "id": "nvidia/nemotron-3.5-content-safety:free",
+   "context_length": 128000,
+   "created": 1780581864
+  },
+  {
+   "id": "nvidia/nemotron-3-ultra-550b-a55b:free",
+   "context_length": 1000000,
+   "created": 1780551208
+  },
+  {
+   "id": "nvidia/nemotron-3-nano-omni-30b-a3b-reasoning:free",
+   "context_length": 256000,
+   "created": 1777393095
+  },
+  {
+   "id": "google/gemma-4-26b-a4b-it:free",
+   "context_length": 262144,
+   "created": 1775227989
+  },
+  {
+   "id": "google/gemma-4-31b-it:free",
+   "context_length": 262144,
+   "created": 1775148486
+  },
+  {
+   "id": "nvidia/nemotron-3-super-120b-a12b:free",
+   "context_length": 262144,
+   "created": 1773245239
+  }
+ ]
+}
