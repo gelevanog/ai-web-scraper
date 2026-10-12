@@ -247,6 +247,8 @@ class Engine:
         self.events: list[Event] = []
         self.pii = PiiReport()
         self.findings: list[Finding] = []
+        self._healed_detail: set[tuple[str, str]] = set()
+        self._detail_direct_left: dict[str, int] = {}
 
     # ------------------------------------------------------------------------------------------------ plumbing
 
@@ -909,13 +911,7 @@ class Engine:
         if key not in broken and job.strategy != "direct":
             ext = extractors.get(key)
             if ext is None:
-                others = [p.url for p in queue if p.role == "detail"][:2]
-                samples = [Sample(url, doc)]
-                for other in others:
-                    fetched = prefetched.get(other) or self.fetch(other, job, browser_hosts)
-                    prefetched[other] = fetched
-                    if fetched[1] is not None:
-                        samples.append(Sample(other, fetched[1]))
+                samples = self._detail_samples(url, doc, job, queue, prefetched, browser_hosts)
                 ctx_for = self._ctx_factory(job)
                 result = learn(
                     self.model,
@@ -951,13 +947,79 @@ class Engine:
                     )
             ext = extractors.get(key)
             if ext is not None:
-                clean, _ = strip_hidden(doc)
-                raw = run_detail(clean, ext.program)
-                normalized = normalize_record({k: v.value for k, v in raw.values.items()}, sub, ctx)
-                values = {k: r.value for k, r in normalized.items()}
-                prov = {k: {"rule": v.rule, "node": v.node, "raw": _short(v.value)} for k, v in raw.values.items()}
+                values, prov = self._run_detail(ext, doc, sub, ctx)
                 info.strategy, info.extractor = "learned", f"{ext.id}@v{ext.version}"
+                if all(v in (None, "", []) for v in values.values()) and job.heal and key not in self._healed_detail:
+                    # The detail template changed: re-learn once from this page and two more, verified against the
+                    # values extracted from detail pages before.
+                    self._healed_detail.add(key)
+                    self.emit(
+                        "layout_changed",
+                        f"{host}: detail-page rules returned nothing on {url}",
+                        level="warning",
+                        host=host,
+                        extractor=ext.id,
+                        signals=["detail fields empty"],
+                        url=url,
+                    )
+                    samples = self._detail_samples(url, doc, job, queue, prefetched, browser_hosts)
+                    result = learn(
+                        self.model,
+                        sub,
+                        samples,
+                        self._ctx_factory(job),
+                        kind="detail",
+                        previous=ext.program,
+                        reference=ext.good_records or None,
+                        max_attempts=self.settings.learn_max_attempts,
+                        max_tokens=self.settings.llm_max_tokens,
+                        guard=job.injection_guard,
+                    )
+                    if result.program is not None and result.accepted:
+                        new = self._new_extractor(
+                            host, "detail", result.program, samples, sub, job, result, origin="healed", parent=ext
+                        )
+                        extractors[key] = new
+                        self.emit(
+                            "healed",
+                            f"{host}: detail-page rules healed in {result.attempts} attempt(s), {result.calls} model call(s)",
+                            host=host,
+                            extractor=new.id,
+                            version=new.version,
+                            calls=result.calls,
+                            attempts=result.attempts,
+                            reference_agreement=result.check.reference_agreement if result.check else None,
+                            before=ext.program.model_dump(mode="json", exclude_none=True),
+                            after=new.program.model_dump(mode="json", exclude_none=True),
+                        )
+                        ext = new
+                        values, prov = self._run_detail(ext, doc, sub, ctx)
+                        info.extractor = f"{ext.id}@v{ext.version}"
+                    else:
+                        broken.add(key)
+                        self.emit(
+                            "heal_failed",
+                            f"{host}: re-learned detail-page rules did not pass verification ({result.calls} call(s))",
+                            level="error",
+                            host=host,
+                            calls=result.calls,
+                        )
+                if any(v not in (None, "", []) for v in values.values()) and len(ext.good_records) < 40:
+                    ext.good_records.append(dict(values))
         if not values or all(v in (None, "", []) for v in values.values()):
+            left = self._detail_direct_left.setdefault(host, self.DETAIL_DIRECT_BUDGET)
+            if left <= 0:
+                if left == 0:
+                    self._detail_direct_left[host] = -1
+                    self.emit(
+                        "detail_skipped",
+                        f"{host}: detail fields left empty on the remaining detail pages (direct-extraction budget of {self.DETAIL_DIRECT_BUDGET} pages per site used up)",
+                        level="warning",
+                        host=host,
+                    )
+                info.strategy = "skipped"
+                return []
+            self._detail_direct_left[host] = left - 1
             result_d = direct_mod.extract(
                 self.model, sub, url, doc=doc, guard=job.injection_guard, max_tokens=self.settings.llm_max_tokens
             )
@@ -977,6 +1039,36 @@ class Engine:
                     )
         info.records = 0
         return []
+
+    DETAIL_DIRECT_BUDGET = 3
+    """Detail pages per site that may fall back to direct extraction (each costs a model call)."""
+
+    def _run_detail(
+        self, ext: ExtractorState, doc: HtmlElement, sub: Schema, ctx: Context
+    ) -> tuple[dict[str, Any], dict[str, Any]]:
+        clean, _ = strip_hidden(doc)
+        raw = run_detail(clean, ext.program)
+        normalized = normalize_record({k: v.value for k, v in raw.values.items()}, sub, ctx)
+        values = {k: r.value for k, r in normalized.items()}
+        prov = {k: {"rule": v.rule, "node": v.node, "raw": _short(v.value)} for k, v in raw.values.items()}
+        return values, prov
+
+    def _detail_samples(
+        self,
+        url: str,
+        doc: HtmlElement,
+        job: JobConfig,
+        queue: list[_Pending],
+        prefetched: dict[str, Any],
+        browser_hosts: dict[str, str],
+    ) -> list[Sample]:
+        samples = [Sample(url, doc)]
+        for other in [p.url for p in queue if p.role == "detail"][:2]:
+            fetched = prefetched.get(other) or self.fetch(other, job, browser_hosts)
+            prefetched[other] = fetched
+            if fetched[1] is not None:
+                samples.append(Sample(other, fetched[1]))
+        return samples
 
     def _direct(
         self, schema: Schema, url: str, doc: HtmlElement | None, text: str, job: JobConfig, info: PageInfo
