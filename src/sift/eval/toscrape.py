@@ -202,7 +202,14 @@ def run_toscrape(settings: Settings, *, name: str, books_pages: int = 3, quotes_
         started = time.monotonic()
         engine = _engine(polite, snap, f"{name}:toscrape:{key}")
         result = engine.run(
-            JobConfig(start_urls=[start], description=intent, schema=schema, max_pages=cap, strategy="auto")
+            JobConfig(
+                start_urls=[start],
+                description=intent,
+                schema=schema,
+                max_pages=cap,
+                max_list_pages=list_cap,
+                strategy="auto",
+            )
         )
         crawl_seconds = round(time.monotonic() - started, 1)
         import os
