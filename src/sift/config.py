@@ -10,7 +10,7 @@ from typing import Annotated, Literal
 from pydantic import AliasChoices, Field, field_validator
 from pydantic_settings import BaseSettings, NoDecode, SettingsConfigDict
 
-LLMProviderKind = Literal["fake", "openrouter", "qwen", "openai", "anthropic"]
+LLMProviderKind = Literal["fake", "openrouter", "qwen", "openai", "anthropic", "compat"]
 StrategyKind = Literal["auto", "learned", "direct"]
 
 # Free OpenRouter models chosen from the smoke test before the real run (results/smoke.json).
@@ -27,6 +27,7 @@ DEFAULT_MODELS: dict[str, str] = {
     "qwen": DEFAULT_QWEN_MODEL,
     "openai": "gpt-5-mini",
     "anthropic": "claude-sonnet-5",
+    "compat": "",  # any OpenAI-compatible endpoint: the model id must be given (SIFT_LLM_MODEL)
 }
 USER_AGENT = "SiftBot/0.1 (+https://github.com/gelevanog/ai-web-scraper; polite structured-data crawler)"
 
@@ -102,6 +103,15 @@ class Settings(BaseSettings):
     llm_reasoning_effort: str = "low"
     require_free_models: bool = True
     """Refuse any OpenRouter model id that does not end in ":free" (requests, fallbacks and the model that answered)."""
+    allow_paid_models: bool = False
+    """The explicit opt-in for paid models: with SIFT_ALLOW_PAID_MODELS=true the free-only guard is lifted for the
+    `openrouter` and `compat` providers. Off by default, so a fresh clone refuses every non-":free" id."""
+    llm_base_url: str = ""
+    """Endpoint of the `compat` provider (any OpenAI-compatible /chat/completions server, e.g. a local gateway)."""
+    llm_api_key: str | None = None
+    """Key of the `compat` provider (SIFT_LLM_API_KEY)."""
+    llm_send_temperature: bool = True
+    """Some models behind OpenAI-compatible gateways reject `temperature`; false leaves it out of the request."""
 
     openrouter_api_key: str | None = Field(default=None, validation_alias=AliasChoices("OPENROUTER_API_KEY"))
     openrouter_base_url: str = Field(
@@ -146,6 +156,11 @@ class Settings(BaseSettings):
     @classmethod
     def _empty_is_none(cls, value: object) -> object:
         return None if value == "" else value
+
+    @property
+    def free_only(self) -> bool:
+        """The free-only guard is on unless paid models were allowed deliberately (either flag)."""
+        return self.require_free_models and not self.allow_paid_models
 
     def crawl_today(self) -> dt.date:
         return self.today or dt.date.today()
