@@ -1,7 +1,7 @@
 {
  "name": "main",
  "suite": "traps",
- "run_at": "2026-10-12T06:46:47+00:00",
+ "run_at": "2026-10-12T07:29:05+00:00",
  "provider": "openrouter",
  "model": "nvidia/nemotron-3-super-120b-a12b:free",
  "fallbacks": [
@@ -226,7 +226,7 @@
     {
      "site": "shop-10",
      "crawl_delay": 2.0,
-     "min_gap_s": 1.996,
+     "min_gap_s": 2.0,
      "crawl_delay_respected": true
     }
    ],

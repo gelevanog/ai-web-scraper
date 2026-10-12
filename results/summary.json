@@ -355,10 +355,10 @@
     "fields_total": 6917
    },
    "detected": 37,
-   "healed": 32,
-   "heal_failed": 5,
+   "healed": 31,
+   "heal_failed": 6,
    "heal_calls": 58,
-   "fallback_direct_calls": 12,
+   "fallback_direct_calls": 15,
    "v1_same_extractors": {
     "sites": 37,
     "truth_records": 1037,
@@ -389,7 +389,7 @@
    "learned_pages": 171,
    "learned_calls": 43
   },
-  "run_at": "2026-10-12T06:46:36+00:00",
+  "run_at": "2026-10-12T07:28:27+00:00",
   "model": "nvidia/nemotron-3-super-120b-a12b:free",
   "sites": [
    {
@@ -1119,7 +1119,7 @@
     "v2_after": 1.0,
     "v2_recall_after": 1.0,
     "detected": true,
-    "healed": true,
+    "healed": false,
     "heal_calls": 3,
     "error": null
    },
@@ -1208,7 +1208,7 @@
     "anthropic/claude-sonnet-5": 6.1547
    },
    "per_site_calls_median": 1,
-   "extract_ms_p50": 16.7
+   "extract_ms_p50": 22.6
   },
   "direct": {
    "pages": 49,
@@ -1476,7 +1476,7 @@
     {
      "site": "shop-10",
      "crawl_delay": 2.0,
-     "min_gap_s": 1.996,
+     "min_gap_s": 2.0,
      "crawl_delay_respected": true
     }
    ],
@@ -1737,7 +1737,7 @@
    },
    "robustness": {
     "sites": 7,
-    "healed": 6,
+    "healed": 5,
     "after_healing": {
      "sites": 7,
      "truth_records": 197,
@@ -1962,7 +1962,7 @@
    "crawl_delay_sites": [
     {
      "crawl_delay": 2.0,
-     "min_gap_s": 1.996,
+     "min_gap_s": 2.0,
      "crawl_delay_respected": true,
      "anomalies_expected": 1,
      "anomalies_found": 1,
@@ -1977,23 +1977,23 @@
   }
  },
  "ledger": {
-  "requests": 401,
-  "ok": 367,
+  "requests": 418,
+  "ok": 382,
   "retryable_errors": 12,
-  "errors": 22,
-  "input_tokens": 690363,
-  "output_tokens": 963320,
+  "errors": 24,
+  "input_tokens": 731711,
+  "output_tokens": 1048317,
   "requested_models": {
-   "nvidia/nemotron-3-super-120b-a12b:free": 318,
-   "nvidia/nemotron-3-ultra-550b-a55b:free": 31,
+   "nvidia/nemotron-3-super-120b-a12b:free": 334,
+   "nvidia/nemotron-3-ultra-550b-a55b:free": 32,
    "dots-studio/dots-3-note-preview:free": 34,
    "nvidia/nemotron-3.5-lightning:free": 4,
    "cohere/north-mini-code:free": 5,
    "poolside/laguna-s-2.1:free": 9
   },
   "served_models": {
-   "nvidia/nemotron-3-super-120b-a12b:free": 306,
-   "nvidia/nemotron-3-ultra-550b-a55b:free": 26,
+   "nvidia/nemotron-3-super-120b-a12b:free": 320,
+   "nvidia/nemotron-3-ultra-550b-a55b:free": 27,
    "dots-studio/dots-3-note-preview:free": 29,
    "nvidia/nemotron-3.5-lightning:free": 4,
    "cohere/north-mini-code:free": 1,
@@ -2007,8 +2007,8 @@
    "nvidia/nemotron-3.5-lightning": 4,
    "cohere/north-mini-code": 5,
    "poolside/laguna-s-2.1": 9,
-   "v1": 83,
-   "v2-heal": 166,
+   "v1": 84,
+   "v2-heal": 182,
    "direct": 49,
    "schema": 51,
    "toscrape": 12,
@@ -2019,7 +2019,7 @@
   },
   "all_free": true,
   "first": "2026-10-12T04:04:24+00:00",
-  "last": "2026-10-12T07:08:48+00:00"
+  "last": "2026-10-12T07:27:07+00:00"
  },
  "prices_per_million_tokens": {
   "nvidia/nemotron-3-super-120b-a12b (paid)": {

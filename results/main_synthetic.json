@@ -1,7 +1,7 @@
 {
  "name": "main",
  "suite": "synthetic",
- "run_at": "2026-10-12T06:46:36+00:00",
+ "run_at": "2026-10-12T07:28:27+00:00",
  "provider": "openrouter",
  "model": "nvidia/nemotron-3-super-120b-a12b:free",
  "fallbacks": [
@@ -362,10 +362,10 @@
     "fields_total": 6917
    },
    "detected": 37,
-   "healed": 32,
-   "heal_failed": 5,
+   "healed": 31,
+   "heal_failed": 6,
    "heal_calls": 58,
-   "fallback_direct_calls": 12,
+   "fallback_direct_calls": 15,
    "v1_same_extractors": {
     "sites": 37,
     "truth_records": 1037,
@@ -497,7 +497,7 @@
      }
     ],
     "error": null,
-    "extract_ms_p50": 22.5
+    "extract_ms_p50": 25.3
    },
    "traps_result": {
     "hidden_leaked": 0,
@@ -516,9 +516,10 @@
       "requests": 4,
       "subresources": 0,
       "robots_fetches": 1,
-      "min_gap_s": 0.008,
+      "min_gap_s": 0.01,
       "configured_interval_s": 0.0,
-      "max_requests_per_s_10s": 0.4
+      "max_requests_per_s_10s": 0.4,
+      "mean_requests_per_s": 22.712
      }
     },
     "robots_blocked": []
@@ -526,7 +527,7 @@
    "learned": true,
    "extractors": [
     {
-     "id": "ext-543192",
+     "id": "ext-1a5595",
      "kind": "list",
      "accepted": true,
      "attempts": 1,
@@ -618,7 +619,7 @@
     "errors": [],
     "pages": 3,
     "records": 0,
-    "seconds": 0.01,
+    "seconds": 0.02,
     "strategies": [
      "learned"
     ],
@@ -713,7 +714,7 @@
     "errors": [],
     "pages": 3,
     "records": 34,
-    "seconds": 0.04,
+    "seconds": 0.12,
     "strategies": [
      "learned"
     ],
@@ -845,7 +846,7 @@
     "records": 34,
     "llm_calls": 0
    },
-   "seconds": 1.0
+   "seconds": 1.1
   },
   {
    "site": "shop-02",
@@ -898,7 +899,7 @@
     "errors": [],
     "pages": 3,
     "records": 30,
-    "seconds": 0.38,
+    "seconds": 0.35,
     "strategies": [
      "learned"
     ],
@@ -945,7 +946,7 @@
      }
     ],
     "error": null,
-    "extract_ms_p50": 140.1
+    "extract_ms_p50": 109.6
    },
    "traps_result": {
     "duplicate_copies": 1,
@@ -962,9 +963,10 @@
       "requests": 4,
       "subresources": 0,
       "robots_fetches": 1,
-      "min_gap_s": 0.007,
+      "min_gap_s": 0.009,
       "configured_interval_s": 0.0,
-      "max_requests_per_s_10s": 0.4
+      "max_requests_per_s_10s": 0.4,
+      "mean_requests_per_s": 13.398
      }
     },
     "robots_blocked": []
@@ -972,7 +974,7 @@
    "learned": true,
    "extractors": [
     {
-     "id": "ext-282b75",
+     "id": "ext-9e1607",
      "kind": "list",
      "accepted": true,
      "attempts": 1,
@@ -1080,7 +1082,7 @@
     "errors": [],
     "pages": 3,
     "records": 0,
-    "seconds": 0.02,
+    "seconds": 0.01,
     "strategies": [
      "learned"
     ],
@@ -1175,7 +1177,7 @@
     "errors": [],
     "pages": 3,
     "records": 30,
-    "seconds": 0.13,
+    "seconds": 0.1,
     "strategies": [
      "learned"
     ],
@@ -1318,7 +1320,7 @@
     "records": 30,
     "llm_calls": 0
    },
-   "seconds": 1.1
+   "seconds": 0.9
   },
   {
    "site": "shop-03",
@@ -1371,7 +1373,7 @@
     "errors": [],
     "pages": 29,
     "records": 26,
-    "seconds": 0.59,
+    "seconds": 0.57,
     "strategies": [
      "learned"
     ],
@@ -1419,7 +1421,7 @@
      }
     ],
     "error": null,
-    "extract_ms_p50": 10.3
+    "extract_ms_p50": 9.4
    },
    "traps_result": {
     "currency_conversion": {
@@ -1436,7 +1438,8 @@
       "robots_fetches": 1,
       "min_gap_s": 0.002,
       "configured_interval_s": 0.0,
-      "max_requests_per_s_10s": 3.0
+      "max_requests_per_s_10s": 3.0,
+      "mean_requests_per_s": 50.952
      }
     },
     "robots_blocked": []
@@ -1444,7 +1447,7 @@
    "learned": true,
    "extractors": [
     {
-     "id": "ext-d5328b",
+     "id": "ext-6604e4",
      "kind": "list",
      "accepted": true,
      "attempts": 1,
@@ -1514,7 +1517,7 @@
      }
     },
     {
-     "id": "ext-e7626b",
+     "id": "ext-e0a668",
      "kind": "detail",
      "accepted": true,
      "attempts": 1,
@@ -1559,7 +1562,7 @@
     "errors": [],
     "pages": 3,
     "records": 0,
-    "seconds": 0.01,
+    "seconds": 0.02,
     "strategies": [
      "learned"
     ],
@@ -1654,7 +1657,7 @@
     "errors": [],
     "pages": 29,
     "records": 26,
-    "seconds": 0.15,
+    "seconds": 0.19,
     "strategies": [
      "learned"
     ],
@@ -1803,7 +1806,7 @@
     "records": 26,
     "llm_calls": 0
    },
-   "seconds": 1.3
+   "seconds": 1.7
   },
   {
    "site": "shop-04",
@@ -1851,7 +1854,7 @@
     "errors": [],
     "pages": 3,
     "records": 36,
-    "seconds": 0.22,
+    "seconds": 0.2,
     "strategies": [
      "learned"
     ],
@@ -1894,7 +1897,7 @@
      }
     ],
     "error": null,
-    "extract_ms_p50": 53.3
+    "extract_ms_p50": 51.1
    },
    "traps_result": {
     "currency_conversion": {
@@ -1911,7 +1914,8 @@
       "robots_fetches": 1,
       "min_gap_s": 0.008,
       "configured_interval_s": 0.0,
-      "max_requests_per_s_10s": 0.4
+      "max_requests_per_s_10s": 0.4,
+      "mean_requests_per_s": 19.76
      }
     },
     "robots_blocked": []
@@ -1919,7 +1923,7 @@
    "learned": true,
    "extractors": [
     {
-     "id": "ext-27b934",
+     "id": "ext-ea1758",
      "kind": "list",
      "accepted": true,
      "attempts": 1,
@@ -2099,7 +2103,7 @@
     "errors": [],
     "pages": 3,
     "records": 36,
-    "seconds": 0.1,
+    "seconds": 0.09,
     "strategies": [
      "learned"
     ],
@@ -2218,7 +2222,7 @@
     "records": 36,
     "llm_calls": 0
    },
-   "seconds": 1.0
+   "seconds": 1.1
   },
   {
    "site": "shop-05",
@@ -2267,7 +2271,7 @@
     "errors": [],
     "pages": 4,
     "records": 28,
-    "seconds": 0.07,
+    "seconds": 0.06,
     "strategies": [
      "learned"
     ],
@@ -2314,7 +2318,7 @@
      }
     ],
     "error": null,
-    "extract_ms_p50": 7.5
+    "extract_ms_p50": 8.5
    },
    "traps_result": {
     "hidden_leaked": 0,
@@ -2334,9 +2338,10 @@
       "requests": 4,
       "subresources": 0,
       "robots_fetches": 1,
-      "min_gap_s": 0.003,
+      "min_gap_s": 0.0,
       "configured_interval_s": 0.0,
-      "max_requests_per_s_10s": 0.4
+      "max_requests_per_s_10s": 0.4,
+      "mean_requests_per_s": 63.118
      }
     },
     "robots_blocked": [
@@ -2346,7 +2351,7 @@
    "learned": true,
    "extractors": [
     {
-     "id": "ext-c2e4f1",
+     "id": "ext-57fb00",
      "kind": "list",
      "accepted": true,
      "attempts": 1,
@@ -2528,7 +2533,7 @@
     "errors": [],
     "pages": 4,
     "records": 28,
-    "seconds": 0.07,
+    "seconds": 0.11,
     "strategies": [
      "learned"
     ],
@@ -2651,7 +2656,7 @@
     "records": 28,
     "llm_calls": 0
    },
-   "seconds": 0.5
+   "seconds": 0.3
   },
   {
    "site": "shop-06",
@@ -2704,7 +2709,7 @@
     "errors": [],
     "pages": 3,
     "records": 32,
-    "seconds": 0.07,
+    "seconds": 0.13,
     "strategies": [
      "learned"
     ],
@@ -2747,7 +2752,7 @@
      }
     ],
     "error": null,
-    "extract_ms_p50": 15.3
+    "extract_ms_p50": 22.1
    },
    "traps_result": {},
    "politeness": {
@@ -2756,9 +2761,10 @@
       "requests": 4,
       "subresources": 0,
       "robots_fetches": 1,
-      "min_gap_s": 0.0,
+      "min_gap_s": 0.001,
       "configured_interval_s": 0.0,
-      "max_requests_per_s_10s": 0.4
+      "max_requests_per_s_10s": 0.4,
+      "mean_requests_per_s": 25.784
      }
     },
     "robots_blocked": []
@@ -2766,7 +2772,7 @@
    "learned": true,
    "extractors": [
     {
-     "id": "ext-7555bc",
+     "id": "ext-b4ce99",
      "kind": "list",
      "accepted": true,
      "attempts": 1,
@@ -2963,7 +2969,7 @@
     "errors": [],
     "pages": 3,
     "records": 32,
-    "seconds": 0.15,
+    "seconds": 0.11,
     "strategies": [
      "learned"
     ],
@@ -3109,7 +3115,7 @@
     "records": 32,
     "llm_calls": 0
    },
-   "seconds": 0.4
+   "seconds": 0.5
   },
   {
    "site": "shop-07",
@@ -3162,7 +3168,7 @@
     "errors": [],
     "pages": 26,
     "records": 24,
-    "seconds": 0.14,
+    "seconds": 0.12,
     "strategies": [
      "learned"
     ],
@@ -3214,7 +3220,7 @@
      }
     ],
     "error": null,
-    "extract_ms_p50": 3.2
+    "extract_ms_p50": 1.9
    },
    "traps_result": {
     "injection_where": "hidden",
@@ -3233,9 +3239,10 @@
       "requests": 27,
       "subresources": 0,
       "robots_fetches": 1,
-      "min_gap_s": 0.002,
+      "min_gap_s": 0.0,
       "configured_interval_s": 0.0,
-      "max_requests_per_s_10s": 2.7
+      "max_requests_per_s_10s": 2.7,
+      "mean_requests_per_s": 226.819
      }
     },
     "robots_blocked": []
@@ -3243,7 +3250,7 @@
    "learned": true,
    "extractors": [
     {
-     "id": "ext-269fe7",
+     "id": "ext-2b4449",
      "kind": "list",
      "accepted": true,
      "attempts": 1,
@@ -3313,7 +3320,7 @@
      }
     },
     {
-     "id": "ext-64615a",
+     "id": "ext-6ee2d9",
      "kind": "detail",
      "accepted": true,
      "attempts": 1,
@@ -3452,7 +3459,7 @@
     "errors": [],
     "pages": 26,
     "records": 24,
-    "seconds": 0.12,
+    "seconds": 0.14,
     "strategies": [
      "learned"
     ],
@@ -3604,7 +3611,7 @@
     "records": 24,
     "llm_calls": 0
    },
-   "seconds": 0.8
+   "seconds": 0.6
   },
   {
    "site": "shop-08",
@@ -3658,7 +3665,7 @@
     "errors": [],
     "pages": 4,
     "records": 40,
-    "seconds": 0.18,
+    "seconds": 0.17,
     "strategies": [
      "learned"
     ],
@@ -3705,7 +3712,7 @@
      }
     ],
     "error": null,
-    "extract_ms_p50": 24.1
+    "extract_ms_p50": 17.9
    },
    "traps_result": {
     "duplicate_copies": 1,
@@ -3717,9 +3724,10 @@
       "requests": 5,
       "subresources": 0,
       "robots_fetches": 1,
-      "min_gap_s": 0.0,
+      "min_gap_s": 0.001,
       "configured_interval_s": 0.0,
-      "max_requests_per_s_10s": 0.5
+      "max_requests_per_s_10s": 0.5,
+      "mean_requests_per_s": 24.957
      }
     },
     "robots_blocked": []
@@ -3727,7 +3735,7 @@
    "learned": true,
    "extractors": [
     {
-     "id": "ext-12ae2d",
+     "id": "ext-534572",
      "kind": "list",
      "accepted": true,
      "attempts": 2,
@@ -3840,7 +3848,7 @@
     "errors": [],
     "pages": 4,
     "records": 0,
-    "seconds": 0.02,
+    "seconds": 0.03,
     "strategies": [
      "learned"
     ],
@@ -3961,7 +3969,7 @@
     ],
     "pages": 4,
     "records": 38,
-    "seconds": 0.11,
+    "seconds": 0.13,
     "strategies": [
      "learned"
     ],
@@ -4115,7 +4123,7 @@
     "records": 40,
     "llm_calls": 0
    },
-   "seconds": 0.5
+   "seconds": 0.6
   },
   {
    "site": "shop-09",
@@ -4164,7 +4172,7 @@
     "errors": [],
     "pages": 4,
     "records": 30,
-    "seconds": 0.11,
+    "seconds": 0.13,
     "strategies": [
      "learned"
     ],
@@ -4215,7 +4223,7 @@
      }
     ],
     "error": null,
-    "extract_ms_p50": 13.0
+    "extract_ms_p50": 22.6
    },
    "traps_result": {
     "archived_leaked": 0,
@@ -4237,9 +4245,10 @@
       "requests": 4,
       "subresources": 0,
       "robots_fetches": 1,
-      "min_gap_s": 0.001,
+      "min_gap_s": 0.003,
       "configured_interval_s": 0.0,
-      "max_requests_per_s_10s": 0.4
+      "max_requests_per_s_10s": 0.4,
+      "mean_requests_per_s": 25.597
      }
     },
     "robots_blocked": [
@@ -4249,7 +4258,7 @@
    "learned": true,
    "extractors": [
     {
-     "id": "ext-da61ac",
+     "id": "ext-50a4d8",
      "kind": "list",
      "accepted": true,
      "attempts": 1,
@@ -4336,7 +4345,7 @@
     "errors": [],
     "pages": 4,
     "records": 0,
-    "seconds": 0.02,
+    "seconds": 0.01,
     "strategies": [
      "learned"
     ],
@@ -4435,7 +4444,7 @@
     "errors": [],
     "pages": 4,
     "records": 30,
-    "seconds": 0.11,
+    "seconds": 0.13,
     "strategies": [
      "learned"
     ],
@@ -4669,11 +4678,11 @@
      }
     ],
     "error": null,
-    "extract_ms_p50": 2000.0
+    "extract_ms_p50": 1999.9
    },
    "traps_result": {
     "crawl_delay": 2.0,
-    "min_gap_s": 1.996,
+    "min_gap_s": 2.0,
     "crawl_delay_respected": true,
     "anomalies_expected": 1,
     "anomalies_found": 1,
@@ -4690,9 +4699,10 @@
       "requests": 25,
       "subresources": 0,
       "robots_fetches": 1,
-      "min_gap_s": 1.996,
+      "min_gap_s": 2.0,
       "configured_interval_s": 2.0,
-      "max_requests_per_s_10s": 0.6
+      "max_requests_per_s_10s": 0.6,
+      "mean_requests_per_s": 0.5
      }
     },
     "robots_blocked": []
@@ -4700,7 +4710,7 @@
    "learned": true,
    "extractors": [
     {
-     "id": "ext-500b8b",
+     "id": "ext-e9e0e1",
      "kind": "list",
      "accepted": true,
      "attempts": 1,
@@ -4769,7 +4779,7 @@
      }
     },
     {
-     "id": "ext-f2555f",
+     "id": "ext-dc6ec7",
      "kind": "detail",
      "accepted": true,
      "attempts": 1,
@@ -5116,7 +5126,7 @@
     "errors": [],
     "pages": 3,
     "records": 24,
-    "seconds": 0.09,
+    "seconds": 0.14,
     "strategies": [
      "learned"
     ],
@@ -5163,7 +5173,7 @@
      }
     ],
     "error": null,
-    "extract_ms_p50": 13.8
+    "extract_ms_p50": 11.9
    },
    "traps_result": {
     "pii_planted": 10,
@@ -5179,9 +5189,10 @@
       "requests": 4,
       "subresources": 0,
       "robots_fetches": 1,
-      "min_gap_s": 0.0,
+      "min_gap_s": 0.001,
       "configured_interval_s": 0.0,
-      "max_requests_per_s_10s": 0.4
+      "max_requests_per_s_10s": 0.4,
+      "mean_requests_per_s": 23.579
      }
     },
     "robots_blocked": []
@@ -5189,7 +5200,7 @@
    "learned": true,
    "extractors": [
     {
-     "id": "ext-1e5561",
+     "id": "ext-76b2f7",
      "kind": "list",
      "accepted": true,
      "attempts": 1,
@@ -5428,7 +5439,7 @@
     "errors": [],
     "pages": 3,
     "records": 24,
-    "seconds": 0.08,
+    "seconds": 0.11,
     "strategies": [
      "learned"
     ],
@@ -5583,7 +5594,7 @@
     "records": 24,
     "llm_calls": 0
    },
-   "seconds": 0.4
+   "seconds": 0.5
   },
   {
    "site": "jobs-02",
@@ -5644,7 +5655,7 @@
     "errors": [],
     "pages": 2,
     "records": 20,
-    "seconds": 0.08,
+    "seconds": 0.05,
     "strategies": [
      "learned"
     ],
@@ -5687,7 +5698,7 @@
      }
     ],
     "error": null,
-    "extract_ms_p50": 39.0
+    "extract_ms_p50": 21.9
    },
    "traps_result": {
     "currency_conversion": {
@@ -5708,7 +5719,8 @@
       "robots_fetches": 1,
       "min_gap_s": 0.001,
       "configured_interval_s": 0.0,
-      "max_requests_per_s_10s": 0.3
+      "max_requests_per_s_10s": 0.3,
+      "mean_requests_per_s": 461.951
      }
     },
     "robots_blocked": []
@@ -5716,7 +5728,7 @@
    "learned": true,
    "extractors": [
     {
-     "id": "ext-667d50",
+     "id": "ext-6cc22b",
      "kind": "list",
      "accepted": true,
      "attempts": 1,
@@ -5982,7 +5994,7 @@
     ],
     "pages": 2,
     "records": 20,
-    "seconds": 0.12,
+    "seconds": 0.13,
     "strategies": [
      "direct"
     ],
@@ -6149,7 +6161,7 @@
      }
     ],
     "error": null,
-    "extract_ms_p50": 15.2
+    "extract_ms_p50": 15.9
    },
    "traps_result": {
     "pii_planted": 10,
@@ -6170,9 +6182,10 @@
       "requests": 4,
       "subresources": 0,
       "robots_fetches": 1,
-      "min_gap_s": 0.001,
+      "min_gap_s": 0.0,
       "configured_interval_s": 0.0,
-      "max_requests_per_s_10s": 0.4
+      "max_requests_per_s_10s": 0.4,
+      "mean_requests_per_s": 38.754
      }
     },
     "robots_blocked": []
@@ -6180,7 +6193,7 @@
    "learned": true,
    "extractors": [
     {
-     "id": "ext-b6ea4f",
+     "id": "ext-3cc121",
      "kind": "list",
      "accepted": true,
      "attempts": 1,
@@ -6402,7 +6415,7 @@
     "errors": [],
     "pages": 3,
     "records": 22,
-    "seconds": 0.14,
+    "seconds": 0.07,
     "strategies": [
      "learned"
     ],
@@ -6552,7 +6565,7 @@
     "records": 22,
     "llm_calls": 0
    },
-   "seconds": 0.4
+   "seconds": 0.3
   },
   {
    "site": "jobs-04",
@@ -6613,7 +6626,7 @@
     "errors": [],
     "pages": 3,
     "records": 30,
-    "seconds": 0.1,
+    "seconds": 0.13,
     "strategies": [
      "learned"
     ],
@@ -6660,7 +6673,7 @@
      }
     ],
     "error": null,
-    "extract_ms_p50": 19.4
+    "extract_ms_p50": 20.3
    },
    "traps_result": {
     "duplicate_copies": 1,
@@ -6678,7 +6691,8 @@
       "robots_fetches": 1,
       "min_gap_s": 0.001,
       "configured_interval_s": 0.0,
-      "max_requests_per_s_10s": 0.4
+      "max_requests_per_s_10s": 0.4,
+      "mean_requests_per_s": 26.684
      }
     },
     "robots_blocked": []
@@ -6686,7 +6700,7 @@
    "learned": true,
    "extractors": [
     {
-     "id": "ext-6692f0",
+     "id": "ext-73280b",
      "kind": "list",
      "accepted": true,
      "attempts": 1,
@@ -6804,7 +6818,7 @@
     "errors": [],
     "pages": 4,
     "records": 0,
-    "seconds": 0.02,
+    "seconds": 0.03,
     "strategies": [
      "learned"
     ],
@@ -6911,7 +6925,7 @@
     "errors": [],
     "pages": 3,
     "records": 30,
-    "seconds": 0.12,
+    "seconds": 0.1,
     "strategies": [
      "learned"
     ],
@@ -7065,7 +7079,7 @@
     "records": 30,
     "llm_calls": 0
    },
-   "seconds": 0.4
+   "seconds": 0.5
   },
   {
    "site": "jobs-05",
@@ -7169,7 +7183,7 @@
      }
     ],
     "error": null,
-    "extract_ms_p50": 40.9
+    "extract_ms_p50": 45.2
    },
    "traps_result": {
     "hidden_leaked": 0,
@@ -7190,9 +7204,10 @@
       "requests": 3,
       "subresources": 0,
       "robots_fetches": 1,
-      "min_gap_s": 0.001,
+      "min_gap_s": 0.002,
       "configured_interval_s": 0.0,
-      "max_requests_per_s_10s": 0.3
+      "max_requests_per_s_10s": 0.3,
+      "mean_requests_per_s": 201.881
      }
     },
     "robots_blocked": []
@@ -7200,7 +7215,7 @@
    "learned": true,
    "extractors": [
     {
-     "id": "ext-540016",
+     "id": "ext-18f1b5",
      "kind": "list",
      "accepted": true,
      "attempts": 1,
@@ -7416,7 +7431,7 @@
     "errors": [],
     "pages": 2,
     "records": 18,
-    "seconds": 0.11,
+    "seconds": 0.09,
     "strategies": [
      "direct"
     ],
@@ -7479,7 +7494,7 @@
     "records": 18,
     "llm_calls": 0
    },
-   "seconds": 0.4
+   "seconds": 0.3
   },
   {
    "site": "jobs-06",
@@ -7540,7 +7555,7 @@
     "errors": [],
     "pages": 3,
     "records": 26,
-    "seconds": 0.12,
+    "seconds": 0.14,
     "strategies": [
      "learned"
     ],
@@ -7587,7 +7602,7 @@
      }
     ],
     "error": null,
-    "extract_ms_p50": 16.7
+    "extract_ms_p50": 19.2
    },
    "traps_result": {
     "injection_where": "visible",
@@ -7605,9 +7620,10 @@
       "requests": 4,
       "subresources": 0,
       "robots_fetches": 1,
-      "min_gap_s": 0.0,
+      "min_gap_s": 0.001,
       "configured_interval_s": 0.0,
-      "max_requests_per_s_10s": 0.4
+      "max_requests_per_s_10s": 0.4,
+      "mean_requests_per_s": 23.26
      }
     },
     "robots_blocked": []
@@ -7615,7 +7631,7 @@
    "learned": true,
    "extractors": [
     {
-     "id": "ext-2f52e0",
+     "id": "ext-743568",
      "kind": "list",
      "accepted": true,
      "attempts": 2,
@@ -7729,7 +7745,7 @@
     "errors": [],
     "pages": 3,
     "records": 0,
-    "seconds": 0.01,
+    "seconds": 0.02,
     "strategies": [
      "learned"
     ],
@@ -7836,20 +7852,20 @@
     "errors": [],
     "pages": 3,
     "records": 26,
-    "seconds": 65.33,
+    "seconds": 0.17,
     "strategies": [
      "learned"
     ],
     "llm": {
      "calls": 1,
-     "cached": 0,
+     "cached": 1,
      "failed": 0,
      "by_task": {
       "heal_extractor": 1
      },
      "input_tokens": 2638,
      "output_tokens": 2613,
-     "seconds": 65.29
+     "seconds": 0.0
     },
     "browser_pages": 0,
     "duplicates_merged": 0,
@@ -7984,7 +8000,7 @@
     "records": 26,
     "llm_calls": 0
    },
-   "seconds": 65.6
+   "seconds": 0.5
   },
   {
    "site": "homes-01",
@@ -8046,7 +8062,7 @@
     "errors": [],
     "pages": 3,
     "records": 23,
-    "seconds": 0.07,
+    "seconds": 0.17,
     "strategies": [
      "learned"
     ],
@@ -8089,7 +8105,7 @@
      }
     ],
     "error": null,
-    "extract_ms_p50": 9.9
+    "extract_ms_p50": 18.9
    },
    "traps_result": {},
    "politeness": {
@@ -8100,7 +8116,8 @@
       "robots_fetches": 1,
       "min_gap_s": 0.002,
       "configured_interval_s": 0.0,
-      "max_requests_per_s_10s": 0.4
+      "max_requests_per_s_10s": 0.4,
+      "mean_requests_per_s": 19.413
      }
     },
     "robots_blocked": []
@@ -8108,7 +8125,7 @@
    "learned": true,
    "extractors": [
     {
-     "id": "ext-4d3b86",
+     "id": "ext-d51524",
      "kind": "list",
      "accepted": true,
      "attempts": 1,
@@ -8221,7 +8238,7 @@
     "errors": [],
     "pages": 18,
     "records": 0,
-    "seconds": 0.03,
+    "seconds": 0.09,
     "strategies": [
      "learned"
     ],
@@ -8447,7 +8464,7 @@
     "records": 23,
     "llm_calls": 0
    },
-   "seconds": 0.4
+   "seconds": 0.5
   },
   {
    "site": "homes-02",
@@ -8535,7 +8552,7 @@
     ],
     "pages": 3,
     "records": 19,
-    "seconds": 0.14,
+    "seconds": 0.1,
     "strategies": [
      "learned"
     ],
@@ -8578,7 +8595,7 @@
      }
     ],
     "error": null,
-    "extract_ms_p50": 4.9
+    "extract_ms_p50": 15.5
    },
    "traps_result": {
     "currency_conversion": {
@@ -8593,9 +8610,10 @@
       "requests": 4,
       "subresources": 0,
       "robots_fetches": 1,
-      "min_gap_s": 0.001,
+      "min_gap_s": 0.0,
       "configured_interval_s": 0.0,
-      "max_requests_per_s_10s": 0.4
+      "max_requests_per_s_10s": 0.4,
+      "mean_requests_per_s": 32.975
      }
     },
     "robots_blocked": []
@@ -8603,7 +8621,7 @@
    "learned": true,
    "extractors": [
     {
-     "id": "ext-a86104",
+     "id": "ext-31e54a",
      "kind": "list",
      "accepted": true,
      "attempts": 1,
@@ -8710,7 +8728,7 @@
     "errors": [],
     "pages": 16,
     "records": 0,
-    "seconds": 0.04,
+    "seconds": 0.06,
     "strategies": [
      "learned"
     ],
@@ -8861,7 +8879,7 @@
     "errors": [],
     "pages": 3,
     "records": 19,
-    "seconds": 0.06,
+    "seconds": 0.1,
     "strategies": [
      "learned"
     ],
@@ -9059,7 +9077,7 @@
     "errors": [],
     "pages": 3,
     "records": 20,
-    "seconds": 0.06,
+    "seconds": 0.09,
     "strategies": [
      "learned"
     ],
@@ -9102,7 +9120,7 @@
      }
     ],
     "error": null,
-    "extract_ms_p50": 9.4
+    "extract_ms_p50": 13.8
    },
    "traps_result": {
     "currency_conversion": {
@@ -9119,7 +9137,8 @@
       "robots_fetches": 1,
       "min_gap_s": 0.001,
       "configured_interval_s": 0.0,
-      "max_requests_per_s_10s": 0.4
+      "max_requests_per_s_10s": 0.4,
+      "mean_requests_per_s": 39.445
      }
     },
     "robots_blocked": []
@@ -9127,7 +9146,7 @@
    "learned": true,
    "extractors": [
     {
-     "id": "ext-152fb7",
+     "id": "ext-00b477",
      "kind": "list",
      "accepted": true,
      "attempts": 1,
@@ -9240,7 +9259,7 @@
     "errors": [],
     "pages": 18,
     "records": 0,
-    "seconds": 0.03,
+    "seconds": 0.06,
     "strategies": [
      "learned"
     ],
@@ -9403,7 +9422,7 @@
     "errors": [],
     "pages": 3,
     "records": 20,
-    "seconds": 0.05,
+    "seconds": 0.08,
     "strategies": [
      "learned"
     ],
@@ -9544,7 +9563,7 @@
     "records": 20,
     "llm_calls": 0
    },
-   "seconds": 0.3
+   "seconds": 0.4
   },
   {
    "site": "homes-04",
@@ -9602,7 +9621,7 @@
     "errors": [],
     "pages": 2,
     "records": 16,
-    "seconds": 0.04,
+    "seconds": 0.07,
     "strategies": [
      "learned"
     ],
@@ -9649,7 +9668,7 @@
      }
     ],
     "error": null,
-    "extract_ms_p50": 17.8
+    "extract_ms_p50": 35.2
    },
    "traps_result": {
     "duplicate_copies": 1,
@@ -9668,7 +9687,8 @@
       "robots_fetches": 1,
       "min_gap_s": 0.001,
       "configured_interval_s": 0.0,
-      "max_requests_per_s_10s": 0.3
+      "max_requests_per_s_10s": 0.3,
+      "mean_requests_per_s": 391.929
      }
     },
     "robots_blocked": []
@@ -9676,7 +9696,7 @@
    "learned": true,
    "extractors": [
     {
-     "id": "ext-d4beb9",
+     "id": "ext-12aa05",
      "kind": "list",
      "accepted": true,
      "attempts": 1,
@@ -9774,7 +9794,7 @@
     "errors": [],
     "pages": 11,
     "records": 0,
-    "seconds": 0.03,
+    "seconds": 0.05,
     "strategies": [
      "learned"
     ],
@@ -9905,7 +9925,7 @@
     "errors": [],
     "pages": 2,
     "records": 16,
-    "seconds": 0.04,
+    "seconds": 0.08,
     "strategies": [
      "learned"
     ],
@@ -10044,7 +10064,7 @@
     "records": 16,
     "llm_calls": 0
    },
-   "seconds": 0.2
+   "seconds": 0.4
   },
   {
    "site": "homes-05",
@@ -10101,7 +10121,7 @@
     "errors": [],
     "pages": 3,
     "records": 18,
-    "seconds": 0.06,
+    "seconds": 0.09,
     "strategies": [
      "learned"
     ],
@@ -10144,7 +10164,7 @@
      }
     ],
     "error": null,
-    "extract_ms_p50": 6.7
+    "extract_ms_p50": 12.0
    },
    "traps_result": {},
    "politeness": {
@@ -10153,9 +10173,10 @@
       "requests": 4,
       "subresources": 0,
       "robots_fetches": 1,
-      "min_gap_s": 0.0,
+      "min_gap_s": 0.003,
       "configured_interval_s": 0.0,
-      "max_requests_per_s_10s": 0.4
+      "max_requests_per_s_10s": 0.4,
+      "mean_requests_per_s": 37.771
      }
     },
     "robots_blocked": []
@@ -10163,7 +10184,7 @@
    "learned": true,
    "extractors": [
     {
-     "id": "ext-62ebb7",
+     "id": "ext-947c25",
      "kind": "list",
      "accepted": true,
      "attempts": 1,
@@ -10417,7 +10438,7 @@
     "errors": [],
     "pages": 3,
     "records": 18,
-    "seconds": 0.04,
+    "seconds": 0.09,
     "strategies": [
      "learned"
     ],
@@ -10552,7 +10573,7 @@
     "records": 18,
     "llm_calls": 0
    },
-   "seconds": 0.2
+   "seconds": 0.3
   },
   {
    "site": "homes-06",
@@ -10610,7 +10631,7 @@
     "errors": [],
     "pages": 2,
     "records": 14,
-    "seconds": 0.03,
+    "seconds": 0.08,
     "strategies": [
      "learned"
     ],
@@ -10653,7 +10674,7 @@
      }
     ],
     "error": null,
-    "extract_ms_p50": 11.6
+    "extract_ms_p50": 37.6
    },
    "traps_result": {
     "hidden_leaked": 0,
@@ -10670,9 +10691,10 @@
       "requests": 3,
       "subresources": 0,
       "robots_fetches": 1,
-      "min_gap_s": 0.002,
+      "min_gap_s": 0.001,
       "configured_interval_s": 0.0,
-      "max_requests_per_s_10s": 0.3
+      "max_requests_per_s_10s": 0.3,
+      "mean_requests_per_s": 337.724
      }
     },
     "robots_blocked": []
@@ -10680,7 +10702,7 @@
    "learned": true,
    "extractors": [
     {
-     "id": "ext-2be8f8",
+     "id": "ext-5de8aa",
      "kind": "list",
      "accepted": true,
      "attempts": 2,
@@ -10784,7 +10806,7 @@
     "errors": [],
     "pages": 12,
     "records": 0,
-    "seconds": 0.03,
+    "seconds": 0.04,
     "strategies": [
      "learned"
     ],
@@ -10919,7 +10941,7 @@
     "errors": [],
     "pages": 2,
     "records": 14,
-    "seconds": 0.02,
+    "seconds": 0.06,
     "strategies": [
      "learned"
     ],
@@ -11054,7 +11076,7 @@
     "records": 14,
     "llm_calls": 0
    },
-   "seconds": 0.2
+   "seconds": 0.3
   },
   {
    "site": "events-01",
@@ -11103,7 +11125,7 @@
     "errors": [],
     "pages": 2,
     "records": 15,
-    "seconds": 0.03,
+    "seconds": 0.04,
     "strategies": [
      "learned"
     ],
@@ -11146,7 +11168,7 @@
      }
     ],
     "error": null,
-    "extract_ms_p50": 13.8
+    "extract_ms_p50": 20.2
    },
    "traps_result": {
     "relative_dates": {
@@ -11160,9 +11182,10 @@
       "requests": 3,
       "subresources": 0,
       "robots_fetches": 1,
-      "min_gap_s": 0.002,
+      "min_gap_s": 0.001,
       "configured_interval_s": 0.0,
-      "max_requests_per_s_10s": 0.3
+      "max_requests_per_s_10s": 0.3,
+      "mean_requests_per_s": 249.933
      }
     },
     "robots_blocked": []
@@ -11170,7 +11193,7 @@
    "learned": true,
    "extractors": [
     {
-     "id": "ext-64b159",
+     "id": "ext-bc1475",
      "kind": "list",
      "accepted": true,
      "attempts": 1,
@@ -11257,7 +11280,7 @@
     "errors": [],
     "pages": 12,
     "records": 0,
-    "seconds": 0.02,
+    "seconds": 0.05,
     "strategies": [
      "learned"
     ],
@@ -11384,7 +11407,7 @@
     "errors": [],
     "pages": 2,
     "records": 15,
-    "seconds": 0.02,
+    "seconds": 0.03,
     "strategies": [
      "learned"
     ],
@@ -11507,7 +11530,7 @@
     "records": 15,
     "llm_calls": 0
    },
-   "seconds": 0.1
+   "seconds": 0.2
   },
   {
    "site": "events-02",
@@ -11556,7 +11579,7 @@
     "errors": [],
     "pages": 2,
     "records": 14,
-    "seconds": 0.03,
+    "seconds": 0.05,
     "strategies": [
      "learned"
     ],
@@ -11599,7 +11622,7 @@
      }
     ],
     "error": null,
-    "extract_ms_p50": 11.8
+    "extract_ms_p50": 22.6
    },
    "traps_result": {
     "currency_conversion": {
@@ -11618,9 +11641,10 @@
       "requests": 3,
       "subresources": 0,
       "robots_fetches": 1,
-      "min_gap_s": 0.003,
+      "min_gap_s": 0.001,
       "configured_interval_s": 0.0,
-      "max_requests_per_s_10s": 0.3
+      "max_requests_per_s_10s": 0.3,
+      "mean_requests_per_s": 246.489
      }
     },
     "robots_blocked": []
@@ -11628,7 +11652,7 @@
    "learned": true,
    "extractors": [
     {
-     "id": "ext-377a34",
+     "id": "ext-75259b",
      "kind": "list",
      "accepted": true,
      "attempts": 1,
@@ -11837,7 +11861,7 @@
     "errors": [],
     "pages": 2,
     "records": 14,
-    "seconds": 0.02,
+    "seconds": 0.04,
     "strategies": [
      "learned"
     ],
@@ -11961,7 +11985,7 @@
     "records": 14,
     "llm_calls": 0
    },
-   "seconds": 0.1
+   "seconds": 0.2
   },
   {
    "site": "events-03",
@@ -12018,7 +12042,7 @@
     ],
     "pages": 2,
     "records": 20,
-    "seconds": 0.04,
+    "seconds": 0.06,
     "strategies": [
      "learned"
     ],
@@ -12065,7 +12089,7 @@
      }
     ],
     "error": null,
-    "extract_ms_p50": 19.9
+    "extract_ms_p50": 31.0
    },
    "traps_result": {
     "pii_planted": 2,
@@ -12086,9 +12110,10 @@
       "requests": 3,
       "subresources": 0,
       "robots_fetches": 1,
-      "min_gap_s": 0.002,
+      "min_gap_s": 0.001,
       "configured_interval_s": 0.0,
-      "max_requests_per_s_10s": 0.3
+      "max_requests_per_s_10s": 0.3,
+      "mean_requests_per_s": 412.675
      }
     },
     "robots_blocked": []
@@ -12096,7 +12121,7 @@
    "learned": true,
    "extractors": [
     {
-     "id": "ext-f8a395",
+     "id": "ext-d12b87",
      "kind": "list",
      "accepted": true,
      "attempts": 1,
@@ -12184,7 +12209,7 @@
     "errors": [],
     "pages": 12,
     "records": 0,
-    "seconds": 0.02,
+    "seconds": 0.05,
     "strategies": [
      "learned"
     ],
@@ -12318,7 +12343,7 @@
     ],
     "pages": 2,
     "records": 20,
-    "seconds": 0.04,
+    "seconds": 0.07,
     "strategies": [
      "learned"
     ],
@@ -12446,7 +12471,7 @@
     "records": 20,
     "llm_calls": 0
    },
-   "seconds": 0.2
+   "seconds": 0.3
   },
   {
    "site": "events-04",
@@ -12495,7 +12520,7 @@
     "errors": [],
     "pages": 2,
     "records": 19,
-    "seconds": 0.03,
+    "seconds": 0.05,
     "strategies": [
      "learned"
     ],
@@ -12538,7 +12563,7 @@
      }
     ],
     "error": null,
-    "extract_ms_p50": 14.0
+    "extract_ms_p50": 25.1
    },
    "traps_result": {
     "currency_conversion": {
@@ -12559,7 +12584,8 @@
       "robots_fetches": 1,
       "min_gap_s": 0.001,
       "configured_interval_s": 0.0,
-      "max_requests_per_s_10s": 0.3
+      "max_requests_per_s_10s": 0.3,
+      "mean_requests_per_s": 347.318
      }
     },
     "robots_blocked": []
@@ -12567,7 +12593,7 @@
    "learned": true,
    "extractors": [
     {
-     "id": "ext-367f69",
+     "id": "ext-e1c683",
      "kind": "list",
      "accepted": true,
      "attempts": 1,
@@ -12649,7 +12675,7 @@
     "errors": [],
     "pages": 12,
     "records": 0,
-    "seconds": 0.02,
+    "seconds": 0.05,
     "strategies": [
      "learned"
     ],
@@ -12948,7 +12974,7 @@
     "errors": [],
     "pages": 2,
     "records": 20,
-    "seconds": 0.04,
+    "seconds": 0.05,
     "strategies": [
      "learned"
     ],
@@ -12991,7 +13017,7 @@
      }
     ],
     "error": null,
-    "extract_ms_p50": 17.8
+    "extract_ms_p50": 24.5
    },
    "traps_result": {
     "relative_dates": {
@@ -13005,9 +13031,10 @@
       "requests": 3,
       "subresources": 0,
       "robots_fetches": 1,
-      "min_gap_s": 0.0,
+      "min_gap_s": 0.001,
       "configured_interval_s": 0.0,
-      "max_requests_per_s_10s": 0.3
+      "max_requests_per_s_10s": 0.3,
+      "mean_requests_per_s": 503.836
      }
     },
     "robots_blocked": []
@@ -13015,7 +13042,7 @@
    "learned": true,
    "extractors": [
     {
-     "id": "ext-8ebe1a",
+     "id": "ext-fc41b8",
      "kind": "list",
      "accepted": true,
      "attempts": 1,
@@ -13234,7 +13261,7 @@
     "errors": [],
     "pages": 2,
     "records": 20,
-    "seconds": 0.02,
+    "seconds": 0.03,
     "strategies": [
      "learned"
     ],
@@ -13358,7 +13385,7 @@
     "records": 20,
     "llm_calls": 0
    },
-   "seconds": 0.3
+   "seconds": 0.2
   },
   {
    "site": "menu-01",
@@ -13433,7 +13460,7 @@
      }
     ],
     "error": null,
-    "extract_ms_p50": 6.1
+    "extract_ms_p50": 7.6
    },
    "traps_result": {},
    "politeness": {
@@ -13444,14 +13471,15 @@
       "robots_fetches": 1,
       "min_gap_s": 0.0,
       "configured_interval_s": 0.0,
-      "max_requests_per_s_10s": 0.2
+      "max_requests_per_s_10s": 0.2,
+      "mean_requests_per_s": 2638.878
      }
     },
     "robots_blocked": []
    },
    "learned": false,
    "extractors": [],
-   "seconds": 0.0
+   "seconds": 0.1
   },
   {
    "site": "menu-02",
@@ -13526,7 +13554,7 @@
      }
     ],
     "error": null,
-    "extract_ms_p50": 9.5
+    "extract_ms_p50": 10.1
    },
    "traps_result": {
     "currency_conversion": {
@@ -13543,7 +13571,8 @@
       "robots_fetches": 1,
       "min_gap_s": 0.002,
       "configured_interval_s": 0.0,
-      "max_requests_per_s_10s": 0.2
+      "max_requests_per_s_10s": 0.2,
+      "mean_requests_per_s": 504.136
      }
     },
     "robots_blocked": []
@@ -13590,7 +13619,7 @@
     "errors": [],
     "pages": 2,
     "records": 15,
-    "seconds": 0.2,
+    "seconds": 0.21,
     "strategies": [
      "direct"
     ],
@@ -13603,7 +13632,7 @@
      },
      "input_tokens": 1507,
      "output_tokens": 1526,
-     "seconds": 0.0
+     "seconds": 0.01
     },
     "browser_pages": 0,
     "duplicates_merged": 0,
@@ -13625,7 +13654,7 @@
      }
     ],
     "error": null,
-    "extract_ms_p50": 97.0
+    "extract_ms_p50": 104.2
    },
    "traps_result": {
     "currency_conversion": {
@@ -13640,16 +13669,17 @@
       "requests": 3,
       "subresources": 0,
       "robots_fetches": 1,
-      "min_gap_s": 0.001,
+      "min_gap_s": 0.0,
       "configured_interval_s": 0.0,
-      "max_requests_per_s_10s": 0.3
+      "max_requests_per_s_10s": 0.3,
+      "mean_requests_per_s": 267.789
      }
     },
     "robots_blocked": []
    },
    "learned": false,
    "extractors": [],
-   "seconds": 0.2
+   "seconds": 0.3
   },
   {
    "site": "menu-04",
@@ -13689,7 +13719,7 @@
     "errors": [],
     "pages": 1,
     "records": 14,
-    "seconds": 0.01,
+    "seconds": 0.09,
     "strategies": [
      "direct"
     ],
@@ -13702,7 +13732,7 @@
      },
      "input_tokens": 1021,
      "output_tokens": 1554,
-     "seconds": 0.0
+     "seconds": 0.06
     },
     "browser_pages": 0,
     "duplicates_merged": 0,
@@ -13724,7 +13754,7 @@
      }
     ],
     "error": null,
-    "extract_ms_p50": 4.8
+    "extract_ms_p50": 77.9
    },
    "traps_result": {},
    "politeness": {
@@ -13733,16 +13763,17 @@
       "requests": 2,
       "subresources": 0,
       "robots_fetches": 1,
-      "min_gap_s": 0.0,
+      "min_gap_s": 0.008,
       "configured_interval_s": 0.0,
-      "max_requests_per_s_10s": 0.2
+      "max_requests_per_s_10s": 0.2,
+      "mean_requests_per_s": 118.442
      }
     },
     "robots_blocked": []
    },
    "learned": false,
    "extractors": [],
-   "seconds": 0.0
+   "seconds": 0.1
   },
   {
    "site": "menu-05",
@@ -13782,7 +13813,7 @@
     "errors": [],
     "pages": 2,
     "records": 20,
-    "seconds": 0.01,
+    "seconds": 0.17,
     "strategies": [
      "direct"
     ],
@@ -13817,7 +13848,7 @@
      }
     ],
     "error": null,
-    "extract_ms_p50": 3.0
+    "extract_ms_p50": 84.0
    },
    "traps_result": {
     "currency_conversion": {
@@ -13832,16 +13863,17 @@
       "requests": 3,
       "subresources": 0,
       "robots_fetches": 1,
-      "min_gap_s": 0.0,
+      "min_gap_s": 0.004,
       "configured_interval_s": 0.0,
-      "max_requests_per_s_10s": 0.3
+      "max_requests_per_s_10s": 0.3,
+      "mean_requests_per_s": 28.039
      }
     },
     "robots_blocked": []
    },
    "learned": false,
    "extractors": [],
-   "seconds": 0.0
+   "seconds": 0.2
   },
   {
    "site": "saas-01",
@@ -13886,7 +13918,7 @@
     "errors": [],
     "pages": 1,
     "records": 3,
-    "seconds": 0.0,
+    "seconds": 0.01,
     "strategies": [
      "direct"
     ],
@@ -13921,7 +13953,7 @@
      }
     ],
     "error": null,
-    "extract_ms_p50": 3.5
+    "extract_ms_p50": 9.2
    },
    "traps_result": {},
    "politeness": {
@@ -13930,9 +13962,10 @@
       "requests": 2,
       "subresources": 0,
       "robots_fetches": 1,
-      "min_gap_s": 0.0,
+      "min_gap_s": 0.001,
       "configured_interval_s": 0.0,
-      "max_requests_per_s_10s": 0.2
+      "max_requests_per_s_10s": 0.2,
+      "mean_requests_per_s": 994.316
      }
     },
     "robots_blocked": []
@@ -14019,7 +14052,7 @@
      }
     ],
     "error": null,
-    "extract_ms_p50": 3.0
+    "extract_ms_p50": 3.7
    },
    "traps_result": {
     "currency_conversion": {
@@ -14036,14 +14069,15 @@
       "robots_fetches": 1,
       "min_gap_s": 0.0,
       "configured_interval_s": 0.0,
-      "max_requests_per_s_10s": 0.2
+      "max_requests_per_s_10s": 0.2,
+      "mean_requests_per_s": 2645.944
      }
     },
     "robots_blocked": []
    },
    "learned": false,
    "extractors": [],
-   "seconds": 0.0
+   "seconds": 0.1
   },
   {
    "site": "saas-03",
@@ -14123,7 +14157,7 @@
      }
     ],
     "error": null,
-    "extract_ms_p50": 4.7
+    "extract_ms_p50": 4.4
    },
    "traps_result": {},
    "politeness": {
@@ -14134,7 +14168,8 @@
       "robots_fetches": 1,
       "min_gap_s": 0.0,
       "configured_interval_s": 0.0,
-      "max_requests_per_s_10s": 0.2
+      "max_requests_per_s_10s": 0.2,
+      "mean_requests_per_s": 2815.593
      }
     },
     "robots_blocked": []
@@ -14221,7 +14256,7 @@
      }
     ],
     "error": null,
-    "extract_ms_p50": 2.9
+    "extract_ms_p50": 3.7
    },
    "traps_result": {
     "currency_conversion": {
@@ -14238,14 +14273,15 @@
       "robots_fetches": 1,
       "min_gap_s": 0.0,
       "configured_interval_s": 0.0,
-      "max_requests_per_s_10s": 0.2
+      "max_requests_per_s_10s": 0.2,
+      "mean_requests_per_s": 2632.611
      }
     },
     "robots_blocked": []
    },
    "learned": false,
    "extractors": [],
-   "seconds": 0.1
+   "seconds": 0.0
   },
   {
    "site": "saas-05",
@@ -14325,7 +14361,7 @@
      }
     ],
     "error": null,
-    "extract_ms_p50": 2.8
+    "extract_ms_p50": 3.2
    },
    "traps_result": {},
    "politeness": {
@@ -14336,7 +14372,8 @@
       "robots_fetches": 1,
       "min_gap_s": 0.0,
       "configured_interval_s": 0.0,
-      "max_requests_per_s_10s": 0.2
+      "max_requests_per_s_10s": 0.2,
+      "mean_requests_per_s": 2522.373
      }
     },
     "robots_blocked": []
@@ -14393,7 +14430,7 @@
     "errors": [],
     "pages": 3,
     "records": 52,
-    "seconds": 0.06,
+    "seconds": 0.09,
     "strategies": [
      "learned"
     ],
@@ -14440,7 +14477,7 @@
      }
     ],
     "error": null,
-    "extract_ms_p50": 9.5
+    "extract_ms_p50": 22.1
    },
    "traps_result": {},
    "politeness": {
@@ -14451,7 +14488,8 @@
       "robots_fetches": 1,
       "min_gap_s": 0.0,
       "configured_interval_s": 0.0,
-      "max_requests_per_s_10s": 0.4
+      "max_requests_per_s_10s": 0.4,
+      "mean_requests_per_s": 37.167
      }
     },
     "robots_blocked": []
@@ -14459,7 +14497,7 @@
    "learned": true,
    "extractors": [
     {
-     "id": "ext-b4472a",
+     "id": "ext-441b4d",
      "kind": "list",
      "accepted": true,
      "attempts": 1,
@@ -14808,7 +14846,7 @@
     "errors": [],
     "pages": 3,
     "records": 52,
-    "seconds": 0.07,
+    "seconds": 0.11,
     "strategies": [
      "learned"
     ],
@@ -14932,7 +14970,7 @@
     "records": 52,
     "llm_calls": 0
    },
-   "seconds": 0.3
+   "seconds": 0.5
   },
   {
    "site": "registry-02",
@@ -15134,7 +15172,7 @@
     ],
     "pages": 3,
     "records": 53,
-    "seconds": 0.06,
+    "seconds": 0.15,
     "strategies": [
      "learned"
     ],
@@ -15181,7 +15219,7 @@
      }
     ],
     "error": null,
-    "extract_ms_p50": 9.2
+    "extract_ms_p50": 27.6
    },
    "traps_result": {},
    "politeness": {
@@ -15190,9 +15228,10 @@
       "requests": 4,
       "subresources": 0,
       "robots_fetches": 1,
-      "min_gap_s": 0.001,
+      "min_gap_s": 0.006,
       "configured_interval_s": 0.0,
-      "max_requests_per_s_10s": 0.4
+      "max_requests_per_s_10s": 0.4,
+      "mean_requests_per_s": 20.854
      }
     },
     "robots_blocked": []
@@ -15200,7 +15239,7 @@
    "learned": true,
    "extractors": [
     {
-     "id": "ext-0c401b",
+     "id": "ext-1d2996",
      "kind": "list",
      "accepted": true,
      "attempts": 1,
@@ -15449,7 +15488,7 @@
     ],
     "pages": 3,
     "records": 54,
-    "seconds": 0.07,
+    "seconds": 0.05,
     "strategies": [
      "learned"
     ],
@@ -15558,7 +15597,7 @@
     "errors": [],
     "pages": 3,
     "records": 53,
-    "seconds": 0.1,
+    "seconds": 0.18,
     "strategies": [
      "direct"
     ],
@@ -15621,7 +15660,7 @@
     "records": 53,
     "llm_calls": 0
    },
-   "seconds": 0.4
+   "seconds": 0.6
   },
   {
    "site": "registry-03",
@@ -15671,7 +15710,7 @@
     "errors": [],
     "pages": 3,
     "records": 62,
-    "seconds": 0.07,
+    "seconds": 0.1,
     "strategies": [
      "learned"
     ],
@@ -15718,7 +15757,7 @@
      }
     ],
     "error": null,
-    "extract_ms_p50": 9.3
+    "extract_ms_p50": 12.1
    },
    "traps_result": {},
    "politeness": {
@@ -15727,9 +15766,10 @@
       "requests": 4,
       "subresources": 0,
       "robots_fetches": 1,
-      "min_gap_s": 0.0,
+      "min_gap_s": 0.002,
       "configured_interval_s": 0.0,
-      "max_requests_per_s_10s": 0.4
+      "max_requests_per_s_10s": 0.4,
+      "mean_requests_per_s": 33.861
      }
     },
     "robots_blocked": []
@@ -15737,7 +15777,7 @@
    "learned": true,
    "extractors": [
     {
-     "id": "ext-c23eb9",
+     "id": "ext-12b18e",
      "kind": "list",
      "accepted": true,
      "attempts": 1,
@@ -15824,7 +15864,7 @@
     "errors": [],
     "pages": 3,
     "records": 0,
-    "seconds": 0.02,
+    "seconds": 0.03,
     "strategies": [
      "learned"
     ],
@@ -15915,7 +15955,7 @@
     "errors": [],
     "pages": 3,
     "records": 62,
-    "seconds": 0.05,
+    "seconds": 0.16,
     "strategies": [
      "learned"
     ],
@@ -16037,7 +16077,7 @@
     "records": 62,
     "llm_calls": 0
    },
-   "seconds": 0.3
+   "seconds": 0.6
   },
   {
    "site": "registry-04",
@@ -16087,7 +16127,7 @@
     "errors": [],
     "pages": 2,
     "records": 48,
-    "seconds": 0.05,
+    "seconds": 0.08,
     "strategies": [
      "learned"
     ],
@@ -16134,7 +16174,7 @@
      }
     ],
     "error": null,
-    "extract_ms_p50": 22.8
+    "extract_ms_p50": 39.1
    },
    "traps_result": {},
    "politeness": {
@@ -16145,7 +16185,8 @@
       "robots_fetches": 1,
       "min_gap_s": 0.0,
       "configured_interval_s": 0.0,
-      "max_requests_per_s_10s": 0.3
+      "max_requests_per_s_10s": 0.3,
+      "mean_requests_per_s": 492.839
      }
     },
     "robots_blocked": []
@@ -16153,7 +16194,7 @@
    "learned": true,
    "extractors": [
     {
-     "id": "ext-cd14a1",
+     "id": "ext-b244b2",
      "kind": "list",
      "accepted": true,
      "attempts": 1,
@@ -16404,7 +16445,7 @@
     ],
     "pages": 2,
     "records": 48,
-    "seconds": 0.03,
+    "seconds": 0.07,
     "strategies": [
      "learned"
     ],
@@ -16494,7 +16535,7 @@
     "errors": [],
     "pages": 2,
     "records": 48,
-    "seconds": 0.06,
+    "seconds": 0.05,
     "strategies": [
      "learned"
     ],
@@ -16618,7 +16659,7 @@
     "records": 48,
     "llm_calls": 0
    },
-   "seconds": 0.3
+   "seconds": 0.4
   },
   {
    "site": "spa-shop-01",
@@ -16667,7 +16708,7 @@
     "errors": [],
     "pages": 4,
     "records": 34,
-    "seconds": 3.15,
+    "seconds": 3.46,
     "strategies": [
      "learned"
     ],
@@ -16722,7 +16763,7 @@
      }
     ],
     "error": null,
-    "extract_ms_p50": 298.8
+    "extract_ms_p50": 309.3
    },
    "traps_result": {
     "anomalies_expected": 1,
@@ -16735,9 +16776,10 @@
       "requests": 6,
       "subresources": 8,
       "robots_fetches": 1,
-      "min_gap_s": 0.0,
+      "min_gap_s": 0.002,
       "configured_interval_s": 0.0,
-      "max_requests_per_s_10s": 1.4
+      "max_requests_per_s_10s": 1.4,
+      "mean_requests_per_s": 4.444
      }
     },
     "robots_blocked": []
@@ -16745,7 +16787,7 @@
    "learned": true,
    "extractors": [
     {
-     "id": "ext-effb3e",
+     "id": "ext-0fc3c1",
      "kind": "list",
      "accepted": true,
      "attempts": 1,
@@ -16832,7 +16874,7 @@
     "errors": [],
     "pages": 4,
     "records": 0,
-    "seconds": 2.8,
+    "seconds": 2.97,
     "strategies": [
      "learned"
     ],
@@ -16931,7 +16973,7 @@
     "errors": [],
     "pages": 4,
     "records": 34,
-    "seconds": 2.83,
+    "seconds": 3.02,
     "strategies": [
      "learned"
     ],
@@ -17062,7 +17104,7 @@
     "records": 34,
     "llm_calls": 0
    },
-   "seconds": 14.6
+   "seconds": 15.5
   },
   {
    "site": "spa-shop-06",
@@ -17115,7 +17157,7 @@
     "errors": [],
     "pages": 4,
     "records": 32,
-    "seconds": 2.93,
+    "seconds": 3.31,
     "strategies": [
      "learned"
     ],
@@ -17166,7 +17208,7 @@
      }
     ],
     "error": null,
-    "extract_ms_p50": 298.7
+    "extract_ms_p50": 314.0
    },
    "traps_result": {},
    "politeness": {
@@ -17175,9 +17217,10 @@
       "requests": 6,
       "subresources": 8,
       "robots_fetches": 1,
-      "min_gap_s": 0.001,
+      "min_gap_s": 0.003,
       "configured_interval_s": 0.0,
-      "max_requests_per_s_10s": 1.4
+      "max_requests_per_s_10s": 1.4,
+      "mean_requests_per_s": 4.676
      }
     },
     "robots_blocked": []
@@ -17185,7 +17228,7 @@
    "learned": true,
    "extractors": [
     {
-     "id": "ext-0307a6",
+     "id": "ext-e164f6",
      "kind": "list",
      "accepted": true,
      "attempts": 1,
@@ -17300,7 +17343,7 @@
     "errors": [],
     "pages": 4,
     "records": 0,
-    "seconds": 2.75,
+    "seconds": 2.9,
     "strategies": [
      "learned"
     ],
@@ -17403,19 +17446,20 @@
     "errors": [],
     "pages": 4,
     "records": 32,
-    "seconds": 2.84,
+    "seconds": 2.9,
     "strategies": [
-     "learned"
+     "direct"
     ],
     "llm": {
-     "calls": 3,
-     "cached": 3,
+     "calls": 7,
+     "cached": 7,
      "failed": 0,
      "by_task": {
-      "heal_extractor": 3
+      "heal_extractor": 3,
+      "direct_extract": 4
      },
-     "input_tokens": 9137,
-     "output_tokens": 11763,
+     "input_tokens": 18337,
+     "output_tokens": 32404,
      "seconds": 0.0
     },
     "browser_pages": 4,
@@ -17441,8 +17485,8 @@
       "message": "lumen-desk-goods.example: layout change detected (no records; structural similarity 0.07)"
      },
      {
-      "kind": "healed",
-      "message": "lumen-desk-goods.example: healed in 3 attempt(s), 3 model call(s); verified against 52 earlier record(s)"
+      "kind": "heal_failed",
+      "message": "lumen-desk-goods.example: re-learned rules did not pass verification after 3 attempt(s) (3 call(s)); switching this site to direct extraction"
      },
      {
       "kind": "deduplicated",
@@ -17450,100 +17494,16 @@
      },
      {
       "kind": "job_finished",
-      "message": "32 records from 4 pages, 3 model call(s)"
+      "message": "32 records from 4 pages, 7 model call(s)"
      }
     ],
     "error": null,
     "detected": true,
-    "healed": true,
-    "heal_failed": false,
+    "healed": false,
+    "heal_failed": true,
     "heal_calls": 3,
-    "fallback_direct_calls": 0,
-    "healed_programs": [
-     {
-      "kind": "list",
-      "item": "li.rounded-lg.border.p-4.shadow-sm",
-      "fields": {
-       "name": {
-        "css": "a.mt-2.text-lg.font-semibold h2",
-        "attr": "text",
-        "all": false,
-        "negate": false
-       },
-       "price": {
-        "css": "p.mt-1.font-bold",
-        "attr": "text",
-        "all": false,
-        "negate": false
-       },
-       "rating": {
-        "css": "span.text-sm.text-amber-600",
-        "attr": "text",
-        "all": false,
-        "regex": "Rated ([0-9.]+)/5",
-        "negate": false
-       },
-       "stock_status": {
-        "css": "span.text-sm.text-gray-600",
-        "attr": "text",
-        "all": false,
-        "value_map": {
-         "Ships in 24 hours": "in_stock",
-         "Available": "in_stock",
-         "Out of stock": "out_of_stock",
-         "Preorder": "preorder"
-        },
-        "negate": false
-       },
-       "image_url": {
-        "css": "img",
-        "attr": "data-src",
-        "all": false,
-        "negate": false
-       },
-       "product_url": {
-        "css": "a.mt-2.text-lg.font-semibold",
-        "attr": "href",
-        "all": false,
-        "negate": false
-       },
-       "variants": {
-        "css": "select option",
-        "attr": "text",
-        "all": true,
-        "negate": false,
-        "fields": {
-         "name": {
-          "css": "",
-          "attr": "value",
-          "all": false,
-          "negate": false
-         },
-         "in_stock": {
-          "css": "[disabled]",
-          "attr": "exists",
-          "all": false,
-          "negate": true
-         }
-        }
-       }
-      },
-      "next_page": {
-       "css": "a[rel='next']",
-       "attr": "href",
-       "all": false,
-       "negate": false
-      },
-      "detail_link": {
-       "css": "a.mt-2.text-lg.font-semibold",
-       "attr": "href",
-       "all": false,
-       "negate": false
-      },
-      "missing": [],
-      "notes": ""
-     }
-    ]
+    "fallback_direct_calls": 4,
+    "healed_programs": []
    },
    "v1_recheck": {
     "false_alarm": false,
@@ -17557,7 +17517,7 @@
     "records": 32,
     "llm_calls": 0
    },
-   "seconds": 14.3
+   "seconds": 15.1
   },
   {
    "site": "spa-jobs-07",
@@ -17619,7 +17579,7 @@
     "errors": [],
     "pages": 4,
     "records": 24,
-    "seconds": 2.72,
+    "seconds": 2.89,
     "strategies": [
      "learned"
     ],
@@ -17674,7 +17634,7 @@
      }
     ],
     "error": null,
-    "extract_ms_p50": 292.1
+    "extract_ms_p50": 294.9
    },
    "traps_result": {
     "pii_planted": 10,
@@ -17692,7 +17652,8 @@
       "robots_fetches": 1,
       "min_gap_s": 0.0,
       "configured_interval_s": 0.0,
-      "max_requests_per_s_10s": 1.4
+      "max_requests_per_s_10s": 1.4,
+      "mean_requests_per_s": 5.469
      }
     },
     "robots_blocked": []
@@ -17700,7 +17661,7 @@
    "learned": true,
    "extractors": [
     {
-     "id": "ext-4de4b2",
+     "id": "ext-0a05b1",
      "kind": "list",
      "accepted": true,
      "attempts": 1,
@@ -17825,7 +17786,7 @@
     "errors": [],
     "pages": 6,
     "records": 0,
-    "seconds": 3.96,
+    "seconds": 3.95,
     "strategies": [
      "learned"
     ],
@@ -17944,7 +17905,7 @@
     "errors": [],
     "pages": 4,
     "records": 24,
-    "seconds": 2.68,
+    "seconds": 2.83,
     "strategies": [
      "learned"
     ],
@@ -18112,7 +18073,7 @@
     "records": 24,
     "llm_calls": 0
    },
-   "seconds": 15.0
+   "seconds": 15.7
   },
   {
    "site": "scroll-shop-08",
@@ -18165,7 +18126,7 @@
     "errors": [],
     "pages": 1,
     "records": 40,
-    "seconds": 2.42,
+    "seconds": 2.43,
     "strategies": [
      "learned"
     ],
@@ -18212,7 +18173,7 @@
      }
     ],
     "error": null,
-    "extract_ms_p50": 2417.8
+    "extract_ms_p50": 2424.4
    },
    "traps_result": {},
    "politeness": {
@@ -18221,9 +18182,10 @@
       "requests": 3,
       "subresources": 4,
       "robots_fetches": 1,
-      "min_gap_s": 0.001,
+      "min_gap_s": 0.0,
       "configured_interval_s": 0.0,
-      "max_requests_per_s_10s": 0.7
+      "max_requests_per_s_10s": 0.7,
+      "mean_requests_per_s": 3.765
      }
     },
     "robots_blocked": []
@@ -18231,7 +18193,7 @@
    "learned": true,
    "extractors": [
     {
-     "id": "ext-f3c281",
+     "id": "ext-3f1aa1",
      "kind": "list",
      "accepted": true,
      "attempts": 1,
@@ -18338,7 +18300,7 @@
     "errors": [],
     "pages": 1,
     "records": 0,
-    "seconds": 2.31,
+    "seconds": 2.33,
     "strategies": [
      "learned"
     ],
@@ -18409,21 +18371,21 @@
     "errors": [],
     "pages": 1,
     "records": 0,
-    "seconds": 216.74,
+    "seconds": 49.58,
     "strategies": [
      "direct"
     ],
     "llm": {
-     "calls": 5,
+     "calls": 4,
      "cached": 3,
-     "failed": 1,
+     "failed": 0,
      "by_task": {
       "heal_extractor": 3,
-      "direct_extract": 2
+      "direct_extract": 1
      },
-     "input_tokens": 14392,
-     "output_tokens": 20111,
-     "seconds": 214.45
+     "input_tokens": 14353,
+     "output_tokens": 21089,
+     "seconds": 47.14
     },
     "browser_pages": 1,
     "duplicates_merged": 0,
@@ -18457,7 +18419,7 @@
      },
      {
       "kind": "job_finished",
-      "message": "0 records from 1 pages, 5 model call(s)"
+      "message": "0 records from 1 pages, 4 model call(s)"
      }
     ],
     "error": null,
@@ -18465,7 +18427,7 @@
     "healed": false,
     "heal_failed": true,
     "heal_calls": 3,
-    "fallback_direct_calls": 2,
+    "fallback_direct_calls": 1,
     "healed_programs": []
    },
    "v1_recheck": {
@@ -18480,7 +18442,7 @@
     "records": 40,
     "llm_calls": 0
    },
-   "seconds": 226.6
+   "seconds": 59.5
   },
   {
    "site": "scroll-events-06",
@@ -18529,7 +18491,7 @@
     "errors": [],
     "pages": 1,
     "records": 34,
-    "seconds": 2.25,
+    "seconds": 2.37,
     "strategies": [
      "learned"
     ],
@@ -18576,7 +18538,7 @@
      }
     ],
     "error": null,
-    "extract_ms_p50": 2250.3
+    "extract_ms_p50": 2366.7
    },
    "traps_result": {
     "relative_dates": {
@@ -18592,7 +18554,8 @@
       "robots_fetches": 1,
       "min_gap_s": 0.0,
       "configured_interval_s": 0.0,
-      "max_requests_per_s_10s": 0.7
+      "max_requests_per_s_10s": 0.7,
+      "mean_requests_per_s": 3.853
      }
     },
     "robots_blocked": []
@@ -18600,7 +18563,7 @@
    "learned": true,
    "extractors": [
     {
-     "id": "ext-995ec6",
+     "id": "ext-bedad8",
      "kind": "list",
      "accepted": true,
      "attempts": 1,
@@ -18676,7 +18639,7 @@
     "errors": [],
     "pages": 6,
     "records": 0,
-    "seconds": 7.95,
+    "seconds": 7.96,
     "strategies": [
      "learned"
     ],
@@ -18783,7 +18746,7 @@
     "errors": [],
     "pages": 1,
     "records": 34,
-    "seconds": 2.42,
+    "seconds": 2.3,
     "strategies": [
      "learned"
     ],
@@ -18968,7 +18931,7 @@
     ],
     "pages": 1,
     "records": 18,
-    "seconds": 2.19,
+    "seconds": 2.23,
     "strategies": [
      "learned"
     ],
@@ -19015,7 +18978,7 @@
      }
     ],
     "error": null,
-    "extract_ms_p50": 2188.6
+    "extract_ms_p50": 2228.2
    },
    "traps_result": {},
    "politeness": {
@@ -19026,7 +18989,8 @@
       "robots_fetches": 1,
       "min_gap_s": 0.001,
       "configured_interval_s": 0.0,
-      "max_requests_per_s_10s": 0.6
+      "max_requests_per_s_10s": 0.6,
+      "mean_requests_per_s": 3.575
      }
     },
     "robots_blocked": []
@@ -19034,7 +18998,7 @@
    "learned": true,
    "extractors": [
     {
-     "id": "ext-05e648",
+     "id": "ext-7c573b",
      "kind": "list",
      "accepted": true,
      "attempts": 1,
@@ -19134,7 +19098,7 @@
     "errors": [],
     "pages": 6,
     "records": 0,
-    "seconds": 7.62,
+    "seconds": 7.82,
     "strategies": [
      "learned"
     ],
@@ -19249,7 +19213,7 @@
     "errors": [],
     "pages": 1,
     "records": 18,
-    "seconds": 2.09,
+    "seconds": 2.05,
     "strategies": [
      "learned"
     ],
@@ -19382,8 +19346,8 @@
     "records": 18,
     "llm_calls": 0
    },
-   "seconds": 16.4
+   "seconds": 16.6
   }
  ],
- "seconds": 246.0
+ "seconds": 153.8
 }
