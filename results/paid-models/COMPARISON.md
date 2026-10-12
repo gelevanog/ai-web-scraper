@@ -11,10 +11,11 @@ The default config still refuses every non-`:free` model.
 | Baseline (free) | `nvidia/nemotron-3-super-120b-a12b:free` (+ `nemotron-3-ultra`, `dots-3-note-preview` on the 8-site comparison) | committed `results/main_*.json`, `results/model_*_synthetic.json` |
 | Main paid model | `claude-haiku-5-5` | every suite the baseline ran: synthetic (47 sites, v1 + v2 healing), direct (49 pages), schema (47), traps, toscrape (snapshots) |
 | Strong model, hard subsets | `claude-opus-5-5` | synthetic suite on the README's 8-site comparison subset, and on the 7 "hard" sites where the free model failed to heal or scored below 100% on v1 |
-| Smoke only | `qwen3.7-plus` | 2 calls (3,000-token budget): direct extraction of `saas-02`, schema proposal for `menu-03` |
+| Subset (token budget) | `qwen3.7-plus` (thinking off, `max_tokens` 4096) | synthetic suite on the 8-site comparison subset, direct extraction on the same 8 sites, schema on 15 sites (about 141 k of a 150 k-token budget; the full set would need about 800 k), plus the first 2-call smoke test |
 
 Files: `haiku_rerun_*.json` (headline Haiku numbers), `haiku_*.json` (the first pass, see "Errors" below),
-`opus_synthetic.json`, `opus_hard_synthetic.json`, `qwen_smoke_*.json`, and the paid call ledger `calls.jsonl`
+`opus_synthetic.json`, `opus_hard_synthetic.json`, `qwen_synthetic.json`, `qwen_direct.json`, `qwen_schema.json`,
+`qwen_smoke_*.json`, and the paid call ledger `calls.jsonl`
 (model ids, status, latency, tokens; no prompts).
 
 ## 1. Full evaluation set: free baseline vs Haiku (47 sites)
@@ -51,6 +52,7 @@ Files: `haiku_rerun_*.json` (headline Haiku numbers), `haiku_*.json` (the first 
 | free `dots-3-note-preview` | 98.4% | 6 of 7 * | 95.8% (1 false alarm) | 17 | 38.7 s |
 | `claude-haiku-5-5` | 100% | 6 of 7 | 99.8% | 10 | 6.7 s |
 | `claude-opus-5-5` | 100% | **7 of 7** | **100%** | 10 | 9.1 s |
+| `qwen3.7-plus` | 94.7% (1,385 / 1,463) | 4 of 7 | 91.5% (1,283 / 1,403) | 9 | 13.2 s |
 
 \* ultra and dots were run before the list-of-objects verifier fix (see the README); with it, one of their heals would
 have failed verification. Haiku, Opus and the main free run use the fixed verifier.
@@ -66,7 +68,22 @@ have failed verification. Haiku, Opus and the main free run use the fixed verifi
 | Heal + fallback calls | 16 + 8 | 9 + 4 | 7 + 0 |
 | Model cost on this subset | $0 | about $0.02 | $0.47 |
 
-## 4. Qwen smoke test (2 calls; too small to rank anything)
+## 4. Qwen on the 8-site subset: direct extraction and schema
+
+Same eight sites as section 2 (nine pages: the PDF menu takes two). Free and Haiku numbers are their full-set runs
+restricted to these sites.
+
+| Metric | Free `nemotron-3-super` | `claude-haiku-5-5` | `qwen3.7-plus` |
+|---|---|---|---|
+| Direct: record recall | 97.1% (101 / 104) | 100% | 100% |
+| Direct: field accuracy | 97.5% (649 / 666) | **98.3%** (672 / 684) | 89.5% (612 / 684) |
+| Direct: call latency p50 | 25.8 s (full suite) | 7.1 s (full suite) | 22.4 s |
+| Schema (15 sites, 100 requested fields): found / right type | 100 / 90 | 99 / 93 | **100 / 94** |
+| Schema: extra fields, injected fields | 0, 0 | 4, 0 | 0, 0 |
+
+Qwen's schema sites: the eight above plus saas-02, jobs-02, homes-02, events-03, registry-02, menu-05 and shop-03.
+
+## 5. First Qwen smoke test (2 calls, 3,000-token budget; kept for the record)
 
 | Task | Free `nemotron-3-super` | `claude-haiku-5-5` | `qwen3.7-plus` |
 |---|---|---|---|
@@ -80,8 +97,8 @@ have failed verification. Haiku, Opus and the main free run use the fixed verifi
 |---|---|---|---|
 | `claude-haiku-5-5` | 216 (209) | 498,380 / 323,974 | $0.21 at $0.10 / $0.50 per M |
 | `claude-opus-5-5` | 33 (33) | 92,669 / 28,866 | $0.95 at $4 / $20 per M (8-site subset $0.48, hard subset $0.47) |
-| `qwen3.7-plus` | 3 (2) | 1,645 / 619 | 2,264 of the 3,000-token Qwen budget (proxy count) |
-| **Proxy total for this project** | | | **$1.28** of the $3.50 cap (the proxy's own figure; about $0.12 above the ledger estimate, part of it Qwen) |
+| `qwen3.7-plus` | 57 (56) | 102,597 / 40,497 | 143,094 of the 150,000-token Qwen budget (proxy count, smoke test included) |
+| **Proxy total for this project (Anthropic)** | | | **$1.28** of the $3.50 cap after the Haiku and Opus runs (the proxy's own figure; about $0.12 above the ledger estimate, part of it the 2-call Qwen smoke test) |
 
 Haiku's figure includes 6 trial calls (2 sites) and the 6 retried calls of the re-run; everything else was answered from
 the disk cache.
@@ -94,8 +111,12 @@ the disk cache.
   one direct page. The suites were then re-run under the name `haiku_rerun`: the disk cache answered every call that
   had succeeded, and only the 6 calls behind the failures were made again (all succeeded). The tables use the re-run;
   first-pass numbers were v1 99.0%, 33 of 37 heals, direct recall 93.3%, schema 302 of 314 found.
-- **Qwen**: the first schema call was refused by the proxy before it was sent (it reserves `max_tokens` against the
-  token budget); it was sent once more with `SIFT_LLM_MAX_TOKENS=600` and succeeded. No further Qwen calls.
+- **Qwen, second round** (budget raised to 150,000 tokens): 54 calls, all succeeded, none cut off at the 4096-token
+  cap, no retries needed (`SIFT_LLM_MAX_RETRIES=0`, to avoid retrying a budget 429). The full set did not fit (Haiku's
+  run used about 820 k tokens), so Qwen ran the 8-site comparison subset (synthetic suite and direct) and schema on 15
+  sites; it stopped with about 7 k tokens left.
+- **Qwen, smoke test**: the first schema call was refused by the proxy before it was sent (it reserves `max_tokens` against the
+  token budget); it was sent once more with `SIFT_LLM_MAX_TOKENS=600` and succeeded.
 - **Latency** comes from the call ledgers (requests that reached the API, not cache hits). The baseline's figures cover
   all of its real calls on 2026-10-12, including the runs before its bug fixes.
 - toscrape replayed the committed-run snapshots (`data/snapshots/`, 81 responses): **0 requests** went to the live
@@ -122,9 +143,23 @@ the disk cache.
   ratings (4.5 read as 4.0 on 5 products, and the heal still passed verification); on one job board the heal failed
   verification and the direct fallback left 3 "Remote" locations empty; on one shop the fallback lost the SKUs that
   only detail pages have; and 2 of 286 relative "posted" dates came back empty. The injection guard flagged the same 4 sites, and the model changed no value either way.
+- **Qwen 3.7 Plus (no thinking) is the weakest model here, below the free baseline on extraction.** On the 8-site
+  subset: v1 field accuracy 94.7% (free, Haiku and Opus: 100%), 4 of 7 heals verified, 91.5% accuracy after healing.
+  On direct extraction of the same pages: 89.5% (free 97.5%, Haiku 98.3%). Its records were all found (recall 100%);
+  the losses are in values:
+  - **Currencies**: on EUR and GBP pages it returned amounts labelled USD (menu-03 0 of 15 prices, events-02 3 of 10,
+    shop-07 0 of 12 direct). This is the same failure as in the 2-call smoke test.
+  - **Detail pages**: it never learned rules for the product pages, so shop-07's SKUs stayed empty (0 of 24).
+  - **Variants and decimals**: variant names came back empty or truncated ("One" for "One size"), and a bathroom
+    regex read "5" from "1.5".
+  - **Weak heals**: 3 of 7 heals failed verification, and their direct fallbacks lost values: a job board's salaries
+    and dates (69.7% after healing) and a shop's exact prices (798.99 became 800). One heal that passed verification
+    read the wrong price on 7 of 32 products of the JavaScript shop.
+  - **Strong schema proposals**: 100 of 100 fields found, 94 with the right type (free 90, Haiku 93). It is about as
+    fast as Haiku on schema calls (8.8 s p50) but around 2x slower on learning and healing (13 to 14 s).
 - **Sample sizes:** Haiku ran the full set. Opus ran 15 sites (8 + 7, chosen because they are the comparison set and the
-  free model's failures, so the hard subset favours a stronger model by construction). Qwen ran 2 calls and shows only
-  that the endpoint works and that it missed a EUR price on one page. For the cost, Haiku is the clear default upgrade
+  free model's failures, so the hard subset favours a stronger model by construction). Qwen ran the 8-site
+  subset (54 calls) because of its token budget, so its numbers are less certain than Haiku's. For the cost, Haiku is the clear default upgrade
   (about $0.21 for every suite). Opus's extra accuracy cost about 30 times more per call than Haiku on these sites.
 
 ## Reproduce
@@ -139,6 +174,12 @@ SIFT_LLM_MODEL=claude-opus-5-5 uv run sift eval synthetic --name opus \
   --sites shop-02,shop-07,jobs-03,homes-01,events-02,menu-03,registry-01,spa-shop-06
 SIFT_LLM_MODEL=claude-opus-5-5 uv run sift eval synthetic --name opus_hard \
   --sites jobs-02,jobs-05,registry-02,scroll-shop-08,homes-02,events-03,scroll-homes-05
+export Q="SIFT_LLM_MODEL=qwen3.7-plus SIFT_LLM_MAX_TOKENS=4096 SIFT_LLM_MAX_RETRIES=0"
+S8=shop-02,shop-07,jobs-03,homes-01,events-02,menu-03,registry-01,spa-shop-06
+env $Q uv run sift eval synthetic --name qwen --sites $S8
+env $Q uv run sift eval direct --name qwen --sites $S8 --workers 2
+env $Q uv run sift eval schema --name qwen --workers 1 \
+  --sites $S8,saas-02,jobs-02,homes-02,events-03,registry-02,menu-05,shop-03
 SIFT_LLM_MODEL=qwen3.7-plus uv run sift eval direct --name qwen_smoke --sites saas-02 --workers 1
 SIFT_LLM_MODEL=qwen3.7-plus SIFT_LLM_MAX_TOKENS=600 uv run sift eval schema --name qwen_smoke --sites menu-03 --workers 1
 ```

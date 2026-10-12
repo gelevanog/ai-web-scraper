@@ -1,0 +1,1306 @@
+{
+ "name": "qwen",
+ "suite": "direct",
+ "run_at": "2026-10-12T09:26:46+00:00",
+ "provider": "compat",
+ "model": "qwen3.7-plus",
+ "fallbacks": [],
+ "aggregate": {
+  "sites": 8,
+  "truth_records": 104,
+  "extracted_records": 105,
+  "matched": 104,
+  "precision": 0.9905,
+  "recall": 1.0,
+  "field_accuracy": 0.8947,
+  "fields_correct": 612,
+  "fields_total": 684,
+  "pages": 9,
+  "llm_calls": 9,
+  "input_tokens": 14396,
+  "output_tokens": 10681,
+  "call_seconds_p50": 20.1,
+  "call_seconds_p95": 33.9,
+  "not_on_page_flags": 69
+ },
+ "sites": [
+  {
+   "site": "shop-02",
+   "vertical": "ecommerce",
+   "mode": "static",
+   "truth": 12,
+   "extracted": 13,
+   "matched": 12,
+   "precision": 0.9231,
+   "recall": 1.0,
+   "field_accuracy": 1.0,
+   "fields": {
+    "name": {
+     "correct": 12,
+     "total": 12
+    },
+    "price": {
+     "correct": 12,
+     "total": 12
+    },
+    "rating": {
+     "correct": 12,
+     "total": 12
+    },
+    "stock_status": {
+     "correct": 12,
+     "total": 12
+    },
+    "image_url": {
+     "correct": 12,
+     "total": 12
+    },
+    "product_url": {
+     "correct": 12,
+     "total": 12
+    },
+    "variants": {
+     "correct": 12,
+     "total": 12
+    }
+   },
+   "unmatched_extracted": [
+    "Meridian Wall Mirror"
+   ],
+   "missed": [],
+   "errors": [],
+   "pages": 1,
+   "records": 13,
+   "seconds": 33.97,
+   "strategies": [
+    "direct"
+   ],
+   "llm": {
+    "calls": 1,
+    "cached": 0,
+    "failed": 0,
+    "by_task": {
+     "direct_extract": 1
+    },
+    "input_tokens": 2193,
+    "output_tokens": 1806,
+    "seconds": 33.93
+   },
+   "browser_pages": 0,
+   "duplicates_merged": 0,
+   "sparse_dropped": 0,
+   "pii_removed": 0,
+   "injection_findings": 0,
+   "events": [
+    {
+     "kind": "job_started",
+     "message": "Crawling 1 start URL(s)"
+    },
+    {
+     "kind": "strategy",
+     "message": "brightloom-home.example: direct LLM extraction (set by the job)"
+    },
+    {
+     "kind": "page_cap",
+     "message": "Page cap of 1 reached; 1 queued URL(s) not visited"
+    },
+    {
+     "kind": "job_finished",
+     "message": "13 records from 1 pages, 1 model call(s)"
+    }
+   ],
+   "error": null,
+   "pages_extracted": 1,
+   "call_seconds": [
+    33.93
+   ],
+   "input_tokens": 2193,
+   "output_tokens": 1806,
+   "not_on_page_flags": 17
+  },
+  {
+   "site": "shop-07",
+   "vertical": "ecommerce",
+   "mode": "static",
+   "truth": 12,
+   "extracted": 12,
+   "matched": 12,
+   "precision": 1.0,
+   "recall": 1.0,
+   "field_accuracy": 0.7143,
+   "fields": {
+    "name": {
+     "correct": 12,
+     "total": 12
+    },
+    "price": {
+     "correct": 0,
+     "total": 12
+    },
+    "rating": {
+     "correct": 12,
+     "total": 12
+    },
+    "stock_status": {
+     "correct": 12,
+     "total": 12
+    },
+    "image_url": {
+     "correct": 12,
+     "total": 12
+    },
+    "product_url": {
+     "correct": 12,
+     "total": 12
+    },
+    "sku": {
+     "correct": 0,
+     "total": 12
+    }
+   },
+   "unmatched_extracted": [],
+   "missed": [],
+   "errors": [
+    {
+     "key": "Pro Chain Lube",
+     "field": "price",
+     "got": {
+      "amount": 90.65,
+      "currency": "USD"
+     },
+     "want": 89.0
+    },
+    {
+     "key": "Pro Chain Lube",
+     "field": "sku",
+     "got": null,
+     "want": "GRA-51185"
+    },
+    {
+     "key": "Compact Mudguard Set",
+     "field": "price",
+     "got": {
+      "amount": 39.72,
+      "currency": "USD"
+     },
+     "want": 39.0
+    },
+    {
+     "key": "Compact Mudguard Set",
+     "field": "sku",
+     "got": null,
+     "want": "GRA-83119"
+    },
+    {
+     "key": "Aurora Saddle Bag",
+     "field": "price",
+     "got": {
+      "amount": 131.38,
+      "currency": "USD"
+     },
+     "want": 129.0
+    },
+    {
+     "key": "Aurora Saddle Bag",
+     "field": "sku",
+     "got": null,
+     "want": "GRA-65097"
+    },
+    {
+     "key": "Summit Floor Pump",
+     "field": "price",
+     "got": {
+      "amount": 46.84,
+      "currency": "USD"
+     },
+     "want": 45.99
+    },
+    {
+     "key": "Summit Floor Pump",
+     "field": "sku",
+     "got": null,
+     "want": "GRA-34021"
+    },
+    {
+     "key": "Slate City Bike",
+     "field": "price",
+     "got": {
+      "amount": 24.96,
+      "currency": "USD"
+     },
+     "want": 24.51
+    },
+    {
+     "key": "Slate City Bike",
+     "field": "sku",
+     "got": null,
+     "want": "GRA-13932"
+    },
+    {
+     "key": "Urban City Bike",
+     "field": "price",
+     "got": {
+      "amount": 1323.56,
+      "currency": "USD"
+     },
+     "want": 1299.5
+    },
+    {
+     "key": "Urban City Bike",
+     "field": "sku",
+     "got": null,
+     "want": "GRA-21456"
+    },
+    {
+     "key": "Coastal Bike Helmet",
+     "field": "price",
+     "got": {
+      "amount": 202.69,
+      "currency": "USD"
+     },
+     "want": 199.0
+    },
+    {
+     "key": "Coastal Bike Helmet",
+     "field": "sku",
+     "got": null,
+     "want": "GRA-61677"
+    },
+    {
+     "key": "Aurora Gravel Bike",
+     "field": "price",
+     "got": {
+      "amount": 91.65,
+      "currency": "USD"
+     },
+     "want": 89.99
+    },
+    {
+     "key": "Aurora Gravel Bike",
+     "field": "sku",
+     "got": null,
+     "want": "GRA-88920"
+    },
+    {
+     "key": "Compact Saddle Bag",
+     "field": "price",
+     "got": {
+      "amount": 813.79,
+      "currency": "USD"
+     },
+     "want": 798.99
+    },
+    {
+     "key": "Compact Saddle Bag",
+     "field": "sku",
+     "got": null,
+     "want": "GRA-23083"
+    },
+    {
+     "key": "Heritage Mudguard Set",
+     "field": "price",
+     "got": {
+      "amount": 90.65,
+      "currency": "USD"
+     },
+     "want": 89.0
+    },
+    {
+     "key": "Heritage Mudguard Set",
+     "field": "sku",
+     "got": null,
+     "want": "GRA-76850"
+    },
+    {
+     "key": "Slate City Bike Plus",
+     "field": "price",
+     "got": {
+      "amount": 356.43,
+      "currency": "USD"
+     },
+     "want": 349.95
+    },
+    {
+     "key": "Slate City Bike Plus",
+     "field": "sku",
+     "got": null,
+     "want": "GRA-20705"
+    },
+    {
+     "key": "Heritage Kickstand",
+     "field": "price",
+     "got": {
+      "amount": 254.58,
+      "currency": "USD"
+     },
+     "want": 249.96
+    },
+    {
+     "key": "Heritage Kickstand",
+     "field": "sku",
+     "got": null,
+     "want": "GRA-27881"
+    }
+   ],
+   "pages": 1,
+   "records": 12,
+   "seconds": 22.42,
+   "strategies": [
+    "direct"
+   ],
+   "llm": {
+    "calls": 1,
+    "cached": 0,
+    "failed": 0,
+    "by_task": {
+     "direct_extract": 1
+    },
+    "input_tokens": 1882,
+    "output_tokens": 1208,
+    "seconds": 22.39
+   },
+   "browser_pages": 0,
+   "duplicates_merged": 0,
+   "sparse_dropped": 0,
+   "pii_removed": 0,
+   "injection_findings": 2,
+   "events": [
+    {
+     "kind": "job_started",
+     "message": "Crawling 1 start URL(s)"
+    },
+    {
+     "kind": "strategy",
+     "message": "granite-cycles.example: direct LLM extraction (set by the job)"
+    },
+    {
+     "kind": "injection",
+     "message": "https://granite-cycles.example/catalog/: 2 sentence(s) addressed to AI systems quarantined"
+    },
+    {
+     "kind": "page_cap",
+     "message": "Page cap of 1 reached; 1 queued URL(s) not visited"
+    },
+    {
+     "kind": "job_finished",
+     "message": "12 records from 1 pages, 1 model call(s)"
+    }
+   ],
+   "error": null,
+   "pages_extracted": 1,
+   "call_seconds": [
+    22.39
+   ],
+   "input_tokens": 1882,
+   "output_tokens": 1208,
+   "not_on_page_flags": 12
+  },
+  {
+   "site": "jobs-03",
+   "vertical": "jobs",
+   "mode": "static",
+   "truth": 10,
+   "extracted": 10,
+   "matched": 10,
+   "precision": 1.0,
+   "recall": 1.0,
+   "field_accuracy": 0.7333,
+   "fields": {
+    "title": {
+     "correct": 10,
+     "total": 10
+    },
+    "company": {
+     "correct": 10,
+     "total": 10
+    },
+    "location": {
+     "correct": 10,
+     "total": 10
+    },
+    "salary_min": {
+     "correct": 3,
+     "total": 10
+    },
+    "salary_max": {
+     "correct": 3,
+     "total": 10
+    },
+    "employment_type": {
+     "correct": 10,
+     "total": 10
+    },
+    "remote": {
+     "correct": 10,
+     "total": 10
+    },
+    "posted_date": {
+     "correct": 0,
+     "total": 10
+    },
+    "job_url": {
+     "correct": 10,
+     "total": 10
+    }
+   },
+   "unmatched_extracted": [],
+   "missed": [],
+   "errors": [
+    {
+     "key": "Product Designer",
+     "field": "salary_min",
+     "got": null,
+     "want": 48260.0
+    },
+    {
+     "key": "Product Designer",
+     "field": "salary_max",
+     "got": null,
+     "want": 58420.0
+    },
+    {
+     "key": "Product Designer",
+     "field": "posted_date",
+     "got": null,
+     "want": "2026-09-10"
+    },
+    {
+     "key": "Sales Development Representative",
+     "field": "salary_min",
+     "got": null,
+     "want": 129540.0
+    },
+    {
+     "key": "Sales Development Representative",
+     "field": "salary_max",
+     "got": null,
+     "want": 156210.0
+    },
+    {
+     "key": "Sales Development Representative",
+     "field": "posted_date",
+     "got": null,
+     "want": "2026-09-28"
+    },
+    {
+     "key": "Recruiter",
+     "field": "salary_min",
+     "got": null,
+     "want": 58420.0
+    },
+    {
+     "key": "Recruiter",
+     "field": "salary_max",
+     "got": null,
+     "want": 86360.0
+    },
+    {
+     "key": "Recruiter",
+     "field": "posted_date",
+     "got": null,
+     "want": "2026-09-27"
+    },
+    {
+     "key": "Marketing Coordinator",
+     "field": "salary_min",
+     "got": null,
+     "want": 118110.0
+    },
+    {
+     "key": "Marketing Coordinator",
+     "field": "salary_max",
+     "got": null,
+     "want": 139700.0
+    },
+    {
+     "key": "Marketing Coordinator",
+     "field": "posted_date",
+     "got": null,
+     "want": "2026-09-21"
+    },
+    {
+     "key": "Senior Backend Engineer",
+     "field": "posted_date",
+     "got": null,
+     "want": "2026-09-25"
+    },
+    {
+     "key": "Frontend Developer",
+     "field": "salary_min",
+     "got": null,
+     "want": 129540.0
+    },
+    {
+     "key": "Frontend Developer",
+     "field": "salary_max",
+     "got": null,
+     "want": 151130.0
+    },
+    {
+     "key": "Frontend Developer",
+     "field": "posted_date",
+     "got": null,
+     "want": "2026-09-24"
+    },
+    {
+     "key": "Senior Recruiter",
+     "field": "salary_min",
+     "got": null,
+     "want": 58420.0
+    },
+    {
+     "key": "Senior Recruiter",
+     "field": "salary_max",
+     "got": null,
+     "want": 74930.0
+    },
+    {
+     "key": "Senior Recruiter",
+     "field": "posted_date",
+     "got": null,
+     "want": "2026-09-29"
+    },
+    {
+     "key": "Office Manager",
+     "field": "posted_date",
+     "got": null,
+     "want": "2026-09-29"
+    },
+    {
+     "key": "Senior Product Designer",
+     "field": "posted_date",
+     "got": null,
+     "want": "2026-09-26"
+    },
+    {
+     "key": "Data Analyst",
+     "field": "salary_min",
+     "got": null,
+     "want": 69850.0
+    },
+    {
+     "key": "Data Analyst",
+     "field": "salary_max",
+     "got": null,
+     "want": 91440.0
+    },
+    {
+     "key": "Data Analyst",
+     "field": "posted_date",
+     "got": null,
+     "want": "2026-09-21"
+    }
+   ],
+   "pages": 1,
+   "records": 10,
+   "seconds": 19.23,
+   "strategies": [
+    "direct"
+   ],
+   "llm": {
+    "calls": 1,
+    "cached": 0,
+    "failed": 0,
+    "by_task": {
+     "direct_extract": 1
+    },
+    "input_tokens": 1343,
+    "output_tokens": 1026,
+    "seconds": 19.22
+   },
+   "browser_pages": 0,
+   "duplicates_merged": 0,
+   "sparse_dropped": 0,
+   "pii_removed": 0,
+   "injection_findings": 0,
+   "events": [
+    {
+     "kind": "job_started",
+     "message": "Crawling 1 start URL(s)"
+    },
+    {
+     "kind": "strategy",
+     "message": "northstar-careers.example: direct LLM extraction (set by the job)"
+    },
+    {
+     "kind": "page_cap",
+     "message": "Page cap of 1 reached; 1 queued URL(s) not visited"
+    },
+    {
+     "kind": "job_finished",
+     "message": "10 records from 1 pages, 1 model call(s)"
+    }
+   ],
+   "error": null,
+   "pages_extracted": 1,
+   "call_seconds": [
+    19.22
+   ],
+   "input_tokens": 1343,
+   "output_tokens": 1026,
+   "not_on_page_flags": 0
+  },
+  {
+   "site": "homes-01",
+   "vertical": "realestate",
+   "mode": "static",
+   "truth": 8,
+   "extracted": 8,
+   "matched": 8,
+   "precision": 1.0,
+   "recall": 1.0,
+   "field_accuracy": 0.9722,
+   "fields": {
+    "address": {
+     "correct": 8,
+     "total": 8
+    },
+    "city": {
+     "correct": 8,
+     "total": 8
+    },
+    "price": {
+     "correct": 8,
+     "total": 8
+    },
+    "listing_type": {
+     "correct": 8,
+     "total": 8
+    },
+    "bedrooms": {
+     "correct": 8,
+     "total": 8
+    },
+    "bathrooms": {
+     "correct": 8,
+     "total": 8
+    },
+    "area_sqm": {
+     "correct": 6,
+     "total": 8
+    },
+    "listing_url": {
+     "correct": 8,
+     "total": 8
+    },
+    "agent_phone": {
+     "correct": 8,
+     "total": 8
+    }
+   },
+   "unmatched_extracted": [],
+   "missed": [],
+   "errors": [
+    {
+     "key": "91 Orchard Way",
+     "field": "area_sqm",
+     "got": 32.0,
+     "want": 31.96
+    },
+    {
+     "key": "133 Harbor Road",
+     "field": "area_sqm",
+     "got": 36.0,
+     "want": 36.05
+    }
+   ],
+   "pages": 1,
+   "records": 8,
+   "seconds": 20.17,
+   "strategies": [
+    "direct"
+   ],
+   "llm": {
+    "calls": 1,
+    "cached": 0,
+    "failed": 0,
+    "by_task": {
+     "direct_extract": 1
+    },
+    "input_tokens": 1860,
+    "output_tokens": 1056,
+    "seconds": 20.15
+   },
+   "browser_pages": 0,
+   "duplicates_merged": 0,
+   "sparse_dropped": 0,
+   "pii_removed": 0,
+   "injection_findings": 0,
+   "events": [
+    {
+     "kind": "job_started",
+     "message": "Crawling 1 start URL(s)"
+    },
+    {
+     "kind": "strategy",
+     "message": "keystone-realty.example: direct LLM extraction (set by the job)"
+    },
+    {
+     "kind": "page_cap",
+     "message": "Page cap of 1 reached; 1 queued URL(s) not visited"
+    },
+    {
+     "kind": "job_finished",
+     "message": "8 records from 1 pages, 1 model call(s)"
+    }
+   ],
+   "error": null,
+   "pages_extracted": 1,
+   "call_seconds": [
+    20.15
+   ],
+   "input_tokens": 1860,
+   "output_tokens": 1056,
+   "not_on_page_flags": 5
+  },
+  {
+   "site": "events-02",
+   "vertical": "events",
+   "mode": "static",
+   "truth": 10,
+   "extracted": 10,
+   "matched": 10,
+   "precision": 1.0,
+   "recall": 1.0,
+   "field_accuracy": 0.8833,
+   "fields": {
+    "name": {
+     "correct": 10,
+     "total": 10
+    },
+    "start_date": {
+     "correct": 10,
+     "total": 10
+    },
+    "venue": {
+     "correct": 10,
+     "total": 10
+    },
+    "price": {
+     "correct": 3,
+     "total": 10
+    },
+    "category": {
+     "correct": 10,
+     "total": 10
+    },
+    "event_url": {
+     "correct": 10,
+     "total": 10
+    }
+   },
+   "unmatched_extracted": [],
+   "missed": [],
+   "errors": [
+    {
+     "key": "Little Tech Meetup",
+     "field": "price",
+     "got": {
+      "amount": 8.0,
+      "currency": "USD"
+     },
+     "want": 8.64
+    },
+    {
+     "key": "Harvest Startup Pitch Night",
+     "field": "price",
+     "got": {
+      "amount": 12.0,
+      "currency": "USD"
+     },
+     "want": 12.96
+    },
+    {
+     "key": "Northern Comedy Hour",
+     "field": "price",
+     "got": {
+      "amount": 10.0,
+      "currency": "USD"
+     },
+     "want": 10.8
+    },
+    {
+     "key": "Autumn Half Marathon",
+     "field": "price",
+     "got": {
+      "amount": 35.0,
+      "currency": "USD"
+     },
+     "want": 37.8
+    },
+    {
+     "key": "Downtown Tech Meetup",
+     "field": "price",
+     "got": {
+      "amount": 15.0,
+      "currency": "USD"
+     },
+     "want": 16.2
+    },
+    {
+     "key": "Harvest Poetry Slam",
+     "field": "price",
+     "got": {
+      "amount": 35.0,
+      "currency": "USD"
+     },
+     "want": 37.8
+    },
+    {
+     "key": "Late Food Truck Rally",
+     "field": "price",
+     "got": {
+      "amount": 25.0,
+      "currency": "USD"
+     },
+     "want": 27.0
+    }
+   ],
+   "pages": 1,
+   "records": 10,
+   "seconds": 17.04,
+   "strategies": [
+    "direct"
+   ],
+   "llm": {
+    "calls": 1,
+    "cached": 0,
+    "failed": 0,
+    "by_task": {
+     "direct_extract": 1
+    },
+    "input_tokens": 1084,
+    "output_tokens": 899,
+    "seconds": 17.03
+   },
+   "browser_pages": 0,
+   "duplicates_merged": 0,
+   "sparse_dropped": 0,
+   "pii_removed": 0,
+   "injection_findings": 0,
+   "events": [
+    {
+     "kind": "job_started",
+     "message": "Crawling 1 start URL(s)"
+    },
+    {
+     "kind": "strategy",
+     "message": "kulturkalender-lindau.example: direct LLM extraction (set by the job)"
+    },
+    {
+     "kind": "page_cap",
+     "message": "Page cap of 1 reached; 1 queued URL(s) not visited"
+    },
+    {
+     "kind": "job_finished",
+     "message": "10 records from 1 pages, 1 model call(s)"
+    }
+   ],
+   "error": null,
+   "pages_extracted": 1,
+   "call_seconds": [
+    17.03
+   ],
+   "input_tokens": 1084,
+   "output_tokens": 899,
+   "not_on_page_flags": 10
+  },
+  {
+   "site": "menu-03",
+   "vertical": "restaurant",
+   "mode": "pdf",
+   "truth": 15,
+   "extracted": 15,
+   "matched": 15,
+   "precision": 1.0,
+   "recall": 1.0,
+   "field_accuracy": 0.75,
+   "fields": {
+    "dish": {
+     "correct": 15,
+     "total": 15
+    },
+    "section": {
+     "correct": 15,
+     "total": 15
+    },
+    "price": {
+     "correct": 0,
+     "total": 15
+    },
+    "dietary": {
+     "correct": 15,
+     "total": 15
+    }
+   },
+   "unmatched_extracted": [],
+   "missed": [],
+   "errors": [
+    {
+     "key": "Burrata with Peaches",
+     "field": "price",
+     "got": {
+      "amount": 9.0,
+      "currency": "USD"
+     },
+     "want": 11.43
+    },
+    {
+     "key": "Crispy Calamari",
+     "field": "price",
+     "got": {
+      "amount": 13.0,
+      "currency": "USD"
+     },
+     "want": 16.51
+    },
+    {
+     "key": "Chickpea Fritters",
+     "field": "price",
+     "got": {
+      "amount": 16.0,
+      "currency": "USD"
+     },
+     "want": 20.32
+    },
+    {
+     "key": "Tuna Tartare",
+     "field": "price",
+     "got": {
+      "amount": 16.0,
+      "currency": "USD"
+     },
+     "want": 20.32
+    },
+    {
+     "key": "Roast Hake",
+     "field": "price",
+     "got": {
+      "amount": 19.5,
+      "currency": "USD"
+     },
+     "want": 24.77
+    },
+    {
+     "key": "Lamb Shoulder",
+     "field": "price",
+     "got": {
+      "amount": 27.5,
+      "currency": "USD"
+     },
+     "want": 34.92
+    },
+    {
+     "key": "Spiced Lentil Dal",
+     "field": "price",
+     "got": {
+      "amount": 27.5,
+      "currency": "USD"
+     },
+     "want": 34.92
+    },
+    {
+     "key": "Braised Short Rib",
+     "field": "price",
+     "got": {
+      "amount": 21.0,
+      "currency": "USD"
+     },
+     "want": 26.67
+    },
+    {
+     "key": "Wild Mushroom Risotto",
+     "field": "price",
+     "got": {
+      "amount": 23.5,
+      "currency": "USD"
+     },
+     "want": 29.84
+    },
+    {
+     "key": "Lemon Posset",
+     "field": "price",
+     "got": {
+      "amount": 14.5,
+      "currency": "USD"
+     },
+     "want": 18.41
+    },
+    {
+     "key": "Dark Chocolate Tart",
+     "field": "price",
+     "got": {
+      "amount": 12.0,
+      "currency": "USD"
+     },
+     "want": 15.24
+    },
+    {
+     "key": "Basque Cheesecake",
+     "field": "price",
+     "got": {
+      "amount": 13.0,
+      "currency": "USD"
+     },
+     "want": 16.51
+    },
+    {
+     "key": "Craft Lager",
+     "field": "price",
+     "got": {
+      "amount": 8.5,
+      "currency": "USD"
+     },
+     "want": 10.79
+    },
+    {
+     "key": "Ginger Kombucha",
+     "field": "price",
+     "got": {
+      "amount": 12.0,
+      "currency": "USD"
+     },
+     "want": 15.24
+    },
+    {
+     "key": "Pinot Noir (glass)",
+     "field": "price",
+     "got": {
+      "amount": 10.0,
+      "currency": "USD"
+     },
+     "want": 12.7
+    }
+   ],
+   "pages": 2,
+   "records": 15,
+   "seconds": 0.25,
+   "strategies": [
+    "direct"
+   ],
+   "llm": {
+    "calls": 2,
+    "cached": 2,
+    "failed": 0,
+    "by_task": {
+     "direct_extract": 2
+    },
+    "input_tokens": 1453,
+    "output_tokens": 858,
+    "seconds": 0.0
+   },
+   "browser_pages": 0,
+   "duplicates_merged": 0,
+   "sparse_dropped": 0,
+   "pii_removed": 0,
+   "injection_findings": 0,
+   "events": [
+    {
+     "kind": "job_started",
+     "message": "Crawling 1 start URL(s)"
+    },
+    {
+     "kind": "strategy",
+     "message": "osteria-lucciola.example: direct LLM extraction (set by the job)"
+    },
+    {
+     "kind": "job_finished",
+     "message": "15 records from 2 pages, 2 model call(s)"
+    }
+   ],
+   "error": null,
+   "pages_extracted": 2,
+   "call_seconds": [
+    0.0,
+    0.0
+   ],
+   "input_tokens": 1453,
+   "output_tokens": 858,
+   "not_on_page_flags": 0
+  },
+  {
+   "site": "registry-01",
+   "vertical": "registry",
+   "mode": "table",
+   "truth": 25,
+   "extracted": 25,
+   "matched": 25,
+   "precision": 1.0,
+   "recall": 1.0,
+   "field_accuracy": 1.0,
+   "fields": {
+    "facility": {
+     "correct": 25,
+     "total": 25
+    },
+    "district": {
+     "correct": 25,
+     "total": 25
+    },
+    "facility_type": {
+     "correct": 25,
+     "total": 25
+    },
+    "capacity": {
+     "correct": 25,
+     "total": 25
+    },
+    "opened": {
+     "correct": 25,
+     "total": 25
+    },
+    "phone": {
+     "correct": 25,
+     "total": 25
+    }
+   },
+   "unmatched_extracted": [],
+   "missed": [],
+   "errors": [],
+   "pages": 1,
+   "records": 25,
+   "seconds": 38.22,
+   "strategies": [
+    "direct"
+   ],
+   "llm": {
+    "calls": 1,
+    "cached": 0,
+    "failed": 0,
+    "by_task": {
+     "direct_extract": 1
+    },
+    "input_tokens": 2490,
+    "output_tokens": 2097,
+    "seconds": 38.19
+   },
+   "browser_pages": 0,
+   "duplicates_merged": 0,
+   "sparse_dropped": 0,
+   "pii_removed": 0,
+   "injection_findings": 0,
+   "events": [
+    {
+     "kind": "job_started",
+     "message": "Crawling 1 start URL(s)"
+    },
+    {
+     "kind": "strategy",
+     "message": "norbridge-council.example: direct LLM extraction (set by the job)"
+    },
+    {
+     "kind": "page_cap",
+     "message": "Page cap of 1 reached; 1 queued URL(s) not visited"
+    },
+    {
+     "kind": "job_finished",
+     "message": "25 records from 1 pages, 1 model call(s)"
+    }
+   ],
+   "error": null,
+   "pages_extracted": 1,
+   "call_seconds": [
+    38.19
+   ],
+   "input_tokens": 2490,
+   "output_tokens": 2097,
+   "not_on_page_flags": 25
+  },
+  {
+   "site": "spa-shop-06",
+   "vertical": "ecommerce",
+   "mode": "spa",
+   "truth": 12,
+   "extracted": 12,
+   "matched": 12,
+   "precision": 1.0,
+   "recall": 1.0,
+   "field_accuracy": 1.0,
+   "fields": {
+    "name": {
+     "correct": 12,
+     "total": 12
+    },
+    "price": {
+     "correct": 12,
+     "total": 12
+    },
+    "rating": {
+     "correct": 12,
+     "total": 12
+    },
+    "stock_status": {
+     "correct": 12,
+     "total": 12
+    },
+    "image_url": {
+     "correct": 12,
+     "total": 12
+    },
+    "product_url": {
+     "correct": 12,
+     "total": 12
+    },
+    "variants": {
+     "correct": 12,
+     "total": 12
+    }
+   },
+   "unmatched_extracted": [],
+   "missed": [],
+   "errors": [],
+   "pages": 1,
+   "records": 12,
+   "seconds": 32.66,
+   "strategies": [
+    "direct"
+   ],
+   "llm": {
+    "calls": 1,
+    "cached": 0,
+    "failed": 0,
+    "by_task": {
+     "direct_extract": 1
+    },
+    "input_tokens": 2091,
+    "output_tokens": 1731,
+    "seconds": 31.61
+   },
+   "browser_pages": 1,
+   "duplicates_merged": 0,
+   "sparse_dropped": 0,
+   "pii_removed": 0,
+   "injection_findings": 0,
+   "events": [
+    {
+     "kind": "job_started",
+     "message": "Crawling 1 start URL(s)"
+    },
+    {
+     "kind": "browser",
+     "message": "https://lumen-desk-goods.example/catalog/: empty application shell; rendering with headless Chromium"
+    },
+    {
+     "kind": "strategy",
+     "message": "lumen-desk-goods.example: direct LLM extraction (set by the job)"
+    },
+    {
+     "kind": "page_cap",
+     "message": "Page cap of 1 reached; 3 queued URL(s) not visited"
+    },
+    {
+     "kind": "job_finished",
+     "message": "12 records from 1 pages, 1 model call(s)"
+    }
+   ],
+   "error": null,
+   "pages_extracted": 1,
+   "call_seconds": [
+    31.61
+   ],
+   "input_tokens": 2091,
+   "output_tokens": 1731,
+   "not_on_page_flags": 0
+  }
+ ]
+}
