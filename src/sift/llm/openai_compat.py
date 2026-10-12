@@ -7,7 +7,7 @@ from typing import Any, Literal
 
 import httpx
 
-from sift.llm.base import Completion, LLMError, LLMUnavailableError, Message, RetryableLLMError
+from sift.llm.base import Completion, LLMError, Message, RetryableLLMError
 from sift.llm.guards import ensure_free_body, ensure_free_models, ensure_served_free
 
 Kind = Literal["openrouter", "qwen", "openai"]
@@ -89,7 +89,8 @@ class OpenAICompatibleModel:
             with httpx.Client(timeout=self._timeout, transport=self._transport) as client:
                 response = client.post(self._url, json=body, headers=self._headers)
         except httpx.ConnectError as exc:
-            raise LLMUnavailableError(f"cannot reach {self._url}: {exc}") from exc
+            # Dropped TLS handshakes and refused connections are usually transient on shared free endpoints.
+            raise RetryableLLMError(f"cannot reach {self._url}: {exc}") from exc
         except httpx.TimeoutException as exc:
             raise RetryableLLMError(f"timeout: {exc}") from exc
         except httpx.TransportError as exc:

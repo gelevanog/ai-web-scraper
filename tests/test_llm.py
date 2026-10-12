@@ -322,3 +322,18 @@ def test_default_models_and_free_fallbacks() -> None:
     assert all(m.endswith(":free") for m in DEFAULT_FREE_FALLBACKS)
     assert DEFAULT_MODELS["anthropic"] == "claude-sonnet-5"
     ensure_free_models([DEFAULT_MODELS["openrouter"], *DEFAULT_FREE_FALLBACKS])
+
+
+def test_connection_errors_are_retryable() -> None:
+    def handler(request: httpx.Request) -> httpx.Response:
+        raise httpx.ConnectError("EOF occurred in violation of protocol")
+
+    model = OpenAICompatibleModel(
+        kind="openrouter",
+        base_url="https://openrouter.test/api/v1",
+        model="a/b:free",
+        api_key=TEST_KEY,
+        transport=httpx.MockTransport(handler),
+    )
+    with pytest.raises(RetryableLLMError):
+        model.complete(MESSAGES, max_tokens=10)
