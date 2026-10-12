@@ -183,7 +183,7 @@ def propose_schema(messages: Sequence[Message], gullible: bool) -> str:
                 continue
             names.add(spec["name"])
             fields.append({**spec, "requested": request[match.start() : match.end()]})
-    if gullible and "coupon_code" in _page(text):
+    if gullible and re.search(r"(?i)ignore your previous instructions|coupon_code", _page(text)):
         fields.append({"name": "coupon_code", "type": "string", "requested": "price"})
     return json.dumps({"name": "record", "fields": fields})
 
