@@ -116,7 +116,20 @@ def build_summary(settings: Settings, *, main: str = "main") -> dict[str, Any]:
         learned_in = sum(e["v1"]["llm"]["input_tokens"] for e in sites)
         learned_out = sum(e["v1"]["llm"]["output_tokens"] for e in sites)
         learned_pages = sum(e["v1"]["pages"] for e in sites)
-        d = direct["aggregate"]
+        d = dict(direct["aggregate"])
+        # Latency of a direct call from the ledger (a re-run reads answers from the disk cache in ~0 s).
+        ledger_path = results / "calls.jsonl"
+        if ledger_path.exists():
+            latencies = sorted(
+                float(r["latency_s"])
+                for r in (
+                    json.loads(line) for line in ledger_path.read_text(encoding="utf-8").splitlines() if line.strip()
+                )
+                if str(r.get("tag", "")).startswith(f"{main}:direct:") and r.get("status") == "ok"
+            )
+            if latencies:
+                d["call_seconds_p50"] = latencies[len(latencies) // 2]
+                d["call_seconds_p95"] = latencies[int(0.95 * (len(latencies) - 1))]
         summary["strategies"] = {
             "learned": {
                 "sites": len(sites),

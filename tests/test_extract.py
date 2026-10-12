@@ -302,3 +302,20 @@ def test_one_broken_field_fails_verification_even_when_overall_agreement_is_high
     program = parse_program({"item": "li.d", "fields": {"n": "b", "price": "i", "x": "u", "y": {"xpath": "'k'"}}})
     check = check_program(program, schema, [Sample("https://s.example/", page)], CTX, reference=reference)
     assert not check.ok and any(e.startswith("x: 6 of 6 value(s) differ") for e in check.errors)
+
+
+def test_xpath_text_and_attribute_results() -> None:
+    doc = parse(
+        '<html><body><ul class="breadcrumb"><li><a href="/">Home</a></li><li><a href="/c/poetry/">Poetry</a></li></ul><table><tr><th>UPC</th><td>a897fe39</td></tr></table></body></html>'
+    )
+    rules = parse_program(
+        {
+            "fields": {
+                "category": {"xpath": "//ul[@class='breadcrumb']/li[2]/a/text()"},
+                "link": {"xpath": "//ul[@class='breadcrumb']/li[2]/a/@href"},
+                "upc": {"xpath": "//th[normalize-space()='UPC']/following-sibling::td[1]/text()"},
+            }
+        }
+    )
+    values = {k: v.value for k, v in run_detail(doc, rules).values.items()}
+    assert values == {"category": "Poetry", "link": "/c/poetry/", "upc": "a897fe39"}

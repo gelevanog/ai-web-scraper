@@ -155,6 +155,8 @@ class JobConfig:
     injection_guard: bool = True
     pii_guard: bool = True
     follow_links: bool = True
+    max_list_pages: int | None = None
+    """Stop following pagination after this many pages of results (detail pages are not counted)."""
     extractors: list[ExtractorState] = field(default_factory=list)
     reference_records: list[dict[str, Any]] = field(default_factory=list)
     """Records from an earlier run of this job: the healing check verifies re-learned rules against them."""
@@ -401,6 +403,7 @@ class Engine:
         records: list[dict[str, Any]] = []
         pages: list[PageInfo] = []
         queue: list[_Pending] = [_Pending(u, 0, "seed") for u in start_urls]
+        list_pages = len(start_urls)
         seen: set[str] = set(start_urls)
         detail_targets: dict[str, list[int]] = {}
         words = request_words(job.description, schema.names)
@@ -525,10 +528,17 @@ class Engine:
                     candidates += [(link, "discover") for link in relevant_links(doc, url, words)]
                 for link, role in candidates:
                     link = canonicalize(link)
-                    if link in seen or not same_site(url, link) or item.depth + 1 > job.max_depth:
+                    # Pagination is lateral (page 7 of a catalog is as close to the start as page 2); other links
+                    # go one level deeper.
+                    depth = item.depth if role == "list" else item.depth + 1
+                    if link in seen or not same_site(url, link) or depth > job.max_depth:
+                        continue
+                    if role == "list" and job.max_list_pages is not None and list_pages >= job.max_list_pages:
                         continue
                     seen.add(link)
-                    queue.append(_Pending(link, item.depth + 1, role))
+                    if role == "list":
+                        list_pages += 1
+                    queue.append(_Pending(link, depth, role))
             self.emit(
                 "page_done",
                 f"{url}: {info.records} records ({info.strategy})",

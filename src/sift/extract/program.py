@@ -117,7 +117,18 @@ def select(root: HtmlElement, *, css: str | None = None, xpath: str | None = Non
         if xpath or (css and _is_xpath(css)):
             expr = xpath or css or ""
             found = root.xpath(expr)
-            return [node for node in found if isinstance(node, etree._Element)]
+            if not isinstance(found, list):
+                return []
+            nodes: list[HtmlElement] = []
+            for node in found:
+                if isinstance(node, etree._Element):
+                    nodes.append(node)
+                elif hasattr(node, "getparent") and node.getparent() is not None:
+                    # ".../text()" or ".../@href": read from the element that holds the text or attribute.
+                    parent = node.getparent()
+                    if parent not in nodes:
+                        nodes.append(parent)
+            return nodes
         if not css or css.strip() in {":self", ":scope", "&", "."}:
             return [root]
         return list(root.cssselect(css))
@@ -165,7 +176,20 @@ def _transform(text: str | None, rule: Rule) -> str | None:
     return text.strip() if text is not None else None
 
 
+_XPATH_ATTR = re.compile(r"/@([\w:-]+)\s*$")
+
+
+def _effective(rule: Rule) -> Rule:
+    """An XPath ending in /@name reads that attribute (the default attr is text)."""
+    selector = rule.xpath or (rule.css if rule.css and _is_xpath(rule.css) else "")
+    match = _XPATH_ATTR.search(selector or "")
+    if match and rule.attr == "text":
+        return rule.model_copy(update={"attr": match.group(1)})
+    return rule
+
+
 def run_rule(root: HtmlElement, rule: Rule) -> RawValue:
+    rule = _effective(rule)
     nodes = select(root, css=rule.css, xpath=rule.xpath)
     node_path = root.getroottree().getpath(nodes[0]) if nodes else ""
     if rule.attr == "count":
@@ -236,6 +260,7 @@ def links(doc: HtmlElement, rule: Rule | None, base: str) -> list[str]:
     if rule is None:
         return []
     out: list[str] = []
+    rule = _effective(rule)
     attr = rule.attr if rule.attr not in _SPECIAL_ATTRS else "href"
     for node in select(doc, css=rule.css, xpath=rule.xpath):
         value = _transform(_read(node, attr), rule)

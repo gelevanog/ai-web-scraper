@@ -57,7 +57,8 @@ _WORDS = {"One": 1, "Two": 2, "Three": 3, "Four": 4, "Five": 5}
 
 
 class SnapshotTransport(httpx.BaseTransport):
-    """Records live responses to disk the first time and replays them afterwards (no second visit)."""
+    """Records live responses to disk the first time and replays them afterwards (no second visit to a page; a page
+    not yet in the snapshot is fetched live, through the same polite crawler)."""
 
     def __init__(self, root: Path, *, live: bool) -> None:
         self.root = root
@@ -82,8 +83,6 @@ class SnapshotTransport(httpx.BaseTransport):
                 content=data["body"].encode("utf-8"),
                 request=request,
             )
-        if not self.live:
-            return httpx.Response(599, content=b"not in snapshot", request=request)
         response = self.inner.handle_request(request)
         response.read()
         self.live_requests += 1
@@ -196,10 +195,10 @@ def run_toscrape(settings: Settings, *, name: str, books_pages: int = 3, quotes_
     snap = SnapshotTransport(root, live=live)
     sites: dict[str, Any] = {}
     jobs = (
-        ("books", BOOKS, BOOKS_INTENT, BOOKS_SCHEMA, books_pages + books_pages * 20 + 2),
-        ("quotes", QUOTES, QUOTES_INTENT, QUOTES_SCHEMA, quotes_pages + 1),
+        ("books", BOOKS, BOOKS_INTENT, BOOKS_SCHEMA, books_pages, books_pages + books_pages * 20 + 2),
+        ("quotes", QUOTES, QUOTES_INTENT, QUOTES_SCHEMA, quotes_pages, quotes_pages + 1),
     )
-    for key, start, intent, schema, cap in jobs:
+    for key, start, intent, schema, list_cap, cap in jobs:
         started = time.monotonic()
         engine = _engine(polite, snap, f"{name}:toscrape:{key}")
         result = engine.run(
