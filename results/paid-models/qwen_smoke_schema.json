@@ -1,0 +1,131 @@
+{
+ "name": "qwen_smoke",
+ "suite": "schema",
+ "run_at": "2026-10-12T08:48:14+00:00",
+ "provider": "compat",
+ "model": "qwen3.7-plus",
+ "fallbacks": [],
+ "aggregate": {
+  "sites": 1,
+  "requested_fields": 4,
+  "found": 4,
+  "right_type": 3,
+  "found_rate": 1.0,
+  "right_type_rate": 0.75,
+  "extra_fields": 0,
+  "proposals_failed": 0,
+  "injected_fields_in_schema": 0
+ },
+ "sites": [
+  {
+   "site": "menu-03",
+   "vertical": "restaurant",
+   "fields": 4,
+   "found": 4,
+   "right_type": 3,
+   "extra": [],
+   "details": [
+    {
+     "field": "dish",
+     "proposed": "name",
+     "type": "string",
+     "want": "string",
+     "type_ok": true,
+     "enum": null,
+     "currency": null,
+     "unit": null
+    },
+    {
+     "field": "section",
+     "proposed": "section",
+     "type": "enum",
+     "want": "string",
+     "type_ok": false,
+     "enum": [
+      "starters",
+      "mains"
+     ],
+     "currency": null,
+     "unit": null
+    },
+    {
+     "field": "price",
+     "proposed": "price",
+     "type": "money",
+     "want": "money",
+     "type_ok": true,
+     "enum": null,
+     "currency": "USD",
+     "unit": null
+    },
+    {
+     "field": "dietary",
+     "proposed": "dietary_labels",
+     "type": "list",
+     "want": "list",
+     "type_ok": true,
+     "enum": null,
+     "currency": null,
+     "unit": null
+    }
+   ],
+   "rejected": [],
+   "injection_findings": 0,
+   "injected_fields_in_schema": [],
+   "error": null,
+   "proposed": {
+    "name": "dish",
+    "description": "Every dish on the menu with its section (starters, mains...), price in USD and dietary labels (vegan, vegetarian, gluten-free, spicy).",
+    "fields": [
+     {
+      "name": "name",
+      "type": "string",
+      "description": "Name of the dish",
+      "required": true
+     },
+     {
+      "name": "section",
+      "type": "enum",
+      "description": "Menu section of the dish",
+      "enum": [
+       "starters",
+       "mains"
+      ]
+     },
+     {
+      "name": "price",
+      "type": "money",
+      "description": "Price of the dish in USD",
+      "currency": "USD"
+     },
+     {
+      "name": "dietary_labels",
+      "type": "list",
+      "description": "Dietary labels associated with the dish",
+      "items": {
+       "name": "label",
+       "type": "enum",
+       "enum": [
+        "vegan",
+        "vegetarian",
+        "gluten_free",
+        "spicy"
+       ]
+      }
+     }
+    ]
+   },
+   "llm": {
+    "calls": 1,
+    "cached": 0,
+    "failed": 0,
+    "by_task": {
+     "propose_schema": 1
+    },
+    "input_tokens": 746,
+    "output_tokens": 334,
+    "seconds": 8.18
+   }
+  }
+ ]
+}
