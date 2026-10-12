@@ -1,0 +1,3518 @@
+{
+ "name": "qwen_b5",
+ "suite": "synthetic",
+ "run_at": "2026-10-12T09:47:39+00:00",
+ "provider": "compat",
+ "model": "qwen3.7-plus",
+ "fallbacks": [],
+ "aggregate": {
+  "v1": {
+   "sites": 6,
+   "truth_records": 171,
+   "extracted_records": 171,
+   "matched": 171,
+   "precision": 1.0,
+   "recall": 1.0,
+   "field_accuracy": 0.9812,
+   "fields_correct": 1148,
+   "fields_total": 1170
+  },
+  "by_vertical": {
+   "ecommerce": {
+    "sites": 2,
+    "truth_records": 58,
+    "extracted_records": 58,
+    "matched": 58,
+    "precision": 1.0,
+    "recall": 1.0,
+    "field_accuracy": 0.9405,
+    "fields_correct": 348,
+    "fields_total": 370
+   },
+   "events": {
+    "sites": 1,
+    "truth_records": 19,
+    "extracted_records": 19,
+    "matched": 19,
+    "precision": 1.0,
+    "recall": 1.0,
+    "field_accuracy": 1.0,
+    "fields_correct": 114,
+    "fields_total": 114
+   },
+   "jobs": {
+    "sites": 1,
+    "truth_records": 30,
+    "extracted_records": 30,
+    "matched": 30,
+    "precision": 1.0,
+    "recall": 1.0,
+    "field_accuracy": 1.0,
+    "fields_correct": 270,
+    "fields_total": 270
+   },
+   "realestate": {
+    "sites": 1,
+    "truth_records": 16,
+    "extracted_records": 16,
+    "matched": 16,
+    "precision": 1.0,
+    "recall": 1.0,
+    "field_accuracy": 1.0,
+    "fields_correct": 128,
+    "fields_total": 128
+   },
+   "registry": {
+    "sites": 1,
+    "truth_records": 48,
+    "extracted_records": 48,
+    "matched": 48,
+    "precision": 1.0,
+    "recall": 1.0,
+    "field_accuracy": 1.0,
+    "fields_correct": 288,
+    "fields_total": 288
+   }
+  },
+  "v1_learned_only": {
+   "sites": 6,
+   "truth_records": 171,
+   "extracted_records": 171,
+   "matched": 171,
+   "precision": 1.0,
+   "recall": 1.0,
+   "field_accuracy": 0.9812,
+   "fields_correct": 1148,
+   "fields_total": 1170
+  },
+  "v1_direct_only": {
+   "sites": 0,
+   "truth_records": 0,
+   "extracted_records": 0,
+   "matched": 0,
+   "precision": 0.0,
+   "recall": 0.0,
+   "field_accuracy": 0.0,
+   "fields_correct": 0,
+   "fields_total": 0
+  },
+  "by_field": {
+   "address": {
+    "correct": 16,
+    "total": 16,
+    "accuracy": 1.0
+   },
+   "area_sqm": {
+    "correct": 16,
+    "total": 16,
+    "accuracy": 1.0
+   },
+   "bathrooms": {
+    "correct": 16,
+    "total": 16,
+    "accuracy": 1.0
+   },
+   "bedrooms": {
+    "correct": 16,
+    "total": 16,
+    "accuracy": 1.0
+   },
+   "capacity": {
+    "correct": 48,
+    "total": 48,
+    "accuracy": 1.0
+   },
+   "category": {
+    "correct": 19,
+    "total": 19,
+    "accuracy": 1.0
+   },
+   "city": {
+    "correct": 16,
+    "total": 16,
+    "accuracy": 1.0
+   },
+   "company": {
+    "correct": 30,
+    "total": 30,
+    "accuracy": 1.0
+   },
+   "district": {
+    "correct": 48,
+    "total": 48,
+    "accuracy": 1.0
+   },
+   "employment_type": {
+    "correct": 30,
+    "total": 30,
+    "accuracy": 1.0
+   },
+   "event_url": {
+    "correct": 19,
+    "total": 19,
+    "accuracy": 1.0
+   },
+   "facility": {
+    "correct": 48,
+    "total": 48,
+    "accuracy": 1.0
+   },
+   "facility_type": {
+    "correct": 48,
+    "total": 48,
+    "accuracy": 1.0
+   },
+   "image_url": {
+    "correct": 58,
+    "total": 58,
+    "accuracy": 1.0
+   },
+   "job_url": {
+    "correct": 30,
+    "total": 30,
+    "accuracy": 1.0
+   },
+   "listing_type": {
+    "correct": 16,
+    "total": 16,
+    "accuracy": 1.0
+   },
+   "listing_url": {
+    "correct": 16,
+    "total": 16,
+    "accuracy": 1.0
+   },
+   "location": {
+    "correct": 30,
+    "total": 30,
+    "accuracy": 1.0
+   },
+   "name": {
+    "correct": 77,
+    "total": 77,
+    "accuracy": 1.0
+   },
+   "opened": {
+    "correct": 48,
+    "total": 48,
+    "accuracy": 1.0
+   },
+   "phone": {
+    "correct": 48,
+    "total": 48,
+    "accuracy": 1.0
+   },
+   "posted_date": {
+    "correct": 30,
+    "total": 30,
+    "accuracy": 1.0
+   },
+   "price": {
+    "correct": 93,
+    "total": 93,
+    "accuracy": 1.0
+   },
+   "product_url": {
+    "correct": 58,
+    "total": 58,
+    "accuracy": 1.0
+   },
+   "rating": {
+    "correct": 58,
+    "total": 58,
+    "accuracy": 1.0
+   },
+   "remote": {
+    "correct": 30,
+    "total": 30,
+    "accuracy": 1.0
+   },
+   "salary_max": {
+    "correct": 30,
+    "total": 30,
+    "accuracy": 1.0
+   },
+   "salary_min": {
+    "correct": 30,
+    "total": 30,
+    "accuracy": 1.0
+   },
+   "sku": {
+    "correct": 0,
+    "total": 22,
+    "accuracy": 0.0
+   },
+   "start_date": {
+    "correct": 19,
+    "total": 19,
+    "accuracy": 1.0
+   },
+   "stock_status": {
+    "correct": 58,
+    "total": 58,
+    "accuracy": 1.0
+   },
+   "title": {
+    "correct": 30,
+    "total": 30,
+    "accuracy": 1.0
+   },
+   "venue": {
+    "correct": 19,
+    "total": 19,
+    "accuracy": 1.0
+   }
+  },
+  "robustness": {
+   "sites": 6,
+   "before_healing": {
+    "sites": 6,
+    "truth_records": 171,
+    "extracted_records": 0,
+    "matched": 0,
+    "precision": 0.0,
+    "recall": 0.0,
+    "field_accuracy": 0.0,
+    "fields_correct": 0,
+    "fields_total": 0
+   },
+   "after_healing": {
+    "sites": 6,
+    "truth_records": 171,
+    "extracted_records": 171,
+    "matched": 171,
+    "precision": 1.0,
+    "recall": 1.0,
+    "field_accuracy": 0.9376,
+    "fields_correct": 1097,
+    "fields_total": 1170
+   },
+   "detected": 6,
+   "healed": 4,
+   "heal_failed": 2,
+   "heal_calls": 10,
+   "fallback_direct_calls": 5,
+   "v1_same_extractors": {
+    "sites": 6,
+    "truth_records": 171,
+    "extracted_records": 171,
+    "matched": 171,
+    "precision": 1.0,
+    "recall": 1.0,
+    "field_accuracy": 0.9812,
+    "fields_correct": 1148,
+    "fields_total": 1170
+   },
+   "false_alarms_on_v1": 0,
+   "recheck_llm_calls": 0,
+   "incremental_unchanged_pages": 14,
+   "incremental_pages": 14,
+   "incremental_llm_calls": 0
+  },
+  "v1_cost": {
+   "llm_calls": 6,
+   "llm_calls_by_task": {
+    "learn_extractor": 6
+   },
+   "input_tokens": 11325,
+   "output_tokens": 3379,
+   "pages": 14,
+   "learned_pages": 14,
+   "learned_calls": 6
+  }
+ },
+ "sites": [
+  {
+   "site": "shop-04",
+   "vertical": "ecommerce",
+   "mode": "static",
+   "traps": [
+    "mixed_currencies"
+   ],
+   "v1": {
+    "site": "shop-04",
+    "truth": 36,
+    "extracted": 36,
+    "matched": 36,
+    "precision": 1.0,
+    "recall": 1.0,
+    "field_accuracy": 1.0,
+    "fields": {
+     "name": {
+      "correct": 36,
+      "total": 36
+     },
+     "price": {
+      "correct": 36,
+      "total": 36
+     },
+     "rating": {
+      "correct": 36,
+      "total": 36
+     },
+     "stock_status": {
+      "correct": 36,
+      "total": 36
+     },
+     "image_url": {
+      "correct": 36,
+      "total": 36
+     },
+     "product_url": {
+      "correct": 36,
+      "total": 36
+     }
+    },
+    "unmatched_extracted": [],
+    "missed": [],
+    "errors": [],
+    "pages": 3,
+    "records": 36,
+    "seconds": 11.71,
+    "strategies": [
+     "learned"
+    ],
+    "llm": {
+     "calls": 1,
+     "cached": 0,
+     "failed": 0,
+     "by_task": {
+      "learn_extractor": 1
+     },
+     "input_tokens": 1939,
+     "output_tokens": 568,
+     "seconds": 11.67
+    },
+    "browser_pages": 0,
+    "duplicates_merged": 0,
+    "sparse_dropped": 0,
+    "pii_removed": 0,
+    "injection_findings": 0,
+    "events": [
+     {
+      "kind": "job_started",
+      "message": "Crawling 1 start URL(s)"
+     },
+     {
+      "kind": "strategy",
+      "message": "driftwood-kitchen-supply.example: learned extractor (pagination found (1 link(s)): a repeated template)"
+     },
+     {
+      "kind": "learning",
+      "message": "driftwood-kitchen-supply.example: learning an extractor from 2 sample page(s)"
+     },
+     {
+      "kind": "learned",
+      "message": "driftwood-kitchen-supply.example: extractor learned in 1 attempt(s), 1 model call(s)"
+     },
+     {
+      "kind": "job_finished",
+      "message": "36 records from 3 pages, 1 model call(s)"
+     }
+    ],
+    "error": null,
+    "extract_ms_p50": 6.3
+   },
+   "traps_result": {
+    "currency_conversion": {
+     "currency": "MIX",
+     "correct": 36,
+     "total": 36
+    }
+   },
+   "politeness": {
+    "hosts": {
+     "driftwood-kitchen-supply.example": {
+      "requests": 4,
+      "subresources": 0,
+      "robots_fetches": 1,
+      "min_gap_s": 0.003,
+      "configured_interval_s": 0.0,
+      "max_requests_per_s_10s": 0.3,
+      "mean_requests_per_s": 0.256
+     }
+    },
+    "robots_blocked": []
+   },
+   "learned": true,
+   "extractors": [
+    {
+     "id": "ext-1f7871",
+     "kind": "list",
+     "accepted": true,
+     "attempts": 1,
+     "calls": 1,
+     "program": {
+      "kind": "list",
+      "item": "article.ProductCard_card__1289e",
+      "fields": {
+       "name": {
+        "css": "h3.ProductCard_title__896e0 a",
+        "attr": "text",
+        "all": false,
+        "negate": false
+       },
+       "price": {
+        "css": "span.ProductCard_price__911fd",
+        "attr": "text",
+        "all": false,
+        "negate": false
+       },
+       "rating": {
+        "css": "span.ProductCard_rating__5c05b",
+        "attr": "aria-label",
+        "all": false,
+        "regex": "Rated ([\\d.]+) out of",
+        "negate": false
+       },
+       "stock_status": {
+        "css": "span.ProductCard_stock__8c21b",
+        "attr": "text",
+        "all": false,
+        "value_map": {
+         "In stock": "in_stock",
+         "Ready to ship": "in_stock",
+         "Out of stock": "out_of_stock",
+         "Preorder": "preorder"
+        },
+        "negate": false
+       },
+       "image_url": {
+        "css": "img.ProductCard_image__58b81",
+        "attr": "data-src",
+        "all": false,
+        "negate": false,
+        "fallback": {
+         "css": "img.ProductCard_image__58b81",
+         "attr": "src",
+         "all": false,
+         "negate": false
+        }
+       },
+       "product_url": {
+        "css": "h3.ProductCard_title__896e0 a",
+        "attr": "href",
+        "all": false,
+        "negate": false
+       }
+      },
+      "next_page": {
+       "css": "nav.ProductCard_pager__766c4 a[rel='next']",
+       "attr": "href",
+       "all": false,
+       "negate": false
+      },
+      "missing": [],
+      "notes": ""
+     }
+    }
+   ],
+   "v2_before": {
+    "site": "shop-04",
+    "truth": 36,
+    "extracted": 0,
+    "matched": 0,
+    "precision": 0.0,
+    "recall": 0.0,
+    "field_accuracy": 0.0,
+    "fields": {},
+    "unmatched_extracted": [],
+    "missed": [
+     "Verde Baking Sheet",
+     "Verde Stand Mixer",
+     "Verde Measuring Cups",
+     "Coastal Baking Sheet",
+     "Slate Mortar and Pestle",
+     "Classic Chef's Knife",
+     "Verde Measuring Cups II",
+     "Classic Mortar and Pestle",
+     "Aurora Saucepan Set",
+     "Coastal Cutting Board"
+    ],
+    "errors": [],
+    "pages": 3,
+    "records": 0,
+    "seconds": 0.01,
+    "strategies": [
+     "learned"
+    ],
+    "llm": {
+     "calls": 0,
+     "cached": 0,
+     "failed": 0,
+     "by_task": {},
+     "input_tokens": 0,
+     "output_tokens": 0,
+     "seconds": 0
+    },
+    "browser_pages": 0,
+    "duplicates_merged": 0,
+    "sparse_dropped": 0,
+    "pii_removed": 0,
+    "injection_findings": 0,
+    "events": [
+     {
+      "kind": "job_started",
+      "message": "Crawling 1 start URL(s)"
+     },
+     {
+      "kind": "strategy",
+      "message": "driftwood-kitchen-supply.example: learned extractor (set by the job)"
+     },
+     {
+      "kind": "layout_changed",
+      "message": "driftwood-kitchen-supply.example: layout change detected (no records; structural similarity 0.04)"
+     },
+     {
+      "kind": "layout_changed",
+      "message": "driftwood-kitchen-supply.example: layout change detected (no records; structural similarity 0.04)"
+     },
+     {
+      "kind": "layout_changed",
+      "message": "driftwood-kitchen-supply.example: layout change detected (no records; structural similarity 0.04)"
+     },
+     {
+      "kind": "job_finished",
+      "message": "0 records from 3 pages, 0 model call(s)"
+     }
+    ],
+    "error": null,
+    "detected": true,
+    "signals": [
+     "driftwood-kitchen-supply.example: layout change detected (no records; structural similarity 0.04)",
+     "driftwood-kitchen-supply.example: layout change detected (no records; structural similarity 0.04)",
+     "driftwood-kitchen-supply.example: layout change detected (no records; structural similarity 0.04)"
+    ]
+   },
+   "v2_after": {
+    "site": "shop-04",
+    "truth": 36,
+    "extracted": 36,
+    "matched": 36,
+    "precision": 1.0,
+    "recall": 1.0,
+    "field_accuracy": 0.8657,
+    "fields": {
+     "name": {
+      "correct": 36,
+      "total": 36
+     },
+     "price": {
+      "correct": 7,
+      "total": 36
+     },
+     "rating": {
+      "correct": 36,
+      "total": 36
+     },
+     "stock_status": {
+      "correct": 36,
+      "total": 36
+     },
+     "image_url": {
+      "correct": 36,
+      "total": 36
+     },
+     "product_url": {
+      "correct": 36,
+      "total": 36
+     }
+    },
+    "unmatched_extracted": [],
+    "missed": [],
+    "errors": [
+     {
+      "key": "Verde Baking Sheet",
+      "field": "price",
+      "got": {
+       "amount": 150.62,
+       "currency": "USD"
+      },
+      "want": 149.0
+     },
+     {
+      "key": "Verde Stand Mixer",
+      "field": "price",
+      "got": {
+       "amount": 24.26,
+       "currency": "USD"
+      },
+      "want": 24.0
+     },
+     {
+      "key": "Verde Measuring Cups",
+      "field": "price",
+      "got": {
+       "amount": 504.48,
+       "currency": "USD"
+      },
+      "want": 499.0
+     },
+     {
+      "key": "Coastal Baking Sheet",
+      "field": "price",
+      "got": {
+       "amount": 25.38,
+       "currency": "USD"
+      },
+      "want": 24.95
+     },
+     {
+      "key": "Slate Mortar and Pestle",
+      "field": "price",
+      "got": {
+       "amount": 350.74,
+       "currency": "USD"
+      },
+      "want": 349.99
+     },
+     {
+      "key": "Classic Chef's Knife",
+      "field": "price",
+      "got": {
+       "amount": 808.79,
+       "currency": "USD"
+      },
+      "want": 799.99
+     },
+     {
+      "key": "Verde Measuring Cups II",
+      "field": "price",
+      "got": {
+       "amount": 355.96,
+       "currency": "USD"
+      },
+      "want": 349.99
+     },
+     {
+      "key": "Classic Mortar and Pestle",
+      "field": "price",
+      "got": {
+       "amount": 800.57,
+       "currency": "USD"
+      },
+      "want": 799.0
+     },
+     {
+      "key": "Aurora Saucepan Set",
+      "field": "price",
+      "got": {
+       "amount": 29.32,
+       "currency": "USD"
+      },
+      "want": 29.0
+     },
+     {
+      "key": "Classic Whisk",
+      "field": "price",
+      "got": {
+       "amount": 80.32,
+       "currency": "USD"
+      },
+      "want": 79.0
+     },
+     {
+      "key": "Nordic Cutting Board",
+      "field": "price",
+      "got": {
+       "amount": 352.84,
+       "currency": "USD"
+      },
+      "want": 349.0
+     },
+     {
+      "key": "Aurora Measuring Cups",
+      "field": "price",
+      "got": {
+       "amount": 22.69,
+       "currency": "USD"
+      },
+      "want": 24.51
+     },
+     {
+      "key": "Heritage Pour-Over Kettle",
+      "field": "price",
+      "got": {
+       "amount": 205.41,
+       "currency": "USD"
+      },
+      "want": 149.95
+     },
+     {
+      "key": "Field Saucepan Set",
+      "field": "price",
+      "got": {
+       "amount": 231.44,
+       "currency": "USD"
+      },
+      "want": 249.96
+     },
+     {
+      "key": "Coastal Cast Iron Skillet II",
+      "field": "price",
+      "got": {
+       "amount": 683.56,
+       "currency": "USD"
+      },
+      "want": 499.0
+     },
+     {
+      "key": "Nordic Whisk",
+      "field": "price",
+      "got": {
+       "amount": 17.59,
+       "currency": "USD"
+      },
+      "want": 19.0
+     },
+     {
+      "key": "Studio Cutting Board",
+      "field": "price",
+      "got": {
+       "amount": 102.35,
+       "currency": "USD"
+      },
+      "want": 129.98
+     },
+     {
+      "key": "Compact Whisk",
+      "field": "price",
+      "got": {
+       "amount": 35.43,
+       "currency": "USD"
+      },
+      "want": 45.0
+     },
+     {
+      "key": "Everyday Pour-Over Kettle",
+      "field": "price",
+      "got": {
+       "amount": 629.13,
+       "currency": "USD"
+      },
+      "want": 799.0
+     },
+     {
+      "key": "Aurora Chef's Knife",
+      "field": "price",
+      "got": {
+       "amount": 152.35,
+       "currency": "USD"
+      },
+      "want": 149.99
+     },
+     {
+      "key": "Summit Pour-Over Kettle",
+      "field": "price",
+      "got": {
+       "amount": 46.58,
+       "currency": "USD"
+      },
+      "want": 45.95
+     },
+     {
+      "key": "Heritage Mortar and Pestle",
+      "field": "price",
+      "got": {
+       "amount": 130.77,
+       "currency": "USD"
+      },
+      "want": 129.0
+     },
+     {
+      "key": "Field Dutch Oven",
+      "field": "price",
+      "got": {
+       "amount": 20.26,
+       "currency": "USD"
+      },
+      "want": 19.99
+     },
+     {
+      "key": "Meridian Baking Sheet",
+      "field": "price",
+      "got": {
+       "amount": 131.77,
+       "currency": "USD"
+      },
+      "want": 129.99
+     },
+     {
+      "key": "Aurora Measuring Cups XL",
+      "field": "price",
+      "got": {
+       "amount": 19.8,
+       "currency": "USD"
+      },
+      "want": 19.49
+     }
+    ],
+    "pages": 3,
+    "records": 36,
+    "seconds": 100.01,
+    "strategies": [
+     "direct"
+    ],
+    "llm": {
+     "calls": 6,
+     "cached": 0,
+     "failed": 0,
+     "by_task": {
+      "heal_extractor": 3,
+      "direct_extract": 3
+     },
+     "input_tokens": 12993,
+     "output_tokens": 5098,
+     "seconds": 99.92
+    },
+    "browser_pages": 0,
+    "duplicates_merged": 0,
+    "sparse_dropped": 0,
+    "pii_removed": 0,
+    "injection_findings": 0,
+    "events": [
+     {
+      "kind": "job_started",
+      "message": "Crawling 1 start URL(s)"
+     },
+     {
+      "kind": "strategy",
+      "message": "driftwood-kitchen-supply.example: learned extractor (set by the job)"
+     },
+     {
+      "kind": "layout_changed",
+      "message": "driftwood-kitchen-supply.example: layout change detected (no records; structural similarity 0.04)"
+     },
+     {
+      "kind": "heal_failed",
+      "message": "driftwood-kitchen-supply.example: re-learned rules did not pass verification after 3 attempt(s) (3 call(s)); switching this site to direct extraction"
+     },
+     {
+      "kind": "job_finished",
+      "message": "36 records from 3 pages, 6 model call(s)"
+     }
+    ],
+    "error": null,
+    "detected": true,
+    "healed": false,
+    "heal_failed": true,
+    "heal_calls": 3,
+    "fallback_direct_calls": 3,
+    "healed_programs": []
+   },
+   "v1_recheck": {
+    "false_alarm": false,
+    "llm_calls": 0,
+    "records": 36,
+    "pages": 3
+   },
+   "incremental": {
+    "pages": 3,
+    "unchanged": 3,
+    "records": 36,
+    "llm_calls": 0
+   },
+   "seconds": 111.8
+  },
+  {
+   "site": "shop-10",
+   "vertical": "ecommerce",
+   "mode": "static",
+   "traps": [
+    "crawl_delay",
+    "detail_sku",
+    "anomaly"
+   ],
+   "v1": {
+    "site": "shop-10",
+    "truth": 22,
+    "extracted": 22,
+    "matched": 22,
+    "precision": 1.0,
+    "recall": 1.0,
+    "field_accuracy": 0.8571,
+    "fields": {
+     "name": {
+      "correct": 22,
+      "total": 22
+     },
+     "price": {
+      "correct": 22,
+      "total": 22
+     },
+     "rating": {
+      "correct": 22,
+      "total": 22
+     },
+     "stock_status": {
+      "correct": 22,
+      "total": 22
+     },
+     "image_url": {
+      "correct": 22,
+      "total": 22
+     },
+     "product_url": {
+      "correct": 22,
+      "total": 22
+     },
+     "sku": {
+      "correct": 0,
+      "total": 22
+     }
+    },
+    "unmatched_extracted": [],
+    "missed": [],
+    "errors": [
+     {
+      "key": "Field Laptop Stand",
+      "field": "sku",
+      "got": null,
+      "want": "JUN-10958"
+     },
+     {
+      "key": "Verde Wireless Mouse",
+      "field": "sku",
+      "got": null,
+      "want": "JUN-80256"
+     },
+     {
+      "key": "Studio Mechanical Keyboard",
+      "field": "sku",
+      "got": null,
+      "want": "JUN-31423"
+     },
+     {
+      "key": "Light Desk Charger",
+      "field": "sku",
+      "got": null,
+      "want": "JUN-46568"
+     },
+     {
+      "key": "Aurora Portable SSD",
+      "field": "sku",
+      "got": null,
+      "want": "JUN-73975"
+     },
+     {
+      "key": "Prime USB-C Hub",
+      "field": "sku",
+      "got": null,
+      "want": "JUN-26612"
+     },
+     {
+      "key": "Aurora Smart Plug",
+      "field": "sku",
+      "got": null,
+      "want": "JUN-13274"
+     },
+     {
+      "key": "Compact Smart Plug",
+      "field": "sku",
+      "got": null,
+      "want": "JUN-10118"
+     },
+     {
+      "key": "Slate Power Bank",
+      "field": "sku",
+      "got": null,
+      "want": "JUN-97225"
+     },
+     {
+      "key": "Coastal Smart Plug",
+      "field": "sku",
+      "got": null,
+      "want": "JUN-66542"
+     },
+     {
+      "key": "Atlas Monitor Arm",
+      "field": "sku",
+      "got": null,
+      "want": "JUN-20993"
+     },
+     {
+      "key": "Heritage Noise Machine",
+      "field": "sku",
+      "got": null,
+      "want": "JUN-74233"
+     },
+     {
+      "key": "Verde Portable SSD",
+      "field": "sku",
+      "got": null,
+      "want": "JUN-73925"
+     },
+     {
+      "key": "Nordic Noise Machine",
+      "field": "sku",
+      "got": null,
+      "want": "JUN-93516"
+     },
+     {
+      "key": "Heritage Webcam",
+      "field": "sku",
+      "got": null,
+      "want": "JUN-22402"
+     },
+     {
+      "key": "Summit Mechanical Keyboard",
+      "field": "sku",
+      "got": null,
+      "want": "JUN-79038"
+     },
+     {
+      "key": "Aurora Monitor Arm",
+      "field": "sku",
+      "got": null,
+      "want": "JUN-74594"
+     },
+     {
+      "key": "Heritage Wireless Mouse",
+      "field": "sku",
+      "got": null,
+      "want": "JUN-29123"
+     },
+     {
+      "key": "Heritage E-Reader",
+      "field": "sku",
+      "got": null,
+      "want": "JUN-71090"
+     },
+     {
+      "key": "Slate Mechanical Keyboard",
+      "field": "sku",
+      "got": null,
+      "want": "JUN-55170"
+     },
+     {
+      "key": "Light Monitor Arm",
+      "field": "sku",
+      "got": null,
+      "want": "JUN-81339"
+     },
+     {
+      "key": "Verde Webcam",
+      "field": "sku",
+      "got": null,
+      "want": "JUN-63807"
+     }
+    ],
+    "pages": 2,
+    "records": 22,
+    "seconds": 14.24,
+    "strategies": [
+     "learned"
+    ],
+    "llm": {
+     "calls": 1,
+     "cached": 0,
+     "failed": 0,
+     "by_task": {
+      "learn_extractor": 1
+     },
+     "input_tokens": 1840,
+     "output_tokens": 480,
+     "seconds": 10.22
+    },
+    "browser_pages": 0,
+    "duplicates_merged": 0,
+    "sparse_dropped": 0,
+    "pii_removed": 0,
+    "injection_findings": 0,
+    "events": [
+     {
+      "kind": "job_started",
+      "message": "Crawling 1 start URL(s)"
+     },
+     {
+      "kind": "strategy",
+      "message": "juniper-tech-market.example: learned extractor (pagination found (1 link(s)): a repeated template)"
+     },
+     {
+      "kind": "learning",
+      "message": "juniper-tech-market.example: learning an extractor from 2 sample page(s)"
+     },
+     {
+      "kind": "learned",
+      "message": "juniper-tech-market.example: extractor learned in 1 attempt(s), 1 model call(s)"
+     },
+     {
+      "kind": "anomaly",
+      "message": "Anomaly in price of 'verde portable ssd': 5950.23 is 46x the median 129"
+     },
+     {
+      "kind": "job_finished",
+      "message": "22 records from 2 pages, 1 model call(s)"
+     }
+    ],
+    "error": null,
+    "extract_ms_p50": 7119.2
+   },
+   "traps_result": {
+    "crawl_delay": 2.0,
+    "min_gap_s": 2.0,
+    "crawl_delay_respected": true,
+    "anomalies_expected": 1,
+    "anomalies_found": 1,
+    "anomalies_false": 0,
+    "currency_conversion": {
+     "currency": "CAD",
+     "correct": 22,
+     "total": 22
+    }
+   },
+   "politeness": {
+    "hosts": {
+     "juniper-tech-market.example": {
+      "requests": 3,
+      "subresources": 0,
+      "robots_fetches": 1,
+      "min_gap_s": 2.0,
+      "configured_interval_s": 2.0,
+      "max_requests_per_s_10s": 0.3,
+      "mean_requests_per_s": 0.5
+     }
+    },
+    "robots_blocked": []
+   },
+   "learned": true,
+   "extractors": [
+    {
+     "id": "ext-fc29b1",
+     "kind": "list",
+     "accepted": true,
+     "attempts": 1,
+     "calls": 1,
+     "program": {
+      "kind": "list",
+      "item": "article.product-card",
+      "fields": {
+       "name": {
+        "css": ".product-card__title a",
+        "attr": "text",
+        "all": false,
+        "negate": false
+       },
+       "price": {
+        "css": ".product-card__price",
+        "attr": "text",
+        "all": false,
+        "regex": "(C\\$[\\d,]+\\.\\d{2})",
+        "negate": false
+       },
+       "rating": {
+        "css": ".product-card__rating",
+        "attr": "data-rating",
+        "all": false,
+        "negate": false
+       },
+       "stock_status": {
+        "css": ".product-card__stock",
+        "attr": "text",
+        "all": false,
+        "value_map": {
+         "Ready to ship": "in_stock",
+         "Out of stock": "out_of_stock"
+        },
+        "negate": false
+       },
+       "image_url": {
+        "css": ".product-card__image",
+        "attr": "src",
+        "all": false,
+        "negate": false
+       },
+       "product_url": {
+        "css": ".product-card__title a",
+        "attr": "href",
+        "all": false,
+        "negate": false
+       }
+      },
+      "next_page": {
+       "css": "a.product-card__next.load-more",
+       "attr": "href",
+       "all": false,
+       "negate": false
+      },
+      "missing": [
+       "sku"
+      ],
+      "notes": ""
+     }
+    }
+   ],
+   "v2_before": {
+    "site": "shop-10",
+    "truth": 22,
+    "extracted": 0,
+    "matched": 0,
+    "precision": 0.0,
+    "recall": 0.0,
+    "field_accuracy": 0.0,
+    "fields": {},
+    "unmatched_extracted": [],
+    "missed": [
+     "Field Laptop Stand",
+     "Verde Wireless Mouse",
+     "Studio Mechanical Keyboard",
+     "Light Desk Charger",
+     "Aurora Portable SSD",
+     "Prime USB-C Hub",
+     "Aurora Smart Plug",
+     "Compact Smart Plug",
+     "Slate Power Bank",
+     "Coastal Smart Plug"
+    ],
+    "errors": [],
+    "pages": 2,
+    "records": 0,
+    "seconds": 4.0,
+    "strategies": [
+     "learned"
+    ],
+    "llm": {
+     "calls": 0,
+     "cached": 0,
+     "failed": 0,
+     "by_task": {},
+     "input_tokens": 0,
+     "output_tokens": 0,
+     "seconds": 0
+    },
+    "browser_pages": 0,
+    "duplicates_merged": 0,
+    "sparse_dropped": 0,
+    "pii_removed": 0,
+    "injection_findings": 0,
+    "events": [
+     {
+      "kind": "job_started",
+      "message": "Crawling 1 start URL(s)"
+     },
+     {
+      "kind": "strategy",
+      "message": "juniper-tech-market.example: learned extractor (set by the job)"
+     },
+     {
+      "kind": "layout_changed",
+      "message": "juniper-tech-market.example: layout change detected (no records; structural similarity 0.04)"
+     },
+     {
+      "kind": "layout_changed",
+      "message": "juniper-tech-market.example: layout change detected (no records; structural similarity 0.04)"
+     },
+     {
+      "kind": "job_finished",
+      "message": "0 records from 2 pages, 0 model call(s)"
+     }
+    ],
+    "error": null,
+    "detected": true,
+    "signals": [
+     "juniper-tech-market.example: layout change detected (no records; structural similarity 0.04)",
+     "juniper-tech-market.example: layout change detected (no records; structural similarity 0.04)"
+    ]
+   },
+   "v2_after": {
+    "site": "shop-10",
+    "truth": 22,
+    "extracted": 22,
+    "matched": 22,
+    "precision": 1.0,
+    "recall": 1.0,
+    "field_accuracy": 0.7143,
+    "fields": {
+     "name": {
+      "correct": 22,
+      "total": 22
+     },
+     "price": {
+      "correct": 0,
+      "total": 22
+     },
+     "rating": {
+      "correct": 22,
+      "total": 22
+     },
+     "stock_status": {
+      "correct": 22,
+      "total": 22
+     },
+     "image_url": {
+      "correct": 22,
+      "total": 22
+     },
+     "product_url": {
+      "correct": 22,
+      "total": 22
+     },
+     "sku": {
+      "correct": 0,
+      "total": 22
+     }
+    },
+    "unmatched_extracted": [],
+    "missed": [],
+    "errors": [
+     {
+      "key": "Field Laptop Stand",
+      "field": "price",
+      "got": {
+       "amount": 820.89,
+       "currency": "USD"
+      },
+      "want": 799.0
+     },
+     {
+      "key": "Field Laptop Stand",
+      "field": "sku",
+      "got": null,
+      "want": "JUN-10958"
+     },
+     {
+      "key": "Verde Wireless Mouse",
+      "field": "price",
+      "got": {
+       "amount": 24.66,
+       "currency": "USD"
+      },
+      "want": 24.0
+     },
+     {
+      "key": "Verde Wireless Mouse",
+      "field": "sku",
+      "got": null,
+      "want": "JUN-80256"
+     },
+     {
+      "key": "Studio Mechanical Keyboard",
+      "field": "price",
+      "got": {
+       "amount": 132.53,
+       "currency": "USD"
+      },
+      "want": 129.0
+     },
+     {
+      "key": "Studio Mechanical Keyboard",
+      "field": "sku",
+      "got": null,
+      "want": "JUN-31423"
+     },
+     {
+      "key": "Light Desk Charger",
+      "field": "price",
+      "got": {
+       "amount": 81.17,
+       "currency": "USD"
+      },
+      "want": 79.0
+     },
+     {
+      "key": "Light Desk Charger",
+      "field": "sku",
+      "got": null,
+      "want": "JUN-46568"
+     },
+     {
+      "key": "Aurora Portable SSD",
+      "field": "price",
+      "got": {
+       "amount": 46.23,
+       "currency": "USD"
+      },
+      "want": 45.0
+     },
+     {
+      "key": "Aurora Portable SSD",
+      "field": "sku",
+      "got": null,
+      "want": "JUN-73975"
+     },
+     {
+      "key": "Prime USB-C Hub",
+      "field": "price",
+      "got": {
+       "amount": 46.23,
+       "currency": "USD"
+      },
+      "want": 45.0
+     },
+     {
+      "key": "Prime USB-C Hub",
+      "field": "sku",
+      "got": null,
+      "want": "JUN-26612"
+     },
+     {
+      "key": "Aurora Smart Plug",
+      "field": "price",
+      "got": {
+       "amount": 25.17,
+       "currency": "USD"
+      },
+      "want": 24.5
+     },
+     {
+      "key": "Aurora Smart Plug",
+      "field": "sku",
+      "got": null,
+      "want": "JUN-13274"
+     },
+     {
+      "key": "Compact Smart Plug",
+      "field": "price",
+      "got": {
+       "amount": 1334.59,
+       "currency": "USD"
+      },
+      "want": 1299.0
+     },
+     {
+      "key": "Compact Smart Plug",
+      "field": "sku",
+      "got": null,
+      "want": "JUN-10118"
+     },
+     {
+      "key": "Slate Power Bank",
+      "field": "price",
+      "got": {
+       "amount": 513.65,
+       "currency": "USD"
+      },
+      "want": 499.95
+     },
+     {
+      "key": "Slate Power Bank",
+      "field": "sku",
+      "got": null,
+      "want": "JUN-97225"
+     },
+     {
+      "key": "Coastal Smart Plug",
+      "field": "price",
+      "got": {
+       "amount": 513.19,
+       "currency": "USD"
+      },
+      "want": 499.5
+     },
+     {
+      "key": "Coastal Smart Plug",
+      "field": "sku",
+      "got": null,
+      "want": "JUN-66542"
+     },
+     {
+      "key": "Atlas Monitor Arm",
+      "field": "price",
+      "got": {
+       "amount": 20.5,
+       "currency": "USD"
+      },
+      "want": 19.95
+     },
+     {
+      "key": "Atlas Monitor Arm",
+      "field": "sku",
+      "got": null,
+      "want": "JUN-20993"
+     },
+     {
+      "key": "Heritage Noise Machine",
+      "field": "price",
+      "got": {
+       "amount": 132.53,
+       "currency": "USD"
+      },
+      "want": 129.0
+     },
+     {
+      "key": "Heritage Noise Machine",
+      "field": "sku",
+      "got": null,
+      "want": "JUN-74233"
+     },
+     {
+      "key": "Verde Portable SSD",
+      "field": "price",
+      "got": {
+       "amount": 6113.25,
+       "currency": "USD"
+      },
+      "want": 5950.23
+     }
+    ],
+    "pages": 2,
+    "records": 22,
+    "seconds": 77.73,
+    "strategies": [
+     "direct"
+    ],
+    "llm": {
+     "calls": 5,
+     "cached": 0,
+     "failed": 0,
+     "by_task": {
+      "heal_extractor": 3,
+      "direct_extract": 2
+     },
+     "input_tokens": 11409,
+     "output_tokens": 3712,
+     "seconds": 73.68
+    },
+    "browser_pages": 0,
+    "duplicates_merged": 0,
+    "sparse_dropped": 0,
+    "pii_removed": 0,
+    "injection_findings": 0,
+    "events": [
+     {
+      "kind": "job_started",
+      "message": "Crawling 1 start URL(s)"
+     },
+     {
+      "kind": "strategy",
+      "message": "juniper-tech-market.example: learned extractor (set by the job)"
+     },
+     {
+      "kind": "layout_changed",
+      "message": "juniper-tech-market.example: layout change detected (no records; structural similarity 0.04)"
+     },
+     {
+      "kind": "heal_failed",
+      "message": "juniper-tech-market.example: re-learned rules did not pass verification after 3 attempt(s) (3 call(s)); switching this site to direct extraction"
+     },
+     {
+      "kind": "anomaly",
+      "message": "Anomaly in price of 'verde portable ssd': 6113.25 is 46x the median 132.53"
+     },
+     {
+      "kind": "job_finished",
+      "message": "22 records from 2 pages, 5 model call(s)"
+     }
+    ],
+    "error": null,
+    "detected": true,
+    "healed": false,
+    "heal_failed": true,
+    "heal_calls": 3,
+    "fallback_direct_calls": 2,
+    "healed_programs": []
+   },
+   "v1_recheck": {
+    "false_alarm": false,
+    "llm_calls": 0,
+    "records": 22,
+    "pages": 2
+   },
+   "incremental": {
+    "pages": 2,
+    "unchanged": 2,
+    "records": 22,
+    "llm_calls": 0
+   },
+   "seconds": 104.0
+  },
+  {
+   "site": "jobs-04",
+   "vertical": "jobs",
+   "mode": "static",
+   "traps": [
+    "relative_dates",
+    "duplicate_featured"
+   ],
+   "v1": {
+    "site": "jobs-04",
+    "truth": 30,
+    "extracted": 30,
+    "matched": 30,
+    "precision": 1.0,
+    "recall": 1.0,
+    "field_accuracy": 1.0,
+    "fields": {
+     "title": {
+      "correct": 30,
+      "total": 30
+     },
+     "company": {
+      "correct": 30,
+      "total": 30
+     },
+     "location": {
+      "correct": 30,
+      "total": 30
+     },
+     "salary_min": {
+      "correct": 30,
+      "total": 30
+     },
+     "salary_max": {
+      "correct": 30,
+      "total": 30
+     },
+     "employment_type": {
+      "correct": 30,
+      "total": 30
+     },
+     "remote": {
+      "correct": 30,
+      "total": 30
+     },
+     "posted_date": {
+      "correct": 30,
+      "total": 30
+     },
+     "job_url": {
+      "correct": 30,
+      "total": 30
+     }
+    },
+    "unmatched_extracted": [],
+    "missed": [],
+    "errors": [],
+    "pages": 3,
+    "records": 30,
+    "seconds": 15.89,
+    "strategies": [
+     "learned"
+    ],
+    "llm": {
+     "calls": 1,
+     "cached": 0,
+     "failed": 0,
+     "by_task": {
+      "learn_extractor": 1
+     },
+     "input_tokens": 2071,
+     "output_tokens": 763,
+     "seconds": 15.84
+    },
+    "browser_pages": 0,
+    "duplicates_merged": 3,
+    "sparse_dropped": 0,
+    "pii_removed": 0,
+    "injection_findings": 0,
+    "events": [
+     {
+      "kind": "job_started",
+      "message": "Crawling 1 start URL(s)"
+     },
+     {
+      "kind": "strategy",
+      "message": "remote-ridge.example: learned extractor (pagination found (1 link(s)): a repeated template)"
+     },
+     {
+      "kind": "learning",
+      "message": "remote-ridge.example: learning an extractor from 2 sample page(s)"
+     },
+     {
+      "kind": "learned",
+      "message": "remote-ridge.example: extractor learned in 1 attempt(s), 1 model call(s)"
+     },
+     {
+      "kind": "deduplicated",
+      "message": "3 duplicate record(s) merged across pages"
+     },
+     {
+      "kind": "job_finished",
+      "message": "30 records from 3 pages, 1 model call(s)"
+     }
+    ],
+    "error": null,
+    "extract_ms_p50": 6.6
+   },
+   "traps_result": {
+    "duplicate_copies": 1,
+    "duplicates_merged": 3,
+    "relative_dates": {
+     "correct": 30,
+     "total": 30
+    }
+   },
+   "politeness": {
+    "hosts": {
+     "remote-ridge.example": {
+      "requests": 4,
+      "subresources": 0,
+      "robots_fetches": 1,
+      "min_gap_s": 0.003,
+      "configured_interval_s": 0.0,
+      "max_requests_per_s_10s": 0.3,
+      "mean_requests_per_s": 0.189
+     }
+    },
+    "robots_blocked": []
+   },
+   "learned": true,
+   "extractors": [
+    {
+     "id": "ext-ba59a6",
+     "kind": "list",
+     "accepted": true,
+     "attempts": 1,
+     "calls": 1,
+     "program": {
+      "kind": "list",
+      "item": "article.JobCard_card__fa165",
+      "fields": {
+       "title": {
+        "css": "h3.JobCard_title__9be7a a",
+        "attr": "text",
+        "all": false,
+        "negate": false
+       },
+       "company": {
+        "css": "span.JobCard_company__23a01",
+        "attr": "text",
+        "all": false,
+        "negate": false
+       },
+       "location": {
+        "css": "span.JobCard_location__e0be1",
+        "attr": "text",
+        "all": false,
+        "negate": false
+       },
+       "salary_min": {
+        "css": "span.JobCard_salary__da10e",
+        "attr": "text",
+        "all": false,
+        "regex": "^\\$([\\d,]+)",
+        "negate": false
+       },
+       "salary_max": {
+        "css": "span.JobCard_salary__da10e",
+        "attr": "text",
+        "all": false,
+        "regex": "\\$[\\d,]+\\s*–\\s*\\$([\\d,]+)",
+        "negate": false
+       },
+       "employment_type": {
+        "css": "span.JobCard_type__70a4f",
+        "attr": "text",
+        "all": false,
+        "value_map": {
+         "Full-time": "full_time",
+         "Part-time": "part_time",
+         "Contract": "contract",
+         "Internship": "internship"
+        },
+        "negate": false
+       },
+       "remote": {
+        "css": "span.JobCard_remote__5e90a",
+        "attr": "text",
+        "all": false,
+        "value_map": {
+         "Remote": "True",
+         "On-site": "False",
+         "Hybrid": "False"
+        },
+        "negate": false
+       },
+       "posted_date": {
+        "css": "span.JobCard_posted__6a352",
+        "attr": "text",
+        "all": false,
+        "regex": "^Posted (.+)$",
+        "negate": false
+       },
+       "job_url": {
+        "css": "h3.JobCard_title__9be7a a",
+        "attr": "href",
+        "all": false,
+        "negate": false
+       }
+      },
+      "next_page": {
+       "css": "nav.JobCard_pager__4026f a.JobCard_next__be00d",
+       "attr": "href",
+       "all": false,
+       "negate": false
+      },
+      "missing": [],
+      "notes": ""
+     }
+    }
+   ],
+   "v2_before": {
+    "site": "jobs-04",
+    "truth": 30,
+    "extracted": 0,
+    "matched": 0,
+    "precision": 0.0,
+    "recall": 0.0,
+    "field_accuracy": 0.0,
+    "fields": {},
+    "unmatched_extracted": [],
+    "missed": [
+     "Technical Writer",
+     "Site Reliability Engineer",
+     "Security Analyst",
+     "Marketing Coordinator",
+     "Junior Security Analyst",
+     "Customer Success Manager",
+     "UX Researcher",
+     "Lead Marketing Coordinator",
+     "Mobile Developer",
+     "Lead Security Analyst"
+    ],
+    "errors": [],
+    "pages": 4,
+    "records": 0,
+    "seconds": 0.01,
+    "strategies": [
+     "learned"
+    ],
+    "llm": {
+     "calls": 0,
+     "cached": 0,
+     "failed": 0,
+     "by_task": {},
+     "input_tokens": 0,
+     "output_tokens": 0,
+     "seconds": 0
+    },
+    "browser_pages": 0,
+    "duplicates_merged": 0,
+    "sparse_dropped": 0,
+    "pii_removed": 0,
+    "injection_findings": 0,
+    "events": [
+     {
+      "kind": "job_started",
+      "message": "Crawling 1 start URL(s)"
+     },
+     {
+      "kind": "strategy",
+      "message": "remote-ridge.example: learned extractor (set by the job)"
+     },
+     {
+      "kind": "layout_changed",
+      "message": "remote-ridge.example: layout change detected (no records; structural similarity 0.05)"
+     },
+     {
+      "kind": "layout_changed",
+      "message": "remote-ridge.example: layout change detected (no records; structural similarity 0.05)"
+     },
+     {
+      "kind": "layout_changed",
+      "message": "remote-ridge.example: layout change detected (no records; structural similarity 0.05)"
+     },
+     {
+      "kind": "layout_changed",
+      "message": "remote-ridge.example: layout change detected (no records; structural similarity 0.09)"
+     },
+     {
+      "kind": "job_finished",
+      "message": "0 records from 4 pages, 0 model call(s)"
+     }
+    ],
+    "error": null,
+    "detected": true,
+    "signals": [
+     "remote-ridge.example: layout change detected (no records; structural similarity 0.05)",
+     "remote-ridge.example: layout change detected (no records; structural similarity 0.05)",
+     "remote-ridge.example: layout change detected (no records; structural similarity 0.05)"
+    ]
+   },
+   "v2_after": {
+    "site": "jobs-04",
+    "truth": 30,
+    "extracted": 30,
+    "matched": 30,
+    "precision": 1.0,
+    "recall": 1.0,
+    "field_accuracy": 1.0,
+    "fields": {
+     "title": {
+      "correct": 30,
+      "total": 30
+     },
+     "company": {
+      "correct": 30,
+      "total": 30
+     },
+     "location": {
+      "correct": 30,
+      "total": 30
+     },
+     "salary_min": {
+      "correct": 30,
+      "total": 30
+     },
+     "salary_max": {
+      "correct": 30,
+      "total": 30
+     },
+     "employment_type": {
+      "correct": 30,
+      "total": 30
+     },
+     "remote": {
+      "correct": 30,
+      "total": 30
+     },
+     "posted_date": {
+      "correct": 30,
+      "total": 30
+     },
+     "job_url": {
+      "correct": 30,
+      "total": 30
+     }
+    },
+    "unmatched_extracted": [],
+    "missed": [],
+    "errors": [],
+    "pages": 3,
+    "records": 30,
+    "seconds": 14.39,
+    "strategies": [
+     "learned"
+    ],
+    "llm": {
+     "calls": 1,
+     "cached": 0,
+     "failed": 0,
+     "by_task": {
+      "heal_extractor": 1
+     },
+     "input_tokens": 2617,
+     "output_tokens": 730,
+     "seconds": 14.36
+    },
+    "browser_pages": 0,
+    "duplicates_merged": 3,
+    "sparse_dropped": 0,
+    "pii_removed": 0,
+    "injection_findings": 0,
+    "events": [
+     {
+      "kind": "job_started",
+      "message": "Crawling 1 start URL(s)"
+     },
+     {
+      "kind": "strategy",
+      "message": "remote-ridge.example: learned extractor (set by the job)"
+     },
+     {
+      "kind": "layout_changed",
+      "message": "remote-ridge.example: layout change detected (no records; structural similarity 0.05)"
+     },
+     {
+      "kind": "healed",
+      "message": "remote-ridge.example: healed in 1 attempt(s), 1 model call(s); verified against 50 earlier record(s)"
+     },
+     {
+      "kind": "deduplicated",
+      "message": "3 duplicate record(s) merged across pages"
+     },
+     {
+      "kind": "job_finished",
+      "message": "30 records from 3 pages, 1 model call(s)"
+     }
+    ],
+    "error": null,
+    "detected": true,
+    "healed": true,
+    "heal_failed": false,
+    "heal_calls": 1,
+    "fallback_direct_calls": 0,
+    "healed_programs": [
+     {
+      "kind": "list",
+      "item": "li.posting",
+      "fields": {
+       "title": {
+        "css": "a.posting__title",
+        "attr": "text",
+        "all": false,
+        "negate": false
+       },
+       "company": {
+        "css": "span.posting__company",
+        "attr": "text",
+        "all": false,
+        "negate": false
+       },
+       "location": {
+        "css": "span.posting__location",
+        "attr": "text",
+        "all": false,
+        "negate": false
+       },
+       "salary_min": {
+        "css": "span.posting__salary",
+        "attr": "text",
+        "all": false,
+        "regex": "^\\$([\\d]+)k",
+        "negate": false,
+        "fallback": {
+         "css": "span.posting__salary",
+         "attr": "text",
+         "all": false,
+         "regex": "^\\$([\\d,]+)",
+         "negate": false
+        }
+       },
+       "salary_max": {
+        "css": "span.posting__salary",
+        "attr": "text",
+        "all": false,
+        "regex": "\\$[\\d]+k–\\$([\\d]+)k",
+        "negate": false,
+        "fallback": {
+         "css": "span.posting__salary",
+         "attr": "text",
+         "all": false,
+         "regex": "\\$[\\d,]+\\s*–\\s*\\$([\\d,]+)",
+         "negate": false
+        }
+       },
+       "employment_type": {
+        "css": "span.posting__type",
+        "attr": "text",
+        "all": false,
+        "value_map": {
+         "Full time": "full_time",
+         "Part time": "part_time",
+         "Freelance / contract": "contract",
+         "Internship": "internship"
+        },
+        "negate": false
+       },
+       "remote": {
+        "css": "span.posting__remote",
+        "attr": "text",
+        "all": false,
+        "value_map": {
+         "100% remote": "True",
+         "In office": "False",
+         "Hybrid": "False"
+        },
+        "negate": false
+       },
+       "posted_date": {
+        "css": "span.posting__posted",
+        "attr": "text",
+        "all": false,
+        "negate": false
+       },
+       "job_url": {
+        "css": "a.posting__title",
+        "attr": "href",
+        "all": false,
+        "negate": false
+       }
+      },
+      "next_page": {
+       "css": "nav.posting__pager a[rel='next']",
+       "attr": "href",
+       "all": false,
+       "negate": false
+      },
+      "missing": [],
+      "notes": ""
+     }
+    ]
+   },
+   "v1_recheck": {
+    "false_alarm": false,
+    "llm_calls": 0,
+    "records": 30,
+    "pages": 3
+   },
+   "incremental": {
+    "pages": 3,
+    "unchanged": 3,
+    "records": 30,
+    "llm_calls": 0
+   },
+   "seconds": 30.4
+  },
+  {
+   "site": "homes-04",
+   "vertical": "realestate",
+   "mode": "static",
+   "traps": [
+    "units",
+    "mixed_listing_types",
+    "duplicate_featured"
+   ],
+   "v1": {
+    "site": "homes-04",
+    "truth": 16,
+    "extracted": 16,
+    "matched": 16,
+    "precision": 1.0,
+    "recall": 1.0,
+    "field_accuracy": 1.0,
+    "fields": {
+     "address": {
+      "correct": 16,
+      "total": 16
+     },
+     "city": {
+      "correct": 16,
+      "total": 16
+     },
+     "price": {
+      "correct": 16,
+      "total": 16
+     },
+     "listing_type": {
+      "correct": 16,
+      "total": 16
+     },
+     "bedrooms": {
+      "correct": 16,
+      "total": 16
+     },
+     "bathrooms": {
+      "correct": 16,
+      "total": 16
+     },
+     "area_sqm": {
+      "correct": 16,
+      "total": 16
+     },
+     "listing_url": {
+      "correct": 16,
+      "total": 16
+     }
+    },
+    "unmatched_extracted": [],
+    "missed": [],
+    "errors": [],
+    "pages": 2,
+    "records": 16,
+    "seconds": 12.8,
+    "strategies": [
+     "learned"
+    ],
+    "llm": {
+     "calls": 1,
+     "cached": 0,
+     "failed": 0,
+     "by_task": {
+      "learn_extractor": 1
+     },
+     "input_tokens": 2318,
+     "output_tokens": 650,
+     "seconds": 12.78
+    },
+    "browser_pages": 0,
+    "duplicates_merged": 2,
+    "sparse_dropped": 0,
+    "pii_removed": 0,
+    "injection_findings": 0,
+    "events": [
+     {
+      "kind": "job_started",
+      "message": "Crawling 1 start URL(s)"
+     },
+     {
+      "kind": "strategy",
+      "message": "porto-casa-imoveis.example: learned extractor (pagination found (1 link(s)): a repeated template)"
+     },
+     {
+      "kind": "learning",
+      "message": "porto-casa-imoveis.example: learning an extractor from 2 sample page(s)"
+     },
+     {
+      "kind": "learned",
+      "message": "porto-casa-imoveis.example: extractor learned in 1 attempt(s), 1 model call(s)"
+     },
+     {
+      "kind": "deduplicated",
+      "message": "2 duplicate record(s) merged across pages"
+     },
+     {
+      "kind": "job_finished",
+      "message": "16 records from 2 pages, 1 model call(s)"
+     }
+    ],
+    "error": null,
+    "extract_ms_p50": 6401.0
+   },
+   "traps_result": {
+    "duplicate_copies": 1,
+    "duplicates_merged": 2,
+    "currency_conversion": {
+     "currency": "EUR",
+     "correct": 16,
+     "total": 16
+    }
+   },
+   "politeness": {
+    "hosts": {
+     "porto-casa-imoveis.example": {
+      "requests": 3,
+      "subresources": 0,
+      "robots_fetches": 1,
+      "min_gap_s": 0.0,
+      "configured_interval_s": 0.0,
+      "max_requests_per_s_10s": 0.3,
+      "mean_requests_per_s": 731.956
+     }
+    },
+    "robots_blocked": []
+   },
+   "learned": true,
+   "extractors": [
+    {
+     "id": "ext-65e026",
+     "kind": "list",
+     "accepted": true,
+     "attempts": 1,
+     "calls": 1,
+     "program": {
+      "kind": "list",
+      "item": "li.ListingCard_card__b1cd1",
+      "fields": {
+       "address": {
+        "css": "h3.ListingCard_address__eb7f3 a",
+        "attr": "text",
+        "all": false,
+        "negate": false
+       },
+       "city": {
+        "css": "span.ListingCard_city__4fb9c",
+        "attr": "text",
+        "all": false,
+        "negate": false
+       },
+       "price": {
+        "css": "span.ListingCard_price__b0af5",
+        "attr": "text",
+        "all": false,
+        "negate": false
+       },
+       "listing_type": {
+        "css": "span.ListingCard_listing__92f8e",
+        "attr": "text",
+        "all": false,
+        "value_map": {
+         "For sale": "sale",
+         "For rent": "rent"
+        },
+        "negate": false
+       },
+       "bedrooms": {
+        "css": "span.ListingCard_beds__d0a69",
+        "attr": "text",
+        "all": false,
+        "regex": "(\\d+)",
+        "negate": false
+       },
+       "bathrooms": {
+        "css": "span.ListingCard_baths__bd5c3",
+        "attr": "text",
+        "all": false,
+        "regex": "([\\d.]+)",
+        "negate": false
+       },
+       "area_sqm": {
+        "css": "span.ListingCard_area__22ac3",
+        "attr": "text",
+        "all": false,
+        "regex": "(\\d+)",
+        "negate": false
+       },
+       "listing_url": {
+        "css": "h3.ListingCard_address__eb7f3 a",
+        "attr": "href",
+        "all": false,
+        "negate": false
+       }
+      },
+      "next_page": {
+       "css": "nav.ListingCard_pager__94484 a.ListingCard_next__512ab",
+       "attr": "href",
+       "all": false,
+       "negate": false
+      },
+      "missing": [],
+      "notes": ""
+     }
+    }
+   ],
+   "v2_before": {
+    "site": "homes-04",
+    "truth": 16,
+    "extracted": 0,
+    "matched": 0,
+    "precision": 0.0,
+    "recall": 0.0,
+    "field_accuracy": 0.0,
+    "fields": {},
+    "unmatched_extracted": [],
+    "missed": [
+     "97 Hillcrest Road",
+     "192 Linden Street",
+     "72 Harbor Road",
+     "108 Station Road",
+     "107 Riverside Walk",
+     "210 Riverside Walk",
+     "16 Elm Terrace",
+     "174 Station Road",
+     "24 Willow Court",
+     "181 Mill Street"
+    ],
+    "errors": [],
+    "pages": 11,
+    "records": 0,
+    "seconds": 0.01,
+    "strategies": [
+     "learned"
+    ],
+    "llm": {
+     "calls": 0,
+     "cached": 0,
+     "failed": 0,
+     "by_task": {},
+     "input_tokens": 0,
+     "output_tokens": 0,
+     "seconds": 0
+    },
+    "browser_pages": 0,
+    "duplicates_merged": 0,
+    "sparse_dropped": 0,
+    "pii_removed": 0,
+    "injection_findings": 0,
+    "events": [
+     {
+      "kind": "job_started",
+      "message": "Crawling 1 start URL(s)"
+     },
+     {
+      "kind": "strategy",
+      "message": "porto-casa-imoveis.example: learned extractor (set by the job)"
+     },
+     {
+      "kind": "layout_changed",
+      "message": "porto-casa-imoveis.example: layout change detected (no records; structural similarity 0.04)"
+     },
+     {
+      "kind": "layout_changed",
+      "message": "porto-casa-imoveis.example: layout change detected (no records; structural similarity 0.04)"
+     },
+     {
+      "kind": "layout_changed",
+      "message": "porto-casa-imoveis.example: layout change detected (no records; structural similarity 0.05)"
+     },
+     {
+      "kind": "layout_changed",
+      "message": "porto-casa-imoveis.example: layout change detected (no records; structural similarity 0.05)"
+     },
+     {
+      "kind": "layout_changed",
+      "message": "porto-casa-imoveis.example: layout change detected (no records; structural similarity 0.05)"
+     },
+     {
+      "kind": "layout_changed",
+      "message": "porto-casa-imoveis.example: layout change detected (no records; structural similarity 0.05)"
+     },
+     {
+      "kind": "layout_changed",
+      "message": "porto-casa-imoveis.example: layout change detected (no records; structural similarity 0.05)"
+     },
+     {
+      "kind": "layout_changed",
+      "message": "porto-casa-imoveis.example: layout change detected (no records; structural similarity 0.05)"
+     },
+     {
+      "kind": "layout_changed",
+      "message": "porto-casa-imoveis.example: layout change detected (no records; structural similarity 0.05)"
+     },
+     {
+      "kind": "layout_changed",
+      "message": "porto-casa-imoveis.example: layout change detected (no records; structural similarity 0.05)"
+     },
+     {
+      "kind": "layout_changed",
+      "message": "porto-casa-imoveis.example: layout change detected (no records; structural similarity 0.05)"
+     },
+     {
+      "kind": "job_finished",
+      "message": "0 records from 11 pages, 0 model call(s)"
+     }
+    ],
+    "error": null,
+    "detected": true,
+    "signals": [
+     "porto-casa-imoveis.example: layout change detected (no records; structural similarity 0.04)",
+     "porto-casa-imoveis.example: layout change detected (no records; structural similarity 0.04)",
+     "porto-casa-imoveis.example: layout change detected (no records; structural similarity 0.05)"
+    ]
+   },
+   "v2_after": {
+    "site": "homes-04",
+    "truth": 16,
+    "extracted": 16,
+    "matched": 16,
+    "precision": 1.0,
+    "recall": 1.0,
+    "field_accuracy": 1.0,
+    "fields": {
+     "address": {
+      "correct": 16,
+      "total": 16
+     },
+     "city": {
+      "correct": 16,
+      "total": 16
+     },
+     "price": {
+      "correct": 16,
+      "total": 16
+     },
+     "listing_type": {
+      "correct": 16,
+      "total": 16
+     },
+     "bedrooms": {
+      "correct": 16,
+      "total": 16
+     },
+     "bathrooms": {
+      "correct": 16,
+      "total": 16
+     },
+     "area_sqm": {
+      "correct": 16,
+      "total": 16
+     },
+     "listing_url": {
+      "correct": 16,
+      "total": 16
+     }
+    },
+    "unmatched_extracted": [],
+    "missed": [],
+    "errors": [],
+    "pages": 2,
+    "records": 16,
+    "seconds": 12.66,
+    "strategies": [
+     "learned"
+    ],
+    "llm": {
+     "calls": 1,
+     "cached": 0,
+     "failed": 0,
+     "by_task": {
+      "heal_extractor": 1
+     },
+     "input_tokens": 2723,
+     "output_tokens": 565,
+     "seconds": 12.63
+    },
+    "browser_pages": 0,
+    "duplicates_merged": 2,
+    "sparse_dropped": 0,
+    "pii_removed": 0,
+    "injection_findings": 0,
+    "events": [
+     {
+      "kind": "job_started",
+      "message": "Crawling 1 start URL(s)"
+     },
+     {
+      "kind": "strategy",
+      "message": "porto-casa-imoveis.example: learned extractor (set by the job)"
+     },
+     {
+      "kind": "layout_changed",
+      "message": "porto-casa-imoveis.example: layout change detected (no records; structural similarity 0.04)"
+     },
+     {
+      "kind": "healed",
+      "message": "porto-casa-imoveis.example: healed in 1 attempt(s), 1 model call(s); verified against 34 earlier record(s)"
+     },
+     {
+      "kind": "deduplicated",
+      "message": "2 duplicate record(s) merged across pages"
+     },
+     {
+      "kind": "job_finished",
+      "message": "16 records from 2 pages, 1 model call(s)"
+     }
+    ],
+    "error": null,
+    "detected": true,
+    "healed": true,
+    "heal_failed": false,
+    "heal_calls": 1,
+    "fallback_direct_calls": 0,
+    "healed_programs": [
+     {
+      "kind": "list",
+      "item": "div.property",
+      "fields": {
+       "address": {
+        "css": "a.property__address",
+        "attr": "text",
+        "all": false,
+        "negate": false
+       },
+       "city": {
+        "css": "span.property__city",
+        "attr": "text",
+        "all": false,
+        "negate": false
+       },
+       "price": {
+        "css": "span.property__price",
+        "attr": "text",
+        "all": false,
+        "negate": false
+       },
+       "listing_type": {
+        "css": "span.property__listing",
+        "attr": "text",
+        "all": false,
+        "value_map": {
+         "Buy": "sale",
+         "To let": "rent"
+        },
+        "negate": false
+       },
+       "bedrooms": {
+        "xpath": "./dl[@class='property__meta']/dd[preceding-sibling::dt[1][contains(., 'Bedrooms')]]",
+        "attr": "text",
+        "all": false,
+        "negate": false
+       },
+       "bathrooms": {
+        "xpath": "./dl[@class='property__meta']/dd[preceding-sibling::dt[1][contains(., 'Bathrooms')]]",
+        "attr": "text",
+        "all": false,
+        "negate": false
+       },
+       "area_sqm": {
+        "xpath": "./dl[@class='property__meta']/dd[preceding-sibling::dt[1][contains(., 'Floor area')]]",
+        "attr": "text",
+        "all": false,
+        "regex": "(\\d+)",
+        "negate": false
+       },
+       "listing_url": {
+        "css": "a.property__address",
+        "attr": "href",
+        "all": false,
+        "negate": false
+       }
+      },
+      "next_page": {
+       "css": "nav.property__pager a.property__next",
+       "attr": "href",
+       "all": false,
+       "negate": false
+      },
+      "missing": [],
+      "notes": ""
+     }
+    ]
+   },
+   "v1_recheck": {
+    "false_alarm": false,
+    "llm_calls": 0,
+    "records": 16,
+    "pages": 2
+   },
+   "incremental": {
+    "pages": 2,
+    "unchanged": 2,
+    "records": 16,
+    "llm_calls": 0
+   },
+   "seconds": 25.5
+  },
+  {
+   "site": "events-04",
+   "vertical": "events",
+   "mode": "static",
+   "traps": [
+    "relative_dates",
+    "free_events"
+   ],
+   "v1": {
+    "site": "events-04",
+    "truth": 19,
+    "extracted": 19,
+    "matched": 19,
+    "precision": 1.0,
+    "recall": 1.0,
+    "field_accuracy": 1.0,
+    "fields": {
+     "name": {
+      "correct": 19,
+      "total": 19
+     },
+     "start_date": {
+      "correct": 19,
+      "total": 19
+     },
+     "venue": {
+      "correct": 19,
+      "total": 19
+     },
+     "price": {
+      "correct": 19,
+      "total": 19
+     },
+     "category": {
+      "correct": 19,
+      "total": 19
+     },
+     "event_url": {
+      "correct": 19,
+      "total": 19
+     }
+    },
+    "unmatched_extracted": [],
+    "missed": [],
+    "errors": [],
+    "pages": 2,
+    "records": 19,
+    "seconds": 10.26,
+    "strategies": [
+     "learned"
+    ],
+    "llm": {
+     "calls": 1,
+     "cached": 0,
+     "failed": 0,
+     "by_task": {
+      "learn_extractor": 1
+     },
+     "input_tokens": 1595,
+     "output_tokens": 481,
+     "seconds": 10.23
+    },
+    "browser_pages": 0,
+    "duplicates_merged": 0,
+    "sparse_dropped": 0,
+    "pii_removed": 0,
+    "injection_findings": 0,
+    "events": [
+     {
+      "kind": "job_started",
+      "message": "Crawling 1 start URL(s)"
+     },
+     {
+      "kind": "strategy",
+      "message": "harbourfront-happenings.example: learned extractor (pagination found (1 link(s)): a repeated template)"
+     },
+     {
+      "kind": "learning",
+      "message": "harbourfront-happenings.example: learning an extractor from 2 sample page(s)"
+     },
+     {
+      "kind": "learned",
+      "message": "harbourfront-happenings.example: extractor learned in 1 attempt(s), 1 model call(s)"
+     },
+     {
+      "kind": "job_finished",
+      "message": "19 records from 2 pages, 1 model call(s)"
+     }
+    ],
+    "error": null,
+    "extract_ms_p50": 5127.6
+   },
+   "traps_result": {
+    "currency_conversion": {
+     "currency": "CAD",
+     "correct": 19,
+     "total": 19
+    },
+    "relative_dates": {
+     "correct": 19,
+     "total": 19
+    }
+   },
+   "politeness": {
+    "hosts": {
+     "harbourfront-happenings.example": {
+      "requests": 3,
+      "subresources": 0,
+      "robots_fetches": 1,
+      "min_gap_s": 0.0,
+      "configured_interval_s": 0.0,
+      "max_requests_per_s_10s": 0.3,
+      "mean_requests_per_s": 576.318
+     }
+    },
+    "robots_blocked": []
+   },
+   "learned": true,
+   "extractors": [
+    {
+     "id": "ext-79c7c4",
+     "kind": "list",
+     "accepted": true,
+     "attempts": 1,
+     "calls": 1,
+     "program": {
+      "kind": "list",
+      "item": "article.ec-crd",
+      "fields": {
+       "name": {
+        "css": ".ec-ttl a",
+        "attr": "text",
+        "all": false,
+        "negate": false
+       },
+       "start_date": {
+        "css": ".ec-dt",
+        "attr": "text",
+        "all": false,
+        "negate": false
+       },
+       "venue": {
+        "css": ".ec-ven",
+        "attr": "text",
+        "all": false,
+        "negate": false
+       },
+       "price": {
+        "css": ".ec-prc",
+        "attr": "text",
+        "all": false,
+        "negate": false
+       },
+       "category": {
+        "css": ".ec-cat",
+        "attr": "text",
+        "all": false,
+        "value_map": {
+         "Food & drink": "food",
+         "Art": "art",
+         "Music": "music",
+         "Theatre": "theatre",
+         "Comedy": "comedy",
+         "Tech": "tech",
+         "Family": "family",
+         "Sports": "sports"
+        },
+        "negate": false
+       },
+       "event_url": {
+        "css": ".ec-ttl a",
+        "attr": "href",
+        "all": false,
+        "negate": false
+       }
+      },
+      "next_page": {
+       "css": "nav.ec-pgr a.ec-nxt",
+       "attr": "href",
+       "all": false,
+       "negate": false
+      },
+      "missing": [],
+      "notes": ""
+     }
+    }
+   ],
+   "v2_before": {
+    "site": "events-04",
+    "truth": 19,
+    "extracted": 0,
+    "matched": 0,
+    "precision": 0.0,
+    "recall": 0.0,
+    "field_accuracy": 0.0,
+    "fields": {},
+    "unmatched_extracted": [],
+    "missed": [
+     "Late Wine Tasting",
+     "Riverside Craft Market",
+     "Late Photography Walk",
+     "Riverside Open Air Cinema",
+     "Harvest Choir Festival",
+     "Autumn Wine Tasting",
+     "Downtown Gallery Opening",
+     "Grand Board Game Social",
+     "Grand Wine Tasting",
+     "Northern Jazz Night"
+    ],
+    "errors": [],
+    "pages": 12,
+    "records": 0,
+    "seconds": 0.02,
+    "strategies": [
+     "learned"
+    ],
+    "llm": {
+     "calls": 0,
+     "cached": 0,
+     "failed": 0,
+     "by_task": {},
+     "input_tokens": 0,
+     "output_tokens": 0,
+     "seconds": 0
+    },
+    "browser_pages": 0,
+    "duplicates_merged": 0,
+    "sparse_dropped": 0,
+    "pii_removed": 0,
+    "injection_findings": 0,
+    "events": [
+     {
+      "kind": "job_started",
+      "message": "Crawling 1 start URL(s)"
+     },
+     {
+      "kind": "strategy",
+      "message": "harbourfront-happenings.example: learned extractor (set by the job)"
+     },
+     {
+      "kind": "layout_changed",
+      "message": "harbourfront-happenings.example: layout change detected (no records; structural similarity 0.05)"
+     },
+     {
+      "kind": "layout_changed",
+      "message": "harbourfront-happenings.example: layout change detected (no records; structural similarity 0.05)"
+     },
+     {
+      "kind": "layout_changed",
+      "message": "harbourfront-happenings.example: layout change detected (no records; structural similarity 0.06)"
+     },
+     {
+      "kind": "layout_changed",
+      "message": "harbourfront-happenings.example: layout change detected (no records; structural similarity 0.06)"
+     },
+     {
+      "kind": "layout_changed",
+      "message": "harbourfront-happenings.example: layout change detected (no records; structural similarity 0.06)"
+     },
+     {
+      "kind": "layout_changed",
+      "message": "harbourfront-happenings.example: layout change detected (no records; structural similarity 0.06)"
+     },
+     {
+      "kind": "layout_changed",
+      "message": "harbourfront-happenings.example: layout change detected (no records; structural similarity 0.06)"
+     },
+     {
+      "kind": "layout_changed",
+      "message": "harbourfront-happenings.example: layout change detected (no records; structural similarity 0.06)"
+     },
+     {
+      "kind": "layout_changed",
+      "message": "harbourfront-happenings.example: layout change detected (no records; structural similarity 0.06)"
+     },
+     {
+      "kind": "layout_changed",
+      "message": "harbourfront-happenings.example: layout change detected (no records; structural similarity 0.06)"
+     },
+     {
+      "kind": "layout_changed",
+      "message": "harbourfront-happenings.example: layout change detected (no records; structural similarity 0.06)"
+     },
+     {
+      "kind": "layout_changed",
+      "message": "harbourfront-happenings.example: layout change detected (no records; structural similarity 0.06)"
+     },
+     {
+      "kind": "job_finished",
+      "message": "0 records from 12 pages, 0 model call(s)"
+     }
+    ],
+    "error": null,
+    "detected": true,
+    "signals": [
+     "harbourfront-happenings.example: layout change detected (no records; structural similarity 0.05)",
+     "harbourfront-happenings.example: layout change detected (no records; structural similarity 0.05)",
+     "harbourfront-happenings.example: layout change detected (no records; structural similarity 0.06)"
+    ]
+   },
+   "v2_after": {
+    "site": "events-04",
+    "truth": 19,
+    "extracted": 19,
+    "matched": 19,
+    "precision": 1.0,
+    "recall": 1.0,
+    "field_accuracy": 1.0,
+    "fields": {
+     "name": {
+      "correct": 19,
+      "total": 19
+     },
+     "start_date": {
+      "correct": 19,
+      "total": 19
+     },
+     "venue": {
+      "correct": 19,
+      "total": 19
+     },
+     "price": {
+      "correct": 19,
+      "total": 19
+     },
+     "category": {
+      "correct": 19,
+      "total": 19
+     },
+     "event_url": {
+      "correct": 19,
+      "total": 19
+     }
+    },
+    "unmatched_extracted": [],
+    "missed": [],
+    "errors": [],
+    "pages": 2,
+    "records": 19,
+    "seconds": 9.61,
+    "strategies": [
+     "learned"
+    ],
+    "llm": {
+     "calls": 1,
+     "cached": 0,
+     "failed": 0,
+     "by_task": {
+      "heal_extractor": 1
+     },
+     "input_tokens": 2208,
+     "output_tokens": 456,
+     "seconds": 9.59
+    },
+    "browser_pages": 0,
+    "duplicates_merged": 0,
+    "sparse_dropped": 0,
+    "pii_removed": 0,
+    "injection_findings": 0,
+    "events": [
+     {
+      "kind": "job_started",
+      "message": "Crawling 1 start URL(s)"
+     },
+     {
+      "kind": "strategy",
+      "message": "harbourfront-happenings.example: learned extractor (set by the job)"
+     },
+     {
+      "kind": "layout_changed",
+      "message": "harbourfront-happenings.example: layout change detected (no records; structural similarity 0.05)"
+     },
+     {
+      "kind": "healed",
+      "message": "harbourfront-happenings.example: healed in 1 attempt(s), 1 model call(s); verified against 38 earlier record(s)"
+     },
+     {
+      "kind": "job_finished",
+      "message": "19 records from 2 pages, 1 model call(s)"
+     }
+    ],
+    "error": null,
+    "detected": true,
+    "healed": true,
+    "heal_failed": false,
+    "heal_calls": 1,
+    "fallback_direct_calls": 0,
+    "healed_programs": [
+     {
+      "kind": "list",
+      "item": "ul.grid > li",
+      "fields": {
+       "name": {
+        "css": "a strong",
+        "attr": "text",
+        "all": false,
+        "negate": false
+       },
+       "start_date": {
+        "css": "time",
+        "attr": "datetime",
+        "all": false,
+        "negate": false
+       },
+       "venue": {
+        "css": "span.text-gray-600",
+        "attr": "text",
+        "all": false,
+        "negate": false
+       },
+       "price": {
+        "css": "span.font-bold",
+        "attr": "text",
+        "all": false,
+        "negate": false
+       },
+       "category": {
+        "css": "span.uppercase",
+        "attr": "text",
+        "all": false,
+        "value_map": {
+         "Food": "food",
+         "Arts": "art",
+         "Music": "music",
+         "Theatre": "theatre",
+         "Comedy": "comedy",
+         "Tech": "tech",
+         "Family": "family",
+         "Sports": "sports"
+        },
+        "negate": false
+       },
+       "event_url": {
+        "css": "a",
+        "attr": "href",
+        "all": false,
+        "negate": false
+       }
+      },
+      "next_page": {
+       "css": "nav[aria-label='Pagination'] a[href*='pg=']",
+       "attr": "href",
+       "all": false,
+       "negate": false
+      },
+      "missing": [],
+      "notes": ""
+     }
+    ]
+   },
+   "v1_recheck": {
+    "false_alarm": false,
+    "llm_calls": 0,
+    "records": 19,
+    "pages": 2
+   },
+   "incremental": {
+    "pages": 2,
+    "unchanged": 2,
+    "records": 19,
+    "llm_calls": 0
+   },
+   "seconds": 19.9
+  },
+  {
+   "site": "registry-04",
+   "vertical": "registry",
+   "mode": "table",
+   "traps": [
+    "table",
+    "totals_row",
+    "footnotes"
+   ],
+   "v1": {
+    "site": "registry-04",
+    "truth": 48,
+    "extracted": 48,
+    "matched": 48,
+    "precision": 1.0,
+    "recall": 1.0,
+    "field_accuracy": 1.0,
+    "fields": {
+     "facility": {
+      "correct": 48,
+      "total": 48
+     },
+     "district": {
+      "correct": 48,
+      "total": 48
+     },
+     "facility_type": {
+      "correct": 48,
+      "total": 48
+     },
+     "capacity": {
+      "correct": 48,
+      "total": 48
+     },
+     "opened": {
+      "correct": 48,
+      "total": 48
+     },
+     "phone": {
+      "correct": 48,
+      "total": 48
+     }
+    },
+    "unmatched_extracted": [],
+    "missed": [],
+    "errors": [],
+    "pages": 2,
+    "records": 48,
+    "seconds": 9.47,
+    "strategies": [
+     "learned"
+    ],
+    "llm": {
+     "calls": 1,
+     "cached": 0,
+     "failed": 0,
+     "by_task": {
+      "learn_extractor": 1
+     },
+     "input_tokens": 1562,
+     "output_tokens": 437,
+     "seconds": 9.37
+    },
+    "browser_pages": 0,
+    "duplicates_merged": 0,
+    "sparse_dropped": 1,
+    "pii_removed": 0,
+    "injection_findings": 0,
+    "events": [
+     {
+      "kind": "job_started",
+      "message": "Crawling 1 start URL(s)"
+     },
+     {
+      "kind": "strategy",
+      "message": "larkfield-council.example: learned extractor (pagination found (1 link(s)): a repeated template)"
+     },
+     {
+      "kind": "learning",
+      "message": "larkfield-council.example: learning an extractor from 2 sample page(s)"
+     },
+     {
+      "kind": "learned",
+      "message": "larkfield-council.example: extractor learned in 1 attempt(s), 1 model call(s)"
+     },
+     {
+      "kind": "sparse_dropped",
+      "message": "1 row(s) that were not records dropped (totals, headers, empty items)"
+     },
+     {
+      "kind": "job_finished",
+      "message": "48 records from 2 pages, 1 model call(s)"
+     }
+    ],
+    "error": null,
+    "extract_ms_p50": 4735.0
+   },
+   "traps_result": {},
+   "politeness": {
+    "hosts": {
+     "larkfield-council.example": {
+      "requests": 3,
+      "subresources": 0,
+      "robots_fetches": 1,
+      "min_gap_s": 0.001,
+      "configured_interval_s": 0.0,
+      "max_requests_per_s_10s": 0.3,
+      "mean_requests_per_s": 383.478
+     }
+    },
+    "robots_blocked": []
+   },
+   "learned": true,
+   "extractors": [
+    {
+     "id": "ext-8e6cb2",
+     "kind": "list",
+     "accepted": true,
+     "attempts": 1,
+     "calls": 1,
+     "program": {
+      "kind": "list",
+      "item": "table.registry tbody tr",
+      "fields": {
+       "facility": {
+        "css": "td:nth-of-type(1)",
+        "attr": "text",
+        "all": false,
+        "negate": false
+       },
+       "district": {
+        "css": "td:nth-of-type(2)",
+        "attr": "text",
+        "all": false,
+        "negate": false
+       },
+       "facility_type": {
+        "css": "td:nth-of-type(3)",
+        "attr": "text",
+        "all": false,
+        "value_map": {
+         "Library": "library",
+         "Swimming Pool": "pool",
+         "Sports Hall": "sports_hall",
+         "Community Centre": "community_centre",
+         "Park": "park"
+        },
+        "negate": false
+       },
+       "capacity": {
+        "css": "td:nth-of-type(4)",
+        "attr": "text",
+        "all": false,
+        "negate": false
+       },
+       "opened": {
+        "css": "td:nth-of-type(5)",
+        "attr": "text",
+        "all": false,
+        "negate": false
+       },
+       "phone": {
+        "css": "td:nth-of-type(6)",
+        "attr": "text",
+        "all": false,
+        "negate": false
+       }
+      },
+      "next_page": {
+       "css": "nav.row__pager a.row__next",
+       "attr": "href",
+       "all": false,
+       "negate": false
+      },
+      "missing": [],
+      "notes": ""
+     }
+    }
+   ],
+   "v2_before": {
+    "site": "registry-04",
+    "truth": 48,
+    "extracted": 0,
+    "matched": 0,
+    "precision": 0.0,
+    "recall": 0.0,
+    "field_accuracy": 0.0,
+    "fields": {},
+    "unmatched_extracted": [],
+    "missed": [
+     "Bellmoor Swimming Pool",
+     "Kingsmead Swimming Pool",
+     "Queensway Library",
+     "Ashgrove Community Centre",
+     "Larchmont Sports Hall",
+     "Fairfield Community Centre",
+     "Elmstead Community Centre",
+     "Brookhaven Sports Hall",
+     "Westcliff Library",
+     "Westcliff Swimming Pool"
+    ],
+    "errors": [],
+    "pages": 2,
+    "records": 0,
+    "seconds": 0.01,
+    "strategies": [
+     "learned"
+    ],
+    "llm": {
+     "calls": 0,
+     "cached": 0,
+     "failed": 0,
+     "by_task": {},
+     "input_tokens": 0,
+     "output_tokens": 0,
+     "seconds": 0
+    },
+    "browser_pages": 0,
+    "duplicates_merged": 0,
+    "sparse_dropped": 0,
+    "pii_removed": 0,
+    "injection_findings": 0,
+    "events": [
+     {
+      "kind": "job_started",
+      "message": "Crawling 1 start URL(s)"
+     },
+     {
+      "kind": "strategy",
+      "message": "larkfield-council.example: learned extractor (set by the job)"
+     },
+     {
+      "kind": "layout_changed",
+      "message": "larkfield-council.example: layout change detected (no records; structural similarity 0.46)"
+     },
+     {
+      "kind": "layout_changed",
+      "message": "larkfield-council.example: layout change detected (no records; structural similarity 0.43)"
+     },
+     {
+      "kind": "job_finished",
+      "message": "0 records from 2 pages, 0 model call(s)"
+     }
+    ],
+    "error": null,
+    "detected": true,
+    "signals": [
+     "larkfield-council.example: layout change detected (no records; structural similarity 0.46)",
+     "larkfield-council.example: layout change detected (no records; structural similarity 0.43)"
+    ]
+   },
+   "v2_after": {
+    "site": "registry-04",
+    "truth": 48,
+    "extracted": 48,
+    "matched": 48,
+    "precision": 1.0,
+    "recall": 1.0,
+    "field_accuracy": 1.0,
+    "fields": {
+     "facility": {
+      "correct": 48,
+      "total": 48
+     },
+     "district": {
+      "correct": 48,
+      "total": 48
+     },
+     "facility_type": {
+      "correct": 48,
+      "total": 48
+     },
+     "capacity": {
+      "correct": 48,
+      "total": 48
+     },
+     "opened": {
+      "correct": 48,
+      "total": 48
+     },
+     "phone": {
+      "correct": 48,
+      "total": 48
+     }
+    },
+    "unmatched_extracted": [],
+    "missed": [],
+    "errors": [],
+    "pages": 2,
+    "records": 48,
+    "seconds": 9.87,
+    "strategies": [
+     "learned"
+    ],
+    "llm": {
+     "calls": 1,
+     "cached": 0,
+     "failed": 0,
+     "by_task": {
+      "heal_extractor": 1
+     },
+     "input_tokens": 2000,
+     "output_tokens": 443,
+     "seconds": 9.83
+    },
+    "browser_pages": 0,
+    "duplicates_merged": 0,
+    "sparse_dropped": 1,
+    "pii_removed": 0,
+    "injection_findings": 0,
+    "events": [
+     {
+      "kind": "job_started",
+      "message": "Crawling 1 start URL(s)"
+     },
+     {
+      "kind": "strategy",
+      "message": "larkfield-council.example: learned extractor (set by the job)"
+     },
+     {
+      "kind": "layout_changed",
+      "message": "larkfield-council.example: layout change detected (no records; structural similarity 0.46)"
+     },
+     {
+      "kind": "healed",
+      "message": "larkfield-council.example: healed in 1 attempt(s), 1 model call(s); verified against 68 earlier record(s)"
+     },
+     {
+      "kind": "sparse_dropped",
+      "message": "1 row(s) that were not records dropped (totals, headers, empty items)"
+     },
+     {
+      "kind": "job_finished",
+      "message": "48 records from 2 pages, 1 model call(s)"
+     }
+    ],
+    "error": null,
+    "detected": true,
+    "healed": true,
+    "heal_failed": false,
+    "heal_calls": 1,
+    "fallback_direct_calls": 0,
+    "healed_programs": [
+     {
+      "kind": "list",
+      "item": "table.data-table.striped tbody tr",
+      "fields": {
+       "facility": {
+        "css": "td:nth-of-type(1)",
+        "attr": "text",
+        "all": false,
+        "negate": false
+       },
+       "district": {
+        "css": "td:nth-of-type(3)",
+        "attr": "text",
+        "all": false,
+        "negate": false
+       },
+       "facility_type": {
+        "css": "td:nth-of-type(2)",
+        "attr": "text",
+        "all": false,
+        "value_map": {
+         "Library": "library",
+         "Swimming Pool": "pool",
+         "Sports Hall": "sports_hall",
+         "Community Centre": "community_centre",
+         "Park": "park"
+        },
+        "negate": false
+       },
+       "capacity": {
+        "css": "td:nth-of-type(6)",
+        "attr": "text",
+        "all": false,
+        "negate": false
+       },
+       "opened": {
+        "css": "td:nth-of-type(5)",
+        "attr": "text",
+        "all": false,
+        "negate": false
+       },
+       "phone": {
+        "css": "td:nth-of-type(4)",
+        "attr": "text",
+        "all": false,
+        "negate": false
+       }
+      },
+      "next_page": {
+       "css": "nav.RowX_pager__b85eb a[href*='pg=']",
+       "attr": "href",
+       "all": false,
+       "negate": false
+      },
+      "missing": [],
+      "notes": ""
+     }
+    ]
+   },
+   "v1_recheck": {
+    "false_alarm": false,
+    "llm_calls": 0,
+    "records": 48,
+    "pages": 2
+   },
+   "incremental": {
+    "pages": 2,
+    "unchanged": 2,
+    "records": 48,
+    "llm_calls": 0
+   },
+   "seconds": 19.4
+  }
+ ],
+ "seconds": 111.8
+}

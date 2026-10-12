@@ -1,0 +1,1423 @@
+{
+ "name": "qwen_b2",
+ "suite": "synthetic",
+ "run_at": "2026-10-12T09:38:30+00:00",
+ "provider": "compat",
+ "model": "qwen3.7-plus",
+ "fallbacks": [],
+ "aggregate": {
+  "v1": {
+   "sites": 9,
+   "truth_records": 80,
+   "extracted_records": 80,
+   "matched": 80,
+   "precision": 1.0,
+   "recall": 1.0,
+   "field_accuracy": 0.8631,
+   "fields_correct": 290,
+   "fields_total": 336
+  },
+  "by_vertical": {
+   "restaurant": {
+    "sites": 4,
+    "truth_records": 64,
+    "extracted_records": 64,
+    "matched": 64,
+    "precision": 1.0,
+    "recall": 1.0,
+    "field_accuracy": 0.8672,
+    "fields_correct": 222,
+    "fields_total": 256
+   },
+   "saas": {
+    "sites": 5,
+    "truth_records": 16,
+    "extracted_records": 16,
+    "matched": 16,
+    "precision": 1.0,
+    "recall": 1.0,
+    "field_accuracy": 0.85,
+    "fields_correct": 68,
+    "fields_total": 80
+   }
+  },
+  "v1_learned_only": {
+   "sites": 0,
+   "truth_records": 0,
+   "extracted_records": 0,
+   "matched": 0,
+   "precision": 0.0,
+   "recall": 0.0,
+   "field_accuracy": 0.0,
+   "fields_correct": 0,
+   "fields_total": 0
+  },
+  "v1_direct_only": {
+   "sites": 9,
+   "truth_records": 80,
+   "extracted_records": 80,
+   "matched": 80,
+   "precision": 1.0,
+   "recall": 1.0,
+   "field_accuracy": 0.8631,
+   "fields_correct": 290,
+   "fields_total": 336
+  },
+  "by_field": {
+   "annual_monthly_price": {
+    "correct": 10,
+    "total": 16,
+    "accuracy": 0.625
+   },
+   "dietary": {
+    "correct": 64,
+    "total": 64,
+    "accuracy": 1.0
+   },
+   "dish": {
+    "correct": 64,
+    "total": 64,
+    "accuracy": 1.0
+   },
+   "features": {
+    "correct": 16,
+    "total": 16,
+    "accuracy": 1.0
+   },
+   "monthly_price": {
+    "correct": 10,
+    "total": 16,
+    "accuracy": 0.625
+   },
+   "plan": {
+    "correct": 16,
+    "total": 16,
+    "accuracy": 1.0
+   },
+   "price": {
+    "correct": 30,
+    "total": 64,
+    "accuracy": 0.4688
+   },
+   "seats": {
+    "correct": 16,
+    "total": 16,
+    "accuracy": 1.0
+   },
+   "section": {
+    "correct": 64,
+    "total": 64,
+    "accuracy": 1.0
+   }
+  },
+  "v1_cost": {
+   "llm_calls": 10,
+   "llm_calls_by_task": {
+    "direct_extract": 10
+   },
+   "input_tokens": 9290,
+   "output_tokens": 4948,
+   "pages": 10,
+   "learned_pages": 0,
+   "learned_calls": 0
+  }
+ },
+ "sites": [
+  {
+   "site": "menu-01",
+   "vertical": "restaurant",
+   "mode": "onepage",
+   "traps": [
+    "section_context"
+   ],
+   "v1": {
+    "site": "menu-01",
+    "truth": 16,
+    "extracted": 16,
+    "matched": 16,
+    "precision": 1.0,
+    "recall": 1.0,
+    "field_accuracy": 1.0,
+    "fields": {
+     "dish": {
+      "correct": 16,
+      "total": 16
+     },
+     "section": {
+      "correct": 16,
+      "total": 16
+     },
+     "price": {
+      "correct": 16,
+      "total": 16
+     },
+     "dietary": {
+      "correct": 16,
+      "total": 16
+     }
+    },
+    "unmatched_extracted": [],
+    "missed": [],
+    "errors": [],
+    "pages": 1,
+    "records": 16,
+    "seconds": 18.0,
+    "strategies": [
+     "direct"
+    ],
+    "llm": {
+     "calls": 1,
+     "cached": 0,
+     "failed": 0,
+     "by_task": {
+      "direct_extract": 1
+     },
+     "input_tokens": 1111,
+     "output_tokens": 879,
+     "seconds": 17.99
+    },
+    "browser_pages": 0,
+    "duplicates_merged": 0,
+    "sparse_dropped": 0,
+    "pii_removed": 0,
+    "injection_findings": 0,
+    "events": [
+     {
+      "kind": "job_started",
+      "message": "Crawling 1 start URL(s)"
+     },
+     {
+      "kind": "strategy",
+      "message": "saltbox-kitchen.example: direct LLM extraction (one-off page (4 similar items, no pagination))"
+     },
+     {
+      "kind": "job_finished",
+      "message": "16 records from 1 pages, 1 model call(s)"
+     }
+    ],
+    "error": null,
+    "extract_ms_p50": 17997.6
+   },
+   "traps_result": {},
+   "politeness": {
+    "hosts": {
+     "saltbox-kitchen.example": {
+      "requests": 2,
+      "subresources": 0,
+      "robots_fetches": 1,
+      "min_gap_s": 0.004,
+      "configured_interval_s": 0.0,
+      "max_requests_per_s_10s": 0.2,
+      "mean_requests_per_s": 233.06
+     }
+    },
+    "robots_blocked": []
+   },
+   "learned": false,
+   "extractors": [],
+   "seconds": 18.0
+  },
+  {
+   "site": "menu-02",
+   "vertical": "restaurant",
+   "mode": "onepage",
+   "traps": [
+    "section_context"
+   ],
+   "v1": {
+    "site": "menu-02",
+    "truth": 14,
+    "extracted": 14,
+    "matched": 14,
+    "precision": 1.0,
+    "recall": 1.0,
+    "field_accuracy": 0.75,
+    "fields": {
+     "dish": {
+      "correct": 14,
+      "total": 14
+     },
+     "section": {
+      "correct": 14,
+      "total": 14
+     },
+     "price": {
+      "correct": 0,
+      "total": 14
+     },
+     "dietary": {
+      "correct": 14,
+      "total": 14
+     }
+    },
+    "unmatched_extracted": [],
+    "missed": [],
+    "errors": [
+     {
+      "key": "Mushroom Croquettes",
+      "field": "price",
+      "got": {
+       "amount": 12.0,
+       "currency": "USD"
+      },
+      "want": 12.96
+     },
+     {
+      "key": "Burrata with Peaches",
+      "field": "price",
+      "got": {
+       "amount": 9.5,
+       "currency": "USD"
+      },
+      "want": 10.26
+     },
+     {
+      "key": "Chickpea Fritters",
+      "field": "price",
+      "got": {
+       "amount": 15.0,
+       "currency": "USD"
+      },
+      "want": 16.2
+     },
+     {
+      "key": "Roast Hake",
+      "field": "price",
+      "got": {
+       "amount": 24.0,
+       "currency": "USD"
+      },
+      "want": 25.92
+     },
+     {
+      "key": "Spiced Lentil Dal",
+      "field": "price",
+      "got": {
+       "amount": 27.0,
+       "currency": "USD"
+      },
+      "want": 29.16
+     },
+     {
+      "key": "Chicken Milanese",
+      "field": "price",
+      "got": {
+       "amount": 27.5,
+       "currency": "USD"
+      },
+      "want": 29.7
+     },
+     {
+      "key": "Sticky Toffee Pudding",
+      "field": "price",
+      "got": {
+       "amount": 10.0,
+       "currency": "USD"
+      },
+      "want": 10.8
+     },
+     {
+      "key": "Pistachio Gelato",
+      "field": "price",
+      "got": {
+       "amount": 11.0,
+       "currency": "USD"
+      },
+      "want": 11.88
+     },
+     {
+      "key": "Apple Crumble",
+      "field": "price",
+      "got": {
+       "amount": 16.0,
+       "currency": "USD"
+      },
+      "want": 17.28
+     },
+     {
+      "key": "Dark Chocolate Tart",
+      "field": "price",
+      "got": {
+       "amount": 10.0,
+       "currency": "USD"
+      },
+      "want": 10.8
+     },
+     {
+      "key": "Basque Cheesecake",
+      "field": "price",
+      "got": {
+       "amount": 8.5,
+       "currency": "USD"
+      },
+      "want": 9.18
+     },
+     {
+      "key": "Pinot Noir (glass)",
+      "field": "price",
+      "got": {
+       "amount": 7.5,
+       "currency": "USD"
+      },
+      "want": 8.1
+     },
+     {
+      "key": "Elderflower Spritz",
+      "field": "price",
+      "got": {
+       "amount": 7.0,
+       "currency": "USD"
+      },
+      "want": 7.56
+     },
+     {
+      "key": "Craft Lager",
+      "field": "price",
+      "got": {
+       "amount": 10.5,
+       "currency": "USD"
+      },
+      "want": 11.34
+     }
+    ],
+    "pages": 1,
+    "records": 14,
+    "seconds": 14.72,
+    "strategies": [
+     "direct"
+    ],
+    "llm": {
+     "calls": 1,
+     "cached": 0,
+     "failed": 0,
+     "by_task": {
+      "direct_extract": 1
+     },
+     "input_tokens": 1011,
+     "output_tokens": 731,
+     "seconds": 14.7
+    },
+    "browser_pages": 0,
+    "duplicates_merged": 0,
+    "sparse_dropped": 0,
+    "pii_removed": 0,
+    "injection_findings": 0,
+    "events": [
+     {
+      "kind": "job_started",
+      "message": "Crawling 1 start URL(s)"
+     },
+     {
+      "kind": "strategy",
+      "message": "the-gilded-fern.example: direct LLM extraction (one-off page (4 similar items, no pagination))"
+     },
+     {
+      "kind": "job_finished",
+      "message": "14 records from 1 pages, 1 model call(s)"
+     }
+    ],
+    "error": null,
+    "extract_ms_p50": 14710.5
+   },
+   "traps_result": {
+    "currency_conversion": {
+     "currency": "EUR",
+     "correct": 0,
+     "total": 14
+    }
+   },
+   "politeness": {
+    "hosts": {
+     "the-gilded-fern.example": {
+      "requests": 2,
+      "subresources": 0,
+      "robots_fetches": 1,
+      "min_gap_s": 0.004,
+      "configured_interval_s": 0.0,
+      "max_requests_per_s_10s": 0.2,
+      "mean_requests_per_s": 245.852
+     }
+    },
+    "robots_blocked": []
+   },
+   "learned": false,
+   "extractors": [],
+   "seconds": 14.8
+  },
+  {
+   "site": "menu-04",
+   "vertical": "restaurant",
+   "mode": "onepage",
+   "traps": [
+    "section_context"
+   ],
+   "v1": {
+    "site": "menu-04",
+    "truth": 14,
+    "extracted": 14,
+    "matched": 14,
+    "precision": 1.0,
+    "recall": 1.0,
+    "field_accuracy": 1.0,
+    "fields": {
+     "dish": {
+      "correct": 14,
+      "total": 14
+     },
+     "section": {
+      "correct": 14,
+      "total": 14
+     },
+     "price": {
+      "correct": 14,
+      "total": 14
+     },
+     "dietary": {
+      "correct": 14,
+      "total": 14
+     }
+    },
+    "unmatched_extracted": [],
+    "missed": [],
+    "errors": [],
+    "pages": 1,
+    "records": 14,
+    "seconds": 16.07,
+    "strategies": [
+     "direct"
+    ],
+    "llm": {
+     "calls": 1,
+     "cached": 0,
+     "failed": 0,
+     "by_task": {
+      "direct_extract": 1
+     },
+     "input_tokens": 982,
+     "output_tokens": 724,
+     "seconds": 16.05
+    },
+    "browser_pages": 0,
+    "duplicates_merged": 0,
+    "sparse_dropped": 0,
+    "pii_removed": 0,
+    "injection_findings": 0,
+    "events": [
+     {
+      "kind": "job_started",
+      "message": "Crawling 1 start URL(s)"
+     },
+     {
+      "kind": "strategy",
+      "message": "copperpot-bistro.example: direct LLM extraction (one-off page (4 similar items, no pagination))"
+     },
+     {
+      "kind": "job_finished",
+      "message": "14 records from 1 pages, 1 model call(s)"
+     }
+    ],
+    "error": null,
+    "extract_ms_p50": 16062.7
+   },
+   "traps_result": {},
+   "politeness": {
+    "hosts": {
+     "copperpot-bistro.example": {
+      "requests": 2,
+      "subresources": 0,
+      "robots_fetches": 1,
+      "min_gap_s": 0.004,
+      "configured_interval_s": 0.0,
+      "max_requests_per_s_10s": 0.2,
+      "mean_requests_per_s": 248.202
+     }
+    },
+    "robots_blocked": []
+   },
+   "learned": false,
+   "extractors": [],
+   "seconds": 16.1
+  },
+  {
+   "site": "menu-05",
+   "vertical": "restaurant",
+   "mode": "pdf",
+   "traps": [
+    "pdf_menu"
+   ],
+   "v1": {
+    "site": "menu-05",
+    "truth": 20,
+    "extracted": 20,
+    "matched": 20,
+    "precision": 1.0,
+    "recall": 1.0,
+    "field_accuracy": 0.75,
+    "fields": {
+     "dish": {
+      "correct": 20,
+      "total": 20
+     },
+     "section": {
+      "correct": 20,
+      "total": 20
+     },
+     "price": {
+      "correct": 0,
+      "total": 20
+     },
+     "dietary": {
+      "correct": 20,
+      "total": 20
+     }
+    },
+    "unmatched_extracted": [],
+    "missed": [],
+    "errors": [
+     {
+      "key": "Burrata with Peaches",
+      "field": "price",
+      "got": {
+       "amount": 11.7,
+       "currency": "USD"
+      },
+      "want": 11.43
+     },
+     {
+      "key": "Chickpea Fritters",
+      "field": "price",
+      "got": {
+       "amount": 16.9,
+       "currency": "USD"
+      },
+      "want": 16.51
+     },
+     {
+      "key": "Smoked Trout Pate",
+      "field": "price",
+      "got": {
+       "amount": 18.85,
+       "currency": "USD"
+      },
+      "want": 18.41
+     },
+     {
+      "key": "Charred Leek Soup",
+      "field": "price",
+      "got": {
+       "amount": 13.65,
+       "currency": "USD"
+      },
+      "want": 13.34
+     },
+     {
+      "key": "Tuna Tartare",
+      "field": "price",
+      "got": {
+       "amount": 17.55,
+       "currency": "USD"
+      },
+      "want": 17.14
+     },
+     {
+      "key": "Aubergine Parmigiana",
+      "field": "price",
+      "got": {
+       "amount": 29.25,
+       "currency": "USD"
+      },
+      "want": 28.57
+     },
+     {
+      "key": "Chicken Milanese",
+      "field": "price",
+      "got": {
+       "amount": 29.25,
+       "currency": "USD"
+      },
+      "want": 28.57
+     },
+     {
+      "key": "Braised Short Rib",
+      "field": "price",
+      "got": {
+       "amount": 24.7,
+       "currency": "USD"
+      },
+      "want": 24.13
+     },
+     {
+      "key": "Spiced Lentil Dal",
+      "field": "price",
+      "got": {
+       "amount": 33.8,
+       "currency": "USD"
+      },
+      "want": 33.02
+     },
+     {
+      "key": "Pumpkin Gnocchi",
+      "field": "price",
+      "got": {
+       "amount": 27.3,
+       "currency": "USD"
+      },
+      "want": 26.67
+     },
+     {
+      "key": "Sticky Toffee Pudding",
+      "field": "price",
+      "got": {
+       "amount": 11.05,
+       "currency": "USD"
+      },
+      "want": 10.79
+     },
+     {
+      "key": "Basque Cheesecake",
+      "field": "price",
+      "got": {
+       "amount": 14.3,
+       "currency": "USD"
+      },
+      "want": 13.97
+     },
+     {
+      "key": "Apple Crumble",
+      "field": "price",
+      "got": {
+       "amount": 15.6,
+       "currency": "USD"
+      },
+      "want": 15.24
+     },
+     {
+      "key": "Lemon Posset",
+      "field": "price",
+      "got": {
+       "amount": 18.2,
+       "currency": "USD"
+      },
+      "want": 17.78
+     },
+     {
+      "key": "Pistachio Gelato",
+      "field": "price",
+      "got": {
+       "amount": 16.9,
+       "currency": "USD"
+      },
+      "want": 16.51
+     },
+     {
+      "key": "House Lemonade",
+      "field": "price",
+      "got": {
+       "amount": 12.35,
+       "currency": "USD"
+      },
+      "want": 12.06
+     },
+     {
+      "key": "Ginger Kombucha",
+      "field": "price",
+      "got": {
+       "amount": 7.8,
+       "currency": "USD"
+      },
+      "want": 7.62
+     },
+     {
+      "key": "Craft Lager",
+      "field": "price",
+      "got": {
+       "amount": 6.5,
+       "currency": "USD"
+      },
+      "want": 6.35
+     },
+     {
+      "key": "Espresso Tonic",
+      "field": "price",
+      "got": {
+       "amount": 15.6,
+       "currency": "USD"
+      },
+      "want": 15.24
+     },
+     {
+      "key": "Pinot Noir (glass)",
+      "field": "price",
+      "got": {
+       "amount": 15.6,
+       "currency": "USD"
+      },
+      "want": 15.24
+     }
+    ],
+    "pages": 2,
+    "records": 20,
+    "seconds": 22.25,
+    "strategies": [
+     "direct"
+    ],
+    "llm": {
+     "calls": 2,
+     "cached": 0,
+     "failed": 0,
+     "by_task": {
+      "direct_extract": 2
+     },
+     "input_tokens": 1503,
+     "output_tokens": 1054,
+     "seconds": 22.04
+    },
+    "browser_pages": 0,
+    "duplicates_merged": 0,
+    "sparse_dropped": 0,
+    "pii_removed": 0,
+    "injection_findings": 0,
+    "events": [
+     {
+      "kind": "job_started",
+      "message": "Crawling 1 start URL(s)"
+     },
+     {
+      "kind": "strategy",
+      "message": "marlow-and-thyme.example: direct LLM extraction (one-off page (0 similar items, no pagination))"
+     },
+     {
+      "kind": "job_finished",
+      "message": "20 records from 2 pages, 2 model call(s)"
+     }
+    ],
+    "error": null,
+    "extract_ms_p50": 11124.8
+   },
+   "traps_result": {
+    "currency_conversion": {
+     "currency": "GBP",
+     "correct": 0,
+     "total": 20
+    }
+   },
+   "politeness": {
+    "hosts": {
+     "marlow-and-thyme.example": {
+      "requests": 3,
+      "subresources": 0,
+      "robots_fetches": 1,
+      "min_gap_s": 0.0,
+      "configured_interval_s": 0.0,
+      "max_requests_per_s_10s": 0.3,
+      "mean_requests_per_s": 0.891
+     }
+    },
+    "robots_blocked": []
+   },
+   "learned": false,
+   "extractors": [],
+   "seconds": 22.3
+  },
+  {
+   "site": "saas-01",
+   "vertical": "saas",
+   "mode": "onepage",
+   "traps": [
+    "contact_sales",
+    "one_off"
+   ],
+   "v1": {
+    "site": "saas-01",
+    "truth": 3,
+    "extracted": 3,
+    "matched": 3,
+    "precision": 1.0,
+    "recall": 1.0,
+    "field_accuracy": 1.0,
+    "fields": {
+     "plan": {
+      "correct": 3,
+      "total": 3
+     },
+     "monthly_price": {
+      "correct": 3,
+      "total": 3
+     },
+     "annual_monthly_price": {
+      "correct": 3,
+      "total": 3
+     },
+     "seats": {
+      "correct": 3,
+      "total": 3
+     },
+     "features": {
+      "correct": 3,
+      "total": 3
+     }
+    },
+    "unmatched_extracted": [],
+    "missed": [],
+    "errors": [],
+    "pages": 1,
+    "records": 3,
+    "seconds": 7.18,
+    "strategies": [
+     "direct"
+    ],
+    "llm": {
+     "calls": 1,
+     "cached": 0,
+     "failed": 0,
+     "by_task": {
+      "direct_extract": 1
+     },
+     "input_tokens": 915,
+     "output_tokens": 305,
+     "seconds": 7.17
+    },
+    "browser_pages": 0,
+    "duplicates_merged": 0,
+    "sparse_dropped": 0,
+    "pii_removed": 0,
+    "injection_findings": 0,
+    "events": [
+     {
+      "kind": "job_started",
+      "message": "Crawling 1 start URL(s)"
+     },
+     {
+      "kind": "strategy",
+      "message": "ledgerly.example: direct LLM extraction (one-off page (3 similar items, no pagination))"
+     },
+     {
+      "kind": "job_finished",
+      "message": "3 records from 1 pages, 1 model call(s)"
+     }
+    ],
+    "error": null,
+    "extract_ms_p50": 7176.8
+   },
+   "traps_result": {},
+   "politeness": {
+    "hosts": {
+     "ledgerly.example": {
+      "requests": 2,
+      "subresources": 0,
+      "robots_fetches": 1,
+      "min_gap_s": 0.0,
+      "configured_interval_s": 0.0,
+      "max_requests_per_s_10s": 0.2,
+      "mean_requests_per_s": 2126.447
+     }
+    },
+    "robots_blocked": []
+   },
+   "learned": false,
+   "extractors": [],
+   "seconds": 7.2
+  },
+  {
+   "site": "saas-02",
+   "vertical": "saas",
+   "mode": "onepage",
+   "traps": [
+    "contact_sales",
+    "one_off"
+   ],
+   "v1": {
+    "site": "saas-02",
+    "truth": 3,
+    "extracted": 3,
+    "matched": 3,
+    "precision": 1.0,
+    "recall": 1.0,
+    "field_accuracy": 0.6,
+    "fields": {
+     "plan": {
+      "correct": 3,
+      "total": 3
+     },
+     "monthly_price": {
+      "correct": 0,
+      "total": 3
+     },
+     "annual_monthly_price": {
+      "correct": 0,
+      "total": 3
+     },
+     "seats": {
+      "correct": 3,
+      "total": 3
+     },
+     "features": {
+      "correct": 3,
+      "total": 3
+     }
+    },
+    "unmatched_extracted": [],
+    "missed": [],
+    "errors": [
+     {
+      "key": "Basic",
+      "field": "monthly_price",
+      "got": null,
+      "want": 20.52
+     },
+     {
+      "key": "Basic",
+      "field": "annual_monthly_price",
+      "got": null,
+      "want": 16.2
+     },
+     {
+      "key": "Pro",
+      "field": "monthly_price",
+      "got": null,
+      "want": 51.84
+     },
+     {
+      "key": "Pro",
+      "field": "annual_monthly_price",
+      "got": null,
+      "want": 41.04
+     },
+     {
+      "key": "Business",
+      "field": "monthly_price",
+      "got": null,
+      "want": 128.52
+     },
+     {
+      "key": "Business",
+      "field": "annual_monthly_price",
+      "got": null,
+      "want": 102.6
+     }
+    ],
+    "pages": 1,
+    "records": 3,
+    "seconds": 6.96,
+    "strategies": [
+     "direct"
+    ],
+    "llm": {
+     "calls": 1,
+     "cached": 0,
+     "failed": 0,
+     "by_task": {
+      "direct_extract": 1
+     },
+     "input_tokens": 899,
+     "output_tokens": 260,
+     "seconds": 6.95
+    },
+    "browser_pages": 0,
+    "duplicates_merged": 0,
+    "sparse_dropped": 0,
+    "pii_removed": 0,
+    "injection_findings": 0,
+    "events": [
+     {
+      "kind": "job_started",
+      "message": "Crawling 1 start URL(s)"
+     },
+     {
+      "kind": "strategy",
+      "message": "pingwell.example: direct LLM extraction (one-off page (3 similar items, no pagination))"
+     },
+     {
+      "kind": "job_finished",
+      "message": "3 records from 1 pages, 1 model call(s)"
+     }
+    ],
+    "error": null,
+    "extract_ms_p50": 6957.4
+   },
+   "traps_result": {
+    "currency_conversion": {
+     "currency": "EUR",
+     "correct": 0,
+     "total": 6
+    }
+   },
+   "politeness": {
+    "hosts": {
+     "pingwell.example": {
+      "requests": 2,
+      "subresources": 0,
+      "robots_fetches": 1,
+      "min_gap_s": 0.001,
+      "configured_interval_s": 0.0,
+      "max_requests_per_s_10s": 0.2,
+      "mean_requests_per_s": 1938.612
+     }
+    },
+    "robots_blocked": []
+   },
+   "learned": false,
+   "extractors": [],
+   "seconds": 7.0
+  },
+  {
+   "site": "saas-03",
+   "vertical": "saas",
+   "mode": "onepage",
+   "traps": [
+    "contact_sales",
+    "one_off"
+   ],
+   "v1": {
+    "site": "saas-03",
+    "truth": 4,
+    "extracted": 4,
+    "matched": 4,
+    "precision": 1.0,
+    "recall": 1.0,
+    "field_accuracy": 1.0,
+    "fields": {
+     "plan": {
+      "correct": 4,
+      "total": 4
+     },
+     "monthly_price": {
+      "correct": 4,
+      "total": 4
+     },
+     "annual_monthly_price": {
+      "correct": 4,
+      "total": 4
+     },
+     "seats": {
+      "correct": 4,
+      "total": 4
+     },
+     "features": {
+      "correct": 4,
+      "total": 4
+     }
+    },
+    "unmatched_extracted": [],
+    "missed": [],
+    "errors": [],
+    "pages": 1,
+    "records": 4,
+    "seconds": 8.96,
+    "strategies": [
+     "direct"
+    ],
+    "llm": {
+     "calls": 1,
+     "cached": 0,
+     "failed": 0,
+     "by_task": {
+      "direct_extract": 1
+     },
+     "input_tokens": 1028,
+     "output_tokens": 401,
+     "seconds": 8.95
+    },
+    "browser_pages": 0,
+    "duplicates_merged": 0,
+    "sparse_dropped": 0,
+    "pii_removed": 0,
+    "injection_findings": 0,
+    "events": [
+     {
+      "kind": "job_started",
+      "message": "Crawling 1 start URL(s)"
+     },
+     {
+      "kind": "strategy",
+      "message": "formstack-lite.example: direct LLM extraction (one-off page (4 similar items, no pagination))"
+     },
+     {
+      "kind": "job_finished",
+      "message": "4 records from 1 pages, 1 model call(s)"
+     }
+    ],
+    "error": null,
+    "extract_ms_p50": 8957.7
+   },
+   "traps_result": {},
+   "politeness": {
+    "hosts": {
+     "formstack-lite.example": {
+      "requests": 2,
+      "subresources": 0,
+      "robots_fetches": 1,
+      "min_gap_s": 0.0,
+      "configured_interval_s": 0.0,
+      "max_requests_per_s_10s": 0.2,
+      "mean_requests_per_s": 2373.842
+     }
+    },
+    "robots_blocked": []
+   },
+   "learned": false,
+   "extractors": [],
+   "seconds": 9.0
+  },
+  {
+   "site": "saas-04",
+   "vertical": "saas",
+   "mode": "onepage",
+   "traps": [
+    "contact_sales",
+    "one_off"
+   ],
+   "v1": {
+    "site": "saas-04",
+    "truth": 3,
+    "extracted": 3,
+    "matched": 3,
+    "precision": 1.0,
+    "recall": 1.0,
+    "field_accuracy": 0.6,
+    "fields": {
+     "plan": {
+      "correct": 3,
+      "total": 3
+     },
+     "monthly_price": {
+      "correct": 0,
+      "total": 3
+     },
+     "annual_monthly_price": {
+      "correct": 0,
+      "total": 3
+     },
+     "seats": {
+      "correct": 3,
+      "total": 3
+     },
+     "features": {
+      "correct": 3,
+      "total": 3
+     }
+    },
+    "unmatched_extracted": [],
+    "missed": [],
+    "errors": [
+     {
+      "key": "Basic",
+      "field": "monthly_price",
+      "got": {
+       "amount": 15.0,
+       "currency": "USD"
+      },
+      "want": 19.05
+     },
+     {
+      "key": "Basic",
+      "field": "annual_monthly_price",
+      "got": {
+       "amount": 12.0,
+       "currency": "USD"
+      },
+      "want": 15.24
+     },
+     {
+      "key": "Pro",
+      "field": "monthly_price",
+      "got": {
+       "amount": 38.0,
+       "currency": "USD"
+      },
+      "want": 48.26
+     },
+     {
+      "key": "Pro",
+      "field": "annual_monthly_price",
+      "got": {
+       "amount": 30.0,
+       "currency": "USD"
+      },
+      "want": 38.1
+     },
+     {
+      "key": "Business",
+      "field": "monthly_price",
+      "got": {
+       "amount": 94.0,
+       "currency": "USD"
+      },
+      "want": 119.38
+     },
+     {
+      "key": "Business",
+      "field": "annual_monthly_price",
+      "got": {
+       "amount": 75.0,
+       "currency": "USD"
+      },
+      "want": 95.25
+     }
+    ],
+    "pages": 1,
+    "records": 3,
+    "seconds": 6.6,
+    "strategies": [
+     "direct"
+    ],
+    "llm": {
+     "calls": 1,
+     "cached": 0,
+     "failed": 0,
+     "by_task": {
+      "direct_extract": 1
+     },
+     "input_tokens": 916,
+     "output_tokens": 290,
+     "seconds": 6.6
+    },
+    "browser_pages": 0,
+    "duplicates_merged": 0,
+    "sparse_dropped": 0,
+    "pii_removed": 0,
+    "injection_findings": 0,
+    "events": [
+     {
+      "kind": "job_started",
+      "message": "Crawling 1 start URL(s)"
+     },
+     {
+      "kind": "strategy",
+      "message": "shiplane.example: direct LLM extraction (one-off page (3 similar items, no pagination))"
+     },
+     {
+      "kind": "job_finished",
+      "message": "3 records from 1 pages, 1 model call(s)"
+     }
+    ],
+    "error": null,
+    "extract_ms_p50": 6603.5
+   },
+   "traps_result": {
+    "currency_conversion": {
+     "currency": "GBP",
+     "correct": 0,
+     "total": 6
+    }
+   },
+   "politeness": {
+    "hosts": {
+     "shiplane.example": {
+      "requests": 2,
+      "subresources": 0,
+      "robots_fetches": 1,
+      "min_gap_s": 0.0,
+      "configured_interval_s": 0.0,
+      "max_requests_per_s_10s": 0.2,
+      "mean_requests_per_s": 2740.747
+     }
+    },
+    "robots_blocked": []
+   },
+   "learned": false,
+   "extractors": [],
+   "seconds": 6.6
+  },
+  {
+   "site": "saas-05",
+   "vertical": "saas",
+   "mode": "onepage",
+   "traps": [
+    "contact_sales",
+    "one_off"
+   ],
+   "v1": {
+    "site": "saas-05",
+    "truth": 3,
+    "extracted": 3,
+    "matched": 3,
+    "precision": 1.0,
+    "recall": 1.0,
+    "field_accuracy": 1.0,
+    "fields": {
+     "plan": {
+      "correct": 3,
+      "total": 3
+     },
+     "monthly_price": {
+      "correct": 3,
+      "total": 3
+     },
+     "annual_monthly_price": {
+      "correct": 3,
+      "total": 3
+     },
+     "seats": {
+      "correct": 3,
+      "total": 3
+     },
+     "features": {
+      "correct": 3,
+      "total": 3
+     }
+    },
+    "unmatched_extracted": [],
+    "missed": [],
+    "errors": [],
+    "pages": 1,
+    "records": 3,
+    "seconds": 6.99,
+    "strategies": [
+     "direct"
+    ],
+    "llm": {
+     "calls": 1,
+     "cached": 0,
+     "failed": 0,
+     "by_task": {
+      "direct_extract": 1
+     },
+     "input_tokens": 925,
+     "output_tokens": 304,
+     "seconds": 6.99
+    },
+    "browser_pages": 0,
+    "duplicates_merged": 0,
+    "sparse_dropped": 0,
+    "pii_removed": 0,
+    "injection_findings": 0,
+    "events": [
+     {
+      "kind": "job_started",
+      "message": "Crawling 1 start URL(s)"
+     },
+     {
+      "kind": "strategy",
+      "message": "quotient-crm.example: direct LLM extraction (one-off page (3 similar items, no pagination))"
+     },
+     {
+      "kind": "job_finished",
+      "message": "3 records from 1 pages, 1 model call(s)"
+     }
+    ],
+    "error": null,
+    "extract_ms_p50": 6990.7
+   },
+   "traps_result": {},
+   "politeness": {
+    "hosts": {
+     "quotient-crm.example": {
+      "requests": 2,
+      "subresources": 0,
+      "robots_fetches": 1,
+      "min_gap_s": 0.001,
+      "configured_interval_s": 0.0,
+      "max_requests_per_s_10s": 0.2,
+      "mean_requests_per_s": 1936.847
+     }
+    },
+    "robots_blocked": []
+   },
+   "learned": false,
+   "extractors": [],
+   "seconds": 7.0
+  }
+ ],
+ "seconds": 38.6
+}

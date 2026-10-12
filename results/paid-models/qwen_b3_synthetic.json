@@ -1,0 +1,3496 @@
+{
+ "name": "qwen_b3",
+ "suite": "synthetic",
+ "run_at": "2026-10-12T09:41:19+00:00",
+ "provider": "compat",
+ "model": "qwen3.7-plus",
+ "fallbacks": [],
+ "aggregate": {
+  "v1": {
+   "sites": 6,
+   "truth_records": 185,
+   "extracted_records": 185,
+   "matched": 185,
+   "precision": 1.0,
+   "recall": 1.0,
+   "field_accuracy": 0.9944,
+   "fields_correct": 1235,
+   "fields_total": 1242
+  },
+  "by_vertical": {
+   "ecommerce": {
+    "sites": 2,
+    "truth_records": 64,
+    "extracted_records": 64,
+    "matched": 64,
+    "precision": 1.0,
+    "recall": 1.0,
+    "field_accuracy": 0.9818,
+    "fields_correct": 377,
+    "fields_total": 384
+   },
+   "events": {
+    "sites": 1,
+    "truth_records": 15,
+    "extracted_records": 15,
+    "matched": 15,
+    "precision": 1.0,
+    "recall": 1.0,
+    "field_accuracy": 1.0,
+    "fields_correct": 90,
+    "fields_total": 90
+   },
+   "jobs": {
+    "sites": 1,
+    "truth_records": 24,
+    "extracted_records": 24,
+    "matched": 24,
+    "precision": 1.0,
+    "recall": 1.0,
+    "field_accuracy": 1.0,
+    "fields_correct": 216,
+    "fields_total": 216
+   },
+   "realestate": {
+    "sites": 1,
+    "truth_records": 20,
+    "extracted_records": 20,
+    "matched": 20,
+    "precision": 1.0,
+    "recall": 1.0,
+    "field_accuracy": 1.0,
+    "fields_correct": 180,
+    "fields_total": 180
+   },
+   "registry": {
+    "sites": 1,
+    "truth_records": 62,
+    "extracted_records": 62,
+    "matched": 62,
+    "precision": 1.0,
+    "recall": 1.0,
+    "field_accuracy": 1.0,
+    "fields_correct": 372,
+    "fields_total": 372
+   }
+  },
+  "v1_learned_only": {
+   "sites": 6,
+   "truth_records": 185,
+   "extracted_records": 185,
+   "matched": 185,
+   "precision": 1.0,
+   "recall": 1.0,
+   "field_accuracy": 0.9944,
+   "fields_correct": 1235,
+   "fields_total": 1242
+  },
+  "v1_direct_only": {
+   "sites": 0,
+   "truth_records": 0,
+   "extracted_records": 0,
+   "matched": 0,
+   "precision": 0.0,
+   "recall": 0.0,
+   "field_accuracy": 0.0,
+   "fields_correct": 0,
+   "fields_total": 0
+  },
+  "by_field": {
+   "address": {
+    "correct": 20,
+    "total": 20,
+    "accuracy": 1.0
+   },
+   "agent_phone": {
+    "correct": 20,
+    "total": 20,
+    "accuracy": 1.0
+   },
+   "area_sqm": {
+    "correct": 20,
+    "total": 20,
+    "accuracy": 1.0
+   },
+   "bathrooms": {
+    "correct": 20,
+    "total": 20,
+    "accuracy": 1.0
+   },
+   "bedrooms": {
+    "correct": 20,
+    "total": 20,
+    "accuracy": 1.0
+   },
+   "capacity": {
+    "correct": 62,
+    "total": 62,
+    "accuracy": 1.0
+   },
+   "category": {
+    "correct": 15,
+    "total": 15,
+    "accuracy": 1.0
+   },
+   "city": {
+    "correct": 20,
+    "total": 20,
+    "accuracy": 1.0
+   },
+   "company": {
+    "correct": 24,
+    "total": 24,
+    "accuracy": 1.0
+   },
+   "district": {
+    "correct": 62,
+    "total": 62,
+    "accuracy": 1.0
+   },
+   "employment_type": {
+    "correct": 24,
+    "total": 24,
+    "accuracy": 1.0
+   },
+   "event_url": {
+    "correct": 15,
+    "total": 15,
+    "accuracy": 1.0
+   },
+   "facility": {
+    "correct": 62,
+    "total": 62,
+    "accuracy": 1.0
+   },
+   "facility_type": {
+    "correct": 62,
+    "total": 62,
+    "accuracy": 1.0
+   },
+   "image_url": {
+    "correct": 64,
+    "total": 64,
+    "accuracy": 1.0
+   },
+   "job_url": {
+    "correct": 24,
+    "total": 24,
+    "accuracy": 1.0
+   },
+   "listing_type": {
+    "correct": 20,
+    "total": 20,
+    "accuracy": 1.0
+   },
+   "listing_url": {
+    "correct": 20,
+    "total": 20,
+    "accuracy": 1.0
+   },
+   "location": {
+    "correct": 24,
+    "total": 24,
+    "accuracy": 1.0
+   },
+   "name": {
+    "correct": 79,
+    "total": 79,
+    "accuracy": 1.0
+   },
+   "opened": {
+    "correct": 62,
+    "total": 62,
+    "accuracy": 1.0
+   },
+   "phone": {
+    "correct": 62,
+    "total": 62,
+    "accuracy": 1.0
+   },
+   "posted_date": {
+    "correct": 24,
+    "total": 24,
+    "accuracy": 1.0
+   },
+   "price": {
+    "correct": 99,
+    "total": 99,
+    "accuracy": 1.0
+   },
+   "product_url": {
+    "correct": 64,
+    "total": 64,
+    "accuracy": 1.0
+   },
+   "rating": {
+    "correct": 57,
+    "total": 64,
+    "accuracy": 0.8906
+   },
+   "remote": {
+    "correct": 24,
+    "total": 24,
+    "accuracy": 1.0
+   },
+   "salary_max": {
+    "correct": 24,
+    "total": 24,
+    "accuracy": 1.0
+   },
+   "salary_min": {
+    "correct": 24,
+    "total": 24,
+    "accuracy": 1.0
+   },
+   "start_date": {
+    "correct": 15,
+    "total": 15,
+    "accuracy": 1.0
+   },
+   "stock_status": {
+    "correct": 64,
+    "total": 64,
+    "accuracy": 1.0
+   },
+   "title": {
+    "correct": 24,
+    "total": 24,
+    "accuracy": 1.0
+   },
+   "venue": {
+    "correct": 15,
+    "total": 15,
+    "accuracy": 1.0
+   }
+  },
+  "robustness": {
+   "sites": 6,
+   "before_healing": {
+    "sites": 6,
+    "truth_records": 185,
+    "extracted_records": 0,
+    "matched": 0,
+    "precision": 0.0,
+    "recall": 0.0,
+    "field_accuracy": 0.0,
+    "fields_correct": 0,
+    "fields_total": 0
+   },
+   "after_healing": {
+    "sites": 6,
+    "truth_records": 185,
+    "extracted_records": 185,
+    "matched": 185,
+    "precision": 1.0,
+    "recall": 1.0,
+    "field_accuracy": 0.9597,
+    "fields_correct": 1192,
+    "fields_total": 1242
+   },
+   "detected": 6,
+   "healed": 4,
+   "heal_failed": 2,
+   "heal_calls": 12,
+   "fallback_direct_calls": 6,
+   "v1_same_extractors": {
+    "sites": 6,
+    "truth_records": 185,
+    "extracted_records": 185,
+    "matched": 185,
+    "precision": 1.0,
+    "recall": 1.0,
+    "field_accuracy": 0.9944,
+    "fields_correct": 1235,
+    "fields_total": 1242
+   },
+   "false_alarms_on_v1": 0,
+   "recheck_llm_calls": 0,
+   "incremental_unchanged_pages": 17,
+   "incremental_pages": 18,
+   "incremental_llm_calls": 0
+  },
+  "v1_cost": {
+   "llm_calls": 7,
+   "llm_calls_by_task": {
+    "learn_extractor": 7
+   },
+   "input_tokens": 12507,
+   "output_tokens": 3840,
+   "pages": 18,
+   "learned_pages": 18,
+   "learned_calls": 7
+  }
+ },
+ "sites": [
+  {
+   "site": "shop-01",
+   "vertical": "ecommerce",
+   "mode": "static",
+   "traps": [
+    "injection_visible",
+    "hidden_item",
+    "anomaly"
+   ],
+   "v1": {
+    "site": "shop-01",
+    "truth": 34,
+    "extracted": 34,
+    "matched": 34,
+    "precision": 1.0,
+    "recall": 1.0,
+    "field_accuracy": 1.0,
+    "fields": {
+     "name": {
+      "correct": 34,
+      "total": 34
+     },
+     "price": {
+      "correct": 34,
+      "total": 34
+     },
+     "rating": {
+      "correct": 34,
+      "total": 34
+     },
+     "stock_status": {
+      "correct": 34,
+      "total": 34
+     },
+     "image_url": {
+      "correct": 34,
+      "total": 34
+     },
+     "product_url": {
+      "correct": 34,
+      "total": 34
+     }
+    },
+    "unmatched_extracted": [],
+    "missed": [],
+    "errors": [],
+    "pages": 3,
+    "records": 34,
+    "seconds": 22.44,
+    "strategies": [
+     "learned"
+    ],
+    "llm": {
+     "calls": 2,
+     "cached": 0,
+     "failed": 0,
+     "by_task": {
+      "learn_extractor": 2
+     },
+     "input_tokens": 3622,
+     "output_tokens": 937,
+     "seconds": 22.38
+    },
+    "browser_pages": 0,
+    "duplicates_merged": 0,
+    "sparse_dropped": 0,
+    "pii_removed": 0,
+    "injection_findings": 2,
+    "events": [
+     {
+      "kind": "job_started",
+      "message": "Crawling 1 start URL(s)"
+     },
+     {
+      "kind": "strategy",
+      "message": "alpine-outfitters.example: learned extractor (pagination found (1 link(s)): a repeated template)"
+     },
+     {
+      "kind": "injection",
+      "message": "https://alpine-outfitters.example/catalog/: 2 sentence(s) addressed to AI systems quarantined"
+     },
+     {
+      "kind": "learning",
+      "message": "alpine-outfitters.example: learning an extractor from 2 sample page(s)"
+     },
+     {
+      "kind": "learned",
+      "message": "alpine-outfitters.example: extractor learned in 2 attempt(s), 2 model call(s)"
+     },
+     {
+      "kind": "anomaly",
+      "message": "Anomaly in price of 'atlas headlamp': 5995 is 43x the median 139.475"
+     },
+     {
+      "kind": "job_finished",
+      "message": "34 records from 3 pages, 2 model call(s)"
+     }
+    ],
+    "error": null,
+    "extract_ms_p50": 5.3
+   },
+   "traps_result": {
+    "hidden_leaked": 0,
+    "hidden_total": 1,
+    "anomalies_expected": 1,
+    "anomalies_found": 1,
+    "anomalies_false": 0,
+    "injection_where": "visible",
+    "injection_findings": 2,
+    "zeroed_values": 0,
+    "extra_fields": []
+   },
+   "politeness": {
+    "hosts": {
+     "alpine-outfitters.example": {
+      "requests": 4,
+      "subresources": 0,
+      "robots_fetches": 1,
+      "min_gap_s": 0.004,
+      "configured_interval_s": 0.0,
+      "max_requests_per_s_10s": 0.3,
+      "mean_requests_per_s": 0.134
+     }
+    },
+    "robots_blocked": []
+   },
+   "learned": true,
+   "extractors": [
+    {
+     "id": "ext-ed03e0",
+     "kind": "list",
+     "accepted": true,
+     "attempts": 2,
+     "calls": 2,
+     "program": {
+      "kind": "list",
+      "item": ".product-card",
+      "fields": {
+       "name": {
+        "css": ".product-card__title a",
+        "attr": "text",
+        "all": false,
+        "negate": false
+       },
+       "price": {
+        "css": ".product-card__price",
+        "attr": "text",
+        "all": false,
+        "regex": "\\$([\\d,]+\\.\\d+)",
+        "negate": false
+       },
+       "rating": {
+        "css": ".product-card__rating",
+        "attr": "text",
+        "all": false,
+        "regex": "^(.+?)\\s*$",
+        "negate": false
+       },
+       "stock_status": {
+        "css": ".product-card__stock",
+        "attr": "text",
+        "all": false,
+        "value_map": {
+         "In stock": "in_stock",
+         "Out of stock": "out_of_stock"
+        },
+        "negate": false
+       },
+       "image_url": {
+        "css": ".product-card__image",
+        "attr": "src",
+        "all": false,
+        "negate": false
+       },
+       "product_url": {
+        "css": ".product-card__title a",
+        "attr": "href",
+        "all": false,
+        "negate": false
+       }
+      },
+      "next_page": {
+       "css": ".product-card__next.load-more",
+       "attr": "href",
+       "all": false,
+       "negate": false
+      },
+      "missing": [],
+      "notes": ""
+     }
+    }
+   ],
+   "v2_before": {
+    "site": "shop-01",
+    "truth": 34,
+    "extracted": 0,
+    "matched": 0,
+    "precision": 0.0,
+    "recall": 0.0,
+    "field_accuracy": 0.0,
+    "fields": {},
+    "unmatched_extracted": [],
+    "missed": [
+     "Atlas Merino Base Layer",
+     "Light Trekking Poles",
+     "Coastal Hiking Boots",
+     "Urban Camp Stove",
+     "Meridian Down Vest",
+     "Compact Down Vest",
+     "Heritage Hiking Boots",
+     "Heritage Sleeping Bag",
+     "Coastal Hiking Boots Lite",
+     "Aurora Rain Shell"
+    ],
+    "errors": [],
+    "pages": 3,
+    "records": 0,
+    "seconds": 0.01,
+    "strategies": [
+     "learned"
+    ],
+    "llm": {
+     "calls": 0,
+     "cached": 0,
+     "failed": 0,
+     "by_task": {},
+     "input_tokens": 0,
+     "output_tokens": 0,
+     "seconds": 0
+    },
+    "browser_pages": 0,
+    "duplicates_merged": 0,
+    "sparse_dropped": 0,
+    "pii_removed": 0,
+    "injection_findings": 2,
+    "events": [
+     {
+      "kind": "job_started",
+      "message": "Crawling 1 start URL(s)"
+     },
+     {
+      "kind": "strategy",
+      "message": "alpine-outfitters.example: learned extractor (set by the job)"
+     },
+     {
+      "kind": "injection",
+      "message": "https://alpine-outfitters.example/catalog/: 2 sentence(s) addressed to AI systems quarantined"
+     },
+     {
+      "kind": "layout_changed",
+      "message": "alpine-outfitters.example: layout change detected (no records; structural similarity 0.04)"
+     },
+     {
+      "kind": "layout_changed",
+      "message": "alpine-outfitters.example: layout change detected (no records; structural similarity 0.04)"
+     },
+     {
+      "kind": "layout_changed",
+      "message": "alpine-outfitters.example: layout change detected (no records; structural similarity 0.04)"
+     },
+     {
+      "kind": "job_finished",
+      "message": "0 records from 3 pages, 0 model call(s)"
+     }
+    ],
+    "error": null,
+    "detected": true,
+    "signals": [
+     "alpine-outfitters.example: layout change detected (no records; structural similarity 0.04)",
+     "alpine-outfitters.example: layout change detected (no records; structural similarity 0.04)",
+     "alpine-outfitters.example: layout change detected (no records; structural similarity 0.04)"
+    ]
+   },
+   "v2_after": {
+    "site": "shop-01",
+    "truth": 34,
+    "extracted": 34,
+    "matched": 34,
+    "precision": 1.0,
+    "recall": 1.0,
+    "field_accuracy": 1.0,
+    "fields": {
+     "name": {
+      "correct": 34,
+      "total": 34
+     },
+     "price": {
+      "correct": 34,
+      "total": 34
+     },
+     "rating": {
+      "correct": 34,
+      "total": 34
+     },
+     "stock_status": {
+      "correct": 34,
+      "total": 34
+     },
+     "image_url": {
+      "correct": 34,
+      "total": 34
+     },
+     "product_url": {
+      "correct": 34,
+      "total": 34
+     }
+    },
+    "unmatched_extracted": [],
+    "missed": [],
+    "errors": [],
+    "pages": 3,
+    "records": 34,
+    "seconds": 9.53,
+    "strategies": [
+     "learned"
+    ],
+    "llm": {
+     "calls": 1,
+     "cached": 0,
+     "failed": 0,
+     "by_task": {
+      "heal_extractor": 1
+     },
+     "input_tokens": 2392,
+     "output_tokens": 446,
+     "seconds": 9.5
+    },
+    "browser_pages": 0,
+    "duplicates_merged": 0,
+    "sparse_dropped": 0,
+    "pii_removed": 0,
+    "injection_findings": 2,
+    "events": [
+     {
+      "kind": "job_started",
+      "message": "Crawling 1 start URL(s)"
+     },
+     {
+      "kind": "strategy",
+      "message": "alpine-outfitters.example: learned extractor (set by the job)"
+     },
+     {
+      "kind": "injection",
+      "message": "https://alpine-outfitters.example/catalog/: 2 sentence(s) addressed to AI systems quarantined"
+     },
+     {
+      "kind": "layout_changed",
+      "message": "alpine-outfitters.example: layout change detected (no records; structural similarity 0.04)"
+     },
+     {
+      "kind": "healed",
+      "message": "alpine-outfitters.example: healed in 1 attempt(s), 1 model call(s); verified against 54 earlier record(s)"
+     },
+     {
+      "kind": "anomaly",
+      "message": "Anomaly in price of 'atlas headlamp': 5995 is 43x the median 139.475"
+     },
+     {
+      "kind": "job_finished",
+      "message": "34 records from 3 pages, 1 model call(s)"
+     }
+    ],
+    "error": null,
+    "detected": true,
+    "healed": true,
+    "heal_failed": false,
+    "heal_calls": 1,
+    "fallback_direct_calls": 0,
+    "healed_programs": [
+     {
+      "kind": "list",
+      "item": "article.it-crd",
+      "fields": {
+       "name": {
+        "css": ".it-ttl h2",
+        "attr": "text",
+        "all": false,
+        "negate": false
+       },
+       "price": {
+        "css": ".it-prc",
+        "attr": "text",
+        "all": false,
+        "regex": "\\$([\\d,]+(?:\\.\\d+)?)",
+        "negate": false
+       },
+       "rating": {
+        "css": ".it-rtg",
+        "attr": "data-rating",
+        "all": false,
+        "negate": false
+       },
+       "stock_status": {
+        "css": ".it-stk",
+        "attr": "text",
+        "all": false,
+        "value_map": {
+         "Available now": "in_stock",
+         "Ships in 24 hours": "in_stock",
+         "Unavailable": "out_of_stock"
+        },
+        "negate": false
+       },
+       "image_url": {
+        "css": ".it-img",
+        "attr": "data-src",
+        "all": false,
+        "negate": false
+       },
+       "product_url": {
+        "css": ".it-ttl",
+        "attr": "href",
+        "all": false,
+        "negate": false
+       }
+      },
+      "next_page": {
+       "css": "a.it-nxt",
+       "attr": "href",
+       "all": false,
+       "negate": false
+      },
+      "missing": [],
+      "notes": ""
+     }
+    ]
+   },
+   "v1_recheck": {
+    "false_alarm": false,
+    "llm_calls": 0,
+    "records": 34,
+    "pages": 3
+   },
+   "incremental": {
+    "pages": 3,
+    "unchanged": 3,
+    "records": 34,
+    "llm_calls": 0
+   },
+   "seconds": 32.1
+  },
+  {
+   "site": "shop-09",
+   "vertical": "ecommerce",
+   "mode": "static",
+   "traps": [
+    "injection_alt",
+    "robots_archive"
+   ],
+   "v1": {
+    "site": "shop-09",
+    "truth": 30,
+    "extracted": 30,
+    "matched": 30,
+    "precision": 1.0,
+    "recall": 1.0,
+    "field_accuracy": 0.9611,
+    "fields": {
+     "name": {
+      "correct": 30,
+      "total": 30
+     },
+     "price": {
+      "correct": 30,
+      "total": 30
+     },
+     "rating": {
+      "correct": 23,
+      "total": 30
+     },
+     "stock_status": {
+      "correct": 30,
+      "total": 30
+     },
+     "image_url": {
+      "correct": 30,
+      "total": 30
+     },
+     "product_url": {
+      "correct": 30,
+      "total": 30
+     }
+    },
+    "unmatched_extracted": [],
+    "missed": [],
+    "errors": [
+     {
+      "key": "Light Screwdriver Set",
+      "field": "rating",
+      "got": 3.0,
+      "want": 3.5
+     },
+     {
+      "key": "Classic Utility Knife",
+      "field": "rating",
+      "got": 4.0,
+      "want": 4.5
+     },
+     {
+      "key": "Light Claw Hammer",
+      "field": "rating",
+      "got": 4.0,
+      "want": 4.5
+     },
+     {
+      "key": "Light Sanding Block",
+      "field": "rating",
+      "got": 4.0,
+      "want": 4.5
+     },
+     {
+      "key": "Heritage Sanding Block",
+      "field": "rating",
+      "got": 4.0,
+      "want": 4.5
+     },
+     {
+      "key": "Field Workbench",
+      "field": "rating",
+      "got": 4.0,
+      "want": 4.5
+     },
+     {
+      "key": "Aurora Sanding Block",
+      "field": "rating",
+      "got": 4.0,
+      "want": 4.5
+     }
+    ],
+    "pages": 4,
+    "records": 30,
+    "seconds": 10.92,
+    "strategies": [
+     "learned"
+    ],
+    "llm": {
+     "calls": 1,
+     "cached": 0,
+     "failed": 0,
+     "by_task": {
+      "learn_extractor": 1
+     },
+     "input_tokens": 1746,
+     "output_tokens": 468,
+     "seconds": 10.86
+    },
+    "browser_pages": 0,
+    "duplicates_merged": 0,
+    "sparse_dropped": 0,
+    "pii_removed": 0,
+    "injection_findings": 2,
+    "events": [
+     {
+      "kind": "job_started",
+      "message": "Crawling 1 start URL(s)"
+     },
+     {
+      "kind": "strategy",
+      "message": "ironvale-tools.example: learned extractor (pagination found (1 link(s)): a repeated template)"
+     },
+     {
+      "kind": "injection",
+      "message": "https://ironvale-tools.example/catalog/: 2 sentence(s) addressed to AI systems quarantined"
+     },
+     {
+      "kind": "learning",
+      "message": "ironvale-tools.example: learning an extractor from 2 sample page(s)"
+     },
+     {
+      "kind": "learned",
+      "message": "ironvale-tools.example: extractor learned in 1 attempt(s), 1 model call(s)"
+     },
+     {
+      "kind": "robots_blocked",
+      "message": "robots.txt disallows https://ironvale-tools.example/archive/; skipped"
+     },
+     {
+      "kind": "job_finished",
+      "message": "30 records from 4 pages, 1 model call(s)"
+     }
+    ],
+    "error": null,
+    "extract_ms_p50": 6.4
+   },
+   "traps_result": {
+    "archived_leaked": 0,
+    "archive_fetched": false,
+    "robots_blocked": 1,
+    "injection_where": "alt",
+    "injection_findings": 2,
+    "zeroed_values": 0,
+    "extra_fields": [],
+    "currency_conversion": {
+     "currency": "JPY",
+     "correct": 30,
+     "total": 30
+    }
+   },
+   "politeness": {
+    "hosts": {
+     "ironvale-tools.example": {
+      "requests": 4,
+      "subresources": 0,
+      "robots_fetches": 1,
+      "min_gap_s": 0.001,
+      "configured_interval_s": 0.0,
+      "max_requests_per_s_10s": 0.3,
+      "mean_requests_per_s": 0.275
+     }
+    },
+    "robots_blocked": [
+     "https://ironvale-tools.example/archive/"
+    ]
+   },
+   "learned": true,
+   "extractors": [
+    {
+     "id": "ext-175853",
+     "kind": "list",
+     "accepted": true,
+     "attempts": 1,
+     "calls": 1,
+     "program": {
+      "kind": "list",
+      "item": "article.product-card",
+      "fields": {
+       "name": {
+        "css": ".product-card__title a",
+        "attr": "text",
+        "all": false,
+        "negate": false
+       },
+       "price": {
+        "css": ".product-card__price",
+        "attr": "text",
+        "all": false,
+        "negate": false
+       },
+       "rating": {
+        "css": ".product-card__rating",
+        "attr": "text",
+        "all": false,
+        "regex": "(★+)",
+        "negate": false
+       },
+       "stock_status": {
+        "css": ".product-card__stock",
+        "attr": "text",
+        "all": false,
+        "value_map": {
+         "Ready to ship": "in_stock",
+         "In stock": "in_stock",
+         "Out of stock": "out_of_stock"
+        },
+        "negate": false
+       },
+       "image_url": {
+        "css": ".product-card__image",
+        "attr": "src",
+        "all": false,
+        "negate": false
+       },
+       "product_url": {
+        "css": ".product-card__title a",
+        "attr": "href",
+        "all": false,
+        "negate": false
+       }
+      },
+      "next_page": {
+       "css": "nav.product-card__pager a.product-card__next",
+       "attr": "href",
+       "all": false,
+       "negate": false
+      },
+      "missing": [],
+      "notes": ""
+     }
+    }
+   ],
+   "v2_before": {
+    "site": "shop-09",
+    "truth": 30,
+    "extracted": 0,
+    "matched": 0,
+    "precision": 0.0,
+    "recall": 0.0,
+    "field_accuracy": 0.0,
+    "fields": {},
+    "unmatched_extracted": [],
+    "missed": [
+     "Studio Cordless Drill",
+     "Nordic Spirit Level",
+     "Compact Screwdriver Set",
+     "Light Utility Knife",
+     "Light Screwdriver Set",
+     "Classic Utility Knife",
+     "Verde Sanding Block",
+     "Studio Workbench",
+     "Light Claw Hammer",
+     "Heritage Socket Set"
+    ],
+    "errors": [],
+    "pages": 4,
+    "records": 0,
+    "seconds": 0.01,
+    "strategies": [
+     "learned"
+    ],
+    "llm": {
+     "calls": 0,
+     "cached": 0,
+     "failed": 0,
+     "by_task": {},
+     "input_tokens": 0,
+     "output_tokens": 0,
+     "seconds": 0
+    },
+    "browser_pages": 0,
+    "duplicates_merged": 0,
+    "sparse_dropped": 0,
+    "pii_removed": 0,
+    "injection_findings": 2,
+    "events": [
+     {
+      "kind": "job_started",
+      "message": "Crawling 1 start URL(s)"
+     },
+     {
+      "kind": "strategy",
+      "message": "ironvale-tools.example: learned extractor (set by the job)"
+     },
+     {
+      "kind": "injection",
+      "message": "https://ironvale-tools.example/catalog/: 2 sentence(s) addressed to AI systems quarantined"
+     },
+     {
+      "kind": "layout_changed",
+      "message": "ironvale-tools.example: layout change detected (no records; structural similarity 0.07)"
+     },
+     {
+      "kind": "layout_changed",
+      "message": "ironvale-tools.example: layout change detected (no records; structural similarity 0.06)"
+     },
+     {
+      "kind": "layout_changed",
+      "message": "ironvale-tools.example: layout change detected (no records; structural similarity 0.07)"
+     },
+     {
+      "kind": "robots_blocked",
+      "message": "robots.txt disallows https://ironvale-tools.example/archive/; skipped"
+     },
+     {
+      "kind": "job_finished",
+      "message": "0 records from 4 pages, 0 model call(s)"
+     }
+    ],
+    "error": null,
+    "detected": true,
+    "signals": [
+     "ironvale-tools.example: layout change detected (no records; structural similarity 0.07)",
+     "ironvale-tools.example: layout change detected (no records; structural similarity 0.06)",
+     "ironvale-tools.example: layout change detected (no records; structural similarity 0.07)"
+    ]
+   },
+   "v2_after": {
+    "site": "shop-09",
+    "truth": 30,
+    "extracted": 30,
+    "matched": 30,
+    "precision": 1.0,
+    "recall": 1.0,
+    "field_accuracy": 0.8333,
+    "fields": {
+     "name": {
+      "correct": 30,
+      "total": 30
+     },
+     "price": {
+      "correct": 0,
+      "total": 30
+     },
+     "rating": {
+      "correct": 30,
+      "total": 30
+     },
+     "stock_status": {
+      "correct": 30,
+      "total": 30
+     },
+     "image_url": {
+      "correct": 30,
+      "total": 30
+     },
+     "product_url": {
+      "correct": 30,
+      "total": 30
+     }
+    },
+    "unmatched_extracted": [],
+    "missed": [],
+    "errors": [
+     {
+      "key": "Studio Cordless Drill",
+      "field": "price",
+      "got": {
+       "amount": 1065.36,
+       "currency": "USD"
+      },
+      "want": 799.98
+     },
+     {
+      "key": "Nordic Spirit Level",
+      "field": "price",
+      "got": {
+       "amount": 39.87,
+       "currency": "USD"
+      },
+      "want": 29.95
+     },
+     {
+      "key": "Compact Screwdriver Set",
+      "field": "price",
+      "got": {
+       "amount": 119.76,
+       "currency": "USD"
+      },
+      "want": 89.98
+     },
+     {
+      "key": "Light Utility Knife",
+      "field": "price",
+      "got": {
+       "amount": 332.79,
+       "currency": "USD"
+      },
+      "want": 249.98
+     },
+     {
+      "key": "Light Screwdriver Set",
+      "field": "price",
+      "got": {
+       "amount": 59.93,
+       "currency": "USD"
+      },
+      "want": 45.02
+     },
+     {
+      "key": "Classic Utility Knife",
+      "field": "price",
+      "got": {
+       "amount": 38.62,
+       "currency": "USD"
+      },
+      "want": 29.01
+     },
+     {
+      "key": "Verde Sanding Block",
+      "field": "price",
+      "got": {
+       "amount": 332.79,
+       "currency": "USD"
+      },
+      "want": 249.98
+     },
+     {
+      "key": "Studio Workbench",
+      "field": "price",
+      "got": {
+       "amount": 61.18,
+       "currency": "USD"
+      },
+      "want": 45.96
+     },
+     {
+      "key": "Light Claw Hammer",
+      "field": "price",
+      "got": {
+       "amount": 105.88,
+       "currency": "USD"
+      },
+      "want": 79.53
+     },
+     {
+      "key": "Heritage Socket Set",
+      "field": "price",
+      "got": {
+       "amount": 26.58,
+       "currency": "USD"
+      },
+      "want": 19.97
+     },
+     {
+      "key": "Field Jigsaw",
+      "field": "price",
+      "got": {
+       "amount": 464.62,
+       "currency": "USD"
+      },
+      "want": 349.0
+     },
+     {
+      "key": "Aurora Cordless Drill",
+      "field": "price",
+      "got": {
+       "amount": 106.5,
+       "currency": "USD"
+      },
+      "want": 80.0
+     },
+     {
+      "key": "Prime Tape Measure",
+      "field": "price",
+      "got": {
+       "amount": 30.0,
+       "currency": "USD"
+      },
+      "want": 29.48
+     },
+     {
+      "key": "Summit Spirit Level",
+      "field": "price",
+      "got": {
+       "amount": 152.0,
+       "currency": "USD"
+      },
+      "want": 149.48
+     },
+     {
+      "key": "Prime Socket Set",
+      "field": "price",
+      "got": {
+       "amount": 40.0,
+       "currency": "USD"
+      },
+      "want": 39.53
+     },
+     {
+      "key": "Light Tool Bag",
+      "field": "price",
+      "got": {
+       "amount": 131.0,
+       "currency": "USD"
+      },
+      "want": 128.97
+     },
+     {
+      "key": "Pro Spirit Level",
+      "field": "price",
+      "got": {
+       "amount": 31.0,
+       "currency": "USD"
+      },
+      "want": 30.02
+     },
+     {
+      "key": "Light Jigsaw",
+      "field": "price",
+      "got": {
+       "amount": 507.0,
+       "currency": "USD"
+      },
+      "want": 499.02
+     },
+     {
+      "key": "Light Sanding Block",
+      "field": "price",
+      "got": {
+       "amount": 19.0,
+       "currency": "USD"
+      },
+      "want": 19.03
+     },
+     {
+      "key": "Heritage Sanding Block",
+      "field": "price",
+      "got": {
+       "amount": 19.0,
+       "currency": "USD"
+      },
+      "want": 19.03
+     },
+     {
+      "key": "Pro Tape Measure",
+      "field": "price",
+      "got": {
+       "amount": 356.0,
+       "currency": "USD"
+      },
+      "want": 350.01
+     },
+     {
+      "key": "Classic Screwdriver Set",
+      "field": "price",
+      "got": {
+       "amount": 81.0,
+       "currency": "USD"
+      },
+      "want": 80.0
+     },
+     {
+      "key": "Pro Socket Set",
+      "field": "price",
+      "got": {
+       "amount": 60.0,
+       "currency": "USD"
+      },
+      "want": 59.03
+     },
+     {
+      "key": "Studio Jigsaw",
+      "field": "price",
+      "got": {
+       "amount": 153.0,
+       "currency": "USD"
+      },
+      "want": 150.01
+     },
+     {
+      "key": "Everyday Socket Set",
+      "field": "price",
+      "got": {
+       "amount": 119400.0,
+       "currency": "USD"
+      },
+      "want": 799.98
+     }
+    ],
+    "pages": 4,
+    "records": 30,
+    "seconds": 80.55,
+    "strategies": [
+     "direct"
+    ],
+    "llm": {
+     "calls": 6,
+     "cached": 0,
+     "failed": 0,
+     "by_task": {
+      "heal_extractor": 3,
+      "direct_extract": 3
+     },
+     "input_tokens": 12665,
+     "output_tokens": 3985,
+     "seconds": 80.48
+    },
+    "browser_pages": 0,
+    "duplicates_merged": 0,
+    "sparse_dropped": 0,
+    "pii_removed": 0,
+    "injection_findings": 4,
+    "events": [
+     {
+      "kind": "job_started",
+      "message": "Crawling 1 start URL(s)"
+     },
+     {
+      "kind": "strategy",
+      "message": "ironvale-tools.example: learned extractor (set by the job)"
+     },
+     {
+      "kind": "injection",
+      "message": "https://ironvale-tools.example/catalog/: 2 sentence(s) addressed to AI systems quarantined"
+     },
+     {
+      "kind": "layout_changed",
+      "message": "ironvale-tools.example: layout change detected (no records; structural similarity 0.07)"
+     },
+     {
+      "kind": "heal_failed",
+      "message": "ironvale-tools.example: re-learned rules did not pass verification after 3 attempt(s) (3 call(s)); switching this site to direct extraction"
+     },
+     {
+      "kind": "injection",
+      "message": "https://ironvale-tools.example/catalog/: 2 sentence(s) addressed to AI systems quarantined"
+     },
+     {
+      "kind": "robots_blocked",
+      "message": "robots.txt disallows https://ironvale-tools.example/archive/; skipped"
+     },
+     {
+      "kind": "job_finished",
+      "message": "30 records from 4 pages, 6 model call(s)"
+     }
+    ],
+    "error": null,
+    "detected": true,
+    "healed": false,
+    "heal_failed": true,
+    "heal_calls": 3,
+    "fallback_direct_calls": 3,
+    "healed_programs": []
+   },
+   "v1_recheck": {
+    "false_alarm": false,
+    "llm_calls": 0,
+    "records": 30,
+    "pages": 4
+   },
+   "incremental": {
+    "pages": 4,
+    "unchanged": 3,
+    "records": 30,
+    "llm_calls": 0
+   },
+   "seconds": 91.6
+  },
+  {
+   "site": "jobs-01",
+   "vertical": "jobs",
+   "mode": "static",
+   "traps": [
+    "relative_dates",
+    "pii_contact"
+   ],
+   "v1": {
+    "site": "jobs-01",
+    "truth": 24,
+    "extracted": 24,
+    "matched": 24,
+    "precision": 1.0,
+    "recall": 1.0,
+    "field_accuracy": 1.0,
+    "fields": {
+     "title": {
+      "correct": 24,
+      "total": 24
+     },
+     "company": {
+      "correct": 24,
+      "total": 24
+     },
+     "location": {
+      "correct": 24,
+      "total": 24
+     },
+     "salary_min": {
+      "correct": 24,
+      "total": 24
+     },
+     "salary_max": {
+      "correct": 24,
+      "total": 24
+     },
+     "employment_type": {
+      "correct": 24,
+      "total": 24
+     },
+     "remote": {
+      "correct": 24,
+      "total": 24
+     },
+     "posted_date": {
+      "correct": 24,
+      "total": 24
+     },
+     "job_url": {
+      "correct": 24,
+      "total": 24
+     }
+    },
+    "unmatched_extracted": [],
+    "missed": [],
+    "errors": [],
+    "pages": 3,
+    "records": 24,
+    "seconds": 15.41,
+    "strategies": [
+     "learned"
+    ],
+    "llm": {
+     "calls": 1,
+     "cached": 0,
+     "failed": 0,
+     "by_task": {
+      "learn_extractor": 1
+     },
+     "input_tokens": 1827,
+     "output_tokens": 765,
+     "seconds": 15.36
+    },
+    "browser_pages": 0,
+    "duplicates_merged": 0,
+    "sparse_dropped": 0,
+    "pii_removed": 10,
+    "injection_findings": 0,
+    "events": [
+     {
+      "kind": "job_started",
+      "message": "Crawling 1 start URL(s)"
+     },
+     {
+      "kind": "strategy",
+      "message": "hireloop.example: learned extractor (pagination found (1 link(s)): a repeated template)"
+     },
+     {
+      "kind": "learning",
+      "message": "hireloop.example: learning an extractor from 2 sample page(s)"
+     },
+     {
+      "kind": "learned",
+      "message": "hireloop.example: extractor learned in 1 attempt(s), 1 model call(s)"
+     },
+     {
+      "kind": "pii_removed",
+      "message": "PII guard removed 10 email address(es) or phone number(s)"
+     },
+     {
+      "kind": "job_finished",
+      "message": "24 records from 3 pages, 1 model call(s)"
+     }
+    ],
+    "error": null,
+    "extract_ms_p50": 5.6
+   },
+   "traps_result": {
+    "pii_planted": 10,
+    "pii_leaked": 0,
+    "relative_dates": {
+     "correct": 24,
+     "total": 24
+    }
+   },
+   "politeness": {
+    "hosts": {
+     "hireloop.example": {
+      "requests": 4,
+      "subresources": 0,
+      "robots_fetches": 1,
+      "min_gap_s": 0.004,
+      "configured_interval_s": 0.0,
+      "max_requests_per_s_10s": 0.3,
+      "mean_requests_per_s": 0.195
+     }
+    },
+    "robots_blocked": []
+   },
+   "learned": true,
+   "extractors": [
+    {
+     "id": "ext-da7485",
+     "kind": "list",
+     "accepted": true,
+     "attempts": 1,
+     "calls": 1,
+     "program": {
+      "kind": "list",
+      "item": "article.job-card",
+      "fields": {
+       "title": {
+        "css": ".job-card__title a",
+        "attr": "text",
+        "all": false,
+        "negate": false
+       },
+       "company": {
+        "css": ".job-card__company",
+        "attr": "text",
+        "all": false,
+        "negate": false
+       },
+       "location": {
+        "css": ".job-card__location",
+        "attr": "text",
+        "all": false,
+        "negate": false
+       },
+       "salary_min": {
+        "css": ".job-card__salary",
+        "attr": "text",
+        "all": false,
+        "regex": "\\$(\\d[\\d,]*)\\s*–",
+        "negate": false
+       },
+       "salary_max": {
+        "css": ".job-card__salary",
+        "attr": "text",
+        "all": false,
+        "regex": "–\\s*\\$([\\d,]*)",
+        "negate": false
+       },
+       "employment_type": {
+        "css": ".job-card__type",
+        "attr": "text",
+        "all": false,
+        "value_map": {
+         "Full-time": "full_time",
+         "Part-time": "part_time",
+         "Contract": "contract",
+         "Internship": "internship"
+        },
+        "negate": false
+       },
+       "remote": {
+        "css": ".job-card__remote",
+        "attr": "text",
+        "all": false,
+        "value_map": {
+         "Remote": "True",
+         "Fully Remote": "True",
+         "Hybrid": "False",
+         "On-site": "False",
+         "In-office": "False"
+        },
+        "negate": false
+       },
+       "posted_date": {
+        "css": ".job-card__posted",
+        "attr": "text",
+        "all": false,
+        "regex": "Posted (.+)",
+        "negate": false
+       },
+       "job_url": {
+        "css": ".job-card__title a",
+        "attr": "href",
+        "all": false,
+        "negate": false
+       },
+       "contact": {
+        "css": ".job-card__desc",
+        "attr": "text",
+        "all": false,
+        "negate": false
+       }
+      },
+      "next_page": {
+       "css": "a.job-card__next",
+       "attr": "href",
+       "all": false,
+       "negate": false
+      },
+      "missing": [],
+      "notes": ""
+     }
+    }
+   ],
+   "v2_before": {
+    "site": "jobs-01",
+    "truth": 24,
+    "extracted": 0,
+    "matched": 0,
+    "precision": 0.0,
+    "recall": 0.0,
+    "field_accuracy": 0.0,
+    "fields": {},
+    "unmatched_extracted": [],
+    "missed": [
+     "Senior Backend Engineer",
+     "Sales Development Representative",
+     "Data Analyst",
+     "Mobile Developer",
+     "Customer Success Manager",
+     "Lead Customer Success Manager",
+     "Technical Writer",
+     "QA Engineer",
+     "UX Researcher",
+     "Senior Sales Development Representative"
+    ],
+    "errors": [],
+    "pages": 7,
+    "records": 0,
+    "seconds": 0.01,
+    "strategies": [
+     "learned"
+    ],
+    "llm": {
+     "calls": 0,
+     "cached": 0,
+     "failed": 0,
+     "by_task": {},
+     "input_tokens": 0,
+     "output_tokens": 0,
+     "seconds": 0
+    },
+    "browser_pages": 0,
+    "duplicates_merged": 0,
+    "sparse_dropped": 0,
+    "pii_removed": 0,
+    "injection_findings": 0,
+    "events": [
+     {
+      "kind": "job_started",
+      "message": "Crawling 1 start URL(s)"
+     },
+     {
+      "kind": "strategy",
+      "message": "hireloop.example: learned extractor (set by the job)"
+     },
+     {
+      "kind": "layout_changed",
+      "message": "hireloop.example: layout change detected (no records; structural similarity 0.05)"
+     },
+     {
+      "kind": "layout_changed",
+      "message": "hireloop.example: layout change detected (no records; structural similarity 0.05)"
+     },
+     {
+      "kind": "layout_changed",
+      "message": "hireloop.example: layout change detected (no records; structural similarity 0.05)"
+     },
+     {
+      "kind": "layout_changed",
+      "message": "hireloop.example: layout change detected (no records; structural similarity 0.07)"
+     },
+     {
+      "kind": "layout_changed",
+      "message": "hireloop.example: layout change detected (no records; structural similarity 0.05)"
+     },
+     {
+      "kind": "layout_changed",
+      "message": "hireloop.example: layout change detected (no records; structural similarity 0.05)"
+     },
+     {
+      "kind": "layout_changed",
+      "message": "hireloop.example: layout change detected (no records; structural similarity 0.05)"
+     },
+     {
+      "kind": "job_finished",
+      "message": "0 records from 7 pages, 0 model call(s)"
+     }
+    ],
+    "error": null,
+    "detected": true,
+    "signals": [
+     "hireloop.example: layout change detected (no records; structural similarity 0.05)",
+     "hireloop.example: layout change detected (no records; structural similarity 0.05)",
+     "hireloop.example: layout change detected (no records; structural similarity 0.05)"
+    ]
+   },
+   "v2_after": {
+    "site": "jobs-01",
+    "truth": 24,
+    "extracted": 24,
+    "matched": 24,
+    "precision": 1.0,
+    "recall": 1.0,
+    "field_accuracy": 1.0,
+    "fields": {
+     "title": {
+      "correct": 24,
+      "total": 24
+     },
+     "company": {
+      "correct": 24,
+      "total": 24
+     },
+     "location": {
+      "correct": 24,
+      "total": 24
+     },
+     "salary_min": {
+      "correct": 24,
+      "total": 24
+     },
+     "salary_max": {
+      "correct": 24,
+      "total": 24
+     },
+     "employment_type": {
+      "correct": 24,
+      "total": 24
+     },
+     "remote": {
+      "correct": 24,
+      "total": 24
+     },
+     "posted_date": {
+      "correct": 24,
+      "total": 24
+     },
+     "job_url": {
+      "correct": 24,
+      "total": 24
+     }
+    },
+    "unmatched_extracted": [],
+    "missed": [],
+    "errors": [],
+    "pages": 3,
+    "records": 24,
+    "seconds": 40.37,
+    "strategies": [
+     "learned"
+    ],
+    "llm": {
+     "calls": 3,
+     "cached": 0,
+     "failed": 0,
+     "by_task": {
+      "heal_extractor": 3
+     },
+     "input_tokens": 7462,
+     "output_tokens": 2010,
+     "seconds": 40.33
+    },
+    "browser_pages": 0,
+    "duplicates_merged": 0,
+    "sparse_dropped": 0,
+    "pii_removed": 10,
+    "injection_findings": 0,
+    "events": [
+     {
+      "kind": "job_started",
+      "message": "Crawling 1 start URL(s)"
+     },
+     {
+      "kind": "strategy",
+      "message": "hireloop.example: learned extractor (set by the job)"
+     },
+     {
+      "kind": "layout_changed",
+      "message": "hireloop.example: layout change detected (no records; structural similarity 0.05)"
+     },
+     {
+      "kind": "healed",
+      "message": "hireloop.example: healed in 3 attempt(s), 3 model call(s); verified against 44 earlier record(s)"
+     },
+     {
+      "kind": "pii_removed",
+      "message": "PII guard removed 10 email address(es) or phone number(s)"
+     },
+     {
+      "kind": "job_finished",
+      "message": "24 records from 3 pages, 3 model call(s)"
+     }
+    ],
+    "error": null,
+    "detected": true,
+    "healed": true,
+    "heal_failed": false,
+    "heal_calls": 3,
+    "fallback_direct_calls": 0,
+    "healed_programs": [
+     {
+      "kind": "list",
+      "item": ".p-crd",
+      "fields": {
+       "title": {
+        "css": ".p-ttl",
+        "attr": "text",
+        "all": false,
+        "negate": false
+       },
+       "company": {
+        "css": ".p-co",
+        "attr": "text",
+        "all": false,
+        "negate": false
+       },
+       "location": {
+        "css": ".p-loc",
+        "attr": "text",
+        "all": false,
+        "negate": false
+       },
+       "salary_min": {
+        "css": ".p-sal",
+        "attr": "text",
+        "all": false,
+        "regex": "\\$(\\d+)k",
+        "negate": false
+       },
+       "salary_max": {
+        "css": ".p-sal",
+        "attr": "text",
+        "all": false,
+        "regex": "\\$(\\d+)k$",
+        "negate": false
+       },
+       "employment_type": {
+        "css": ".p-typ",
+        "attr": "text",
+        "all": false,
+        "value_map": {
+         "Full time": "full_time",
+         "Part time": "part_time",
+         "Contract": "contract",
+         "Internship": "internship"
+        },
+        "negate": false
+       },
+       "remote": {
+        "css": ".p-rmt",
+        "attr": "text",
+        "all": false,
+        "value_map": {
+         "Remote": "True",
+         "Fully Remote": "True",
+         "Hybrid": "False",
+         "In office": "False",
+         "On-site": "False"
+        },
+        "negate": false
+       },
+       "posted_date": {
+        "css": ".p-pst",
+        "attr": "text",
+        "all": false,
+        "negate": false
+       },
+       "job_url": {
+        "css": ".p-ttl",
+        "attr": "href",
+        "all": false,
+        "negate": false
+       },
+       "contact": {
+        "css": ".p-dsc",
+        "attr": "text",
+        "all": false,
+        "negate": false
+       }
+      },
+      "next_page": {
+       "css": "a.p-nxt",
+       "attr": "href",
+       "all": false,
+       "negate": false
+      },
+      "missing": [],
+      "notes": ""
+     }
+    ]
+   },
+   "v1_recheck": {
+    "false_alarm": false,
+    "llm_calls": 0,
+    "records": 24,
+    "pages": 3
+   },
+   "incremental": {
+    "pages": 3,
+    "unchanged": 3,
+    "records": 24,
+    "llm_calls": 0
+   },
+   "seconds": 55.9
+  },
+  {
+   "site": "homes-03",
+   "vertical": "realestate",
+   "mode": "static",
+   "traps": [
+    "units",
+    "mixed_listing_types",
+    "business_contact"
+   ],
+   "v1": {
+    "site": "homes-03",
+    "truth": 20,
+    "extracted": 20,
+    "matched": 20,
+    "precision": 1.0,
+    "recall": 1.0,
+    "field_accuracy": 1.0,
+    "fields": {
+     "address": {
+      "correct": 20,
+      "total": 20
+     },
+     "city": {
+      "correct": 20,
+      "total": 20
+     },
+     "price": {
+      "correct": 20,
+      "total": 20
+     },
+     "listing_type": {
+      "correct": 20,
+      "total": 20
+     },
+     "bedrooms": {
+      "correct": 20,
+      "total": 20
+     },
+     "bathrooms": {
+      "correct": 20,
+      "total": 20
+     },
+     "area_sqm": {
+      "correct": 20,
+      "total": 20
+     },
+     "listing_url": {
+      "correct": 20,
+      "total": 20
+     },
+     "agent_phone": {
+      "correct": 20,
+      "total": 20
+     }
+    },
+    "unmatched_extracted": [],
+    "missed": [],
+    "errors": [],
+    "pages": 3,
+    "records": 20,
+    "seconds": 13.24,
+    "strategies": [
+     "learned"
+    ],
+    "llm": {
+     "calls": 1,
+     "cached": 0,
+     "failed": 0,
+     "by_task": {
+      "learn_extractor": 1
+     },
+     "input_tokens": 2114,
+     "output_tokens": 670,
+     "seconds": 13.21
+    },
+    "browser_pages": 0,
+    "duplicates_merged": 0,
+    "sparse_dropped": 0,
+    "pii_removed": 0,
+    "injection_findings": 0,
+    "events": [
+     {
+      "kind": "job_started",
+      "message": "Crawling 1 start URL(s)"
+     },
+     {
+      "kind": "strategy",
+      "message": "brick-and-bay-lettings.example: learned extractor (pagination found (1 link(s)): a repeated template)"
+     },
+     {
+      "kind": "learning",
+      "message": "brick-and-bay-lettings.example: learning an extractor from 2 sample page(s)"
+     },
+     {
+      "kind": "learned",
+      "message": "brick-and-bay-lettings.example: extractor learned in 1 attempt(s), 1 model call(s)"
+     },
+     {
+      "kind": "job_finished",
+      "message": "20 records from 3 pages, 1 model call(s)"
+     }
+    ],
+    "error": null,
+    "extract_ms_p50": 4.6
+   },
+   "traps_result": {
+    "currency_conversion": {
+     "currency": "GBP",
+     "correct": 20,
+     "total": 20
+    }
+   },
+   "politeness": {
+    "hosts": {
+     "brick-and-bay-lettings.example": {
+      "requests": 4,
+      "subresources": 0,
+      "robots_fetches": 1,
+      "min_gap_s": 0.0,
+      "configured_interval_s": 0.0,
+      "max_requests_per_s_10s": 0.3,
+      "mean_requests_per_s": 0.227
+     }
+    },
+    "robots_blocked": []
+   },
+   "learned": true,
+   "extractors": [
+    {
+     "id": "ext-50b259",
+     "kind": "list",
+     "accepted": true,
+     "attempts": 1,
+     "calls": 1,
+     "program": {
+      "kind": "list",
+      "item": "ul.grid > li",
+      "fields": {
+       "address": {
+        "css": "h3 a",
+        "attr": "text",
+        "all": false,
+        "negate": false
+       },
+       "city": {
+        "css": "span.text-gray-600",
+        "attr": "text",
+        "all": false,
+        "negate": false
+       },
+       "price": {
+        "css": "span.font-bold",
+        "attr": "text",
+        "all": false,
+        "negate": false
+       },
+       "listing_type": {
+        "css": "span.uppercase",
+        "attr": "text",
+        "all": false,
+        "value_map": {
+         "For sale": "sale",
+         "For rent": "rent"
+        },
+        "negate": false
+       },
+       "bedrooms": {
+        "css": "div.flex > span:nth-of-type(1)",
+        "attr": "text",
+        "all": false,
+        "regex": "(\\d+)",
+        "negate": false
+       },
+       "bathrooms": {
+        "css": "div.flex > span:nth-of-type(2)",
+        "attr": "text",
+        "all": false,
+        "regex": "([\\d.]+)",
+        "negate": false
+       },
+       "area_sqm": {
+        "css": "div.flex > span:nth-of-type(3)",
+        "attr": "text",
+        "all": false,
+        "regex": "([\\d,]+)",
+        "negate": false
+       },
+       "listing_url": {
+        "css": "h3 a",
+        "attr": "href",
+        "all": false,
+        "negate": false
+       },
+       "agent_phone": {
+        "css": "p a[href^='tel:']",
+        "attr": "text",
+        "all": false,
+        "negate": false
+       }
+      },
+      "next_page": {
+       "css": "nav[aria-label='Pagination'] a",
+       "attr": "href",
+       "all": false,
+       "negate": false
+      },
+      "missing": [],
+      "notes": ""
+     }
+    }
+   ],
+   "v2_before": {
+    "site": "homes-03",
+    "truth": 20,
+    "extracted": 0,
+    "matched": 0,
+    "precision": 0.0,
+    "recall": 0.0,
+    "field_accuracy": 0.0,
+    "fields": {},
+    "unmatched_extracted": [],
+    "missed": [
+     "133 Foundry Street",
+     "102 Hillcrest Road",
+     "39 Linden Street",
+     "199 Willow Court",
+     "210 Station Road",
+     "197 Bakers Lane",
+     "56 Maple Avenue",
+     "170 Harbor Road",
+     "229 Harbor Road",
+     "227 Elm Terrace"
+    ],
+    "errors": [],
+    "pages": 18,
+    "records": 0,
+    "seconds": 0.02,
+    "strategies": [
+     "learned"
+    ],
+    "llm": {
+     "calls": 0,
+     "cached": 0,
+     "failed": 0,
+     "by_task": {},
+     "input_tokens": 0,
+     "output_tokens": 0,
+     "seconds": 0
+    },
+    "browser_pages": 0,
+    "duplicates_merged": 0,
+    "sparse_dropped": 0,
+    "pii_removed": 0,
+    "injection_findings": 0,
+    "events": [
+     {
+      "kind": "job_started",
+      "message": "Crawling 1 start URL(s)"
+     },
+     {
+      "kind": "strategy",
+      "message": "brick-and-bay-lettings.example: learned extractor (set by the job)"
+     },
+     {
+      "kind": "layout_changed",
+      "message": "brick-and-bay-lettings.example: layout change detected (no records; structural similarity 0.04)"
+     },
+     {
+      "kind": "layout_changed",
+      "message": "brick-and-bay-lettings.example: layout change detected (no records; structural similarity 0.04)"
+     },
+     {
+      "kind": "layout_changed",
+      "message": "brick-and-bay-lettings.example: layout change detected (no records; structural similarity 0.04)"
+     },
+     {
+      "kind": "layout_changed",
+      "message": "brick-and-bay-lettings.example: layout change detected (no records; structural similarity 0.05)"
+     },
+     {
+      "kind": "layout_changed",
+      "message": "brick-and-bay-lettings.example: layout change detected (no records; structural similarity 0.05)"
+     },
+     {
+      "kind": "layout_changed",
+      "message": "brick-and-bay-lettings.example: layout change detected (no records; structural similarity 0.05)"
+     },
+     {
+      "kind": "layout_changed",
+      "message": "brick-and-bay-lettings.example: layout change detected (no records; structural similarity 0.05)"
+     },
+     {
+      "kind": "layout_changed",
+      "message": "brick-and-bay-lettings.example: layout change detected (no records; structural similarity 0.05)"
+     },
+     {
+      "kind": "layout_changed",
+      "message": "brick-and-bay-lettings.example: layout change detected (no records; structural similarity 0.05)"
+     },
+     {
+      "kind": "layout_changed",
+      "message": "brick-and-bay-lettings.example: layout change detected (no records; structural similarity 0.05)"
+     },
+     {
+      "kind": "layout_changed",
+      "message": "brick-and-bay-lettings.example: layout change detected (no records; structural similarity 0.05)"
+     },
+     {
+      "kind": "layout_changed",
+      "message": "brick-and-bay-lettings.example: layout change detected (no records; structural similarity 0.05)"
+     },
+     {
+      "kind": "layout_changed",
+      "message": "brick-and-bay-lettings.example: layout change detected (no records; structural similarity 0.05)"
+     },
+     {
+      "kind": "layout_changed",
+      "message": "brick-and-bay-lettings.example: layout change detected (no records; structural similarity 0.05)"
+     },
+     {
+      "kind": "layout_changed",
+      "message": "brick-and-bay-lettings.example: layout change detected (no records; structural similarity 0.05)"
+     },
+     {
+      "kind": "layout_changed",
+      "message": "brick-and-bay-lettings.example: layout change detected (no records; structural similarity 0.05)"
+     },
+     {
+      "kind": "layout_changed",
+      "message": "brick-and-bay-lettings.example: layout change detected (no records; structural similarity 0.05)"
+     },
+     {
+      "kind": "layout_changed",
+      "message": "brick-and-bay-lettings.example: layout change detected (no records; structural similarity 0.07)"
+     },
+     {
+      "kind": "job_finished",
+      "message": "0 records from 18 pages, 0 model call(s)"
+     }
+    ],
+    "error": null,
+    "detected": true,
+    "signals": [
+     "brick-and-bay-lettings.example: layout change detected (no records; structural similarity 0.04)",
+     "brick-and-bay-lettings.example: layout change detected (no records; structural similarity 0.04)",
+     "brick-and-bay-lettings.example: layout change detected (no records; structural similarity 0.04)"
+    ]
+   },
+   "v2_after": {
+    "site": "homes-03",
+    "truth": 20,
+    "extracted": 20,
+    "matched": 20,
+    "precision": 1.0,
+    "recall": 1.0,
+    "field_accuracy": 0.8889,
+    "fields": {
+     "address": {
+      "correct": 20,
+      "total": 20
+     },
+     "city": {
+      "correct": 20,
+      "total": 20
+     },
+     "price": {
+      "correct": 0,
+      "total": 20
+     },
+     "listing_type": {
+      "correct": 20,
+      "total": 20
+     },
+     "bedrooms": {
+      "correct": 20,
+      "total": 20
+     },
+     "bathrooms": {
+      "correct": 20,
+      "total": 20
+     },
+     "area_sqm": {
+      "correct": 20,
+      "total": 20
+     },
+     "listing_url": {
+      "correct": 20,
+      "total": 20
+     },
+     "agent_phone": {
+      "correct": 20,
+      "total": 20
+     }
+    },
+    "unmatched_extracted": [],
+    "missed": [],
+    "errors": [
+     {
+      "key": "133 Foundry Street",
+      "field": "price",
+      "got": {
+       "amount": 247000.0,
+       "currency": "USD"
+      },
+      "want": 241300.0
+     },
+     {
+      "key": "102 Hillcrest Road",
+      "field": "price",
+      "got": {
+       "amount": 1170000.0,
+       "currency": "USD"
+      },
+      "want": 1143000.0
+     },
+     {
+      "key": "39 Linden Street",
+      "field": "price",
+      "got": {
+       "amount": 2400.0,
+       "currency": "USD"
+      },
+      "want": 3048.0
+     },
+     {
+      "key": "199 Willow Court",
+      "field": "price",
+      "got": {
+       "amount": 1040000.0,
+       "currency": "USD"
+      },
+      "want": 1016000.0
+     },
+     {
+      "key": "210 Station Road",
+      "field": "price",
+      "got": {
+       "amount": 1500.0,
+       "currency": "USD"
+      },
+      "want": 1905.0
+     },
+     {
+      "key": "197 Bakers Lane",
+      "field": "price",
+      "got": {
+       "amount": 767000.0,
+       "currency": "USD"
+      },
+      "want": 749300.0
+     },
+     {
+      "key": "56 Maple Avenue",
+      "field": "price",
+      "got": {
+       "amount": 900.0,
+       "currency": "USD"
+      },
+      "want": 1143.0
+     },
+     {
+      "key": "170 Harbor Road",
+      "field": "price",
+      "got": {
+       "amount": 832000.0,
+       "currency": "USD"
+      },
+      "want": 812800.0
+     },
+     {
+      "key": "229 Harbor Road",
+      "field": "price",
+      "got": {
+       "amount": 1800.0,
+       "currency": "USD"
+      },
+      "want": 2286.0
+     },
+     {
+      "key": "227 Elm Terrace",
+      "field": "price",
+      "got": {
+       "amount": 1100.0,
+       "currency": "USD"
+      },
+      "want": 1397.0
+     },
+     {
+      "key": "31 Riverside Walk",
+      "field": "price",
+      "got": {
+       "amount": 3200.0,
+       "currency": "USD"
+      },
+      "want": 4064.0
+     },
+     {
+      "key": "147 Hillcrest Road",
+      "field": "price",
+      "got": {
+       "amount": 280000.0,
+       "currency": "USD"
+      },
+      "want": 355600.0
+     },
+     {
+      "key": "147 Willow Court",
+      "field": "price",
+      "got": {
+       "amount": 720000.0,
+       "currency": "USD"
+      },
+      "want": 914400.0
+     },
+     {
+      "key": "101 Harbor Road",
+      "field": "price",
+      "got": {
+       "amount": 930000.0,
+       "currency": "USD"
+      },
+      "want": 1181100.0
+     },
+     {
+      "key": "49 Foundry Street",
+      "field": "price",
+      "got": {
+       "amount": 1200.0,
+       "currency": "USD"
+      },
+      "want": 1524.0
+     },
+     {
+      "key": "122 Orchard Way",
+      "field": "price",
+      "got": {
+       "amount": 600000.0,
+       "currency": "USD"
+      },
+      "want": 762000.0
+     },
+     {
+      "key": "122 Station Road",
+      "field": "price",
+      "got": {
+       "amount": 2080.0,
+       "currency": "USD"
+      },
+      "want": 2032.0
+     },
+     {
+      "key": "63 Maple Avenue",
+      "field": "price",
+      "got": {
+       "amount": 440000.0,
+       "currency": "USD"
+      },
+      "want": 558800.0
+     },
+     {
+      "key": "225 Willow Court",
+      "field": "price",
+      "got": {
+       "amount": 610000.0,
+       "currency": "USD"
+      },
+      "want": 774700.0
+     },
+     {
+      "key": "83 Chapel Row",
+      "field": "price",
+      "got": {
+       "amount": 490000.0,
+       "currency": "USD"
+      },
+      "want": 622300.0
+     }
+    ],
+    "pages": 3,
+    "records": 20,
+    "seconds": 121.57,
+    "strategies": [
+     "direct"
+    ],
+    "llm": {
+     "calls": 6,
+     "cached": 0,
+     "failed": 0,
+     "by_task": {
+      "heal_extractor": 3,
+      "direct_extract": 3
+     },
+     "input_tokens": 14847,
+     "output_tokens": 4611,
+     "seconds": 121.5
+    },
+    "browser_pages": 0,
+    "duplicates_merged": 0,
+    "sparse_dropped": 0,
+    "pii_removed": 0,
+    "injection_findings": 0,
+    "events": [
+     {
+      "kind": "job_started",
+      "message": "Crawling 1 start URL(s)"
+     },
+     {
+      "kind": "strategy",
+      "message": "brick-and-bay-lettings.example: learned extractor (set by the job)"
+     },
+     {
+      "kind": "layout_changed",
+      "message": "brick-and-bay-lettings.example: layout change detected (no records; structural similarity 0.04)"
+     },
+     {
+      "kind": "heal_failed",
+      "message": "brick-and-bay-lettings.example: re-learned rules did not pass verification after 3 attempt(s) (3 call(s)); switching this site to direct extraction"
+     },
+     {
+      "kind": "job_finished",
+      "message": "20 records from 3 pages, 6 model call(s)"
+     }
+    ],
+    "error": null,
+    "detected": true,
+    "healed": false,
+    "heal_failed": true,
+    "heal_calls": 3,
+    "fallback_direct_calls": 3,
+    "healed_programs": []
+   },
+   "v1_recheck": {
+    "false_alarm": false,
+    "llm_calls": 0,
+    "records": 20,
+    "pages": 3
+   },
+   "incremental": {
+    "pages": 3,
+    "unchanged": 3,
+    "records": 20,
+    "llm_calls": 0
+   },
+   "seconds": 134.9
+  },
+  {
+   "site": "events-01",
+   "vertical": "events",
+   "mode": "static",
+   "traps": [
+    "relative_dates",
+    "free_events"
+   ],
+   "v1": {
+    "site": "events-01",
+    "truth": 15,
+    "extracted": 15,
+    "matched": 15,
+    "precision": 1.0,
+    "recall": 1.0,
+    "field_accuracy": 1.0,
+    "fields": {
+     "name": {
+      "correct": 15,
+      "total": 15
+     },
+     "start_date": {
+      "correct": 15,
+      "total": 15
+     },
+     "venue": {
+      "correct": 15,
+      "total": 15
+     },
+     "price": {
+      "correct": 15,
+      "total": 15
+     },
+     "category": {
+      "correct": 15,
+      "total": 15
+     },
+     "event_url": {
+      "correct": 15,
+      "total": 15
+     }
+    },
+    "unmatched_extracted": [],
+    "missed": [],
+    "errors": [],
+    "pages": 2,
+    "records": 15,
+    "seconds": 10.23,
+    "strategies": [
+     "learned"
+    ],
+    "llm": {
+     "calls": 1,
+     "cached": 0,
+     "failed": 0,
+     "by_task": {
+      "learn_extractor": 1
+     },
+     "input_tokens": 1618,
+     "output_tokens": 494,
+     "seconds": 10.21
+    },
+    "browser_pages": 0,
+    "duplicates_merged": 0,
+    "sparse_dropped": 0,
+    "pii_removed": 0,
+    "injection_findings": 0,
+    "events": [
+     {
+      "kind": "job_started",
+      "message": "Crawling 1 start URL(s)"
+     },
+     {
+      "kind": "strategy",
+      "message": "whats-on-norbridge.example: learned extractor (pagination found (1 link(s)): a repeated template)"
+     },
+     {
+      "kind": "learning",
+      "message": "whats-on-norbridge.example: learning an extractor from 2 sample page(s)"
+     },
+     {
+      "kind": "learned",
+      "message": "whats-on-norbridge.example: extractor learned in 1 attempt(s), 1 model call(s)"
+     },
+     {
+      "kind": "job_finished",
+      "message": "15 records from 2 pages, 1 model call(s)"
+     }
+    ],
+    "error": null,
+    "extract_ms_p50": 5116.3
+   },
+   "traps_result": {
+    "relative_dates": {
+     "correct": 15,
+     "total": 15
+    }
+   },
+   "politeness": {
+    "hosts": {
+     "whats-on-norbridge.example": {
+      "requests": 3,
+      "subresources": 0,
+      "robots_fetches": 1,
+      "min_gap_s": 0.001,
+      "configured_interval_s": 0.0,
+      "max_requests_per_s_10s": 0.3,
+      "mean_requests_per_s": 477.518
+     }
+    },
+    "robots_blocked": []
+   },
+   "learned": true,
+   "extractors": [
+    {
+     "id": "ext-98e549",
+     "kind": "list",
+     "accepted": true,
+     "attempts": 1,
+     "calls": 1,
+     "program": {
+      "kind": "list",
+      "item": "article.rounded-lg",
+      "fields": {
+       "name": {
+        "css": "h3 a",
+        "attr": "text",
+        "all": false,
+        "negate": false
+       },
+       "start_date": {
+        "css": "span.text-sm.font-medium",
+        "attr": "text",
+        "all": false,
+        "negate": false
+       },
+       "venue": {
+        "css": "span.text-gray-600",
+        "attr": "text",
+        "all": false,
+        "negate": false
+       },
+       "price": {
+        "css": "span.font-bold",
+        "attr": "text",
+        "all": false,
+        "regex": "(\\$[\\d,]+\\.\\d+|Free)",
+        "negate": false
+       },
+       "category": {
+        "css": "span.uppercase",
+        "attr": "text",
+        "all": false,
+        "value_map": {
+         "Sports & fitness": "sports",
+         "Art": "art",
+         "Music": "music",
+         "Theatre": "theatre",
+         "Comedy": "comedy",
+         "Food": "food",
+         "Tech": "tech",
+         "Family": "family"
+        },
+        "negate": false
+       },
+       "event_url": {
+        "css": "h3 a",
+        "attr": "href",
+        "all": false,
+        "negate": false
+       }
+      },
+      "next_page": {
+       "css": "a.load-more",
+       "attr": "href",
+       "all": false,
+       "negate": false
+      },
+      "missing": [],
+      "notes": ""
+     }
+    }
+   ],
+   "v2_before": {
+    "site": "events-01",
+    "truth": 15,
+    "extracted": 0,
+    "matched": 0,
+    "precision": 0.0,
+    "recall": 0.0,
+    "field_accuracy": 0.0,
+    "fields": {},
+    "unmatched_extracted": [],
+    "missed": [
+     "Downtown Salsa Workshop",
+     "Grand Gallery Opening",
+     "Grand Chamber Concert",
+     "Grand Wine Tasting",
+     "Harvest Jazz Night",
+     "Northern Tech Meetup",
+     "Northern Salsa Workshop",
+     "Grand Poetry Slam",
+     "Autumn Food Truck Rally",
+     "Autumn Indie Showcase"
+    ],
+    "errors": [],
+    "pages": 12,
+    "records": 0,
+    "seconds": 0.01,
+    "strategies": [
+     "learned"
+    ],
+    "llm": {
+     "calls": 0,
+     "cached": 0,
+     "failed": 0,
+     "by_task": {},
+     "input_tokens": 0,
+     "output_tokens": 0,
+     "seconds": 0
+    },
+    "browser_pages": 0,
+    "duplicates_merged": 0,
+    "sparse_dropped": 0,
+    "pii_removed": 0,
+    "injection_findings": 0,
+    "events": [
+     {
+      "kind": "job_started",
+      "message": "Crawling 1 start URL(s)"
+     },
+     {
+      "kind": "strategy",
+      "message": "whats-on-norbridge.example: learned extractor (set by the job)"
+     },
+     {
+      "kind": "layout_changed",
+      "message": "whats-on-norbridge.example: layout change detected (no records; structural similarity 0.05)"
+     },
+     {
+      "kind": "layout_changed",
+      "message": "whats-on-norbridge.example: layout change detected (no records; structural similarity 0.06)"
+     },
+     {
+      "kind": "layout_changed",
+      "message": "whats-on-norbridge.example: layout change detected (no records; structural similarity 0.06)"
+     },
+     {
+      "kind": "layout_changed",
+      "message": "whats-on-norbridge.example: layout change detected (no records; structural similarity 0.06)"
+     },
+     {
+      "kind": "layout_changed",
+      "message": "whats-on-norbridge.example: layout change detected (no records; structural similarity 0.06)"
+     },
+     {
+      "kind": "layout_changed",
+      "message": "whats-on-norbridge.example: layout change detected (no records; structural similarity 0.06)"
+     },
+     {
+      "kind": "layout_changed",
+      "message": "whats-on-norbridge.example: layout change detected (no records; structural similarity 0.06)"
+     },
+     {
+      "kind": "layout_changed",
+      "message": "whats-on-norbridge.example: layout change detected (no records; structural similarity 0.06)"
+     },
+     {
+      "kind": "layout_changed",
+      "message": "whats-on-norbridge.example: layout change detected (no records; structural similarity 0.06)"
+     },
+     {
+      "kind": "layout_changed",
+      "message": "whats-on-norbridge.example: layout change detected (no records; structural similarity 0.06)"
+     },
+     {
+      "kind": "layout_changed",
+      "message": "whats-on-norbridge.example: layout change detected (no records; structural similarity 0.06)"
+     },
+     {
+      "kind": "layout_changed",
+      "message": "whats-on-norbridge.example: layout change detected (no records; structural similarity 0.06)"
+     },
+     {
+      "kind": "job_finished",
+      "message": "0 records from 12 pages, 0 model call(s)"
+     }
+    ],
+    "error": null,
+    "detected": true,
+    "signals": [
+     "whats-on-norbridge.example: layout change detected (no records; structural similarity 0.05)",
+     "whats-on-norbridge.example: layout change detected (no records; structural similarity 0.06)",
+     "whats-on-norbridge.example: layout change detected (no records; structural similarity 0.06)"
+    ]
+   },
+   "v2_after": {
+    "site": "events-01",
+    "truth": 15,
+    "extracted": 15,
+    "matched": 15,
+    "precision": 1.0,
+    "recall": 1.0,
+    "field_accuracy": 1.0,
+    "fields": {
+     "name": {
+      "correct": 15,
+      "total": 15
+     },
+     "start_date": {
+      "correct": 15,
+      "total": 15
+     },
+     "venue": {
+      "correct": 15,
+      "total": 15
+     },
+     "price": {
+      "correct": 15,
+      "total": 15
+     },
+     "category": {
+      "correct": 15,
+      "total": 15
+     },
+     "event_url": {
+      "correct": 15,
+      "total": 15
+     }
+    },
+    "unmatched_extracted": [],
+    "missed": [],
+    "errors": [],
+    "pages": 2,
+    "records": 15,
+    "seconds": 10.41,
+    "strategies": [
+     "learned"
+    ],
+    "llm": {
+     "calls": 1,
+     "cached": 0,
+     "failed": 0,
+     "by_task": {
+      "heal_extractor": 1
+     },
+     "input_tokens": 2169,
+     "output_tokens": 488,
+     "seconds": 10.39
+    },
+    "browser_pages": 0,
+    "duplicates_merged": 0,
+    "sparse_dropped": 0,
+    "pii_removed": 0,
+    "injection_findings": 0,
+    "events": [
+     {
+      "kind": "job_started",
+      "message": "Crawling 1 start URL(s)"
+     },
+     {
+      "kind": "strategy",
+      "message": "whats-on-norbridge.example: learned extractor (set by the job)"
+     },
+     {
+      "kind": "layout_changed",
+      "message": "whats-on-norbridge.example: layout change detected (no records; structural similarity 0.05)"
+     },
+     {
+      "kind": "healed",
+      "message": "whats-on-norbridge.example: healed in 1 attempt(s), 1 model call(s); verified against 30 earlier record(s)"
+     },
+     {
+      "kind": "job_finished",
+      "message": "15 records from 2 pages, 1 model call(s)"
+     }
+    ],
+    "error": null,
+    "detected": true,
+    "healed": true,
+    "heal_failed": false,
+    "heal_calls": 1,
+    "fallback_direct_calls": 0,
+    "healed_programs": [
+     {
+      "kind": "list",
+      "item": "li.happening",
+      "fields": {
+       "name": {
+        "css": "a.happening__title",
+        "attr": "text",
+        "all": false,
+        "negate": false
+       },
+       "start_date": {
+        "css": "time.happening__date",
+        "attr": "datetime",
+        "all": false,
+        "negate": false
+       },
+       "venue": {
+        "css": "span.happening__venue",
+        "attr": "text",
+        "all": false,
+        "negate": false
+       },
+       "price": {
+        "css": "span.happening__price",
+        "attr": "text",
+        "all": false,
+        "regex": "(\\$[\\d,]+(?:\\.\\d+)?|Free)",
+        "negate": false
+       },
+       "category": {
+        "css": "span.happening__category",
+        "attr": "text",
+        "all": false,
+        "value_map": {
+         "Sports": "sports",
+         "Arts": "art",
+         "Live music": "music",
+         "Food & Drink": "food",
+         "Tech": "tech",
+         "Family": "family",
+         "Theatre": "theatre",
+         "Comedy": "comedy"
+        },
+        "negate": false
+       },
+       "event_url": {
+        "css": "a.happening__title",
+        "attr": "href",
+        "all": false,
+        "negate": false
+       }
+      },
+      "next_page": {
+       "css": "nav.happening__pager a[href*='pg=']",
+       "attr": "href",
+       "all": false,
+       "negate": false
+      },
+      "missing": [],
+      "notes": ""
+     }
+    ]
+   },
+   "v1_recheck": {
+    "false_alarm": false,
+    "llm_calls": 0,
+    "records": 15,
+    "pages": 2
+   },
+   "incremental": {
+    "pages": 2,
+    "unchanged": 2,
+    "records": 15,
+    "llm_calls": 0
+   },
+   "seconds": 20.7
+  },
+  {
+   "site": "registry-03",
+   "vertical": "registry",
+   "mode": "table",
+   "traps": [
+    "table",
+    "totals_row",
+    "footnotes"
+   ],
+   "v1": {
+    "site": "registry-03",
+    "truth": 62,
+    "extracted": 62,
+    "matched": 62,
+    "precision": 1.0,
+    "recall": 1.0,
+    "field_accuracy": 1.0,
+    "fields": {
+     "facility": {
+      "correct": 62,
+      "total": 62
+     },
+     "district": {
+      "correct": 62,
+      "total": 62
+     },
+     "facility_type": {
+      "correct": 62,
+      "total": 62
+     },
+     "capacity": {
+      "correct": 62,
+      "total": 62
+     },
+     "opened": {
+      "correct": 62,
+      "total": 62
+     },
+     "phone": {
+      "correct": 62,
+      "total": 62
+     }
+    },
+    "unmatched_extracted": [],
+    "missed": [],
+    "errors": [],
+    "pages": 3,
+    "records": 62,
+    "seconds": 10.69,
+    "strategies": [
+     "learned"
+    ],
+    "llm": {
+     "calls": 1,
+     "cached": 0,
+     "failed": 0,
+     "by_task": {
+      "learn_extractor": 1
+     },
+     "input_tokens": 1580,
+     "output_tokens": 506,
+     "seconds": 10.57
+    },
+    "browser_pages": 0,
+    "duplicates_merged": 0,
+    "sparse_dropped": 1,
+    "pii_removed": 0,
+    "injection_findings": 0,
+    "events": [
+     {
+      "kind": "job_started",
+      "message": "Crawling 1 start URL(s)"
+     },
+     {
+      "kind": "strategy",
+      "message": "wexcombe-council.example: learned extractor (pagination found (1 link(s)): a repeated template)"
+     },
+     {
+      "kind": "learning",
+      "message": "wexcombe-council.example: learning an extractor from 2 sample page(s)"
+     },
+     {
+      "kind": "learned",
+      "message": "wexcombe-council.example: extractor learned in 1 attempt(s), 1 model call(s)"
+     },
+     {
+      "kind": "sparse_dropped",
+      "message": "1 row(s) that were not records dropped (totals, headers, empty items)"
+     },
+     {
+      "kind": "job_finished",
+      "message": "62 records from 3 pages, 1 model call(s)"
+     }
+    ],
+    "error": null,
+    "extract_ms_p50": 7.9
+   },
+   "traps_result": {},
+   "politeness": {
+    "hosts": {
+     "wexcombe-council.example": {
+      "requests": 4,
+      "subresources": 0,
+      "robots_fetches": 1,
+      "min_gap_s": 0.0,
+      "configured_interval_s": 0.0,
+      "max_requests_per_s_10s": 0.3,
+      "mean_requests_per_s": 0.281
+     }
+    },
+    "robots_blocked": []
+   },
+   "learned": true,
+   "extractors": [
+    {
+     "id": "ext-9e0629",
+     "kind": "list",
+     "accepted": true,
+     "attempts": 1,
+     "calls": 1,
+     "program": {
+      "kind": "list",
+      "item": "table.registry tbody tr",
+      "fields": {
+       "facility": {
+        "css": "td:nth-of-type(1)",
+        "attr": "text",
+        "all": false,
+        "negate": false
+       },
+       "district": {
+        "css": "td:nth-of-type(2)",
+        "attr": "text",
+        "all": false,
+        "negate": false
+       },
+       "facility_type": {
+        "css": "td:nth-of-type(3)",
+        "attr": "text",
+        "all": false,
+        "value_map": {
+         "Library": "library",
+         "Pool": "pool",
+         "Sports Hall": "sports_hall",
+         "Community Centre": "community_centre",
+         "Park": "park"
+        },
+        "negate": false
+       },
+       "capacity": {
+        "css": "td:nth-of-type(4)",
+        "attr": "text",
+        "all": false,
+        "regex": "([\\d,]+)",
+        "negate": false
+       },
+       "opened": {
+        "css": "td:nth-of-type(5)",
+        "attr": "text",
+        "all": false,
+        "negate": false
+       },
+       "phone": {
+        "css": "td:nth-of-type(6)",
+        "attr": "text",
+        "all": false,
+        "negate": false
+       }
+      },
+      "next_page": {
+       "css": "nav[aria-label='Pagination'] a.Row_next__78fa1",
+       "attr": "href",
+       "all": false,
+       "negate": false
+      },
+      "missing": [],
+      "notes": ""
+     }
+    }
+   ],
+   "v2_before": {
+    "site": "registry-03",
+    "truth": 62,
+    "extracted": 0,
+    "matched": 0,
+    "precision": 0.0,
+    "recall": 0.0,
+    "field_accuracy": 0.0,
+    "fields": {},
+    "unmatched_extracted": [],
+    "missed": [
+     "Kingsmead Park",
+     "Queensway Community Centre",
+     "Thornbury Sports Hall",
+     "Riverbend Community Centre",
+     "Fairfield Community Centre",
+     "Yarrow Community Centre",
+     "Thornbury Swimming Pool",
+     "Redhill Park",
+     "Copperfield Library",
+     "Queensway Library"
+    ],
+    "errors": [],
+    "pages": 3,
+    "records": 0,
+    "seconds": 0.01,
+    "strategies": [
+     "learned"
+    ],
+    "llm": {
+     "calls": 0,
+     "cached": 0,
+     "failed": 0,
+     "by_task": {},
+     "input_tokens": 0,
+     "output_tokens": 0,
+     "seconds": 0
+    },
+    "browser_pages": 0,
+    "duplicates_merged": 0,
+    "sparse_dropped": 0,
+    "pii_removed": 0,
+    "injection_findings": 0,
+    "events": [
+     {
+      "kind": "job_started",
+      "message": "Crawling 1 start URL(s)"
+     },
+     {
+      "kind": "strategy",
+      "message": "wexcombe-council.example: learned extractor (set by the job)"
+     },
+     {
+      "kind": "layout_changed",
+      "message": "wexcombe-council.example: layout change detected (no records; structural similarity 0.47)"
+     },
+     {
+      "kind": "layout_changed",
+      "message": "wexcombe-council.example: layout change detected (no records; structural similarity 0.46)"
+     },
+     {
+      "kind": "layout_changed",
+      "message": "wexcombe-council.example: layout change detected (no records; structural similarity 0.37)"
+     },
+     {
+      "kind": "job_finished",
+      "message": "0 records from 3 pages, 0 model call(s)"
+     }
+    ],
+    "error": null,
+    "detected": true,
+    "signals": [
+     "wexcombe-council.example: layout change detected (no records; structural similarity 0.47)",
+     "wexcombe-council.example: layout change detected (no records; structural similarity 0.46)",
+     "wexcombe-council.example: layout change detected (no records; structural similarity 0.37)"
+    ]
+   },
+   "v2_after": {
+    "site": "registry-03",
+    "truth": 62,
+    "extracted": 62,
+    "matched": 62,
+    "precision": 1.0,
+    "recall": 1.0,
+    "field_accuracy": 1.0,
+    "fields": {
+     "facility": {
+      "correct": 62,
+      "total": 62
+     },
+     "district": {
+      "correct": 62,
+      "total": 62
+     },
+     "facility_type": {
+      "correct": 62,
+      "total": 62
+     },
+     "capacity": {
+      "correct": 62,
+      "total": 62
+     },
+     "opened": {
+      "correct": 62,
+      "total": 62
+     },
+     "phone": {
+      "correct": 62,
+      "total": 62
+     }
+    },
+    "unmatched_extracted": [],
+    "missed": [],
+    "errors": [],
+    "pages": 3,
+    "records": 62,
+    "seconds": 10.74,
+    "strategies": [
+     "learned"
+    ],
+    "llm": {
+     "calls": 1,
+     "cached": 0,
+     "failed": 0,
+     "by_task": {
+      "heal_extractor": 1
+     },
+     "input_tokens": 2040,
+     "output_tokens": 457,
+     "seconds": 10.68
+    },
+    "browser_pages": 0,
+    "duplicates_merged": 0,
+    "sparse_dropped": 1,
+    "pii_removed": 0,
+    "injection_findings": 0,
+    "events": [
+     {
+      "kind": "job_started",
+      "message": "Crawling 1 start URL(s)"
+     },
+     {
+      "kind": "strategy",
+      "message": "wexcombe-council.example: learned extractor (set by the job)"
+     },
+     {
+      "kind": "layout_changed",
+      "message": "wexcombe-council.example: layout change detected (no records; structural similarity 0.47)"
+     },
+     {
+      "kind": "healed",
+      "message": "wexcombe-council.example: healed in 1 attempt(s), 1 model call(s); verified against 82 earlier record(s)"
+     },
+     {
+      "kind": "sparse_dropped",
+      "message": "1 row(s) that were not records dropped (totals, headers, empty items)"
+     },
+     {
+      "kind": "job_finished",
+      "message": "62 records from 3 pages, 1 model call(s)"
+     }
+    ],
+    "error": null,
+    "detected": true,
+    "healed": true,
+    "heal_failed": false,
+    "heal_calls": 1,
+    "fallback_direct_calls": 0,
+    "healed_programs": [
+     {
+      "kind": "list",
+      "item": "table.data-table tbody tr",
+      "fields": {
+       "facility": {
+        "css": "td:nth-of-type(1)",
+        "attr": "text",
+        "all": false,
+        "regex": "^([^<]+)",
+        "negate": false
+       },
+       "district": {
+        "css": "td:nth-of-type(3)",
+        "attr": "text",
+        "all": false,
+        "negate": false
+       },
+       "facility_type": {
+        "css": "td:nth-of-type(2)",
+        "attr": "text",
+        "all": false,
+        "value_map": {
+         "Library": "library",
+         "Pool": "pool",
+         "Sports Hall": "sports_hall",
+         "Community Centre": "community_centre",
+         "Park": "park"
+        },
+        "negate": false
+       },
+       "capacity": {
+        "css": "td:nth-of-type(6)",
+        "attr": "text",
+        "all": false,
+        "regex": "([\\d,]+)",
+        "negate": false
+       },
+       "opened": {
+        "css": "td:nth-of-type(5)",
+        "attr": "text",
+        "all": false,
+        "negate": false
+       },
+       "phone": {
+        "css": "td:nth-of-type(4)",
+        "attr": "text",
+        "all": false,
+        "negate": false
+       }
+      },
+      "next_page": {
+       "css": "nav.rx-pgr a.rx-nxt",
+       "attr": "href",
+       "all": false,
+       "negate": false
+      },
+      "missing": [],
+      "notes": ""
+     }
+    ]
+   },
+   "v1_recheck": {
+    "false_alarm": false,
+    "llm_calls": 0,
+    "records": 62,
+    "pages": 3
+   },
+   "incremental": {
+    "pages": 3,
+    "unchanged": 3,
+    "records": 62,
+    "llm_calls": 0
+   },
+   "seconds": 21.5
+  }
+ ],
+ "seconds": 166.9
+}

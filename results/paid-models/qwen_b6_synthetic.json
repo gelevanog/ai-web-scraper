@@ -1,0 +1,616 @@
+{
+ "name": "qwen_b6",
+ "suite": "synthetic",
+ "run_at": "2026-10-12T09:48:56+00:00",
+ "provider": "compat",
+ "model": "qwen3.7-plus",
+ "fallbacks": [],
+ "aggregate": {
+  "v1": {
+   "sites": 1,
+   "truth_records": 28,
+   "extracted_records": 28,
+   "matched": 28,
+   "precision": 1.0,
+   "recall": 1.0,
+   "field_accuracy": 0.994,
+   "fields_correct": 167,
+   "fields_total": 168
+  },
+  "by_vertical": {
+   "ecommerce": {
+    "sites": 1,
+    "truth_records": 28,
+    "extracted_records": 28,
+    "matched": 28,
+    "precision": 1.0,
+    "recall": 1.0,
+    "field_accuracy": 0.994,
+    "fields_correct": 167,
+    "fields_total": 168
+   }
+  },
+  "v1_learned_only": {
+   "sites": 1,
+   "truth_records": 28,
+   "extracted_records": 28,
+   "matched": 28,
+   "precision": 1.0,
+   "recall": 1.0,
+   "field_accuracy": 0.994,
+   "fields_correct": 167,
+   "fields_total": 168
+  },
+  "v1_direct_only": {
+   "sites": 0,
+   "truth_records": 0,
+   "extracted_records": 0,
+   "matched": 0,
+   "precision": 0.0,
+   "recall": 0.0,
+   "field_accuracy": 0.0,
+   "fields_correct": 0,
+   "fields_total": 0
+  },
+  "by_field": {
+   "image_url": {
+    "correct": 28,
+    "total": 28,
+    "accuracy": 1.0
+   },
+   "name": {
+    "correct": 28,
+    "total": 28,
+    "accuracy": 1.0
+   },
+   "price": {
+    "correct": 27,
+    "total": 28,
+    "accuracy": 0.9643
+   },
+   "product_url": {
+    "correct": 28,
+    "total": 28,
+    "accuracy": 1.0
+   },
+   "rating": {
+    "correct": 28,
+    "total": 28,
+    "accuracy": 1.0
+   },
+   "stock_status": {
+    "correct": 28,
+    "total": 28,
+    "accuracy": 1.0
+   }
+  },
+  "robustness": {
+   "sites": 1,
+   "before_healing": {
+    "sites": 1,
+    "truth_records": 28,
+    "extracted_records": 0,
+    "matched": 0,
+    "precision": 0.0,
+    "recall": 0.0,
+    "field_accuracy": 0.0,
+    "fields_correct": 0,
+    "fields_total": 0
+   },
+   "after_healing": {
+    "sites": 1,
+    "truth_records": 28,
+    "extracted_records": 28,
+    "matched": 28,
+    "precision": 1.0,
+    "recall": 1.0,
+    "field_accuracy": 0.994,
+    "fields_correct": 167,
+    "fields_total": 168
+   },
+   "detected": 1,
+   "healed": 1,
+   "heal_failed": 0,
+   "heal_calls": 1,
+   "fallback_direct_calls": 0,
+   "v1_same_extractors": {
+    "sites": 1,
+    "truth_records": 28,
+    "extracted_records": 28,
+    "matched": 28,
+    "precision": 1.0,
+    "recall": 1.0,
+    "field_accuracy": 0.994,
+    "fields_correct": 167,
+    "fields_total": 168
+   },
+   "false_alarms_on_v1": 0,
+   "recheck_llm_calls": 0,
+   "incremental_unchanged_pages": 3,
+   "incremental_pages": 4,
+   "incremental_llm_calls": 0
+  },
+  "v1_cost": {
+   "llm_calls": 1,
+   "llm_calls_by_task": {
+    "learn_extractor": 1
+   },
+   "input_tokens": 1937,
+   "output_tokens": 462,
+   "pages": 4,
+   "learned_pages": 4,
+   "learned_calls": 1
+  }
+ },
+ "sites": [
+  {
+   "site": "shop-05",
+   "vertical": "ecommerce",
+   "mode": "static",
+   "traps": [
+    "hidden_template",
+    "robots_archive"
+   ],
+   "v1": {
+    "site": "shop-05",
+    "truth": 28,
+    "extracted": 28,
+    "matched": 28,
+    "precision": 1.0,
+    "recall": 1.0,
+    "field_accuracy": 0.994,
+    "fields": {
+     "name": {
+      "correct": 28,
+      "total": 28
+     },
+     "price": {
+      "correct": 27,
+      "total": 28
+     },
+     "rating": {
+      "correct": 28,
+      "total": 28
+     },
+     "stock_status": {
+      "correct": 28,
+      "total": 28
+     },
+     "image_url": {
+      "correct": 28,
+      "total": 28
+     },
+     "product_url": {
+      "correct": 28,
+      "total": 28
+     }
+    },
+    "unmatched_extracted": [],
+    "missed": [],
+    "errors": [
+     {
+      "key": "Light Bench",
+      "field": "price",
+      "got": {
+       "amount": 1.13,
+       "currency": "USD",
+       "source_amount": 1.0,
+       "source_currency": "CHF"
+      },
+      "want": 1299.0
+     }
+    ],
+    "pages": 4,
+    "records": 28,
+    "seconds": 25.8,
+    "strategies": [
+     "learned"
+    ],
+    "llm": {
+     "calls": 1,
+     "cached": 0,
+     "failed": 0,
+     "by_task": {
+      "learn_extractor": 1
+     },
+     "input_tokens": 1937,
+     "output_tokens": 462,
+     "seconds": 25.76
+    },
+    "browser_pages": 0,
+    "duplicates_merged": 0,
+    "sparse_dropped": 0,
+    "pii_removed": 0,
+    "injection_findings": 0,
+    "events": [
+     {
+      "kind": "job_started",
+      "message": "Crawling 1 start URL(s)"
+     },
+     {
+      "kind": "strategy",
+      "message": "ember-and-oak-furniture.example: learned extractor (pagination found (1 link(s)): a repeated template)"
+     },
+     {
+      "kind": "learning",
+      "message": "ember-and-oak-furniture.example: learning an extractor from 2 sample page(s)"
+     },
+     {
+      "kind": "learned",
+      "message": "ember-and-oak-furniture.example: extractor learned in 1 attempt(s), 1 model call(s)"
+     },
+     {
+      "kind": "robots_blocked",
+      "message": "robots.txt disallows https://ember-and-oak-furniture.example/archive/; skipped"
+     },
+     {
+      "kind": "anomaly",
+      "message": "Anomaly in price of 'light bench': 1.13 is under 1/20 of the median 89"
+     },
+     {
+      "kind": "job_finished",
+      "message": "28 records from 4 pages, 1 model call(s)"
+     }
+    ],
+    "error": null,
+    "extract_ms_p50": 6.3
+   },
+   "traps_result": {
+    "hidden_leaked": 0,
+    "hidden_total": 1,
+    "archived_leaked": 0,
+    "archive_fetched": false,
+    "robots_blocked": 1,
+    "currency_conversion": {
+     "currency": "CHF",
+     "correct": 27,
+     "total": 28
+    }
+   },
+   "politeness": {
+    "hosts": {
+     "ember-and-oak-furniture.example": {
+      "requests": 4,
+      "subresources": 0,
+      "robots_fetches": 1,
+      "min_gap_s": 0.003,
+      "configured_interval_s": 0.0,
+      "max_requests_per_s_10s": 0.3,
+      "mean_requests_per_s": 0.116
+     }
+    },
+    "robots_blocked": [
+     "https://ember-and-oak-furniture.example/archive/"
+    ]
+   },
+   "learned": true,
+   "extractors": [
+    {
+     "id": "ext-ccc461",
+     "kind": "list",
+     "accepted": true,
+     "attempts": 1,
+     "calls": 1,
+     "program": {
+      "kind": "list",
+      "item": "section.grid > div.rounded-lg",
+      "fields": {
+       "name": {
+        "css": "h3 a",
+        "attr": "text",
+        "all": false,
+        "negate": false
+       },
+       "price": {
+        "css": "span.font-bold",
+        "attr": "text",
+        "all": false,
+        "regex": "([\\d.,]+)",
+        "negate": false
+       },
+       "rating": {
+        "css": "div[data-rating]",
+        "attr": "data-rating",
+        "all": false,
+        "negate": false
+       },
+       "stock_status": {
+        "css": "span.text-gray-600",
+        "attr": "text",
+        "all": false,
+        "value_map": {
+         "Pre-order now": "preorder",
+         "Sold out": "out_of_stock",
+         "Ready to ship": "in_stock"
+        },
+        "negate": false
+       },
+       "image_url": {
+        "css": "img",
+        "attr": "data-src",
+        "all": false,
+        "negate": false
+       },
+       "product_url": {
+        "css": "h3 a",
+        "attr": "href",
+        "all": false,
+        "negate": false
+       }
+      },
+      "next_page": {
+       "css": "nav[aria-label='Pagination'] a[href*='page=']",
+       "attr": "href",
+       "all": false,
+       "negate": false
+      },
+      "missing": [],
+      "notes": ""
+     }
+    }
+   ],
+   "v2_before": {
+    "site": "shop-05",
+    "truth": 28,
+    "extracted": 0,
+    "matched": 0,
+    "precision": 0.0,
+    "recall": 0.0,
+    "field_accuracy": 0.0,
+    "fields": {},
+    "unmatched_extracted": [],
+    "missed": [
+     "Compact Armchair",
+     "Nordic Lounge Chair",
+     "Nordic Bar Stool",
+     "Heritage Writing Desk",
+     "Nordic Coffee Table",
+     "Atlas Sideboard",
+     "Meridian Wardrobe",
+     "Compact Shoe Rack",
+     "Meridian Oak Dining Table",
+     "Classic Bar Stool"
+    ],
+    "errors": [],
+    "pages": 4,
+    "records": 0,
+    "seconds": 0.01,
+    "strategies": [
+     "learned"
+    ],
+    "llm": {
+     "calls": 0,
+     "cached": 0,
+     "failed": 0,
+     "by_task": {},
+     "input_tokens": 0,
+     "output_tokens": 0,
+     "seconds": 0
+    },
+    "browser_pages": 0,
+    "duplicates_merged": 0,
+    "sparse_dropped": 0,
+    "pii_removed": 0,
+    "injection_findings": 0,
+    "events": [
+     {
+      "kind": "job_started",
+      "message": "Crawling 1 start URL(s)"
+     },
+     {
+      "kind": "strategy",
+      "message": "ember-and-oak-furniture.example: learned extractor (set by the job)"
+     },
+     {
+      "kind": "layout_changed",
+      "message": "ember-and-oak-furniture.example: layout change detected (no records; structural similarity 0.06)"
+     },
+     {
+      "kind": "layout_changed",
+      "message": "ember-and-oak-furniture.example: layout change detected (no records; structural similarity 0.06)"
+     },
+     {
+      "kind": "layout_changed",
+      "message": "ember-and-oak-furniture.example: layout change detected (no records; structural similarity 0.07)"
+     },
+     {
+      "kind": "robots_blocked",
+      "message": "robots.txt disallows https://ember-and-oak-furniture.example/archive/; skipped"
+     },
+     {
+      "kind": "job_finished",
+      "message": "0 records from 4 pages, 0 model call(s)"
+     }
+    ],
+    "error": null,
+    "detected": true,
+    "signals": [
+     "ember-and-oak-furniture.example: layout change detected (no records; structural similarity 0.06)",
+     "ember-and-oak-furniture.example: layout change detected (no records; structural similarity 0.06)",
+     "ember-and-oak-furniture.example: layout change detected (no records; structural similarity 0.07)"
+    ]
+   },
+   "v2_after": {
+    "site": "shop-05",
+    "truth": 28,
+    "extracted": 28,
+    "matched": 28,
+    "precision": 1.0,
+    "recall": 1.0,
+    "field_accuracy": 0.994,
+    "fields": {
+     "name": {
+      "correct": 28,
+      "total": 28
+     },
+     "price": {
+      "correct": 27,
+      "total": 28
+     },
+     "rating": {
+      "correct": 28,
+      "total": 28
+     },
+     "stock_status": {
+      "correct": 28,
+      "total": 28
+     },
+     "image_url": {
+      "correct": 28,
+      "total": 28
+     },
+     "product_url": {
+      "correct": 28,
+      "total": 28
+     }
+    },
+    "unmatched_extracted": [],
+    "missed": [],
+    "errors": [
+     {
+      "key": "Light Bench",
+      "field": "price",
+      "got": {
+       "amount": 1.13,
+       "currency": "USD",
+       "source_amount": 1.0,
+       "source_currency": "CHF"
+      },
+      "want": 1299.0
+     }
+    ],
+    "pages": 4,
+    "records": 28,
+    "seconds": 25.51,
+    "strategies": [
+     "learned"
+    ],
+    "llm": {
+     "calls": 1,
+     "cached": 0,
+     "failed": 0,
+     "by_task": {
+      "heal_extractor": 1
+     },
+     "input_tokens": 2514,
+     "output_tokens": 501,
+     "seconds": 25.48
+    },
+    "browser_pages": 0,
+    "duplicates_merged": 0,
+    "sparse_dropped": 0,
+    "pii_removed": 0,
+    "injection_findings": 0,
+    "events": [
+     {
+      "kind": "job_started",
+      "message": "Crawling 1 start URL(s)"
+     },
+     {
+      "kind": "strategy",
+      "message": "ember-and-oak-furniture.example: learned extractor (set by the job)"
+     },
+     {
+      "kind": "layout_changed",
+      "message": "ember-and-oak-furniture.example: layout change detected (no records; structural similarity 0.06)"
+     },
+     {
+      "kind": "healed",
+      "message": "ember-and-oak-furniture.example: healed in 1 attempt(s), 1 model call(s); verified against 48 earlier record(s)"
+     },
+     {
+      "kind": "robots_blocked",
+      "message": "robots.txt disallows https://ember-and-oak-furniture.example/archive/; skipped"
+     },
+     {
+      "kind": "anomaly",
+      "message": "Anomaly in price of 'light bench': 1.13 is under 1/20 of the median 89"
+     },
+     {
+      "kind": "job_finished",
+      "message": "28 records from 4 pages, 1 model call(s)"
+     }
+    ],
+    "error": null,
+    "detected": true,
+    "healed": true,
+    "heal_failed": false,
+    "heal_calls": 1,
+    "fallback_direct_calls": 0,
+    "healed_programs": [
+     {
+      "kind": "list",
+      "item": "article.ItemTile_card__87122",
+      "fields": {
+       "name": {
+        "css": "h2",
+        "attr": "text",
+        "all": false,
+        "negate": false
+       },
+       "price": {
+        "css": ".ItemTile_price__a3bed",
+        "attr": "text",
+        "all": false,
+        "regex": "([\\d.,]+)",
+        "negate": false
+       },
+       "rating": {
+        "css": ".ItemTile_rating__9e72d",
+        "attr": "text",
+        "all": false,
+        "regex": "Rated ([\\d.]+)/5",
+        "negate": false
+       },
+       "stock_status": {
+        "css": ".ItemTile_stock__bc6ea",
+        "attr": "text",
+        "all": false,
+        "value_map": {
+         "Available for preorder": "preorder",
+         "Out of stock": "out_of_stock",
+         "Available": "in_stock"
+        },
+        "negate": false
+       },
+       "image_url": {
+        "css": "img.ItemTile_image__b1d89",
+        "attr": "src",
+        "all": false,
+        "negate": false
+       },
+       "product_url": {
+        "css": "a.ItemTile_title__219d6",
+        "attr": "href",
+        "all": false,
+        "negate": false
+       }
+      },
+      "next_page": {
+       "css": "nav[aria-label='Pagination'] a[rel='next']",
+       "attr": "href",
+       "all": false,
+       "negate": false
+      },
+      "missing": [],
+      "notes": ""
+     }
+    ]
+   },
+   "v1_recheck": {
+    "false_alarm": false,
+    "llm_calls": 0,
+    "records": 28,
+    "pages": 4
+   },
+   "incremental": {
+    "pages": 4,
+    "unchanged": 3,
+    "records": 28,
+    "llm_calls": 0
+   },
+   "seconds": 51.4
+  }
+ ],
+ "seconds": 51.4
+}
