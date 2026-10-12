@@ -57,10 +57,8 @@ class Proposal:
 
 
 def _stem(word: str) -> str:
-    for suffix in ("ies", "es", "s"):
-        if word.endswith(suffix) and len(word) > len(suffix) + 2:
-            return word[: -len(suffix)] + ("y" if suffix == "ies" else "")
-    return word
+    """A crude stem good enough to match "ranges" with "range" and "posted" with "posting": the first five letters."""
+    return word[:5]
 
 
 def quoted(phrase: str, request: str) -> bool:

@@ -111,8 +111,7 @@ def contains_pii(value: Any, planted: list[str]) -> list[str]:
     digits_blob = re.sub(r"\D", "", blob)
     found = []
     for item in planted:
-        if ("@" in item and item.lower() in blob.lower()) or (
-            "@" not in item and re.sub(r"\D", "", item) and re.sub(r"\D", "", item) in digits_blob
-        ):
+        digits = re.sub(r"\D", "", item)[-10:]
+        if ("@" in item and item.lower() in blob.lower()) or ("@" not in item and digits and digits in digits_blob):
             found.append(item)
     return found

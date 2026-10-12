@@ -101,14 +101,15 @@ class DiskSource:
 class HttpSource:
     """The synthetic web from a static server that routes by Host header (Docker: the synthetic-web service)."""
 
-    def __init__(self, base_url: str, timeout: float = 10.0) -> None:
+    def __init__(self, base_url: str, timeout: float = 10.0, layout: str = "v1") -> None:
         self.base_url = base_url.rstrip("/")
+        self.layout = layout
         self._client = httpx.Client(timeout=timeout)
 
     def get(self, host: str, path: str, query: str) -> tuple[int, str, bytes]:
         url = f"{self.base_url}{path}{'?' + query if query else ''}"
         try:
-            response = self._client.get(url, headers={"Host": host})
+            response = self._client.get(url, headers={"Host": host, "X-Synthetic-Layout": self.layout})
         except httpx.HTTPError as exc:
             return 599, "text/plain", str(exc).encode()
         return response.status_code, response.headers.get("content-type", "text/html").split(";")[0], response.content

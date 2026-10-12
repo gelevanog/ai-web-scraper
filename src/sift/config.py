@@ -130,6 +130,8 @@ class Settings(BaseSettings):
     """Optional HMAC-SHA256 key: the webhook request carries X-Sift-Signature: sha256=<hex>."""
 
     # ---- API and worker
+    api_token: str = ""
+    """If set, every /api request needs `Authorization: Bearer <token>` (the dashboard sends NEXT_PUBLIC_API_TOKEN)."""
     cors_origins: Annotated[list[str], NoDecode] = Field(default_factory=lambda: ["http://localhost:3000"])
     results_dir: Path = Path("results")
     worker_poll_seconds: float = 1.0

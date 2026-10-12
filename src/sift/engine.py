@@ -431,18 +431,19 @@ class Engine:
                 info.error = result.error or f"HTTP {result.status}"
                 self.emit("fetch_error", f"{url}: {info.error}", level="warning", url=url, status=result.status)
                 continue
-            # Incremental re-crawl: unchanged content means the records from last time still stand.
-            if job.previous_hashes.get(url) == info.content_hash and url in job.previous_page_records:
-                info.unchanged = True
-                info.strategy = "unchanged"
-                reused = job.previous_page_records[url]
-                records.extend(reused)
-                info.records = len(reused)
-                continue
-
             new_records: list[dict[str, Any]] = []
             next_links: list[str] = []
-            if pdf or doc is None:
+            # Incremental re-crawl: unchanged content means the records from last time still stand (links are still
+            # followed, so changed pages further down are found).
+            unchanged = job.previous_hashes.get(url) == info.content_hash and url in job.previous_page_records
+            if unchanged:
+                info.unchanged = True
+                info.strategy = "unchanged"
+                new_records = [dict(r, id=uuid.uuid4().hex[:12]) for r in job.previous_page_records[url]]
+                previous_ext = extractors.get((host, "list"))
+                if doc is not None and previous_ext is not None:
+                    next_links = links(doc, previous_ext.program.next_page, url)
+            elif pdf or doc is None:
                 if pdf:
                     info.strategy = "direct"
                     new_records = self._direct(schema, url, None, pdf, job, info)
@@ -498,7 +499,8 @@ class Engine:
             base_index = len(records)
             records.extend(new_records)
             if (
-                ext is not None
+                not unchanged
+                and ext is not None
                 and ext.program.missing
                 and ext.program.detail_link is not None
                 and item.role != "detail"
@@ -1191,5 +1193,5 @@ def _short(value: Any, limit: int = 160) -> Any:
 
 def default_source(settings: Settings) -> SyntheticSource:
     if settings.synthetic_web_url:
-        return HttpSource(settings.synthetic_web_url)
+        return HttpSource(settings.synthetic_web_url, layout=settings.synthetic_layout)
     return DiskSource(Path(settings.synthetic_web_dir), settings.synthetic_layout)

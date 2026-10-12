@@ -74,13 +74,18 @@ class RateLimiter:
         self._clock = clock
         self._sleep = sleep
         self._next: dict[str, float] = {}
+        self._last: dict[str, float] = {}
         self._override: dict[str, float] = {}
         self._lock = threading.Lock()
         self.waited = 0.0
 
     def set_interval(self, host: str, seconds: float) -> None:
+        """Changes a host's interval; a longer one also applies to the next request (a Crawl-delay read from robots.txt
+        counts from the robots.txt request itself)."""
         with self._lock:
             self._override[host] = max(seconds, 0.0)
+            if host in self._last:
+                self._next[host] = max(self._next.get(host, 0.0), self._last[host] + seconds)
 
     def interval(self, host: str) -> float:
         return self._override.get(host, self.min_interval)
@@ -88,11 +93,14 @@ class RateLimiter:
     def wait(self, host: str) -> None:
         interval = self.interval(host)
         if interval <= 0:
+            with self._lock:
+                self._last[host] = self._clock()
             return
         with self._lock:
             now = self._clock()
             start = max(now, self._next.get(host, 0.0))
             self._next[host] = start + interval
+            self._last[host] = start
         if start > now:
             self.waited += start - now
             self._sleep(start - now)

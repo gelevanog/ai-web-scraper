@@ -54,7 +54,10 @@ class Rule(BaseModel):
     @classmethod
     def _regex(cls, value: str | None) -> str | None:
         if value:
-            re.compile(value)
+            try:
+                re.compile(value)
+            except re.error as exc:
+                raise ValueError(f"invalid regex {value!r}: {exc}") from exc
         return value or None
 
     @model_validator(mode="after")
