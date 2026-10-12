@@ -193,9 +193,12 @@ class Store:
             row = conn.execute(select(jobs).where(jobs.c.id == job_id)).mappings().first()
         return _jsonable(dict(row)) if row else None
 
-    def list_jobs(self, limit: int = 100) -> list[dict[str, Any]]:
+    def list_jobs(self, limit: int = 100, *, name_prefix: str | None = None) -> list[dict[str, Any]]:
+        query = select(jobs).order_by(jobs.c.created_at.desc()).limit(limit)
+        if name_prefix:
+            query = query.where(jobs.c.name.startswith(name_prefix, autoescape=True))
         with self.tx() as conn:
-            rows = conn.execute(select(jobs).order_by(jobs.c.created_at.desc()).limit(limit)).mappings().all()
+            rows = conn.execute(query).mappings().all()
         return [_jsonable(dict(r)) for r in rows]
 
     def update_job(self, job_id: str, **values: Any) -> None:

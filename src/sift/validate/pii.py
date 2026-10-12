@@ -117,6 +117,26 @@ def guard_record(record: dict[str, Any], schema: Schema, *, site_host: str, repo
     return out
 
 
+def redact_text(text: str) -> tuple[str, int]:
+    """Email addresses and phone numbers in free text (a page shown to a model) replaced; returns the count."""
+    count = 0
+
+    def email(_: re.Match[str]) -> str:
+        nonlocal count
+        count += 1
+        return "[email removed]"
+
+    def phone(match: re.Match[str]) -> str:
+        nonlocal count
+        if not looks_like_phone(match.group(0)):
+            return match.group(0)
+        count += 1
+        return "[phone removed]"
+
+    out = PHONE.sub(phone, EMAIL.sub(email, text))
+    return out, count
+
+
 def contains_pii(value: Any, planted: list[str]) -> list[str]:
     """Which of the planted strings (or their digits, for phones) appear anywhere in `value` (evaluation helper)."""
     blob = str(value)

@@ -217,7 +217,10 @@ class Engine:
         fx: FxTable | None = None,
         today: dt.date | None = None,
         stop: Callable[[], bool] | None = None,
+        limiter: RateLimiter | None = None,
     ) -> None:
+        """`limiter`: share one per-host rate limiter across engines (the MCP server keeps one for its lifetime, so
+        separate tool calls cannot add up to more than one request per interval to a host)."""
         self.settings = settings
         self.stats = CallStats()
         self.model = CountingModel(model, self.stats)
@@ -233,7 +236,7 @@ class Engine:
             )
         self.source = source
         self.request_log = RequestLog()
-        self.limiter = RateLimiter(settings.min_seconds_per_domain)
+        self.limiter = limiter or RateLimiter(settings.min_seconds_per_domain)
         self.http = HttpFetcher(
             user_agent=settings.user_agent,
             limiter=self.limiter,
