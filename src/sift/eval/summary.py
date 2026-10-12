@@ -182,6 +182,29 @@ def build_summary(settings: Settings, *, main: str = "main") -> dict[str, Any]:
                     "sites": [e["site"] for e in data["sites"]],
                 }
             )
+    if synthetic and models:
+        # The main model on the same subset, for a like-for-like row.
+        from sift.eval.runner import _scores_from
+        from sift.eval.score import aggregate
+
+        subset = set(models[0]["sites"])
+        entries = [e for e in synthetic["sites"] if e["site"] in subset and "v1" in e]
+        healed = [e for e in entries if "v2_after" in e]
+        models.insert(
+            0,
+            {
+                "name": main,
+                "model": synthetic.get("model"),
+                "v1": aggregate(_scores_from(entries, "v1")),
+                "robustness": {
+                    "sites": len(healed),
+                    "healed": sum(1 for e in healed if e["v2_after"]["healed"]),
+                    "after_healing": aggregate(_scores_from(healed, "v2_after")),
+                },
+                "cost": {"llm_calls": sum(e["v1"]["llm"]["calls"] for e in entries)},
+                "sites": sorted(subset),
+            },
+        )
     summary["models"] = models
     summary["politeness"] = politeness(synthetic, toscrape)
     summary["ledger"] = ledger_summary(results / "calls.jsonl")

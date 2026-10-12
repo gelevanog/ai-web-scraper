@@ -1,0 +1,537 @@
+{
+ "run_at": "2026-10-12T05:02:36+00:00",
+ "rows": [
+  {
+   "model": "nvidia/nemotron-3-super-120b-a12b:free",
+   "site": "shop-03",
+   "strategy": "learned",
+   "records": 12,
+   "recall": 1.0,
+   "field_accuracy": 0.857,
+   "calls": {
+    "calls": 1,
+    "cached": 1,
+    "failed": 0,
+    "by_task": {
+     "learn_extractor": 1
+    },
+    "input_tokens": 1777,
+    "output_tokens": 2031,
+    "seconds": 0.0
+   },
+   "seconds": 0.1,
+   "errors": [
+    "Page cap of 1 reached; 12 queued URL(s) not visited"
+   ]
+  },
+  {
+   "model": "nvidia/nemotron-3-super-120b-a12b:free",
+   "site": "shop-03",
+   "strategy": "direct",
+   "records": 12,
+   "recall": 1.0,
+   "field_accuracy": 0.845,
+   "calls": {
+    "calls": 1,
+    "cached": 0,
+    "failed": 0,
+    "by_task": {
+     "direct_extract": 1
+    },
+    "input_tokens": 1845,
+    "output_tokens": 2573,
+    "seconds": 21.73
+   },
+   "seconds": 21.7,
+   "errors": []
+  },
+  {
+   "model": "nvidia/nemotron-3-super-120b-a12b:free",
+   "site": "jobs-02",
+   "strategy": "learned",
+   "records": 10,
+   "recall": 1.0,
+   "field_accuracy": 0.778,
+   "calls": {
+    "calls": 1,
+    "cached": 0,
+    "failed": 0,
+    "by_task": {
+     "learn_extractor": 1
+    },
+    "input_tokens": 1908,
+    "output_tokens": 2209,
+    "seconds": 27.96
+   },
+   "seconds": 28.0,
+   "errors": []
+  },
+  {
+   "model": "nvidia/nemotron-3-super-120b-a12b:free",
+   "site": "jobs-02",
+   "strategy": "direct",
+   "records": 10,
+   "recall": 1.0,
+   "field_accuracy": 0.989,
+   "calls": {
+    "calls": 1,
+    "cached": 0,
+    "failed": 0,
+    "by_task": {
+     "direct_extract": 1
+    },
+    "input_tokens": 1396,
+    "output_tokens": 4259,
+    "seconds": 26.08
+   },
+   "seconds": 26.1,
+   "errors": []
+  },
+  {
+   "model": "nvidia/nemotron-3-ultra-550b-a55b:free",
+   "site": "shop-03",
+   "strategy": "learned",
+   "records": 12,
+   "recall": 1.0,
+   "field_accuracy": 0.857,
+   "calls": {
+    "calls": 1,
+    "cached": 0,
+    "failed": 0,
+    "by_task": {
+     "learn_extractor": 1
+    },
+    "input_tokens": 1777,
+    "output_tokens": 1586,
+    "seconds": 23.4
+   },
+   "seconds": 23.4,
+   "errors": [
+    "Page cap of 1 reached; 12 queued URL(s) not visited"
+   ]
+  },
+  {
+   "model": "nvidia/nemotron-3-ultra-550b-a55b:free",
+   "site": "shop-03",
+   "strategy": "direct",
+   "records": 12,
+   "recall": 1.0,
+   "field_accuracy": 0.857,
+   "calls": {
+    "calls": 1,
+    "cached": 0,
+    "failed": 0,
+    "by_task": {
+     "direct_extract": 1
+    },
+    "input_tokens": 1845,
+    "output_tokens": 2236,
+    "seconds": 44.21
+   },
+   "seconds": 44.2,
+   "errors": []
+  },
+  {
+   "model": "nvidia/nemotron-3-ultra-550b-a55b:free",
+   "site": "jobs-02",
+   "strategy": "learned",
+   "records": 10,
+   "recall": 1.0,
+   "field_accuracy": 0.778,
+   "calls": {
+    "calls": 1,
+    "cached": 0,
+    "failed": 0,
+    "by_task": {
+     "learn_extractor": 1
+    },
+    "input_tokens": 1908,
+    "output_tokens": 2846,
+    "seconds": 45.84
+   },
+   "seconds": 45.9,
+   "errors": []
+  },
+  {
+   "model": "nvidia/nemotron-3-ultra-550b-a55b:free",
+   "site": "jobs-02",
+   "strategy": "direct",
+   "records": 10,
+   "recall": 1.0,
+   "field_accuracy": 1.0,
+   "calls": {
+    "calls": 1,
+    "cached": 0,
+    "failed": 0,
+    "by_task": {
+     "direct_extract": 1
+    },
+    "input_tokens": 1396,
+    "output_tokens": 3470,
+    "seconds": 44.43
+   },
+   "seconds": 44.4,
+   "errors": []
+  },
+  {
+   "model": "dots-studio/dots-3-note-preview:free",
+   "site": "shop-03",
+   "strategy": "learned",
+   "records": 12,
+   "recall": 1.0,
+   "field_accuracy": 0.857,
+   "calls": {
+    "calls": 1,
+    "cached": 0,
+    "failed": 0,
+    "by_task": {
+     "learn_extractor": 1
+    },
+    "input_tokens": 1714,
+    "output_tokens": 3275,
+    "seconds": 47.19
+   },
+   "seconds": 47.2,
+   "errors": [
+    "Page cap of 1 reached; 12 queued URL(s) not visited"
+   ]
+  },
+  {
+   "model": "dots-studio/dots-3-note-preview:free",
+   "site": "shop-03",
+   "strategy": "direct",
+   "records": 12,
+   "recall": 1.0,
+   "field_accuracy": 0.857,
+   "calls": {
+    "calls": 1,
+    "cached": 0,
+    "failed": 0,
+    "by_task": {
+     "direct_extract": 1
+    },
+    "input_tokens": 1764,
+    "output_tokens": 5091,
+    "seconds": 56.35
+   },
+   "seconds": 56.4,
+   "errors": []
+  },
+  {
+   "model": "dots-studio/dots-3-note-preview:free",
+   "site": "jobs-02",
+   "strategy": "learned",
+   "records": 10,
+   "recall": 1.0,
+   "field_accuracy": 0.778,
+   "calls": {
+    "calls": 1,
+    "cached": 0,
+    "failed": 0,
+    "by_task": {
+     "learn_extractor": 1
+    },
+    "input_tokens": 1842,
+    "output_tokens": 5134,
+    "seconds": 64.29
+   },
+   "seconds": 64.3,
+   "errors": []
+  },
+  {
+   "model": "dots-studio/dots-3-note-preview:free",
+   "site": "jobs-02",
+   "strategy": "direct",
+   "records": 10,
+   "recall": 1.0,
+   "field_accuracy": 0.778,
+   "calls": {
+    "calls": 1,
+    "cached": 0,
+    "failed": 0,
+    "by_task": {
+     "direct_extract": 1
+    },
+    "input_tokens": 1325,
+    "output_tokens": 5365,
+    "seconds": 62.79
+   },
+   "seconds": 62.8,
+   "errors": []
+  },
+  {
+   "model": "nvidia/nemotron-3.5-lightning:free",
+   "site": "shop-03",
+   "strategy": "learned",
+   "records": 12,
+   "recall": 1.0,
+   "field_accuracy": 0.857,
+   "calls": {
+    "calls": 1,
+    "cached": 0,
+    "failed": 0,
+    "by_task": {
+     "learn_extractor": 1
+    },
+    "input_tokens": 1777,
+    "output_tokens": 14854,
+    "seconds": 147.29
+   },
+   "seconds": 147.3,
+   "errors": [
+    "Page cap of 1 reached; 12 queued URL(s) not visited"
+   ]
+  },
+  {
+   "model": "nvidia/nemotron-3.5-lightning:free",
+   "site": "shop-03",
+   "strategy": "direct",
+   "records": 12,
+   "recall": 1.0,
+   "field_accuracy": 0.857,
+   "calls": {
+    "calls": 1,
+    "cached": 0,
+    "failed": 0,
+    "by_task": {
+     "direct_extract": 1
+    },
+    "input_tokens": 1845,
+    "output_tokens": 11372,
+    "seconds": 84.39
+   },
+   "seconds": 84.4,
+   "errors": []
+  },
+  {
+   "model": "nvidia/nemotron-3.5-lightning:free",
+   "site": "jobs-02",
+   "strategy": "learned",
+   "records": 10,
+   "recall": 1.0,
+   "field_accuracy": 0.778,
+   "calls": {
+    "calls": 1,
+    "cached": 0,
+    "failed": 0,
+    "by_task": {
+     "learn_extractor": 1
+    },
+    "input_tokens": 1908,
+    "output_tokens": 14743,
+    "seconds": 131.52
+   },
+   "seconds": 131.5,
+   "errors": []
+  },
+  {
+   "model": "nvidia/nemotron-3.5-lightning:free",
+   "site": "jobs-02",
+   "strategy": "direct",
+   "records": 10,
+   "recall": 1.0,
+   "field_accuracy": 0.978,
+   "calls": {
+    "calls": 1,
+    "cached": 0,
+    "failed": 0,
+    "by_task": {
+     "direct_extract": 1
+    },
+    "input_tokens": 1396,
+    "output_tokens": 13599,
+    "seconds": 125.36
+   },
+   "seconds": 125.4,
+   "errors": []
+  },
+  {
+   "model": "cohere/north-mini-code:free",
+   "site": "shop-03",
+   "strategy": "learned",
+   "records": 12,
+   "recall": 1.0,
+   "field_accuracy": 0.857,
+   "calls": {
+    "calls": 1,
+    "cached": 0,
+    "failed": 0,
+    "by_task": {
+     "learn_extractor": 1
+    },
+    "input_tokens": 1679,
+    "output_tokens": 4823,
+    "seconds": 45.21
+   },
+   "seconds": 45.2,
+   "errors": [
+    "Page cap of 1 reached; 12 queued URL(s) not visited"
+   ]
+  },
+  {
+   "model": "cohere/north-mini-code:free",
+   "site": "shop-03",
+   "strategy": "direct",
+   "records": 0,
+   "recall": 0.0,
+   "field_accuracy": 0.0,
+   "calls": {
+    "calls": 1,
+    "cached": 0,
+    "failed": 1,
+    "by_task": {
+     "direct_extract": 1
+    },
+    "input_tokens": 0,
+    "output_tokens": 0,
+    "seconds": 77.37
+   },
+   "seconds": 77.4,
+   "errors": [
+    "https://cobalt-audio.example/catalog/: direct extraction failed (empty answer: max_tokens reached before any output)"
+   ]
+  },
+  {
+   "model": "cohere/north-mini-code:free",
+   "site": "jobs-02",
+   "strategy": "learned",
+   "records": 0,
+   "recall": 0.0,
+   "field_accuracy": 0.0,
+   "calls": {
+    "calls": 2,
+    "cached": 0,
+    "failed": 2,
+    "by_task": {
+     "learn_extractor": 1,
+     "direct_extract": 1
+    },
+    "input_tokens": 0,
+    "output_tokens": 0,
+    "seconds": 207.99
+   },
+   "seconds": 208.0,
+   "errors": [
+    "kettle-jobs.example: no extractor passed validation after 1 attempt(s); using direct extraction",
+    "https://kettle-jobs.example/jobs/: direct extraction failed (empty answer: max_tokens reached before any output)"
+   ]
+  },
+  {
+   "model": "cohere/north-mini-code:free",
+   "site": "jobs-02",
+   "strategy": "direct",
+   "records": 0,
+   "recall": 0.0,
+   "field_accuracy": 0.0,
+   "calls": {
+    "calls": 1,
+    "cached": 0,
+    "failed": 1,
+    "by_task": {
+     "direct_extract": 1
+    },
+    "input_tokens": 0,
+    "output_tokens": 0,
+    "seconds": 103.39
+   },
+   "seconds": 103.4,
+   "errors": [
+    "https://kettle-jobs.example/jobs/: direct extraction failed (empty answer: max_tokens reached before any output)"
+   ]
+  },
+  {
+   "model": "poolside/laguna-s-2.1:free",
+   "site": "shop-03",
+   "strategy": "learned",
+   "records": 12,
+   "recall": 1.0,
+   "field_accuracy": 0.857,
+   "calls": {
+    "calls": 1,
+    "cached": 0,
+    "failed": 0,
+    "by_task": {
+     "learn_extractor": 1
+    },
+    "input_tokens": 1746,
+    "output_tokens": 2970,
+    "seconds": 56.38
+   },
+   "seconds": 56.4,
+   "errors": [
+    "Page cap of 1 reached; 12 queued URL(s) not visited"
+   ]
+  },
+  {
+   "model": "poolside/laguna-s-2.1:free",
+   "site": "shop-03",
+   "strategy": "direct",
+   "records": 0,
+   "recall": 0.0,
+   "field_accuracy": 0.0,
+   "calls": {
+    "calls": 1,
+    "cached": 0,
+    "failed": 1,
+    "by_task": {
+     "direct_extract": 1
+    },
+    "input_tokens": 0,
+    "output_tokens": 0,
+    "seconds": 282.34
+   },
+   "seconds": 282.4,
+   "errors": [
+    "https://cobalt-audio.example/catalog/: direct extraction failed (empty answer: max_tokens reached before any output)"
+   ]
+  },
+  {
+   "model": "poolside/laguna-s-2.1:free",
+   "site": "jobs-02",
+   "strategy": "learned",
+   "records": 0,
+   "recall": 0.0,
+   "field_accuracy": 0.0,
+   "calls": {
+    "calls": 2,
+    "cached": 0,
+    "failed": 2,
+    "by_task": {
+     "learn_extractor": 1,
+     "direct_extract": 1
+    },
+    "input_tokens": 0,
+    "output_tokens": 0,
+    "seconds": 576.22
+   },
+   "seconds": 576.2,
+   "errors": [
+    "kettle-jobs.example: no extractor passed validation after 1 attempt(s); using direct extraction",
+    "https://kettle-jobs.example/jobs/: direct extraction failed (empty answer: max_tokens reached before any output)"
+   ]
+  },
+  {
+   "model": "poolside/laguna-s-2.1:free",
+   "site": "jobs-02",
+   "strategy": "direct",
+   "records": 0,
+   "recall": 0.0,
+   "field_accuracy": 0.0,
+   "calls": {
+    "calls": 1,
+    "cached": 0,
+    "failed": 1,
+    "by_task": {
+     "direct_extract": 1
+    },
+    "input_tokens": 0,
+    "output_tokens": 0,
+    "seconds": 54.63
+   },
+   "seconds": 54.6,
+   "errors": [
+    "https://kettle-jobs.example/jobs/: direct extraction failed (rate limited: poolside/laguna-s-2.1:free is temporarily rate-limited upstream. Please retry shortly, or add your own key)"
+   ]
+  }
+ ]
+}

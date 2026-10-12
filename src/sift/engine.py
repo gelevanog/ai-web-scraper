@@ -1275,6 +1275,7 @@ def politeness_report(request_log: RequestLog, limiter: RateLimiter, pages: list
             "min_gap_s": None if (gap := request_log.min_gap(host)) is None else round(gap, 3),
             "configured_interval_s": limiter.interval(host),
             "max_requests_per_s_10s": round(request_log.max_rate(host), 3),
+            "mean_requests_per_s": round(request_log.mean_rate(host), 3),
         }
     return {"hosts": hosts, "robots_blocked": [p.url for p in pages if p.error == "disallowed by robots.txt"]}
 

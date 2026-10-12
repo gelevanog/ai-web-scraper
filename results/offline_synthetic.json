@@ -1,7 +1,7 @@
 {
  "name": "offline",
  "suite": "synthetic",
- "run_at": "2026-10-12T04:14:20+00:00",
+ "run_at": "2026-10-12T06:47:56+00:00",
  "provider": "fake",
  "model": "",
  "fallbacks": [],
@@ -9,12 +9,12 @@
   "v1": {
    "sites": 47,
    "truth_records": 1132,
-   "extracted_records": 1015,
+   "extracted_records": 1012,
    "matched": 999,
-   "precision": 0.9842,
+   "precision": 0.9872,
    "recall": 0.8825,
-   "field_accuracy": 0.8125,
-   "fields_correct": 5599,
+   "field_accuracy": 0.8984,
+   "fields_correct": 6191,
    "fields_total": 6891
   },
   "by_vertical": {
@@ -65,12 +65,12 @@
    "registry": {
     "sites": 4,
     "truth_records": 215,
-    "extracted_records": 218,
+    "extracted_records": 215,
     "matched": 215,
-    "precision": 0.9862,
+    "precision": 1.0,
     "recall": 1.0,
-    "field_accuracy": 0.5,
-    "fields_correct": 645,
+    "field_accuracy": 0.9589,
+    "fields_correct": 1237,
     "fields_total": 1290
    },
    "restaurant": {
@@ -99,12 +99,12 @@
   "v1_learned_only": {
    "sites": 33,
    "truth_records": 893,
-   "extracted_records": 894,
+   "extracted_records": 891,
    "matched": 890,
-   "precision": 0.9955,
+   "precision": 0.9989,
    "recall": 0.9966,
-   "field_accuracy": 0.8028,
-   "fields_correct": 5031,
+   "field_accuracy": 0.8972,
+   "fields_correct": 5623,
    "fields_total": 6267
   },
   "v1_direct_only": {
@@ -145,9 +145,9 @@
     "accuracy": 0.8594
    },
    "capacity": {
-    "correct": 53,
+    "correct": 215,
     "total": 215,
-    "accuracy": 0.2465
+    "accuracy": 1.0
    },
    "category": {
     "correct": 120,
@@ -230,14 +230,14 @@
     "accuracy": 1.0
    },
    "opened": {
-    "correct": 0,
+    "correct": 215,
     "total": 215,
-    "accuracy": 0.0
+    "accuracy": 1.0
    },
    "phone": {
-    "correct": 0,
+    "correct": 215,
     "total": 215,
-    "accuracy": 0.0
+    "accuracy": 1.0
    },
    "posted_date": {
     "correct": 163,
@@ -315,12 +315,12 @@
    "before_healing": {
     "sites": 35,
     "truth_records": 967,
-    "extracted_records": 219,
+    "extracted_records": 215,
     "matched": 215,
-    "precision": 0.9817,
+    "precision": 1.0,
     "recall": 0.2223,
-    "field_accuracy": 0.2078,
-    "fields_correct": 268,
+    "field_accuracy": 0.3333,
+    "fields_correct": 430,
     "fields_total": 1290
    },
    "after_healing": {
@@ -338,36 +338,36 @@
    "healed": 10,
    "heal_failed": 25,
    "heal_calls": 85,
-   "fallback_direct_calls": 69,
+   "fallback_direct_calls": 72,
    "v1_same_extractors": {
     "sites": 35,
     "truth_records": 967,
-    "extracted_records": 968,
+    "extracted_records": 965,
     "matched": 964,
-    "precision": 0.9959,
+    "precision": 0.999,
     "recall": 0.9969,
-    "field_accuracy": 0.8086,
-    "fields_correct": 5459,
+    "field_accuracy": 0.8963,
+    "fields_correct": 6051,
     "fields_total": 6751
    },
-   "false_alarms_on_v1": 0,
-   "recheck_llm_calls": 74,
-   "incremental_unchanged_pages": 35,
-   "incremental_pages": 35,
-   "incremental_llm_calls": 0
+   "false_alarms_on_v1": 2,
+   "recheck_llm_calls": 8,
+   "incremental_unchanged_pages": 90,
+   "incremental_pages": 107,
+   "incremental_llm_calls": 4
   },
   "v1_cost": {
-   "llm_calls": 133,
+   "llm_calls": 67,
    "llm_calls_by_task": {
     "learn_extractor": 41,
-    "direct_extract": 90,
-    "learn_detail": 2
+    "direct_extract": 22,
+    "learn_detail": 4
    },
    "input_tokens": 0,
    "output_tokens": 0,
-   "pages": 183,
-   "learned_pages": 167,
-   "learned_calls": 111
+   "pages": 185,
+   "learned_pages": 169,
+   "learned_calls": 45
   }
  },
  "sites": [
@@ -419,7 +419,7 @@
     "errors": [],
     "pages": 3,
     "records": 34,
-    "seconds": 0.25,
+    "seconds": 0.29,
     "strategies": [
      "learned"
     ],
@@ -432,7 +432,7 @@
      },
      "input_tokens": 0,
      "output_tokens": 0,
-     "seconds": 0.06
+     "seconds": 0.08
     },
     "browser_pages": 0,
     "duplicates_merged": 0,
@@ -470,7 +470,7 @@
      }
     ],
     "error": null,
-    "extract_ms_p50": 26.7
+    "extract_ms_p50": 34.4
    },
    "traps_result": {
     "hidden_leaked": 0,
@@ -489,7 +489,7 @@
       "requests": 4,
       "subresources": 0,
       "robots_fetches": 1,
-      "min_gap_s": 0.017,
+      "min_gap_s": 0.008,
       "configured_interval_s": 0.0,
       "max_requests_per_s_10s": 0.4
      }
@@ -499,7 +499,7 @@
    "learned": true,
    "extractors": [
     {
-     "id": "ext-df32f4",
+     "id": "ext-4f61ec",
      "kind": "list",
      "accepted": true,
      "attempts": 1,
@@ -581,7 +581,7 @@
     "errors": [],
     "pages": 3,
     "records": 0,
-    "seconds": 0.06,
+    "seconds": 0.1,
     "strategies": [
      "learned"
     ],
@@ -676,7 +676,7 @@
     "errors": [],
     "pages": 3,
     "records": 34,
-    "seconds": 0.38,
+    "seconds": 0.29,
     "strategies": [
      "learned"
     ],
@@ -689,7 +689,7 @@
      },
      "input_tokens": 0,
      "output_tokens": 0,
-     "seconds": 0.13
+     "seconds": 0.07
     },
     "browser_pages": 0,
     "duplicates_merged": 0,
@@ -792,12 +792,12 @@
     "pages": 3
    },
    "incremental": {
-    "pages": 1,
-    "unchanged": 1,
-    "records": 12,
+    "pages": 3,
+    "unchanged": 3,
+    "records": 34,
     "llm_calls": 0
    },
-   "seconds": 0.9
+   "seconds": 1.0
   },
   {
    "site": "shop-02",
@@ -832,7 +832,7 @@
     "errors": [],
     "pages": 3,
     "records": 0,
-    "seconds": 0.57,
+    "seconds": 0.52,
     "strategies": [
      "direct"
     ],
@@ -846,7 +846,7 @@
      },
      "input_tokens": 0,
      "output_tokens": 0,
-     "seconds": 0.29
+     "seconds": 0.34
     },
     "browser_pages": 0,
     "duplicates_merged": 0,
@@ -880,7 +880,7 @@
      }
     ],
     "error": null,
-    "extract_ms_p50": 98.2
+    "extract_ms_p50": 112.3
    },
    "traps_result": {
     "duplicate_copies": 0,
@@ -897,7 +897,7 @@
       "requests": 4,
       "subresources": 0,
       "robots_fetches": 1,
-      "min_gap_s": 0.015,
+      "min_gap_s": 0.008,
       "configured_interval_s": 0.0,
       "max_requests_per_s_10s": 0.4
      }
@@ -1110,7 +1110,7 @@
     ],
     "pages": 3,
     "records": 26,
-    "seconds": 0.3,
+    "seconds": 0.28,
     "strategies": [
      "learned"
     ],
@@ -1123,7 +1123,7 @@
      },
      "input_tokens": 0,
      "output_tokens": 0,
-     "seconds": 0.1
+     "seconds": 0.08
     },
     "browser_pages": 0,
     "duplicates_merged": 0,
@@ -1153,7 +1153,7 @@
      }
     ],
     "error": null,
-    "extract_ms_p50": 40.8
+    "extract_ms_p50": 23.8
    },
    "traps_result": {
     "currency_conversion": {
@@ -1168,7 +1168,7 @@
       "requests": 4,
       "subresources": 0,
       "robots_fetches": 1,
-      "min_gap_s": 0.015,
+      "min_gap_s": 0.006,
       "configured_interval_s": 0.0,
       "max_requests_per_s_10s": 0.4
      }
@@ -1178,7 +1178,7 @@
    "learned": true,
    "extractors": [
     {
-     "id": "ext-351f2f",
+     "id": "ext-4b9c8d",
      "kind": "list",
      "accepted": true,
      "attempts": 1,
@@ -1266,7 +1266,7 @@
     "errors": [],
     "pages": 3,
     "records": 0,
-    "seconds": 0.05,
+    "seconds": 0.06,
     "strategies": [
      "learned"
     ],
@@ -1525,7 +1525,7 @@
      },
      "input_tokens": 0,
      "output_tokens": 0,
-     "seconds": 0.18
+     "seconds": 0.14
     },
     "browser_pages": 0,
     "duplicates_merged": 0,
@@ -1626,12 +1626,12 @@
     "pages": 3
    },
    "incremental": {
-    "pages": 1,
-    "unchanged": 1,
-    "records": 12,
+    "pages": 3,
+    "unchanged": 3,
+    "records": 26,
     "llm_calls": 0
    },
-   "seconds": 0.8
+   "seconds": 1.0
   },
   {
    "site": "shop-04",
@@ -1679,7 +1679,7 @@
     "errors": [],
     "pages": 3,
     "records": 36,
-    "seconds": 0.33,
+    "seconds": 0.23,
     "strategies": [
      "learned"
     ],
@@ -1692,7 +1692,7 @@
      },
      "input_tokens": 0,
      "output_tokens": 0,
-     "seconds": 0.08
+     "seconds": 0.06
     },
     "browser_pages": 0,
     "duplicates_merged": 0,
@@ -1722,7 +1722,7 @@
      }
     ],
     "error": null,
-    "extract_ms_p50": 41.5
+    "extract_ms_p50": 33.5
    },
    "traps_result": {
     "currency_conversion": {
@@ -1737,7 +1737,7 @@
       "requests": 4,
       "subresources": 0,
       "robots_fetches": 1,
-      "min_gap_s": 0.015,
+      "min_gap_s": 0.004,
       "configured_interval_s": 0.0,
       "max_requests_per_s_10s": 0.4
      }
@@ -1747,7 +1747,7 @@
    "learned": true,
    "extractors": [
     {
-     "id": "ext-86d8da",
+     "id": "ext-b118f1",
      "kind": "list",
      "accepted": true,
      "attempts": 1,
@@ -1912,7 +1912,7 @@
     "errors": [],
     "pages": 3,
     "records": 5,
-    "seconds": 0.59,
+    "seconds": 0.61,
     "strategies": [
      "direct"
     ],
@@ -1926,7 +1926,7 @@
      },
      "input_tokens": 0,
      "output_tokens": 0,
-     "seconds": 0.39
+     "seconds": 0.31
     },
     "browser_pages": 0,
     "duplicates_merged": 27,
@@ -1978,9 +1978,9 @@
     "pages": 3
    },
    "incremental": {
-    "pages": 1,
-    "unchanged": 1,
-    "records": 12,
+    "pages": 3,
+    "unchanged": 3,
+    "records": 36,
     "llm_calls": 0
    },
    "seconds": 1.1
@@ -2030,9 +2030,9 @@
     "unmatched_extracted": [],
     "missed": [],
     "errors": [],
-    "pages": 3,
+    "pages": 4,
     "records": 28,
-    "seconds": 0.36,
+    "seconds": 0.43,
     "strategies": [
      "learned"
     ],
@@ -2045,7 +2045,7 @@
      },
      "input_tokens": 0,
      "output_tokens": 0,
-     "seconds": 0.12
+     "seconds": 0.13
     },
     "browser_pages": 0,
     "duplicates_merged": 0,
@@ -2070,19 +2070,23 @@
       "message": "ember-and-oak-furniture.example: extractor learned in 1 attempt(s), 1 model call(s)"
      },
      {
+      "kind": "robots_blocked",
+      "message": "robots.txt disallows https://ember-and-oak-furniture.example/archive/; skipped"
+     },
+     {
       "kind": "job_finished",
-      "message": "28 records from 3 pages, 1 model call(s)"
+      "message": "28 records from 4 pages, 1 model call(s)"
      }
     ],
     "error": null,
-    "extract_ms_p50": 36.2
+    "extract_ms_p50": 48.4
    },
    "traps_result": {
     "hidden_leaked": 0,
     "hidden_total": 1,
     "archived_leaked": 0,
     "archive_fetched": false,
-    "robots_blocked": 0,
+    "robots_blocked": 1,
     "currency_conversion": {
      "currency": "CHF",
      "correct": 28,
@@ -2095,17 +2099,19 @@
       "requests": 4,
       "subresources": 0,
       "robots_fetches": 1,
-      "min_gap_s": 0.014,
+      "min_gap_s": 0.007,
       "configured_interval_s": 0.0,
       "max_requests_per_s_10s": 0.4
      }
     },
-    "robots_blocked": []
+    "robots_blocked": [
+     "https://ember-and-oak-furniture.example/archive/"
+    ]
    },
    "learned": true,
    "extractors": [
     {
-     "id": "ext-5041ea",
+     "id": "ext-800090",
      "kind": "list",
      "accepted": true,
      "attempts": 1,
@@ -2185,9 +2191,9 @@
      "Classic Bar Stool"
     ],
     "errors": [],
-    "pages": 3,
+    "pages": 4,
     "records": 0,
-    "seconds": 0.07,
+    "seconds": 0.11,
     "strategies": [
      "learned"
     ],
@@ -2227,8 +2233,12 @@
       "message": "ember-and-oak-furniture.example: layout change detected (no records; structural similarity 0.07)"
      },
      {
+      "kind": "robots_blocked",
+      "message": "robots.txt disallows https://ember-and-oak-furniture.example/archive/; skipped"
+     },
+     {
       "kind": "job_finished",
-      "message": "0 records from 3 pages, 0 model call(s)"
+      "message": "0 records from 4 pages, 0 model call(s)"
      }
     ],
     "error": null,
@@ -2276,9 +2286,9 @@
     "unmatched_extracted": [],
     "missed": [],
     "errors": [],
-    "pages": 3,
+    "pages": 4,
     "records": 28,
-    "seconds": 0.29,
+    "seconds": 0.34,
     "strategies": [
      "learned"
     ],
@@ -2291,7 +2301,7 @@
      },
      "input_tokens": 0,
      "output_tokens": 0,
-     "seconds": 0.06
+     "seconds": 0.05
     },
     "browser_pages": 0,
     "duplicates_merged": 0,
@@ -2316,8 +2326,12 @@
       "message": "ember-and-oak-furniture.example: healed in 1 attempt(s), 1 model call(s); verified against 48 earlier record(s)"
      },
      {
+      "kind": "robots_blocked",
+      "message": "robots.txt disallows https://ember-and-oak-furniture.example/archive/; skipped"
+     },
+     {
       "kind": "job_finished",
-      "message": "28 records from 3 pages, 1 model call(s)"
+      "message": "28 records from 4 pages, 1 model call(s)"
      }
     ],
     "error": null,
@@ -2383,15 +2397,15 @@
     "false_alarm": false,
     "llm_calls": 0,
     "records": 28,
-    "pages": 3
+    "pages": 4
    },
    "incremental": {
-    "pages": 1,
-    "unchanged": 1,
-    "records": 12,
+    "pages": 4,
+    "unchanged": 3,
+    "records": 28,
     "llm_calls": 0
    },
-   "seconds": 1.0
+   "seconds": 1.1
   },
   {
    "site": "shop-06",
@@ -2444,7 +2458,7 @@
     "errors": [],
     "pages": 3,
     "records": 32,
-    "seconds": 0.31,
+    "seconds": 0.3,
     "strategies": [
      "learned"
     ],
@@ -2487,7 +2501,7 @@
      }
     ],
     "error": null,
-    "extract_ms_p50": 43.5
+    "extract_ms_p50": 33.0
    },
    "traps_result": {},
    "politeness": {
@@ -2496,7 +2510,7 @@
       "requests": 4,
       "subresources": 0,
       "robots_fetches": 1,
-      "min_gap_s": 0.013,
+      "min_gap_s": 0.009,
       "configured_interval_s": 0.0,
       "max_requests_per_s_10s": 0.4
      }
@@ -2506,7 +2520,7 @@
    "learned": true,
    "extractors": [
     {
-     "id": "ext-53ef50",
+     "id": "ext-84a762",
      "kind": "list",
      "accepted": true,
      "attempts": 1,
@@ -2609,7 +2623,7 @@
     "errors": [],
     "pages": 3,
     "records": 0,
-    "seconds": 0.05,
+    "seconds": 0.08,
     "strategies": [
      "learned"
     ],
@@ -3286,7 +3300,7 @@
      },
      "input_tokens": 0,
      "output_tokens": 0,
-     "seconds": 0.19
+     "seconds": 0.17
     },
     "browser_pages": 0,
     "duplicates_merged": 0,
@@ -3402,9 +3416,9 @@
     "pages": 3
    },
    "incremental": {
-    "pages": 1,
-    "unchanged": 1,
-    "records": 12,
+    "pages": 3,
+    "unchanged": 3,
+    "records": 32,
     "llm_calls": 0
    },
    "seconds": 1.1
@@ -3605,7 +3619,7 @@
     ],
     "pages": 2,
     "records": 24,
-    "seconds": 0.38,
+    "seconds": 0.33,
     "strategies": [
      "learned"
     ],
@@ -3618,7 +3632,7 @@
      },
      "input_tokens": 0,
      "output_tokens": 0,
-     "seconds": 0.1
+     "seconds": 0.14
     },
     "browser_pages": 0,
     "duplicates_merged": 0,
@@ -3652,7 +3666,7 @@
      }
     ],
     "error": null,
-    "extract_ms_p50": 183.7
+    "extract_ms_p50": 160.4
    },
    "traps_result": {
     "injection_where": "hidden",
@@ -3671,7 +3685,7 @@
       "requests": 3,
       "subresources": 0,
       "robots_fetches": 1,
-      "min_gap_s": 0.002,
+      "min_gap_s": 0.003,
       "configured_interval_s": 0.0,
       "max_requests_per_s_10s": 0.3
      }
@@ -3681,7 +3695,7 @@
    "learned": true,
    "extractors": [
     {
-     "id": "ext-8c9753",
+     "id": "ext-e1580d",
      "kind": "list",
      "accepted": true,
      "attempts": 1,
@@ -3769,7 +3783,7 @@
     "errors": [],
     "pages": 2,
     "records": 0,
-    "seconds": 0.04,
+    "seconds": 0.05,
     "strategies": [
      "learned"
     ],
@@ -3859,7 +3873,7 @@
      },
      "input_tokens": 0,
      "output_tokens": 0,
-     "seconds": 0.35
+     "seconds": 0.33
     },
     "browser_pages": 0,
     "duplicates_merged": 0,
@@ -3911,12 +3925,12 @@
     "pages": 2
    },
    "incremental": {
-    "pages": 1,
-    "unchanged": 1,
-    "records": 12,
+    "pages": 2,
+    "unchanged": 2,
+    "records": 24,
     "llm_calls": 0
    },
-   "seconds": 1.1
+   "seconds": 1.0
   },
   {
    "site": "shop-08",
@@ -4121,23 +4135,24 @@
     ],
     "pages": 44,
     "records": 40,
-    "seconds": 0.64,
+    "seconds": 0.51,
     "strategies": [
      "direct",
-     "learned"
+     "learned",
+     "skipped"
     ],
     "llm": {
-     "calls": 42,
+     "calls": 6,
      "cached": 0,
      "failed": 0,
      "by_task": {
       "learn_extractor": 1,
-      "learn_detail": 1,
-      "direct_extract": 40
+      "learn_detail": 2,
+      "direct_extract": 3
      },
      "input_tokens": 0,
      "output_tokens": 0,
-     "seconds": 0.18
+     "seconds": 0.12
     },
     "browser_pages": 0,
     "duplicates_merged": 4,
@@ -4166,16 +4181,28 @@
       "message": "harbor-lane-apparel.example: detail-page extractor learned (1 call(s))"
      },
      {
+      "kind": "layout_changed",
+      "message": "harbor-lane-apparel.example: detail-page rules returned nothing on https://harbor-lane-apparel.example/p/coastal-denim-jacket-2-0/"
+     },
+     {
+      "kind": "healed",
+      "message": "harbor-lane-apparel.example: detail-page rules healed in 1 attempt(s), 1 model call(s)"
+     },
+     {
+      "kind": "detail_skipped",
+      "message": "harbor-lane-apparel.example: detail fields left empty on the remaining detail pages (direct-extraction budget of 3 pages per site used up)"
+     },
+     {
       "kind": "deduplicated",
       "message": "4 duplicate record(s) merged across pages"
      },
      {
       "kind": "job_finished",
-      "message": "40 records from 44 pages, 42 model call(s)"
+      "message": "40 records from 44 pages, 6 model call(s)"
      }
     ],
     "error": null,
-    "extract_ms_p50": 6.0
+    "extract_ms_p50": 18.2
    },
    "traps_result": {
     "duplicate_copies": 1,
@@ -4197,7 +4224,7 @@
    "learned": true,
    "extractors": [
     {
-     "id": "ext-d9168f",
+     "id": "ext-c69380",
      "kind": "list",
      "accepted": true,
      "attempts": 1,
@@ -4277,7 +4304,7 @@
      }
     },
     {
-     "id": "ext-9b4ec6",
+     "id": "ext-289ed1",
      "kind": "detail",
      "accepted": true,
      "attempts": 1,
@@ -4315,7 +4342,7 @@
     "errors": [],
     "pages": 4,
     "records": 0,
-    "seconds": 0.06,
+    "seconds": 0.05,
     "strategies": [
      "learned"
     ],
@@ -4396,7 +4423,7 @@
     "errors": [],
     "pages": 4,
     "records": 0,
-    "seconds": 0.67,
+    "seconds": 0.58,
     "strategies": [
      "direct"
     ],
@@ -4410,7 +4437,7 @@
      },
      "input_tokens": 0,
      "output_tokens": 0,
-     "seconds": 0.42
+     "seconds": 0.37
     },
     "browser_pages": 0,
     "duplicates_merged": 0,
@@ -4452,18 +4479,18 @@
     "healed_programs": []
    },
    "v1_recheck": {
-    "false_alarm": false,
-    "llm_calls": 40,
+    "false_alarm": true,
+    "llm_calls": 4,
     "records": 40,
     "pages": 44
    },
    "incremental": {
-    "pages": 1,
-    "unchanged": 1,
-    "records": 13,
+    "pages": 4,
+    "unchanged": 4,
+    "records": 40,
     "llm_calls": 0
    },
-   "seconds": 1.8
+   "seconds": 1.5
   },
   {
    "site": "shop-09",
@@ -4514,9 +4541,9 @@
      "Compact Screwdriver Set"
     ],
     "errors": [],
-    "pages": 3,
+    "pages": 4,
     "records": 30,
-    "seconds": 0.33,
+    "seconds": 0.18,
     "strategies": [
      "learned"
     ],
@@ -4529,7 +4556,7 @@
      },
      "input_tokens": 0,
      "output_tokens": 0,
-     "seconds": 0.15
+     "seconds": 0.04
     },
     "browser_pages": 0,
     "duplicates_merged": 0,
@@ -4558,17 +4585,21 @@
       "message": "ironvale-tools.example: extractor learned in 1 attempt(s), 1 model call(s)"
      },
      {
+      "kind": "robots_blocked",
+      "message": "robots.txt disallows https://ironvale-tools.example/archive/; skipped"
+     },
+     {
       "kind": "job_finished",
-      "message": "30 records from 3 pages, 1 model call(s)"
+      "message": "30 records from 4 pages, 1 model call(s)"
      }
     ],
     "error": null,
-    "extract_ms_p50": 25.1
+    "extract_ms_p50": 16.1
    },
    "traps_result": {
     "archived_leaked": 0,
     "archive_fetched": false,
-    "robots_blocked": 0,
+    "robots_blocked": 1,
     "injection_where": "alt",
     "injection_findings": 2,
     "zeroed_values": 0,
@@ -4585,17 +4616,19 @@
       "requests": 4,
       "subresources": 0,
       "robots_fetches": 1,
-      "min_gap_s": 0.002,
+      "min_gap_s": 0.004,
       "configured_interval_s": 0.0,
       "max_requests_per_s_10s": 0.4
      }
     },
-    "robots_blocked": []
+    "robots_blocked": [
+     "https://ironvale-tools.example/archive/"
+    ]
    },
    "learned": true,
    "extractors": [
     {
-     "id": "ext-5a9e34",
+     "id": "ext-ff5148",
      "kind": "list",
      "accepted": true,
      "attempts": 1,
@@ -4675,7 +4708,7 @@
      "Heritage Socket Set"
     ],
     "errors": [],
-    "pages": 3,
+    "pages": 4,
     "records": 0,
     "seconds": 0.04,
     "strategies": [
@@ -4721,8 +4754,12 @@
       "message": "ironvale-tools.example: layout change detected (no records; structural similarity 0.07)"
      },
      {
+      "kind": "robots_blocked",
+      "message": "robots.txt disallows https://ironvale-tools.example/archive/; skipped"
+     },
+     {
       "kind": "job_finished",
-      "message": "0 records from 3 pages, 0 model call(s)"
+      "message": "0 records from 4 pages, 0 model call(s)"
      }
     ],
     "error": null,
@@ -4756,9 +4793,9 @@
      "Heritage Socket Set"
     ],
     "errors": [],
-    "pages": 3,
+    "pages": 4,
     "records": 0,
-    "seconds": 0.49,
+    "seconds": 0.46,
     "strategies": [
      "direct"
     ],
@@ -4772,7 +4809,7 @@
      },
      "input_tokens": 0,
      "output_tokens": 0,
-     "seconds": 0.29
+     "seconds": 0.28
     },
     "browser_pages": 0,
     "duplicates_merged": 0,
@@ -4805,12 +4842,16 @@
       "message": "https://ironvale-tools.example/catalog/: 2 sentence(s) addressed to AI systems quarantined"
      },
      {
+      "kind": "robots_blocked",
+      "message": "robots.txt disallows https://ironvale-tools.example/archive/; skipped"
+     },
+     {
       "kind": "sparse_dropped",
       "message": "2 row(s) that were not records dropped (totals, headers, empty items)"
      },
      {
       "kind": "job_finished",
-      "message": "0 records from 3 pages, 6 model call(s)"
+      "message": "0 records from 4 pages, 6 model call(s)"
      }
     ],
     "error": null,
@@ -4825,15 +4866,15 @@
     "false_alarm": false,
     "llm_calls": 0,
     "records": 30,
-    "pages": 3
+    "pages": 4
    },
    "incremental": {
-    "pages": 1,
-    "unchanged": 1,
-    "records": 12,
+    "pages": 4,
+    "unchanged": 3,
+    "records": 30,
     "llm_calls": 0
    },
-   "seconds": 0.9
+   "seconds": 0.8
   },
   {
    "site": "shop-10",
@@ -5020,7 +5061,7 @@
     ],
     "pages": 2,
     "records": 22,
-    "seconds": 2.31,
+    "seconds": 4.34,
     "strategies": [
      "learned"
     ],
@@ -5033,7 +5074,7 @@
      },
      "input_tokens": 0,
      "output_tokens": 0,
-     "seconds": 0.09
+     "seconds": 0.16
     },
     "browser_pages": 0,
     "duplicates_merged": 0,
@@ -5067,12 +5108,12 @@
      }
     ],
     "error": null,
-    "extract_ms_p50": 1153.1
+    "extract_ms_p50": 2164.5
    },
    "traps_result": {
     "crawl_delay": 2.0,
-    "min_gap_s": 0.004,
-    "crawl_delay_respected": false,
+    "min_gap_s": 1.998,
+    "crawl_delay_respected": true,
     "anomalies_expected": 1,
     "anomalies_found": 1,
     "anomalies_false": 0,
@@ -5088,7 +5129,7 @@
       "requests": 3,
       "subresources": 0,
       "robots_fetches": 1,
-      "min_gap_s": 0.004,
+      "min_gap_s": 1.998,
       "configured_interval_s": 2.0,
       "max_requests_per_s_10s": 0.3
      }
@@ -5098,7 +5139,7 @@
    "learned": true,
    "extractors": [
     {
-     "id": "ext-7b4785",
+     "id": "ext-c8ff79",
      "kind": "list",
      "accepted": true,
      "attempts": 1,
@@ -5186,7 +5227,7 @@
     "errors": [],
     "pages": 2,
     "records": 0,
-    "seconds": 2.03,
+    "seconds": 4.08,
     "strategies": [
      "learned"
     ],
@@ -5258,7 +5299,7 @@
     "errors": [],
     "pages": 2,
     "records": 0,
-    "seconds": 2.21,
+    "seconds": 4.06,
     "strategies": [
      "direct"
     ],
@@ -5272,7 +5313,7 @@
      },
      "input_tokens": 0,
      "output_tokens": 0,
-     "seconds": 0.11
+     "seconds": 0.03
     },
     "browser_pages": 0,
     "duplicates_merged": 0,
@@ -5316,12 +5357,12 @@
     "pages": 2
    },
    "incremental": {
-    "pages": 1,
-    "unchanged": 1,
-    "records": 12,
+    "pages": 2,
+    "unchanged": 2,
+    "records": 22,
     "llm_calls": 0
    },
-   "seconds": 8.6
+   "seconds": 20.5
   },
   {
    "site": "jobs-01",
@@ -5563,7 +5604,7 @@
     ],
     "pages": 3,
     "records": 24,
-    "seconds": 0.31,
+    "seconds": 0.24,
     "strategies": [
      "learned"
     ],
@@ -5576,7 +5617,7 @@
      },
      "input_tokens": 0,
      "output_tokens": 0,
-     "seconds": 0.13
+     "seconds": 0.11
     },
     "browser_pages": 0,
     "duplicates_merged": 0,
@@ -5606,7 +5647,7 @@
      }
     ],
     "error": null,
-    "extract_ms_p50": 29.9
+    "extract_ms_p50": 19.4
    },
    "traps_result": {
     "pii_planted": 10,
@@ -5622,7 +5663,7 @@
       "requests": 4,
       "subresources": 0,
       "robots_fetches": 1,
-      "min_gap_s": 0.002,
+      "min_gap_s": 0.001,
       "configured_interval_s": 0.0,
       "max_requests_per_s_10s": 0.4
      }
@@ -5632,7 +5673,7 @@
    "learned": true,
    "extractors": [
     {
-     "id": "ext-ad5158",
+     "id": "ext-44959c",
      "kind": "list",
      "accepted": true,
      "attempts": 1,
@@ -5736,9 +5777,9 @@
      "Senior Sales Development Representative"
     ],
     "errors": [],
-    "pages": 4,
+    "pages": 7,
     "records": 0,
-    "seconds": 0.04,
+    "seconds": 0.05,
     "strategies": [
      "learned"
     ],
@@ -5775,6 +5816,10 @@
      },
      {
       "kind": "layout_changed",
+      "message": "hireloop.example: layout change detected (no records; structural similarity 0.05)"
+     },
+     {
+      "kind": "layout_changed",
       "message": "hireloop.example: layout change detected (no records; structural similarity 0.07)"
      },
      {
@@ -5782,8 +5827,16 @@
       "message": "hireloop.example: layout change detected (no records; structural similarity 0.05)"
      },
      {
+      "kind": "layout_changed",
+      "message": "hireloop.example: layout change detected (no records; structural similarity 0.05)"
+     },
+     {
+      "kind": "layout_changed",
+      "message": "hireloop.example: layout change detected (no records; structural similarity 0.05)"
+     },
+     {
       "kind": "job_finished",
-      "message": "0 records from 4 pages, 0 model call(s)"
+      "message": "0 records from 7 pages, 0 model call(s)"
      }
     ],
     "error": null,
@@ -5791,7 +5844,7 @@
     "signals": [
      "hireloop.example: layout change detected (no records; structural similarity 0.05)",
      "hireloop.example: layout change detected (no records; structural similarity 0.05)",
-     "hireloop.example: layout change detected (no records; structural similarity 0.07)"
+     "hireloop.example: layout change detected (no records; structural similarity 0.05)"
     ]
    },
    "v2_after": {
@@ -5817,23 +5870,23 @@
      "Senior Sales Development Representative"
     ],
     "errors": [],
-    "pages": 4,
+    "pages": 7,
     "records": 0,
-    "seconds": 0.58,
+    "seconds": 0.55,
     "strategies": [
      "direct"
     ],
     "llm": {
-     "calls": 7,
+     "calls": 10,
      "cached": 0,
      "failed": 0,
      "by_task": {
       "heal_extractor": 3,
-      "direct_extract": 4
+      "direct_extract": 7
      },
      "input_tokens": 0,
      "output_tokens": 0,
-     "seconds": 0.36
+     "seconds": 0.29
     },
     "browser_pages": 0,
     "duplicates_merged": 0,
@@ -5859,7 +5912,7 @@
      },
      {
       "kind": "job_finished",
-      "message": "0 records from 4 pages, 7 model call(s)"
+      "message": "0 records from 7 pages, 10 model call(s)"
      }
     ],
     "error": null,
@@ -5867,7 +5920,7 @@
     "healed": false,
     "heal_failed": true,
     "heal_calls": 3,
-    "fallback_direct_calls": 4,
+    "fallback_direct_calls": 7,
     "healed_programs": []
    },
    "v1_recheck": {
@@ -5877,9 +5930,9 @@
     "pages": 3
    },
    "incremental": {
-    "pages": 1,
-    "unchanged": 1,
-    "records": 10,
+    "pages": 3,
+    "unchanged": 3,
+    "records": 24,
     "llm_calls": 0
    },
    "seconds": 1.0
@@ -6142,7 +6195,7 @@
     ],
     "pages": 2,
     "records": 20,
-    "seconds": 0.25,
+    "seconds": 0.27,
     "strategies": [
      "learned"
     ],
@@ -6155,7 +6208,7 @@
      },
      "input_tokens": 0,
      "output_tokens": 0,
-     "seconds": 0.09
+     "seconds": 0.11
     },
     "browser_pages": 0,
     "duplicates_merged": 0,
@@ -6185,7 +6238,7 @@
      }
     ],
     "error": null,
-    "extract_ms_p50": 121.6
+    "extract_ms_p50": 131.2
    },
    "traps_result": {
     "currency_conversion": {
@@ -6214,7 +6267,7 @@
    "learned": true,
    "extractors": [
     {
-     "id": "ext-d71d0c",
+     "id": "ext-147b24",
      "kind": "list",
      "accepted": true,
      "attempts": 1,
@@ -6314,7 +6367,7 @@
     "errors": [],
     "pages": 2,
     "records": 0,
-    "seconds": 0.03,
+    "seconds": 0.02,
     "strategies": [
      "learned"
     ],
@@ -6388,7 +6441,7 @@
     "errors": [],
     "pages": 2,
     "records": 1,
-    "seconds": 0.52,
+    "seconds": 0.53,
     "strategies": [
      "direct"
     ],
@@ -6454,9 +6507,9 @@
     "pages": 2
    },
    "incremental": {
-    "pages": 1,
-    "unchanged": 1,
-    "records": 10,
+    "pages": 2,
+    "unchanged": 2,
+    "records": 20,
     "llm_calls": 0
    },
    "seconds": 0.9
@@ -6751,7 +6804,7 @@
      }
     ],
     "error": null,
-    "extract_ms_p50": 22.8
+    "extract_ms_p50": 23.7
    },
    "traps_result": {
     "pii_planted": 10,
@@ -6772,7 +6825,7 @@
       "requests": 4,
       "subresources": 0,
       "robots_fetches": 1,
-      "min_gap_s": 0.002,
+      "min_gap_s": 0.004,
       "configured_interval_s": 0.0,
       "max_requests_per_s_10s": 0.4
      }
@@ -6782,7 +6835,7 @@
    "learned": true,
    "extractors": [
     {
-     "id": "ext-de05b0",
+     "id": "ext-6f17d8",
      "kind": "list",
      "accepted": true,
      "attempts": 1,
@@ -6882,7 +6935,7 @@
     "errors": [],
     "pages": 3,
     "records": 0,
-    "seconds": 0.03,
+    "seconds": 0.04,
     "strategies": [
      "learned"
     ],
@@ -7173,7 +7226,7 @@
     ],
     "pages": 3,
     "records": 22,
-    "seconds": 0.34,
+    "seconds": 0.33,
     "strategies": [
      "learned"
     ],
@@ -7299,12 +7352,12 @@
     "pages": 3
    },
    "incremental": {
-    "pages": 1,
-    "unchanged": 1,
-    "records": 10,
+    "pages": 3,
+    "unchanged": 3,
+    "records": 22,
     "llm_calls": 0
    },
-   "seconds": 0.8
+   "seconds": 0.7
   },
   {
    "site": "jobs-04",
@@ -7582,7 +7635,7 @@
     ],
     "pages": 3,
     "records": 30,
-    "seconds": 0.31,
+    "seconds": 0.37,
     "strategies": [
      "learned"
     ],
@@ -7595,7 +7648,7 @@
      },
      "input_tokens": 0,
      "output_tokens": 0,
-     "seconds": 0.07
+     "seconds": 0.09
     },
     "browser_pages": 0,
     "duplicates_merged": 3,
@@ -7629,7 +7682,7 @@
      }
     ],
     "error": null,
-    "extract_ms_p50": 33.1
+    "extract_ms_p50": 37.8
    },
    "traps_result": {
     "duplicate_copies": 1,
@@ -7645,7 +7698,7 @@
       "requests": 4,
       "subresources": 0,
       "robots_fetches": 1,
-      "min_gap_s": 0.002,
+      "min_gap_s": 0.003,
       "configured_interval_s": 0.0,
       "max_requests_per_s_10s": 0.4
      }
@@ -7655,7 +7708,7 @@
    "learned": true,
    "extractors": [
     {
-     "id": "ext-55a5cb",
+     "id": "ext-c14200",
      "kind": "list",
      "accepted": true,
      "attempts": 1,
@@ -7755,7 +7808,7 @@
     "errors": [],
     "pages": 4,
     "records": 0,
-    "seconds": 0.07,
+    "seconds": 0.04,
     "strategies": [
      "learned"
     ],
@@ -7792,11 +7845,11 @@
      },
      {
       "kind": "layout_changed",
-      "message": "remote-ridge.example: layout change detected (no records; structural similarity 0.09)"
+      "message": "remote-ridge.example: layout change detected (no records; structural similarity 0.05)"
      },
      {
       "kind": "layout_changed",
-      "message": "remote-ridge.example: layout change detected (no records; structural similarity 0.05)"
+      "message": "remote-ridge.example: layout change detected (no records; structural similarity 0.09)"
      },
      {
       "kind": "job_finished",
@@ -7808,7 +7861,7 @@
     "signals": [
      "remote-ridge.example: layout change detected (no records; structural similarity 0.05)",
      "remote-ridge.example: layout change detected (no records; structural similarity 0.05)",
-     "remote-ridge.example: layout change detected (no records; structural similarity 0.09)"
+     "remote-ridge.example: layout change detected (no records; structural similarity 0.05)"
     ]
    },
    "v2_after": {
@@ -8079,7 +8132,7 @@
     ],
     "pages": 3,
     "records": 30,
-    "seconds": 0.32,
+    "seconds": 0.28,
     "strategies": [
      "learned"
     ],
@@ -8092,7 +8145,7 @@
      },
      "input_tokens": 0,
      "output_tokens": 0,
-     "seconds": 0.1
+     "seconds": 0.08
     },
     "browser_pages": 0,
     "duplicates_merged": 3,
@@ -8209,9 +8262,9 @@
     "pages": 3
    },
    "incremental": {
-    "pages": 1,
-    "unchanged": 1,
-    "records": 11,
+    "pages": 3,
+    "unchanged": 3,
+    "records": 30,
     "llm_calls": 0
    },
    "seconds": 0.8
@@ -8419,7 +8472,7 @@
     ],
     "pages": 2,
     "records": 18,
-    "seconds": 0.3,
+    "seconds": 0.28,
     "strategies": [
      "learned"
     ],
@@ -8432,7 +8485,7 @@
      },
      "input_tokens": 0,
      "output_tokens": 0,
-     "seconds": 0.09
+     "seconds": 0.12
     },
     "browser_pages": 0,
     "duplicates_merged": 0,
@@ -8462,7 +8515,7 @@
      }
     ],
     "error": null,
-    "extract_ms_p50": 148.8
+    "extract_ms_p50": 137.8
    },
    "traps_result": {
     "hidden_leaked": 0,
@@ -8483,7 +8536,7 @@
       "requests": 3,
       "subresources": 0,
       "robots_fetches": 1,
-      "min_gap_s": 0.002,
+      "min_gap_s": 0.003,
       "configured_interval_s": 0.0,
       "max_requests_per_s_10s": 0.3
      }
@@ -8493,7 +8546,7 @@
    "learned": true,
    "extractors": [
     {
-     "id": "ext-b30d29",
+     "id": "ext-7b612b",
      "kind": "list",
      "accepted": true,
      "attempts": 1,
@@ -8835,7 +8888,7 @@
     ],
     "pages": 2,
     "records": 18,
-    "seconds": 0.24,
+    "seconds": 0.22,
     "strategies": [
      "learned"
     ],
@@ -8961,12 +9014,12 @@
     "pages": 2
    },
    "incremental": {
-    "pages": 1,
-    "unchanged": 1,
-    "records": 10,
+    "pages": 2,
+    "unchanged": 2,
+    "records": 18,
     "llm_calls": 0
    },
-   "seconds": 0.7
+   "seconds": 0.6
   },
   {
    "site": "jobs-06",
@@ -9204,7 +9257,7 @@
     ],
     "pages": 3,
     "records": 26,
-    "seconds": 0.3,
+    "seconds": 0.28,
     "strategies": [
      "learned"
     ],
@@ -9217,7 +9270,7 @@
      },
      "input_tokens": 0,
      "output_tokens": 0,
-     "seconds": 0.13
+     "seconds": 0.1
     },
     "browser_pages": 0,
     "duplicates_merged": 0,
@@ -9251,7 +9304,7 @@
      }
     ],
     "error": null,
-    "extract_ms_p50": 22.9
+    "extract_ms_p50": 24.1
    },
    "traps_result": {
     "injection_where": "visible",
@@ -9279,7 +9332,7 @@
    "learned": true,
    "extractors": [
     {
-     "id": "ext-d0c813",
+     "id": "ext-ccd800",
      "kind": "list",
      "accepted": true,
      "attempts": 1,
@@ -9460,7 +9513,7 @@
     "errors": [],
     "pages": 3,
     "records": 0,
-    "seconds": 0.43,
+    "seconds": 0.44,
     "strategies": [
      "direct"
     ],
@@ -9474,7 +9527,7 @@
      },
      "input_tokens": 0,
      "output_tokens": 0,
-     "seconds": 0.24
+     "seconds": 0.25
     },
     "browser_pages": 0,
     "duplicates_merged": 0,
@@ -9526,12 +9579,12 @@
     "pages": 3
    },
    "incremental": {
-    "pages": 1,
-    "unchanged": 1,
-    "records": 10,
+    "pages": 3,
+    "unchanged": 3,
+    "records": 26,
     "llm_calls": 0
    },
-   "seconds": 0.9
+   "seconds": 1.0
   },
   {
    "site": "homes-01",
@@ -9744,7 +9797,7 @@
     ],
     "pages": 3,
     "records": 23,
-    "seconds": 0.29,
+    "seconds": 0.24,
     "strategies": [
      "learned"
     ],
@@ -9757,7 +9810,7 @@
      },
      "input_tokens": 0,
      "output_tokens": 0,
-     "seconds": 0.12
+     "seconds": 0.1
     },
     "browser_pages": 0,
     "duplicates_merged": 0,
@@ -9787,7 +9840,7 @@
      }
     ],
     "error": null,
-    "extract_ms_p50": 27.5
+    "extract_ms_p50": 22.0
    },
    "traps_result": {},
    "politeness": {
@@ -9796,7 +9849,7 @@
       "requests": 4,
       "subresources": 0,
       "robots_fetches": 1,
-      "min_gap_s": 0.006,
+      "min_gap_s": 0.004,
       "configured_interval_s": 0.0,
       "max_requests_per_s_10s": 0.4
      }
@@ -9806,7 +9859,7 @@
    "learned": true,
    "extractors": [
     {
-     "id": "ext-4884bf",
+     "id": "ext-2f6893",
      "kind": "list",
      "accepted": true,
      "attempts": 1,
@@ -9904,9 +9957,9 @@
      "21 Mill Street"
     ],
     "errors": [],
-    "pages": 8,
+    "pages": 18,
     "records": 0,
-    "seconds": 0.06,
+    "seconds": 0.14,
     "strategies": [
      "learned"
     ],
@@ -9966,8 +10019,48 @@
       "message": "keystone-realty.example: layout change detected (no records; structural similarity 0.05)"
      },
      {
+      "kind": "layout_changed",
+      "message": "keystone-realty.example: layout change detected (no records; structural similarity 0.05)"
+     },
+     {
+      "kind": "layout_changed",
+      "message": "keystone-realty.example: layout change detected (no records; structural similarity 0.05)"
+     },
+     {
+      "kind": "layout_changed",
+      "message": "keystone-realty.example: layout change detected (no records; structural similarity 0.05)"
+     },
+     {
+      "kind": "layout_changed",
+      "message": "keystone-realty.example: layout change detected (no records; structural similarity 0.05)"
+     },
+     {
+      "kind": "layout_changed",
+      "message": "keystone-realty.example: layout change detected (no records; structural similarity 0.05)"
+     },
+     {
+      "kind": "layout_changed",
+      "message": "keystone-realty.example: layout change detected (no records; structural similarity 0.05)"
+     },
+     {
+      "kind": "layout_changed",
+      "message": "keystone-realty.example: layout change detected (no records; structural similarity 0.05)"
+     },
+     {
+      "kind": "layout_changed",
+      "message": "keystone-realty.example: layout change detected (no records; structural similarity 0.05)"
+     },
+     {
+      "kind": "layout_changed",
+      "message": "keystone-realty.example: layout change detected (no records; structural similarity 0.05)"
+     },
+     {
+      "kind": "layout_changed",
+      "message": "keystone-realty.example: layout change detected (no records; structural similarity 0.05)"
+     },
+     {
       "kind": "job_finished",
-      "message": "0 records from 8 pages, 0 model call(s)"
+      "message": "0 records from 18 pages, 0 model call(s)"
      }
     ],
     "error": null,
@@ -10003,7 +10096,7 @@
     "errors": [],
     "pages": 3,
     "records": 0,
-    "seconds": 0.8,
+    "seconds": 0.73,
     "strategies": [
      "direct"
     ],
@@ -10017,7 +10110,7 @@
      },
      "input_tokens": 0,
      "output_tokens": 0,
-     "seconds": 0.53
+     "seconds": 0.5
     },
     "browser_pages": 0,
     "duplicates_merged": 0,
@@ -10065,12 +10158,12 @@
     "pages": 3
    },
    "incremental": {
-    "pages": 1,
-    "unchanged": 1,
-    "records": 8,
+    "pages": 3,
+    "unchanged": 3,
+    "records": 23,
     "llm_calls": 0
    },
-   "seconds": 1.4
+   "seconds": 1.3
   },
   {
    "site": "homes-02",
@@ -10127,7 +10220,7 @@
     "errors": [],
     "pages": 3,
     "records": 19,
-    "seconds": 0.23,
+    "seconds": 0.22,
     "strategies": [
      "learned"
     ],
@@ -10140,7 +10233,7 @@
      },
      "input_tokens": 0,
      "output_tokens": 0,
-     "seconds": 0.1
+     "seconds": 0.08
     },
     "browser_pages": 0,
     "duplicates_merged": 0,
@@ -10170,7 +10263,7 @@
      }
     ],
     "error": null,
-    "extract_ms_p50": 18.8
+    "extract_ms_p50": 31.7
    },
    "traps_result": {
     "currency_conversion": {
@@ -10185,7 +10278,7 @@
       "requests": 4,
       "subresources": 0,
       "robots_fetches": 1,
-      "min_gap_s": 0.004,
+      "min_gap_s": 0.002,
       "configured_interval_s": 0.0,
       "max_requests_per_s_10s": 0.4
      }
@@ -10195,7 +10288,7 @@
    "learned": true,
    "extractors": [
     {
-     "id": "ext-15ab1e",
+     "id": "ext-3218e7",
      "kind": "list",
      "accepted": true,
      "attempts": 1,
@@ -10287,9 +10380,9 @@
      "106 Maple Avenue"
     ],
     "errors": [],
-    "pages": 8,
+    "pages": 16,
     "records": 0,
-    "seconds": 0.07,
+    "seconds": 0.11,
     "strategies": [
      "learned"
     ],
@@ -10349,8 +10442,40 @@
       "message": "hausfinder-berlin.example: layout change detected (no records; structural similarity 0.05)"
      },
      {
+      "kind": "layout_changed",
+      "message": "hausfinder-berlin.example: layout change detected (no records; structural similarity 0.05)"
+     },
+     {
+      "kind": "layout_changed",
+      "message": "hausfinder-berlin.example: layout change detected (no records; structural similarity 0.05)"
+     },
+     {
+      "kind": "layout_changed",
+      "message": "hausfinder-berlin.example: layout change detected (no records; structural similarity 0.05)"
+     },
+     {
+      "kind": "layout_changed",
+      "message": "hausfinder-berlin.example: layout change detected (no records; structural similarity 0.05)"
+     },
+     {
+      "kind": "layout_changed",
+      "message": "hausfinder-berlin.example: layout change detected (no records; structural similarity 0.05)"
+     },
+     {
+      "kind": "layout_changed",
+      "message": "hausfinder-berlin.example: layout change detected (no records; structural similarity 0.05)"
+     },
+     {
+      "kind": "layout_changed",
+      "message": "hausfinder-berlin.example: layout change detected (no records; structural similarity 0.05)"
+     },
+     {
+      "kind": "layout_changed",
+      "message": "hausfinder-berlin.example: layout change detected (no records; structural similarity 0.05)"
+     },
+     {
       "kind": "job_finished",
-      "message": "0 records from 8 pages, 0 model call(s)"
+      "message": "0 records from 16 pages, 0 model call(s)"
      }
     ],
     "error": null,
@@ -10386,7 +10511,7 @@
     "errors": [],
     "pages": 3,
     "records": 0,
-    "seconds": 0.89,
+    "seconds": 0.88,
     "strategies": [
      "direct"
     ],
@@ -10400,7 +10525,7 @@
      },
      "input_tokens": 0,
      "output_tokens": 0,
-     "seconds": 0.64
+     "seconds": 0.57
     },
     "browser_pages": 0,
     "duplicates_merged": 0,
@@ -10448,9 +10573,9 @@
     "pages": 3
    },
    "incremental": {
-    "pages": 1,
-    "unchanged": 1,
-    "records": 8,
+    "pages": 3,
+    "unchanged": 3,
+    "records": 19,
     "llm_calls": 0
    },
    "seconds": 1.3
@@ -10666,7 +10791,7 @@
     ],
     "pages": 3,
     "records": 20,
-    "seconds": 0.28,
+    "seconds": 0.24,
     "strategies": [
      "learned"
     ],
@@ -10679,7 +10804,7 @@
      },
      "input_tokens": 0,
      "output_tokens": 0,
-     "seconds": 0.12
+     "seconds": 0.1
     },
     "browser_pages": 0,
     "duplicates_merged": 0,
@@ -10709,7 +10834,7 @@
      }
     ],
     "error": null,
-    "extract_ms_p50": 20.8
+    "extract_ms_p50": 23.5
    },
    "traps_result": {
     "currency_conversion": {
@@ -10724,7 +10849,7 @@
       "requests": 4,
       "subresources": 0,
       "robots_fetches": 1,
-      "min_gap_s": 0.003,
+      "min_gap_s": 0.002,
       "configured_interval_s": 0.0,
       "max_requests_per_s_10s": 0.4
      }
@@ -10734,7 +10859,7 @@
    "learned": true,
    "extractors": [
     {
-     "id": "ext-05b36d",
+     "id": "ext-2521e8",
      "kind": "list",
      "accepted": true,
      "attempts": 1,
@@ -10832,9 +10957,9 @@
      "227 Elm Terrace"
     ],
     "errors": [],
-    "pages": 8,
+    "pages": 18,
     "records": 0,
-    "seconds": 0.1,
+    "seconds": 0.25,
     "strategies": [
      "learned"
     ],
@@ -10871,31 +10996,71 @@
      },
      {
       "kind": "layout_changed",
-      "message": "brick-and-bay-lettings.example: layout change detected (no records; structural similarity 0.05)"
-     },
-     {
-      "kind": "layout_changed",
-      "message": "brick-and-bay-lettings.example: layout change detected (no records; structural similarity 0.05)"
-     },
-     {
-      "kind": "layout_changed",
-      "message": "brick-and-bay-lettings.example: layout change detected (no records; structural similarity 0.05)"
-     },
-     {
-      "kind": "layout_changed",
-      "message": "brick-and-bay-lettings.example: layout change detected (no records; structural similarity 0.05)"
-     },
-     {
-      "kind": "layout_changed",
-      "message": "brick-and-bay-lettings.example: layout change detected (no records; structural similarity 0.05)"
-     },
-     {
-      "kind": "layout_changed",
       "message": "brick-and-bay-lettings.example: layout change detected (no records; structural similarity 0.04)"
      },
      {
+      "kind": "layout_changed",
+      "message": "brick-and-bay-lettings.example: layout change detected (no records; structural similarity 0.05)"
+     },
+     {
+      "kind": "layout_changed",
+      "message": "brick-and-bay-lettings.example: layout change detected (no records; structural similarity 0.05)"
+     },
+     {
+      "kind": "layout_changed",
+      "message": "brick-and-bay-lettings.example: layout change detected (no records; structural similarity 0.05)"
+     },
+     {
+      "kind": "layout_changed",
+      "message": "brick-and-bay-lettings.example: layout change detected (no records; structural similarity 0.05)"
+     },
+     {
+      "kind": "layout_changed",
+      "message": "brick-and-bay-lettings.example: layout change detected (no records; structural similarity 0.05)"
+     },
+     {
+      "kind": "layout_changed",
+      "message": "brick-and-bay-lettings.example: layout change detected (no records; structural similarity 0.05)"
+     },
+     {
+      "kind": "layout_changed",
+      "message": "brick-and-bay-lettings.example: layout change detected (no records; structural similarity 0.05)"
+     },
+     {
+      "kind": "layout_changed",
+      "message": "brick-and-bay-lettings.example: layout change detected (no records; structural similarity 0.05)"
+     },
+     {
+      "kind": "layout_changed",
+      "message": "brick-and-bay-lettings.example: layout change detected (no records; structural similarity 0.05)"
+     },
+     {
+      "kind": "layout_changed",
+      "message": "brick-and-bay-lettings.example: layout change detected (no records; structural similarity 0.05)"
+     },
+     {
+      "kind": "layout_changed",
+      "message": "brick-and-bay-lettings.example: layout change detected (no records; structural similarity 0.05)"
+     },
+     {
+      "kind": "layout_changed",
+      "message": "brick-and-bay-lettings.example: layout change detected (no records; structural similarity 0.05)"
+     },
+     {
+      "kind": "layout_changed",
+      "message": "brick-and-bay-lettings.example: layout change detected (no records; structural similarity 0.05)"
+     },
+     {
+      "kind": "layout_changed",
+      "message": "brick-and-bay-lettings.example: layout change detected (no records; structural similarity 0.05)"
+     },
+     {
+      "kind": "layout_changed",
+      "message": "brick-and-bay-lettings.example: layout change detected (no records; structural similarity 0.07)"
+     },
+     {
       "kind": "job_finished",
-      "message": "0 records from 8 pages, 0 model call(s)"
+      "message": "0 records from 18 pages, 0 model call(s)"
      }
     ],
     "error": null,
@@ -10903,7 +11068,7 @@
     "signals": [
      "brick-and-bay-lettings.example: layout change detected (no records; structural similarity 0.04)",
      "brick-and-bay-lettings.example: layout change detected (no records; structural similarity 0.04)",
-     "brick-and-bay-lettings.example: layout change detected (no records; structural similarity 0.05)"
+     "brick-and-bay-lettings.example: layout change detected (no records; structural similarity 0.04)"
     ]
    },
    "v2_after": {
@@ -10931,7 +11096,7 @@
     "errors": [],
     "pages": 3,
     "records": 0,
-    "seconds": 0.98,
+    "seconds": 0.71,
     "strategies": [
      "direct"
     ],
@@ -10945,7 +11110,7 @@
      },
      "input_tokens": 0,
      "output_tokens": 0,
-     "seconds": 0.81
+     "seconds": 0.54
     },
     "browser_pages": 0,
     "duplicates_merged": 0,
@@ -10993,12 +11158,12 @@
     "pages": 3
    },
    "incremental": {
-    "pages": 1,
-    "unchanged": 1,
-    "records": 8,
+    "pages": 3,
+    "unchanged": 3,
+    "records": 20,
     "llm_calls": 0
    },
-   "seconds": 1.5
+   "seconds": 1.3
   },
   {
    "site": "homes-04",
@@ -11056,7 +11221,7 @@
     "errors": [],
     "pages": 2,
     "records": 16,
-    "seconds": 0.28,
+    "seconds": 0.24,
     "strategies": [
      "learned"
     ],
@@ -11069,7 +11234,7 @@
      },
      "input_tokens": 0,
      "output_tokens": 0,
-     "seconds": 0.11
+     "seconds": 0.08
     },
     "browser_pages": 0,
     "duplicates_merged": 2,
@@ -11103,7 +11268,7 @@
      }
     ],
     "error": null,
-    "extract_ms_p50": 136.7
+    "extract_ms_p50": 116.2
    },
    "traps_result": {
     "duplicate_copies": 1,
@@ -11120,7 +11285,7 @@
       "requests": 3,
       "subresources": 0,
       "robots_fetches": 1,
-      "min_gap_s": 0.006,
+      "min_gap_s": 0.001,
       "configured_interval_s": 0.0,
       "max_requests_per_s_10s": 0.3
      }
@@ -11130,7 +11295,7 @@
    "learned": true,
    "extractors": [
     {
-     "id": "ext-0f9490",
+     "id": "ext-deb411",
      "kind": "list",
      "accepted": true,
      "attempts": 1,
@@ -11222,9 +11387,9 @@
      "181 Mill Street"
     ],
     "errors": [],
-    "pages": 7,
+    "pages": 11,
     "records": 0,
-    "seconds": 0.08,
+    "seconds": 0.18,
     "strategies": [
      "learned"
     ],
@@ -11280,8 +11445,24 @@
       "message": "porto-casa-imoveis.example: layout change detected (no records; structural similarity 0.05)"
      },
      {
+      "kind": "layout_changed",
+      "message": "porto-casa-imoveis.example: layout change detected (no records; structural similarity 0.05)"
+     },
+     {
+      "kind": "layout_changed",
+      "message": "porto-casa-imoveis.example: layout change detected (no records; structural similarity 0.05)"
+     },
+     {
+      "kind": "layout_changed",
+      "message": "porto-casa-imoveis.example: layout change detected (no records; structural similarity 0.05)"
+     },
+     {
+      "kind": "layout_changed",
+      "message": "porto-casa-imoveis.example: layout change detected (no records; structural similarity 0.05)"
+     },
+     {
       "kind": "job_finished",
-      "message": "0 records from 7 pages, 0 model call(s)"
+      "message": "0 records from 11 pages, 0 model call(s)"
      }
     ],
     "error": null,
@@ -11317,7 +11498,7 @@
     "errors": [],
     "pages": 2,
     "records": 0,
-    "seconds": 0.66,
+    "seconds": 0.46,
     "strategies": [
      "direct"
     ],
@@ -11331,7 +11512,7 @@
      },
      "input_tokens": 0,
      "output_tokens": 0,
-     "seconds": 0.47
+     "seconds": 0.31
     },
     "browser_pages": 0,
     "duplicates_merged": 0,
@@ -11379,12 +11560,12 @@
     "pages": 2
    },
    "incremental": {
-    "pages": 1,
-    "unchanged": 1,
-    "records": 9,
+    "pages": 2,
+    "unchanged": 2,
+    "records": 16,
     "llm_calls": 0
    },
-   "seconds": 1.2
+   "seconds": 1.0
   },
   {
    "site": "homes-05",
@@ -11592,7 +11773,7 @@
     ],
     "pages": 3,
     "records": 18,
-    "seconds": 0.4,
+    "seconds": 0.35,
     "strategies": [
      "learned"
     ],
@@ -11605,7 +11786,7 @@
      },
      "input_tokens": 0,
      "output_tokens": 0,
-     "seconds": 0.22
+     "seconds": 0.12
     },
     "browser_pages": 0,
     "duplicates_merged": 0,
@@ -11635,7 +11816,7 @@
      }
     ],
     "error": null,
-    "extract_ms_p50": 26.8
+    "extract_ms_p50": 52.6
    },
    "traps_result": {},
    "politeness": {
@@ -11644,7 +11825,7 @@
       "requests": 4,
       "subresources": 0,
       "robots_fetches": 1,
-      "min_gap_s": 0.001,
+      "min_gap_s": 0.003,
       "configured_interval_s": 0.0,
       "max_requests_per_s_10s": 0.4
      }
@@ -11654,7 +11835,7 @@
    "learned": true,
    "extractors": [
     {
-     "id": "ext-c86b7f",
+     "id": "ext-9949d6",
      "kind": "list",
      "accepted": true,
      "attempts": 1,
@@ -11746,9 +11927,9 @@
      "214 Orchard Way"
     ],
     "errors": [],
-    "pages": 8,
+    "pages": 15,
     "records": 0,
-    "seconds": 0.14,
+    "seconds": 0.25,
     "strategies": [
      "learned"
     ],
@@ -11808,8 +11989,36 @@
       "message": "cascade-homes.example: layout change detected (no records; structural similarity 0.06)"
      },
      {
+      "kind": "layout_changed",
+      "message": "cascade-homes.example: layout change detected (no records; structural similarity 0.06)"
+     },
+     {
+      "kind": "layout_changed",
+      "message": "cascade-homes.example: layout change detected (no records; structural similarity 0.06)"
+     },
+     {
+      "kind": "layout_changed",
+      "message": "cascade-homes.example: layout change detected (no records; structural similarity 0.06)"
+     },
+     {
+      "kind": "layout_changed",
+      "message": "cascade-homes.example: layout change detected (no records; structural similarity 0.06)"
+     },
+     {
+      "kind": "layout_changed",
+      "message": "cascade-homes.example: layout change detected (no records; structural similarity 0.06)"
+     },
+     {
+      "kind": "layout_changed",
+      "message": "cascade-homes.example: layout change detected (no records; structural similarity 0.06)"
+     },
+     {
+      "kind": "layout_changed",
+      "message": "cascade-homes.example: layout change detected (no records; structural similarity 0.06)"
+     },
+     {
       "kind": "job_finished",
-      "message": "0 records from 8 pages, 0 model call(s)"
+      "message": "0 records from 15 pages, 0 model call(s)"
      }
     ],
     "error": null,
@@ -11845,7 +12054,7 @@
     "errors": [],
     "pages": 3,
     "records": 0,
-    "seconds": 0.65,
+    "seconds": 0.59,
     "strategies": [
      "direct"
     ],
@@ -11859,7 +12068,7 @@
      },
      "input_tokens": 0,
      "output_tokens": 0,
-     "seconds": 0.43
+     "seconds": 0.45
     },
     "browser_pages": 0,
     "duplicates_merged": 0,
@@ -11907,9 +12116,9 @@
     "pages": 3
    },
    "incremental": {
-    "pages": 1,
-    "unchanged": 1,
-    "records": 8,
+    "pages": 3,
+    "unchanged": 3,
+    "records": 18,
     "llm_calls": 0
    },
    "seconds": 1.3
@@ -11983,7 +12192,7 @@
      },
      "input_tokens": 0,
      "output_tokens": 0,
-     "seconds": 0.1
+     "seconds": 0.15
     },
     "browser_pages": 0,
     "duplicates_merged": 0,
@@ -12013,7 +12222,7 @@
      }
     ],
     "error": null,
-    "extract_ms_p50": 137.1
+    "extract_ms_p50": 136.1
    },
    "traps_result": {
     "hidden_leaked": 0,
@@ -12040,7 +12249,7 @@
    "learned": true,
    "extractors": [
     {
-     "id": "ext-0e2ea9",
+     "id": "ext-cea48c",
      "kind": "list",
      "accepted": true,
      "attempts": 1,
@@ -12132,7 +12341,7 @@
      "132 Foundry Street"
     ],
     "errors": [],
-    "pages": 7,
+    "pages": 12,
     "records": 0,
     "seconds": 0.09,
     "strategies": [
@@ -12190,8 +12399,28 @@
       "message": "lantern-estates.example: layout change detected (no records; structural similarity 0.05)"
      },
      {
+      "kind": "layout_changed",
+      "message": "lantern-estates.example: layout change detected (no records; structural similarity 0.05)"
+     },
+     {
+      "kind": "layout_changed",
+      "message": "lantern-estates.example: layout change detected (no records; structural similarity 0.05)"
+     },
+     {
+      "kind": "layout_changed",
+      "message": "lantern-estates.example: layout change detected (no records; structural similarity 0.05)"
+     },
+     {
+      "kind": "layout_changed",
+      "message": "lantern-estates.example: layout change detected (no records; structural similarity 0.05)"
+     },
+     {
+      "kind": "layout_changed",
+      "message": "lantern-estates.example: layout change detected (no records; structural similarity 0.05)"
+     },
+     {
       "kind": "job_finished",
-      "message": "0 records from 7 pages, 0 model call(s)"
+      "message": "0 records from 12 pages, 0 model call(s)"
      }
     ],
     "error": null,
@@ -12227,7 +12456,7 @@
     "errors": [],
     "pages": 2,
     "records": 0,
-    "seconds": 0.52,
+    "seconds": 0.61,
     "strategies": [
      "direct"
     ],
@@ -12241,7 +12470,7 @@
      },
      "input_tokens": 0,
      "output_tokens": 0,
-     "seconds": 0.33
+     "seconds": 0.47
     },
     "browser_pages": 0,
     "duplicates_merged": 0,
@@ -12289,9 +12518,9 @@
     "pages": 2
    },
    "incremental": {
-    "pages": 1,
-    "unchanged": 1,
-    "records": 8,
+    "pages": 2,
+    "unchanged": 2,
+    "records": 14,
     "llm_calls": 0
    },
    "seconds": 1.1
@@ -12434,7 +12663,7 @@
     ],
     "pages": 2,
     "records": 15,
-    "seconds": 0.23,
+    "seconds": 0.17,
     "strategies": [
      "learned"
     ],
@@ -12477,7 +12706,7 @@
      }
     ],
     "error": null,
-    "extract_ms_p50": 113.0
+    "extract_ms_p50": 79.2
    },
    "traps_result": {
     "relative_dates": {
@@ -12491,7 +12720,7 @@
       "requests": 3,
       "subresources": 0,
       "robots_fetches": 1,
-      "min_gap_s": 0.006,
+      "min_gap_s": 0.007,
       "configured_interval_s": 0.0,
       "max_requests_per_s_10s": 0.3
      }
@@ -12501,7 +12730,7 @@
    "learned": true,
    "extractors": [
     {
-     "id": "ext-cb7281",
+     "id": "ext-8df83c",
      "kind": "list",
      "accepted": true,
      "attempts": 1,
@@ -12581,9 +12810,9 @@
      "Autumn Indie Showcase"
     ],
     "errors": [],
-    "pages": 7,
+    "pages": 12,
     "records": 0,
-    "seconds": 0.09,
+    "seconds": 0.11,
     "strategies": [
      "learned"
     ],
@@ -12639,8 +12868,28 @@
       "message": "whats-on-norbridge.example: layout change detected (no records; structural similarity 0.06)"
      },
      {
+      "kind": "layout_changed",
+      "message": "whats-on-norbridge.example: layout change detected (no records; structural similarity 0.06)"
+     },
+     {
+      "kind": "layout_changed",
+      "message": "whats-on-norbridge.example: layout change detected (no records; structural similarity 0.06)"
+     },
+     {
+      "kind": "layout_changed",
+      "message": "whats-on-norbridge.example: layout change detected (no records; structural similarity 0.06)"
+     },
+     {
+      "kind": "layout_changed",
+      "message": "whats-on-norbridge.example: layout change detected (no records; structural similarity 0.06)"
+     },
+     {
+      "kind": "layout_changed",
+      "message": "whats-on-norbridge.example: layout change detected (no records; structural similarity 0.06)"
+     },
+     {
       "kind": "job_finished",
-      "message": "0 records from 7 pages, 0 model call(s)"
+      "message": "0 records from 12 pages, 0 model call(s)"
      }
     ],
     "error": null,
@@ -12687,7 +12936,7 @@
     "errors": [],
     "pages": 2,
     "records": 10,
-    "seconds": 0.28,
+    "seconds": 0.26,
     "strategies": [
      "direct"
     ],
@@ -12749,12 +12998,12 @@
     "pages": 2
    },
    "incremental": {
-    "pages": 1,
-    "unchanged": 1,
-    "records": 10,
+    "pages": 2,
+    "unchanged": 2,
+    "records": 15,
     "llm_calls": 0
    },
-   "seconds": 0.7
+   "seconds": 0.6
   },
   {
    "site": "events-02",
@@ -12999,7 +13248,7 @@
     ],
     "pages": 2,
     "records": 14,
-    "seconds": 0.19,
+    "seconds": 0.15,
     "strategies": [
      "learned"
     ],
@@ -13012,7 +13261,7 @@
      },
      "input_tokens": 0,
      "output_tokens": 0,
-     "seconds": 0.1
+     "seconds": 0.05
     },
     "browser_pages": 0,
     "duplicates_merged": 0,
@@ -13042,7 +13291,7 @@
      }
     ],
     "error": null,
-    "extract_ms_p50": 89.0
+    "extract_ms_p50": 71.1
    },
    "traps_result": {
     "currency_conversion": {
@@ -13061,7 +13310,7 @@
       "requests": 3,
       "subresources": 0,
       "robots_fetches": 1,
-      "min_gap_s": 0.008,
+      "min_gap_s": 0.006,
       "configured_interval_s": 0.0,
       "max_requests_per_s_10s": 0.3
      }
@@ -13071,7 +13320,7 @@
    "learned": true,
    "extractors": [
     {
-     "id": "ext-46ec12",
+     "id": "ext-9dbfd7",
      "kind": "list",
      "accepted": true,
      "attempts": 1,
@@ -13151,9 +13400,9 @@
      "Late Food Truck Rally"
     ],
     "errors": [],
-    "pages": 7,
+    "pages": 11,
     "records": 0,
-    "seconds": 0.1,
+    "seconds": 0.08,
     "strategies": [
      "learned"
     ],
@@ -13209,8 +13458,24 @@
       "message": "kulturkalender-lindau.example: layout change detected (no records; structural similarity 0.06)"
      },
      {
+      "kind": "layout_changed",
+      "message": "kulturkalender-lindau.example: layout change detected (no records; structural similarity 0.06)"
+     },
+     {
+      "kind": "layout_changed",
+      "message": "kulturkalender-lindau.example: layout change detected (no records; structural similarity 0.06)"
+     },
+     {
+      "kind": "layout_changed",
+      "message": "kulturkalender-lindau.example: layout change detected (no records; structural similarity 0.06)"
+     },
+     {
+      "kind": "layout_changed",
+      "message": "kulturkalender-lindau.example: layout change detected (no records; structural similarity 0.06)"
+     },
+     {
       "kind": "job_finished",
-      "message": "0 records from 7 pages, 0 model call(s)"
+      "message": "0 records from 11 pages, 0 model call(s)"
      }
     ],
     "error": null,
@@ -13408,7 +13673,7 @@
     ],
     "pages": 2,
     "records": 14,
-    "seconds": 0.25,
+    "seconds": 0.31,
     "strategies": [
      "direct"
     ],
@@ -13422,7 +13687,7 @@
      },
      "input_tokens": 0,
      "output_tokens": 0,
-     "seconds": 0.14
+     "seconds": 0.21
     },
     "browser_pages": 0,
     "duplicates_merged": 0,
@@ -13466,9 +13731,9 @@
     "pages": 2
    },
    "incremental": {
-    "pages": 1,
-    "unchanged": 1,
-    "records": 10,
+    "pages": 2,
+    "unchanged": 2,
+    "records": 14,
     "llm_calls": 0
    },
    "seconds": 0.6
@@ -13528,7 +13793,7 @@
     ],
     "pages": 2,
     "records": 20,
-    "seconds": 0.16,
+    "seconds": 0.12,
     "strategies": [
      "learned"
     ],
@@ -13541,7 +13806,7 @@
      },
      "input_tokens": 0,
      "output_tokens": 0,
-     "seconds": 0.04
+     "seconds": 0.03
     },
     "browser_pages": 0,
     "duplicates_merged": 0,
@@ -13575,7 +13840,7 @@
      }
     ],
     "error": null,
-    "extract_ms_p50": 78.6
+    "extract_ms_p50": 59.6
    },
    "traps_result": {
     "pii_planted": 2,
@@ -13596,7 +13861,7 @@
       "requests": 3,
       "subresources": 0,
       "robots_fetches": 1,
-      "min_gap_s": 0.004,
+      "min_gap_s": 0.002,
       "configured_interval_s": 0.0,
       "max_requests_per_s_10s": 0.3
      }
@@ -13606,7 +13871,7 @@
    "learned": true,
    "extractors": [
     {
-     "id": "ext-027b5a",
+     "id": "ext-5d8e84",
      "kind": "list",
      "accepted": true,
      "attempts": 1,
@@ -13680,9 +13945,9 @@
      "Harvest Indie Showcase"
     ],
     "errors": [],
-    "pages": 7,
+    "pages": 12,
     "records": 0,
-    "seconds": 0.12,
+    "seconds": 0.2,
     "strategies": [
      "learned"
     ],
@@ -13738,8 +14003,28 @@
       "message": "glasgow-after-dark.example: layout change detected (no records; structural similarity 0.06)"
      },
      {
+      "kind": "layout_changed",
+      "message": "glasgow-after-dark.example: layout change detected (no records; structural similarity 0.06)"
+     },
+     {
+      "kind": "layout_changed",
+      "message": "glasgow-after-dark.example: layout change detected (no records; structural similarity 0.06)"
+     },
+     {
+      "kind": "layout_changed",
+      "message": "glasgow-after-dark.example: layout change detected (no records; structural similarity 0.06)"
+     },
+     {
+      "kind": "layout_changed",
+      "message": "glasgow-after-dark.example: layout change detected (no records; structural similarity 0.06)"
+     },
+     {
+      "kind": "layout_changed",
+      "message": "glasgow-after-dark.example: layout change detected (no records; structural similarity 0.06)"
+     },
+     {
       "kind": "job_finished",
-      "message": "0 records from 7 pages, 0 model call(s)"
+      "message": "0 records from 12 pages, 0 model call(s)"
      }
     ],
     "error": null,
@@ -13809,7 +14094,7 @@
      },
      "input_tokens": 0,
      "output_tokens": 0,
-     "seconds": 0.04
+     "seconds": 0.06
     },
     "browser_pages": 0,
     "duplicates_merged": 0,
@@ -13908,12 +14193,12 @@
     "pages": 2
    },
    "incremental": {
-    "pages": 1,
-    "unchanged": 1,
-    "records": 10,
+    "pages": 2,
+    "unchanged": 2,
+    "records": 20,
     "llm_calls": 0
    },
-   "seconds": 0.7
+   "seconds": 0.6
   },
   {
    "site": "events-04",
@@ -13962,7 +14247,7 @@
     "errors": [],
     "pages": 2,
     "records": 19,
-    "seconds": 0.2,
+    "seconds": 0.15,
     "strategies": [
      "learned"
     ],
@@ -13975,7 +14260,7 @@
      },
      "input_tokens": 0,
      "output_tokens": 0,
-     "seconds": 0.04
+     "seconds": 0.03
     },
     "browser_pages": 0,
     "duplicates_merged": 0,
@@ -14005,7 +14290,7 @@
      }
     ],
     "error": null,
-    "extract_ms_p50": 96.4
+    "extract_ms_p50": 72.7
    },
    "traps_result": {
     "currency_conversion": {
@@ -14024,7 +14309,7 @@
       "requests": 3,
       "subresources": 0,
       "robots_fetches": 1,
-      "min_gap_s": 0.008,
+      "min_gap_s": 0.004,
       "configured_interval_s": 0.0,
       "max_requests_per_s_10s": 0.3
      }
@@ -14034,7 +14319,7 @@
    "learned": true,
    "extractors": [
     {
-     "id": "ext-c655da",
+     "id": "ext-04cb1e",
      "kind": "list",
      "accepted": true,
      "attempts": 1,
@@ -14114,9 +14399,9 @@
      "Northern Jazz Night"
     ],
     "errors": [],
-    "pages": 7,
+    "pages": 12,
     "records": 0,
-    "seconds": 0.09,
+    "seconds": 0.25,
     "strategies": [
      "learned"
     ],
@@ -14172,8 +14457,28 @@
       "message": "harbourfront-happenings.example: layout change detected (no records; structural similarity 0.06)"
      },
      {
+      "kind": "layout_changed",
+      "message": "harbourfront-happenings.example: layout change detected (no records; structural similarity 0.06)"
+     },
+     {
+      "kind": "layout_changed",
+      "message": "harbourfront-happenings.example: layout change detected (no records; structural similarity 0.06)"
+     },
+     {
+      "kind": "layout_changed",
+      "message": "harbourfront-happenings.example: layout change detected (no records; structural similarity 0.06)"
+     },
+     {
+      "kind": "layout_changed",
+      "message": "harbourfront-happenings.example: layout change detected (no records; structural similarity 0.06)"
+     },
+     {
+      "kind": "layout_changed",
+      "message": "harbourfront-happenings.example: layout change detected (no records; structural similarity 0.06)"
+     },
+     {
       "kind": "job_finished",
-      "message": "0 records from 7 pages, 0 model call(s)"
+      "message": "0 records from 12 pages, 0 model call(s)"
      }
     ],
     "error": null,
@@ -14420,7 +14725,7 @@
     ],
     "pages": 2,
     "records": 19,
-    "seconds": 0.67,
+    "seconds": 0.65,
     "strategies": [
      "direct"
     ],
@@ -14434,7 +14739,7 @@
      },
      "input_tokens": 0,
      "output_tokens": 0,
-     "seconds": 0.41
+     "seconds": 0.42
     },
     "browser_pages": 0,
     "duplicates_merged": 0,
@@ -14478,12 +14783,12 @@
     "pages": 2
    },
    "incremental": {
-    "pages": 1,
-    "unchanged": 1,
-    "records": 10,
+    "pages": 2,
+    "unchanged": 2,
+    "records": 19,
     "llm_calls": 0
    },
-   "seconds": 1.1
+   "seconds": 1.3
   },
   {
    "site": "events-05",
@@ -14686,7 +14991,7 @@
     ],
     "pages": 2,
     "records": 18,
-    "seconds": 0.33,
+    "seconds": 0.32,
     "strategies": [
      "learned"
     ],
@@ -14699,7 +15004,7 @@
      },
      "input_tokens": 0,
      "output_tokens": 0,
-     "seconds": 0.07
+     "seconds": 0.08
     },
     "browser_pages": 0,
     "duplicates_merged": 0,
@@ -14733,7 +15038,7 @@
      }
     ],
     "error": null,
-    "extract_ms_p50": 164.3
+    "extract_ms_p50": 155.1
    },
    "traps_result": {
     "relative_dates": {
@@ -14747,7 +15052,7 @@
       "requests": 3,
       "subresources": 0,
       "robots_fetches": 1,
-      "min_gap_s": 0.001,
+      "min_gap_s": 0.004,
       "configured_interval_s": 0.0,
       "max_requests_per_s_10s": 0.3
      }
@@ -14757,7 +15062,7 @@
    "learned": true,
    "extractors": [
     {
-     "id": "ext-7f2cc9",
+     "id": "ext-773c83",
      "kind": "list",
      "accepted": true,
      "attempts": 1,
@@ -14837,9 +15142,9 @@
      "Midweek Photography Walk"
     ],
     "errors": [],
-    "pages": 7,
+    "pages": 12,
     "records": 0,
-    "seconds": 0.11,
+    "seconds": 0.18,
     "strategies": [
      "learned"
     ],
@@ -14895,8 +15200,28 @@
       "message": "riverside-arts-calendar.example: layout change detected (no records; structural similarity 0.06)"
      },
      {
+      "kind": "layout_changed",
+      "message": "riverside-arts-calendar.example: layout change detected (no records; structural similarity 0.06)"
+     },
+     {
+      "kind": "layout_changed",
+      "message": "riverside-arts-calendar.example: layout change detected (no records; structural similarity 0.06)"
+     },
+     {
+      "kind": "layout_changed",
+      "message": "riverside-arts-calendar.example: layout change detected (no records; structural similarity 0.06)"
+     },
+     {
+      "kind": "layout_changed",
+      "message": "riverside-arts-calendar.example: layout change detected (no records; structural similarity 0.06)"
+     },
+     {
+      "kind": "layout_changed",
+      "message": "riverside-arts-calendar.example: layout change detected (no records; structural similarity 0.06)"
+     },
+     {
       "kind": "job_finished",
-      "message": "0 records from 7 pages, 0 model call(s)"
+      "message": "0 records from 12 pages, 0 model call(s)"
      }
     ],
     "error": null,
@@ -14942,7 +15267,7 @@
     "errors": [],
     "pages": 2,
     "records": 9,
-    "seconds": 0.47,
+    "seconds": 0.33,
     "strategies": [
      "direct"
     ],
@@ -14956,7 +15281,7 @@
      },
      "input_tokens": 0,
      "output_tokens": 0,
-     "seconds": 0.24
+     "seconds": 0.13
     },
     "browser_pages": 0,
     "duplicates_merged": 11,
@@ -15004,12 +15329,12 @@
     "pages": 2
    },
    "incremental": {
-    "pages": 1,
-    "unchanged": 1,
-    "records": 10,
+    "pages": 2,
+    "unchanged": 2,
+    "records": 18,
     "llm_calls": 0
    },
-   "seconds": 1.1
+   "seconds": 1.0
   },
   {
    "site": "menu-01",
@@ -15059,7 +15384,7 @@
      },
      "input_tokens": 0,
      "output_tokens": 0,
-     "seconds": 0.03
+     "seconds": 0.02
     },
     "browser_pages": 0,
     "duplicates_merged": 1,
@@ -15089,7 +15414,7 @@
      }
     ],
     "error": null,
-    "extract_ms_p50": 45.6
+    "extract_ms_p50": 37.9
    },
    "traps_result": {},
    "politeness": {
@@ -15098,7 +15423,7 @@
       "requests": 2,
       "subresources": 0,
       "robots_fetches": 1,
-      "min_gap_s": 0.002,
+      "min_gap_s": 0.007,
       "configured_interval_s": 0.0,
       "max_requests_per_s_10s": 0.2
      }
@@ -15107,7 +15432,7 @@
    },
    "learned": false,
    "extractors": [],
-   "seconds": 0.1
+   "seconds": 0.0
   },
   {
    "site": "menu-02",
@@ -15184,7 +15509,7 @@
      }
     ],
     "error": null,
-    "extract_ms_p50": 22.2
+    "extract_ms_p50": 30.5
    },
    "traps_result": {
     "currency_conversion": {
@@ -15199,7 +15524,7 @@
       "requests": 2,
       "subresources": 0,
       "robots_fetches": 1,
-      "min_gap_s": 0.002,
+      "min_gap_s": 0.001,
       "configured_interval_s": 0.0,
       "max_requests_per_s_10s": 0.2
      }
@@ -15248,7 +15573,7 @@
     "errors": [],
     "pages": 2,
     "records": 15,
-    "seconds": 0.39,
+    "seconds": 0.32,
     "strategies": [
      "direct"
     ],
@@ -15283,7 +15608,7 @@
      }
     ],
     "error": null,
-    "extract_ms_p50": 192.2
+    "extract_ms_p50": 156.9
    },
    "traps_result": {
     "currency_conversion": {
@@ -15298,7 +15623,7 @@
       "requests": 3,
       "subresources": 0,
       "robots_fetches": 1,
-      "min_gap_s": 0.007,
+      "min_gap_s": 0.004,
       "configured_interval_s": 0.0,
       "max_requests_per_s_10s": 0.3
      }
@@ -15307,7 +15632,7 @@
    },
    "learned": false,
    "extractors": [],
-   "seconds": 0.4
+   "seconds": 0.3
   },
   {
    "site": "menu-04",
@@ -15344,7 +15669,7 @@
     "errors": [],
     "pages": 1,
     "records": 2,
-    "seconds": 0.07,
+    "seconds": 0.11,
     "strategies": [
      "direct"
     ],
@@ -15357,7 +15682,7 @@
      },
      "input_tokens": 0,
      "output_tokens": 0,
-     "seconds": 0.03
+     "seconds": 0.01
     },
     "browser_pages": 0,
     "duplicates_merged": 1,
@@ -15387,7 +15712,7 @@
      }
     ],
     "error": null,
-    "extract_ms_p50": 49.3
+    "extract_ms_p50": 102.6
    },
    "traps_result": {},
    "politeness": {
@@ -15396,7 +15721,7 @@
       "requests": 2,
       "subresources": 0,
       "robots_fetches": 1,
-      "min_gap_s": 0.017,
+      "min_gap_s": 0.009,
       "configured_interval_s": 0.0,
       "max_requests_per_s_10s": 0.2
      }
@@ -15445,7 +15770,7 @@
     "errors": [],
     "pages": 2,
     "records": 20,
-    "seconds": 0.1,
+    "seconds": 0.14,
     "strategies": [
      "direct"
     ],
@@ -15480,7 +15805,7 @@
      }
     ],
     "error": null,
-    "extract_ms_p50": 42.6
+    "extract_ms_p50": 60.8
    },
    "traps_result": {
     "currency_conversion": {
@@ -15534,7 +15859,7 @@
     "errors": [],
     "pages": 1,
     "records": 1,
-    "seconds": 0.03,
+    "seconds": 0.02,
     "strategies": [
      "direct"
     ],
@@ -15573,7 +15898,7 @@
      }
     ],
     "error": null,
-    "extract_ms_p50": 23.2
+    "extract_ms_p50": 13.2
    },
    "traps_result": {},
    "politeness": {
@@ -15582,7 +15907,7 @@
       "requests": 2,
       "subresources": 0,
       "robots_fetches": 1,
-      "min_gap_s": 0.011,
+      "min_gap_s": 0.002,
       "configured_interval_s": 0.0,
       "max_requests_per_s_10s": 0.2
      }
@@ -15621,7 +15946,7 @@
     "errors": [],
     "pages": 1,
     "records": 1,
-    "seconds": 0.06,
+    "seconds": 0.02,
     "strategies": [
      "direct"
     ],
@@ -15634,7 +15959,7 @@
      },
      "input_tokens": 0,
      "output_tokens": 0,
-     "seconds": 0.02
+     "seconds": 0.01
     },
     "browser_pages": 0,
     "duplicates_merged": 2,
@@ -15660,7 +15985,7 @@
      }
     ],
     "error": null,
-    "extract_ms_p50": 52.0
+    "extract_ms_p50": 21.8
    },
    "traps_result": {
     "currency_conversion": {
@@ -15675,7 +16000,7 @@
       "requests": 2,
       "subresources": 0,
       "robots_fetches": 1,
-      "min_gap_s": 0.002,
+      "min_gap_s": 0.001,
       "configured_interval_s": 0.0,
       "max_requests_per_s_10s": 0.2
      }
@@ -15684,7 +16009,7 @@
    },
    "learned": false,
    "extractors": [],
-   "seconds": 0.1
+   "seconds": 0.0
   },
   {
    "site": "saas-03",
@@ -15754,7 +16079,7 @@
      }
     ],
     "error": null,
-    "extract_ms_p50": 35.3
+    "extract_ms_p50": 30.1
    },
    "traps_result": {},
    "politeness": {
@@ -15763,7 +16088,7 @@
       "requests": 2,
       "subresources": 0,
       "robots_fetches": 1,
-      "min_gap_s": 0.002,
+      "min_gap_s": 0.005,
       "configured_interval_s": 0.0,
       "max_requests_per_s_10s": 0.2
      }
@@ -15802,7 +16127,7 @@
     "errors": [],
     "pages": 1,
     "records": 1,
-    "seconds": 0.03,
+    "seconds": 0.02,
     "strategies": [
      "direct"
     ],
@@ -15815,7 +16140,7 @@
      },
      "input_tokens": 0,
      "output_tokens": 0,
-     "seconds": 0.01
+     "seconds": 0.0
     },
     "browser_pages": 0,
     "duplicates_merged": 2,
@@ -15841,7 +16166,7 @@
      }
     ],
     "error": null,
-    "extract_ms_p50": 20.8
+    "extract_ms_p50": 16.2
    },
    "traps_result": {
     "currency_conversion": {
@@ -15856,7 +16181,7 @@
       "requests": 2,
       "subresources": 0,
       "robots_fetches": 1,
-      "min_gap_s": 0.003,
+      "min_gap_s": 0.002,
       "configured_interval_s": 0.0,
       "max_requests_per_s_10s": 0.2
      }
@@ -15895,7 +16220,7 @@
     "errors": [],
     "pages": 1,
     "records": 1,
-    "seconds": 0.04,
+    "seconds": 0.03,
     "strategies": [
      "direct"
     ],
@@ -15908,7 +16233,7 @@
      },
      "input_tokens": 0,
      "output_tokens": 0,
-     "seconds": 0.02
+     "seconds": 0.01
     },
     "browser_pages": 0,
     "duplicates_merged": 2,
@@ -15934,7 +16259,7 @@
      }
     ],
     "error": null,
-    "extract_ms_p50": 34.8
+    "extract_ms_p50": 23.4
    },
    "traps_result": {},
    "politeness": {
@@ -15943,7 +16268,7 @@
       "requests": 2,
       "subresources": 0,
       "robots_fetches": 1,
-      "min_gap_s": 0.002,
+      "min_gap_s": 0.004,
       "configured_interval_s": 0.0,
       "max_requests_per_s_10s": 0.2
      }
@@ -15966,11 +16291,11 @@
    "v1": {
     "site": "registry-01",
     "truth": 52,
-    "extracted": 53,
+    "extracted": 52,
     "matched": 52,
-    "precision": 0.9811,
+    "precision": 1.0,
     "recall": 1.0,
-    "field_accuracy": 0.5,
+    "field_accuracy": 1.0,
     "fields": {
      "facility": {
       "correct": 52,
@@ -15985,177 +16310,24 @@
       "total": 52
      },
      "capacity": {
-      "correct": 0,
+      "correct": 52,
       "total": 52
      },
      "opened": {
-      "correct": 0,
+      "correct": 52,
       "total": 52
      },
      "phone": {
-      "correct": 0,
+      "correct": 52,
       "total": 52
      }
     },
-    "unmatched_extracted": [
-     "Total capacity (all facilities)"
-    ],
+    "unmatched_extracted": [],
     "missed": [],
-    "errors": [
-     {
-      "key": "Sandown Community Centre",
-      "field": "capacity",
-      "got": null,
-      "want": 390
-     },
-     {
-      "key": "Sandown Community Centre",
-      "field": "opened",
-      "got": null,
-      "want": "1991-09-13"
-     },
-     {
-      "key": "Sandown Community Centre",
-      "field": "phone",
-      "got": "+39013091991441632967819",
-      "want": "+441632967819"
-     },
-     {
-      "key": "Redhill Swimming Pool",
-      "field": "capacity",
-      "got": null,
-      "want": 470
-     },
-     {
-      "key": "Redhill Swimming Pool",
-      "field": "opened",
-      "got": null,
-      "want": "2002-11-27"
-     },
-     {
-      "key": "Redhill Swimming Pool",
-      "field": "phone",
-      "got": "+47027112002441632965709",
-      "want": "+441632965709"
-     },
-     {
-      "key": "Stonebridge Swimming Pool",
-      "field": "capacity",
-      "got": null,
-      "want": 280
-     },
-     {
-      "key": "Stonebridge Swimming Pool",
-      "field": "opened",
-      "got": null,
-      "want": "2018-06-03"
-     },
-     {
-      "key": "Stonebridge Swimming Pool",
-      "field": "phone",
-      "got": "+28003062018441632963764",
-      "want": "+441632963764"
-     },
-     {
-      "key": "Kingsmead Park",
-      "field": "capacity",
-      "got": null,
-      "want": 1920
-     },
-     {
-      "key": "Kingsmead Park",
-      "field": "opened",
-      "got": null,
-      "want": "1984-08-23"
-     },
-     {
-      "key": "Kingsmead Park",
-      "field": "phone",
-      "got": "+192023081984441632966200",
-      "want": "+441632966200"
-     },
-     {
-      "key": "Stonebridge Community Centre",
-      "field": "capacity",
-      "got": null,
-      "want": 300
-     },
-     {
-      "key": "Stonebridge Community Centre",
-      "field": "opened",
-      "got": null,
-      "want": "1990-08-22"
-     },
-     {
-      "key": "Stonebridge Community Centre",
-      "field": "phone",
-      "got": "+30022081990441632966729",
-      "want": "+441632966729"
-     },
-     {
-      "key": "Westcliff Sports Hall",
-      "field": "capacity",
-      "got": null,
-      "want": 590
-     },
-     {
-      "key": "Westcliff Sports Hall",
-      "field": "opened",
-      "got": null,
-      "want": "1990-10-08"
-     },
-     {
-      "key": "Westcliff Sports Hall",
-      "field": "phone",
-      "got": "+59008101990441632966497",
-      "want": "+441632966497"
-     },
-     {
-      "key": "Larchmont Swimming Pool",
-      "field": "capacity",
-      "got": null,
-      "want": 330
-     },
-     {
-      "key": "Larchmont Swimming Pool",
-      "field": "opened",
-      "got": null,
-      "want": "1984-02-16"
-     },
-     {
-      "key": "Larchmont Swimming Pool",
-      "field": "phone",
-      "got": "+33016021984441632968241",
-      "want": "+441632968241"
-     },
-     {
-      "key": "Elmstead Library",
-      "field": "capacity",
-      "got": null,
-      "want": 210
-     },
-     {
-      "key": "Elmstead Library",
-      "field": "opened",
-      "got": null,
-      "want": "1971-10-09"
-     },
-     {
-      "key": "Elmstead Library",
-      "field": "phone",
-      "got": "+21009101971441632961725",
-      "want": "+441632961725"
-     },
-     {
-      "key": "Highfield Sports Hall",
-      "field": "capacity",
-      "got": null,
-      "want": 440
-     }
-    ],
+    "errors": [],
     "pages": 3,
-    "records": 53,
-    "seconds": 0.18,
+    "records": 52,
+    "seconds": 0.23,
     "strategies": [
      "learned"
     ],
@@ -16168,11 +16340,11 @@
      },
      "input_tokens": 0,
      "output_tokens": 0,
-     "seconds": 0.01
+     "seconds": 0.02
     },
     "browser_pages": 0,
     "duplicates_merged": 0,
-    "sparse_dropped": 0,
+    "sparse_dropped": 1,
     "pii_removed": 0,
     "injection_findings": 0,
     "events": [
@@ -16193,12 +16365,16 @@
       "message": "norbridge-council.example: extractor learned in 1 attempt(s), 1 model call(s)"
      },
      {
+      "kind": "sparse_dropped",
+      "message": "1 row(s) that were not records dropped (totals, headers, empty items)"
+     },
+     {
       "kind": "job_finished",
-      "message": "53 records from 3 pages, 1 model call(s)"
+      "message": "52 records from 3 pages, 1 model call(s)"
      }
     ],
     "error": null,
-    "extract_ms_p50": 27.2
+    "extract_ms_p50": 39.7
    },
    "traps_result": {},
    "politeness": {
@@ -16207,7 +16383,7 @@
       "requests": 4,
       "subresources": 0,
       "robots_fetches": 1,
-      "min_gap_s": 0.004,
+      "min_gap_s": 0.006,
       "configured_interval_s": 0.0,
       "max_requests_per_s_10s": 0.4
      }
@@ -16217,7 +16393,7 @@
    "learned": true,
    "extractors": [
     {
-     "id": "ext-20026d",
+     "id": "ext-6bf6ad",
      "kind": "list",
      "accepted": true,
      "attempts": 1,
@@ -16244,8 +16420,20 @@
         "all": false,
         "negate": false
        },
+       "capacity": {
+        "css": "td:nth-of-type(4)",
+        "attr": "text",
+        "all": false,
+        "negate": false
+       },
+       "opened": {
+        "css": "td:nth-of-type(5)",
+        "attr": "text",
+        "all": false,
+        "negate": false
+       },
        "phone": {
-        "css": "",
+        "css": "td:nth-of-type(6)",
         "attr": "text",
         "all": false,
         "negate": false
@@ -16257,10 +16445,7 @@
        "all": false,
        "negate": false
       },
-      "missing": [
-       "capacity",
-       "opened"
-      ],
+      "missing": [],
       "notes": ""
      }
     }
@@ -16268,11 +16453,11 @@
    "v2_before": {
     "site": "registry-01",
     "truth": 52,
-    "extracted": 53,
+    "extracted": 52,
     "matched": 52,
-    "precision": 0.9811,
+    "precision": 1.0,
     "recall": 1.0,
-    "field_accuracy": 0.1667,
+    "field_accuracy": 0.3333,
     "fields": {
      "facility": {
       "correct": 52,
@@ -16291,7 +16476,7 @@
       "total": 52
      },
      "opened": {
-      "correct": 0,
+      "correct": 52,
       "total": 52
      },
      "phone": {
@@ -16299,9 +16484,7 @@
       "total": 52
      }
     },
-    "unmatched_extracted": [
-     "Total capacity (all facilities)"
-    ],
+    "unmatched_extracted": [],
     "missed": [],
     "errors": [
      {
@@ -16319,19 +16502,13 @@
      {
       "key": "Sandown Community Centre",
       "field": "capacity",
-      "got": null,
+      "got": 44163,
       "want": 390
      },
      {
       "key": "Sandown Community Centre",
-      "field": "opened",
-      "got": null,
-      "want": "1991-09-13"
-     },
-     {
-      "key": "Sandown Community Centre",
       "field": "phone",
-      "got": "+441632967819131991390",
+      "got": "390",
       "want": "+441632967819"
      },
      {
@@ -16349,19 +16526,13 @@
      {
       "key": "Redhill Swimming Pool",
       "field": "capacity",
-      "got": null,
+      "got": 44163,
       "want": 470
      },
      {
       "key": "Redhill Swimming Pool",
-      "field": "opened",
-      "got": null,
-      "want": "2002-11-27"
-     },
-     {
-      "key": "Redhill Swimming Pool",
       "field": "phone",
-      "got": "+441632965709272002470",
+      "got": "470",
       "want": "+441632965709"
      },
      {
@@ -16379,19 +16550,13 @@
      {
       "key": "Stonebridge Swimming Pool",
       "field": "capacity",
-      "got": null,
+      "got": 44163,
       "want": 280
      },
      {
       "key": "Stonebridge Swimming Pool",
-      "field": "opened",
-      "got": null,
-      "want": "2018-06-03"
-     },
-     {
-      "key": "Stonebridge Swimming Pool",
       "field": "phone",
-      "got": "+44163296376432018280",
+      "got": "280",
       "want": "+441632963764"
      },
      {
@@ -16409,19 +16574,13 @@
      {
       "key": "Kingsmead Park",
       "field": "capacity",
-      "got": null,
+      "got": 44163,
       "want": 1920
      },
      {
       "key": "Kingsmead Park",
-      "field": "opened",
-      "got": null,
-      "want": "1984-08-23"
-     },
-     {
-      "key": "Kingsmead Park",
       "field": "phone",
-      "got": "+4416329662002319841920",
+      "got": "1,920",
       "want": "+441632966200"
      },
      {
@@ -16439,24 +16598,48 @@
      {
       "key": "Stonebridge Community Centre",
       "field": "capacity",
-      "got": null,
+      "got": 44163,
       "want": 300
      },
      {
       "key": "Stonebridge Community Centre",
-      "field": "opened",
-      "got": null,
-      "want": "1990-08-22"
+      "field": "phone",
+      "got": "300",
+      "want": "+441632966729"
      },
      {
-      "key": "Stonebridge Community Centre",
+      "key": "Westcliff Sports Hall",
+      "field": "district",
+      "got": "Sports Hall",
+      "want": "West"
+     },
+     {
+      "key": "Westcliff Sports Hall",
+      "field": "facility_type",
+      "got": null,
+      "want": "sports_hall"
+     },
+     {
+      "key": "Westcliff Sports Hall",
+      "field": "capacity",
+      "got": 44163,
+      "want": 590
+     },
+     {
+      "key": "Westcliff Sports Hall",
       "field": "phone",
-      "got": "+441632966729221990300",
-      "want": "+441632966729"
+      "got": "590",
+      "want": "+441632966497"
+     },
+     {
+      "key": "Larchmont Swimming Pool",
+      "field": "district",
+      "got": "Swimming Pool",
+      "want": "Central"
      }
     ],
     "pages": 3,
-    "records": 53,
+    "records": 52,
     "seconds": 0.15,
     "strategies": [
      "learned"
@@ -16472,7 +16655,7 @@
     },
     "browser_pages": 0,
     "duplicates_merged": 0,
-    "sparse_dropped": 0,
+    "sparse_dropped": 1,
     "pii_removed": 0,
     "injection_findings": 0,
     "events": [
@@ -16494,11 +16677,15 @@
      },
      {
       "kind": "layout_changed",
-      "message": "norbridge-council.example: layout change detected (yield dropped to 3 from about 25 per page; facility_type empty in 100% of records (was 100% filled); structural similarity 0.29)"
+      "message": "norbridge-council.example: layout change detected (facility_type empty in 100% of records (was 100% filled); structural similarity 0.29)"
+     },
+     {
+      "kind": "sparse_dropped",
+      "message": "1 row(s) that were not records dropped (totals, headers, empty items)"
      },
      {
       "kind": "job_finished",
-      "message": "53 records from 3 pages, 0 model call(s)"
+      "message": "52 records from 3 pages, 0 model call(s)"
      }
     ],
     "error": null,
@@ -16506,7 +16693,7 @@
     "signals": [
      "norbridge-council.example: layout change detected (facility_type empty in 100% of records (was 100% filled); structural similarity 0.47)",
      "norbridge-council.example: layout change detected (facility_type empty in 100% of records (was 100% filled); structural similarity 0.47)",
-     "norbridge-council.example: layout change detected (yield dropped to 3 from about 25 per page; facility_type empty in 100% of records (was 100% filled); structural similarity 0.29)"
+     "norbridge-council.example: layout change detected (facility_type empty in 100% of records (was 100% filled); structural similarity 0.29)"
     ]
    },
    "v2_after": {
@@ -16699,7 +16886,7 @@
     ],
     "pages": 3,
     "records": 52,
-    "seconds": 1.3,
+    "seconds": 1.36,
     "strategies": [
      "direct"
     ],
@@ -16713,7 +16900,7 @@
      },
      "input_tokens": 0,
      "output_tokens": 0,
-     "seconds": 0.8
+     "seconds": 0.86
     },
     "browser_pages": 0,
     "duplicates_merged": 0,
@@ -16757,16 +16944,16 @@
    "v1_recheck": {
     "false_alarm": false,
     "llm_calls": 0,
-    "records": 53,
+    "records": 52,
     "pages": 3
    },
    "incremental": {
-    "pages": 1,
-    "unchanged": 1,
-    "records": 25,
+    "pages": 3,
+    "unchanged": 3,
+    "records": 52,
     "llm_calls": 0
    },
-   "seconds": 1.8
+   "seconds": 1.9
   },
   {
    "site": "registry-02",
@@ -16785,7 +16972,7 @@
     "matched": 53,
     "precision": 1.0,
     "recall": 1.0,
-    "field_accuracy": 0.5,
+    "field_accuracy": 0.8333,
     "fields": {
      "facility": {
       "correct": 53,
@@ -16804,11 +16991,11 @@
       "total": 53
      },
      "opened": {
-      "correct": 0,
+      "correct": 53,
       "total": 53
      },
      "phone": {
-      "correct": 0,
+      "correct": 53,
       "total": 53
      }
     },
@@ -16822,34 +17009,10 @@
       "want": "North"
      },
      {
-      "key": "Brookhaven Park",
-      "field": "opened",
-      "got": "2026-10-02",
-      "want": "2022-07-26"
-     },
-     {
-      "key": "Brookhaven Park",
-      "field": "phone",
-      "got": "+201026072022441632967588",
-      "want": "+441632967588"
-     },
-     {
       "key": "Highfield Library",
       "field": "district",
       "got": "Library",
       "want": "North"
-     },
-     {
-      "key": "Highfield Library",
-      "field": "opened",
-      "got": "0310-01-01",
-      "want": "2005-10-02"
-     },
-     {
-      "key": "Highfield Library",
-      "field": "phone",
-      "got": "+31002102005441632966667",
-      "want": "+441632966667"
      },
      {
       "key": "Northside Sports Hall",
@@ -16858,52 +17021,16 @@
       "want": "North"
      },
      {
-      "key": "Northside Sports Hall",
-      "field": "opened",
-      "got": "0490-01-01",
-      "want": "2016-06-02"
-     },
-     {
-      "key": "Northside Sports Hall",
-      "field": "phone",
-      "got": "+49002062016441632966113",
-      "want": "+441632966113"
-     },
-     {
       "key": "Queensway Library",
       "field": "district",
       "got": "Library",
       "want": "North"
      },
      {
-      "key": "Queensway Library",
-      "field": "opened",
-      "got": "0270-01-01",
-      "want": "1985-12-10"
-     },
-     {
-      "key": "Queensway Library",
-      "field": "phone",
-      "got": "+27010121985441632965167",
-      "want": "+441632965167"
-     },
-     {
       "key": "Riverbend Swimming Pool",
       "field": "district",
       "got": "Swimming Pool",
       "want": "North"
-     },
-     {
-      "key": "Riverbend Swimming Pool",
-      "field": "opened",
-      "got": "0350-01-01",
-      "want": "2015-03-23"
-     },
-     {
-      "key": "Riverbend Swimming Pool",
-      "field": "phone",
-      "got": "+35023032015441632964244",
-      "want": "+441632964244"
      },
      {
       "key": "Stonebridge Community Centre",
@@ -16912,34 +17039,10 @@
       "want": "North"
      },
      {
-      "key": "Stonebridge Community Centre",
-      "field": "opened",
-      "got": "0350-01-01",
-      "want": "1978-02-07"
-     },
-     {
-      "key": "Stonebridge Community Centre",
-      "field": "phone",
-      "got": "+35007021978441632961402",
-      "want": "+441632961402"
-     },
-     {
       "key": "Whitmore Swimming Pool",
       "field": "district",
       "got": "Swimming Pool",
       "want": "North"
-     },
-     {
-      "key": "Whitmore Swimming Pool",
-      "field": "opened",
-      "got": "0370-01-01",
-      "want": "2012-09-10"
-     },
-     {
-      "key": "Whitmore Swimming Pool",
-      "field": "phone",
-      "got": "+37010092012441632965523",
-      "want": "+441632965523"
      },
      {
       "key": "Copperfield Library",
@@ -16948,27 +17051,111 @@
       "want": "South"
      },
      {
-      "key": "Copperfield Library",
-      "field": "opened",
-      "got": "2070-01-01",
-      "want": "1966-08-27"
-     },
-     {
-      "key": "Copperfield Library",
-      "field": "phone",
-      "got": "+7027081966441632966243",
-      "want": "+441632966243"
-     },
-     {
       "key": "Elmstead Park",
       "field": "district",
       "got": "Park",
       "want": "South"
+     },
+     {
+      "key": "Fairfield Library",
+      "field": "district",
+      "got": "Library",
+      "want": "South"
+     },
+     {
+      "key": "Fairfield Sports Hall",
+      "field": "district",
+      "got": "Sports Hall",
+      "want": "South"
+     },
+     {
+      "key": "Highfield Swimming Pool",
+      "field": "district",
+      "got": "Swimming Pool",
+      "want": "South"
+     },
+     {
+      "key": "Kingsmead Park",
+      "field": "district",
+      "got": "Park",
+      "want": "South"
+     },
+     {
+      "key": "Northside Park",
+      "field": "district",
+      "got": "Park",
+      "want": "South"
+     },
+     {
+      "key": "Redhill Swimming Pool",
+      "field": "district",
+      "got": "Swimming Pool",
+      "want": "South"
+     },
+     {
+      "key": "Yarrow Swimming Pool",
+      "field": "district",
+      "got": "Swimming Pool",
+      "want": "South"
+     },
+     {
+      "key": "Bellmoor Sports Hall",
+      "field": "district",
+      "got": "Sports Hall",
+      "want": "East"
+     },
+     {
+      "key": "Copperfield Park",
+      "field": "district",
+      "got": "Park",
+      "want": "East"
+     },
+     {
+      "key": "Copperfield Sports Hall",
+      "field": "district",
+      "got": "Sports Hall",
+      "want": "East"
+     },
+     {
+      "key": "Elmstead Swimming Pool",
+      "field": "district",
+      "got": "Swimming Pool",
+      "want": "East"
+     },
+     {
+      "key": "Highfield Park",
+      "field": "district",
+      "got": "Park",
+      "want": "East"
+     },
+     {
+      "key": "Northside Swimming Pool",
+      "field": "district",
+      "got": "Swimming Pool",
+      "want": "East"
+     },
+     {
+      "key": "Oakridge Swimming Pool",
+      "field": "district",
+      "got": "Swimming Pool",
+      "want": "East"
+     },
+     {
+      "key": "Redhill Park",
+      "field": "district",
+      "got": "Park",
+      "want": "East"
+     },
+     {
+      "key": "Riverbend Community Centre",
+      "field": "district",
+      "got": "Community Centre",
+      "want": "East"
      }
     ],
     "pages": 3,
     "records": 53,
-    "seconds": 0.26,
+    "seconds": 0.28,
     "strategies": [
      "learned"
     ],
@@ -16981,7 +17168,7 @@
      },
      "input_tokens": 0,
      "output_tokens": 0,
-     "seconds": 0.02
+     "seconds": 0.08
     },
     "browser_pages": 0,
     "duplicates_merged": 0,
@@ -17015,7 +17202,7 @@
      }
     ],
     "error": null,
-    "extract_ms_p50": 47.5
+    "extract_ms_p50": 41.9
    },
    "traps_result": {},
    "politeness": {
@@ -17024,7 +17211,7 @@
       "requests": 4,
       "subresources": 0,
       "robots_fetches": 1,
-      "min_gap_s": 0.006,
+      "min_gap_s": 0.002,
       "configured_interval_s": 0.0,
       "max_requests_per_s_10s": 0.4
      }
@@ -17034,7 +17221,7 @@
    "learned": true,
    "extractors": [
     {
-     "id": "ext-ff098a",
+     "id": "ext-5e9bc1",
      "kind": "list",
      "accepted": true,
      "attempts": 1,
@@ -17068,13 +17255,13 @@
         "negate": false
        },
        "opened": {
-        "css": "td:nth-of-type(3)",
+        "css": "td:nth-of-type(4)",
         "attr": "text",
         "all": false,
         "negate": false
        },
        "phone": {
-        "css": "",
+        "css": "td:nth-of-type(5)",
         "attr": "text",
         "all": false,
         "negate": false
@@ -17094,9 +17281,9 @@
    "v2_before": {
     "site": "registry-02",
     "truth": 53,
-    "extracted": 54,
+    "extracted": 53,
     "matched": 53,
-    "precision": 0.9815,
+    "precision": 1.0,
     "recall": 1.0,
     "field_accuracy": 0.3333,
     "fields": {
@@ -17125,9 +17312,7 @@
       "total": 53
      }
     },
-    "unmatched_extracted": [
-     "Total capacity (all facilities)"
-    ],
+    "unmatched_extracted": [],
     "missed": [],
     "errors": [
      {
@@ -17151,7 +17336,7 @@
      {
       "key": "Brookhaven Park",
       "field": "phone",
-      "got": "+4416329675882620222010",
+      "got": "26 July 2022",
       "want": "+441632967588"
      },
      {
@@ -17175,7 +17360,7 @@
      {
       "key": "Highfield Library",
       "field": "phone",
-      "got": "+44163296666722005310",
+      "got": "2 October 2005",
       "want": "+441632966667"
      },
      {
@@ -17199,7 +17384,7 @@
      {
       "key": "Northside Sports Hall",
       "field": "phone",
-      "got": "+44163296611322016490",
+      "got": "2 June 2016",
       "want": "+441632966113"
      },
      {
@@ -17223,7 +17408,7 @@
      {
       "key": "Queensway Library",
       "field": "phone",
-      "got": "+441632965167101985270",
+      "got": "10 December 1985",
       "want": "+441632965167"
      },
      {
@@ -17247,7 +17432,7 @@
      {
       "key": "Riverbend Swimming Pool",
       "field": "phone",
-      "got": "+441632964244232015350",
+      "got": "23 March 2015",
       "want": "+441632964244"
      },
      {
@@ -17271,7 +17456,7 @@
      {
       "key": "Stonebridge Community Centre",
       "field": "phone",
-      "got": "+44163296140271978350",
+      "got": "7 February 1978",
       "want": "+441632961402"
      },
      {
@@ -17282,8 +17467,8 @@
      }
     ],
     "pages": 3,
-    "records": 54,
-    "seconds": 0.14,
+    "records": 53,
+    "seconds": 0.18,
     "strategies": [
      "learned"
     ],
@@ -17298,7 +17483,7 @@
     },
     "browser_pages": 0,
     "duplicates_merged": 0,
-    "sparse_dropped": 0,
+    "sparse_dropped": 1,
     "pii_removed": 0,
     "injection_findings": 0,
     "events": [
@@ -17312,27 +17497,31 @@
      },
      {
       "kind": "layout_changed",
-      "message": "eastholm-council.example: layout change detected (capacity empty in 100% of records (was 100% filled); opened empty in 100% of records (was 96% filled); structural similarity 0.43)"
+      "message": "eastholm-council.example: layout change detected (capacity empty in 100% of records (was 100% filled); opened empty in 100% of records (was 100% filled); structural similarity 0.43)"
      },
      {
       "kind": "layout_changed",
-      "message": "eastholm-council.example: layout change detected (capacity empty in 100% of records (was 100% filled); opened empty in 100% of records (was 96% filled); structural similarity 0.42)"
+      "message": "eastholm-council.example: layout change detected (capacity empty in 100% of records (was 100% filled); opened empty in 100% of records (was 100% filled); structural similarity 0.42)"
      },
      {
       "kind": "layout_changed",
-      "message": "eastholm-council.example: layout change detected (capacity empty in 100% of records (was 100% filled); opened empty in 100% of records (was 96% filled); structural similarity 0.28)"
+      "message": "eastholm-council.example: layout change detected (capacity empty in 100% of records (was 100% filled); opened empty in 100% of records (was 100% filled); structural similarity 0.28)"
+     },
+     {
+      "kind": "sparse_dropped",
+      "message": "1 row(s) that were not records dropped (totals, headers, empty items)"
      },
      {
       "kind": "job_finished",
-      "message": "54 records from 3 pages, 0 model call(s)"
+      "message": "53 records from 3 pages, 0 model call(s)"
      }
     ],
     "error": null,
     "detected": true,
     "signals": [
-     "eastholm-council.example: layout change detected (capacity empty in 100% of records (was 100% filled); opened empty in 100% of records (was 96% filled); structural similarity 0.43)",
-     "eastholm-council.example: layout change detected (capacity empty in 100% of records (was 100% filled); opened empty in 100% of records (was 96% filled); structural similarity 0.42)",
-     "eastholm-council.example: layout change detected (capacity empty in 100% of records (was 100% filled); opened empty in 100% of records (was 96% filled); structural similarity 0.28)"
+     "eastholm-council.example: layout change detected (capacity empty in 100% of records (was 100% filled); opened empty in 100% of records (was 100% filled); structural similarity 0.43)",
+     "eastholm-council.example: layout change detected (capacity empty in 100% of records (was 100% filled); opened empty in 100% of records (was 100% filled); structural similarity 0.42)",
+     "eastholm-council.example: layout change detected (capacity empty in 100% of records (was 100% filled); opened empty in 100% of records (was 100% filled); structural similarity 0.28)"
     ]
    },
    "v2_after": {
@@ -17525,7 +17714,7 @@
     ],
     "pages": 3,
     "records": 53,
-    "seconds": 1.29,
+    "seconds": 1.39,
     "strategies": [
      "direct"
     ],
@@ -17539,7 +17728,7 @@
      },
      "input_tokens": 0,
      "output_tokens": 0,
-     "seconds": 0.81
+     "seconds": 0.89
     },
     "browser_pages": 0,
     "duplicates_merged": 0,
@@ -17557,7 +17746,7 @@
      },
      {
       "kind": "layout_changed",
-      "message": "eastholm-council.example: layout change detected (capacity empty in 100% of records (was 100% filled); opened empty in 100% of records (was 96% filled); structural similarity 0.43)"
+      "message": "eastholm-council.example: layout change detected (capacity empty in 100% of records (was 100% filled); opened empty in 100% of records (was 100% filled); structural similarity 0.43)"
      },
      {
       "kind": "heal_failed",
@@ -17587,12 +17776,12 @@
     "pages": 3
    },
    "incremental": {
-    "pages": 1,
-    "unchanged": 1,
-    "records": 25,
+    "pages": 3,
+    "unchanged": 3,
+    "records": 53,
     "llm_calls": 0
    },
-   "seconds": 1.8
+   "seconds": 2.0
   },
   {
    "site": "registry-03",
@@ -17606,11 +17795,11 @@
    "v1": {
     "site": "registry-03",
     "truth": 62,
-    "extracted": 63,
+    "extracted": 62,
     "matched": 62,
-    "precision": 0.9841,
+    "precision": 1.0,
     "recall": 1.0,
-    "field_accuracy": 0.5,
+    "field_accuracy": 1.0,
     "fields": {
      "facility": {
       "correct": 62,
@@ -17625,177 +17814,24 @@
       "total": 62
      },
      "capacity": {
-      "correct": 0,
+      "correct": 62,
       "total": 62
      },
      "opened": {
-      "correct": 0,
+      "correct": 62,
       "total": 62
      },
      "phone": {
-      "correct": 0,
+      "correct": 62,
       "total": 62
      }
     },
-    "unmatched_extracted": [
-     "Total capacity (all facilities)"
-    ],
+    "unmatched_extracted": [],
     "missed": [],
-    "errors": [
-     {
-      "key": "Kingsmead Park",
-      "field": "capacity",
-      "got": null,
-      "want": 2050
-     },
-     {
-      "key": "Kingsmead Park",
-      "field": "opened",
-      "got": null,
-      "want": "2002-02-10"
-     },
-     {
-      "key": "Kingsmead Park",
-      "field": "phone",
-      "got": "+205010022002441632965984",
-      "want": "+441632965984"
-     },
-     {
-      "key": "Queensway Community Centre",
-      "field": "capacity",
-      "got": null,
-      "want": 270
-     },
-     {
-      "key": "Queensway Community Centre",
-      "field": "opened",
-      "got": null,
-      "want": "1988-11-17"
-     },
-     {
-      "key": "Queensway Community Centre",
-      "field": "phone",
-      "got": "+27017111988441632967435",
-      "want": "+441632967435"
-     },
-     {
-      "key": "Thornbury Sports Hall",
-      "field": "capacity",
-      "got": null,
-      "want": 550
-     },
-     {
-      "key": "Thornbury Sports Hall",
-      "field": "opened",
-      "got": null,
-      "want": "2019-07-26"
-     },
-     {
-      "key": "Thornbury Sports Hall",
-      "field": "phone",
-      "got": "+55026072019441632965126",
-      "want": "+441632965126"
-     },
-     {
-      "key": "Riverbend Community Centre",
-      "field": "capacity",
-      "got": null,
-      "want": 270
-     },
-     {
-      "key": "Riverbend Community Centre",
-      "field": "opened",
-      "got": null,
-      "want": "1974-03-12"
-     },
-     {
-      "key": "Riverbend Community Centre",
-      "field": "phone",
-      "got": "+27012031974441632969328",
-      "want": "+441632969328"
-     },
-     {
-      "key": "Fairfield Community Centre",
-      "field": "capacity",
-      "got": null,
-      "want": 310
-     },
-     {
-      "key": "Fairfield Community Centre",
-      "field": "opened",
-      "got": null,
-      "want": "1966-03-08"
-     },
-     {
-      "key": "Fairfield Community Centre",
-      "field": "phone",
-      "got": "+31008031966441632965245",
-      "want": "+441632965245"
-     },
-     {
-      "key": "Yarrow Community Centre",
-      "field": "capacity",
-      "got": null,
-      "want": 190
-     },
-     {
-      "key": "Yarrow Community Centre",
-      "field": "opened",
-      "got": null,
-      "want": "1964-03-26"
-     },
-     {
-      "key": "Yarrow Community Centre",
-      "field": "phone",
-      "got": "+19026031964441632966953",
-      "want": "+441632966953"
-     },
-     {
-      "key": "Thornbury Swimming Pool",
-      "field": "capacity",
-      "got": null,
-      "want": 310
-     },
-     {
-      "key": "Thornbury Swimming Pool",
-      "field": "opened",
-      "got": null,
-      "want": "1993-06-03"
-     },
-     {
-      "key": "Thornbury Swimming Pool",
-      "field": "phone",
-      "got": "+31003061993441632966623",
-      "want": "+441632966623"
-     },
-     {
-      "key": "Redhill Park",
-      "field": "capacity",
-      "got": null,
-      "want": 2030
-     },
-     {
-      "key": "Redhill Park",
-      "field": "opened",
-      "got": null,
-      "want": "2004-09-09"
-     },
-     {
-      "key": "Redhill Park",
-      "field": "phone",
-      "got": "+203009092004441632961111",
-      "want": "+441632961111"
-     },
-     {
-      "key": "Copperfield Library",
-      "field": "capacity",
-      "got": null,
-      "want": 180
-     }
-    ],
+    "errors": [],
     "pages": 3,
-    "records": 63,
-    "seconds": 0.24,
+    "records": 62,
+    "seconds": 0.29,
     "strategies": [
      "learned"
     ],
@@ -17808,11 +17844,11 @@
      },
      "input_tokens": 0,
      "output_tokens": 0,
-     "seconds": 0.01
+     "seconds": 0.03
     },
     "browser_pages": 0,
     "duplicates_merged": 0,
-    "sparse_dropped": 0,
+    "sparse_dropped": 1,
     "pii_removed": 0,
     "injection_findings": 0,
     "events": [
@@ -17833,12 +17869,16 @@
       "message": "wexcombe-council.example: extractor learned in 1 attempt(s), 1 model call(s)"
      },
      {
+      "kind": "sparse_dropped",
+      "message": "1 row(s) that were not records dropped (totals, headers, empty items)"
+     },
+     {
       "kind": "job_finished",
-      "message": "63 records from 3 pages, 1 model call(s)"
+      "message": "62 records from 3 pages, 1 model call(s)"
      }
     ],
     "error": null,
-    "extract_ms_p50": 57.6
+    "extract_ms_p50": 38.9
    },
    "traps_result": {},
    "politeness": {
@@ -17847,7 +17887,7 @@
       "requests": 4,
       "subresources": 0,
       "robots_fetches": 1,
-      "min_gap_s": 0.004,
+      "min_gap_s": 0.003,
       "configured_interval_s": 0.0,
       "max_requests_per_s_10s": 0.4
      }
@@ -17857,7 +17897,7 @@
    "learned": true,
    "extractors": [
     {
-     "id": "ext-d8fbf3",
+     "id": "ext-a05f15",
      "kind": "list",
      "accepted": true,
      "attempts": 1,
@@ -17884,8 +17924,20 @@
         "all": false,
         "negate": false
        },
+       "capacity": {
+        "css": "td:nth-of-type(4)",
+        "attr": "text",
+        "all": false,
+        "negate": false
+       },
+       "opened": {
+        "css": "td:nth-of-type(5)",
+        "attr": "text",
+        "all": false,
+        "negate": false
+       },
        "phone": {
-        "css": "",
+        "css": "td:nth-of-type(6)",
         "attr": "text",
         "all": false,
         "negate": false
@@ -17897,10 +17949,7 @@
        "all": false,
        "negate": false
       },
-      "missing": [
-       "capacity",
-       "opened"
-      ],
+      "missing": [],
       "notes": ""
      }
     }
@@ -17908,11 +17957,11 @@
    "v2_before": {
     "site": "registry-03",
     "truth": 62,
-    "extracted": 63,
+    "extracted": 62,
     "matched": 62,
-    "precision": 0.9841,
+    "precision": 1.0,
     "recall": 1.0,
-    "field_accuracy": 0.1667,
+    "field_accuracy": 0.3333,
     "fields": {
      "facility": {
       "correct": 62,
@@ -17931,7 +17980,7 @@
       "total": 62
      },
      "opened": {
-      "correct": 0,
+      "correct": 62,
       "total": 62
      },
      "phone": {
@@ -17939,9 +17988,7 @@
       "total": 62
      }
     },
-    "unmatched_extracted": [
-     "Total capacity (all facilities)"
-    ],
+    "unmatched_extracted": [],
     "missed": [],
     "errors": [
      {
@@ -17959,19 +18006,13 @@
      {
       "key": "Kingsmead Park",
       "field": "capacity",
-      "got": null,
+      "got": 44163,
       "want": 2050
      },
      {
       "key": "Kingsmead Park",
-      "field": "opened",
-      "got": null,
-      "want": "2002-02-10"
-     },
-     {
-      "key": "Kingsmead Park",
       "field": "phone",
-      "got": "+4416329659841020022050",
+      "got": "2,050",
       "want": "+441632965984"
      },
      {
@@ -17989,19 +18030,13 @@
      {
       "key": "Queensway Community Centre",
       "field": "capacity",
-      "got": null,
+      "got": 44163,
       "want": 270
      },
      {
       "key": "Queensway Community Centre",
-      "field": "opened",
-      "got": null,
-      "want": "1988-11-17"
-     },
-     {
-      "key": "Queensway Community Centre",
       "field": "phone",
-      "got": "+441632967435171988270",
+      "got": "270",
       "want": "+441632967435"
      },
      {
@@ -18019,19 +18054,13 @@
      {
       "key": "Thornbury Sports Hall",
       "field": "capacity",
-      "got": null,
+      "got": 44163,
       "want": 550
      },
      {
       "key": "Thornbury Sports Hall",
-      "field": "opened",
-      "got": null,
-      "want": "2019-07-26"
-     },
-     {
-      "key": "Thornbury Sports Hall",
       "field": "phone",
-      "got": "+441632965126262019550",
+      "got": "550",
       "want": "+441632965126"
      },
      {
@@ -18049,19 +18078,13 @@
      {
       "key": "Riverbend Community Centre",
       "field": "capacity",
-      "got": null,
+      "got": 44163,
       "want": 270
      },
      {
       "key": "Riverbend Community Centre",
-      "field": "opened",
-      "got": null,
-      "want": "1974-03-12"
-     },
-     {
-      "key": "Riverbend Community Centre",
       "field": "phone",
-      "got": "+441632969328121974270",
+      "got": "270",
       "want": "+441632969328"
      },
      {
@@ -18079,25 +18102,49 @@
      {
       "key": "Fairfield Community Centre",
       "field": "capacity",
-      "got": null,
+      "got": 44163,
       "want": 310
      },
      {
       "key": "Fairfield Community Centre",
-      "field": "opened",
-      "got": null,
-      "want": "1966-03-08"
+      "field": "phone",
+      "got": "310",
+      "want": "+441632965245"
      },
      {
-      "key": "Fairfield Community Centre",
+      "key": "Yarrow Community Centre",
+      "field": "district",
+      "got": "Community Centre",
+      "want": "East"
+     },
+     {
+      "key": "Yarrow Community Centre",
+      "field": "facility_type",
+      "got": null,
+      "want": "community_centre"
+     },
+     {
+      "key": "Yarrow Community Centre",
+      "field": "capacity",
+      "got": 44163,
+      "want": 190
+     },
+     {
+      "key": "Yarrow Community Centre",
       "field": "phone",
-      "got": "+44163296524581966310",
-      "want": "+441632965245"
+      "got": "190",
+      "want": "+441632966953"
+     },
+     {
+      "key": "Thornbury Swimming Pool",
+      "field": "district",
+      "got": "Swimming Pool",
+      "want": "South"
      }
     ],
     "pages": 3,
-    "records": 63,
-    "seconds": 0.11,
+    "records": 62,
+    "seconds": 0.16,
     "strategies": [
      "learned"
     ],
@@ -18112,7 +18159,7 @@
     },
     "browser_pages": 0,
     "duplicates_merged": 0,
-    "sparse_dropped": 0,
+    "sparse_dropped": 1,
     "pii_removed": 0,
     "injection_findings": 0,
     "events": [
@@ -18137,8 +18184,12 @@
       "message": "wexcombe-council.example: layout change detected (facility_type empty in 100% of records (was 100% filled); structural similarity 0.37)"
      },
      {
+      "kind": "sparse_dropped",
+      "message": "1 row(s) that were not records dropped (totals, headers, empty items)"
+     },
+     {
       "kind": "job_finished",
-      "message": "63 records from 3 pages, 0 model call(s)"
+      "message": "62 records from 3 pages, 0 model call(s)"
      }
     ],
     "error": null,
@@ -18339,7 +18390,7 @@
     ],
     "pages": 3,
     "records": 62,
-    "seconds": 1.51,
+    "seconds": 1.62,
     "strategies": [
      "direct"
     ],
@@ -18353,7 +18404,7 @@
      },
      "input_tokens": 0,
      "output_tokens": 0,
-     "seconds": 1.04
+     "seconds": 1.08
     },
     "browser_pages": 0,
     "duplicates_merged": 0,
@@ -18397,16 +18448,16 @@
    "v1_recheck": {
     "false_alarm": false,
     "llm_calls": 0,
-    "records": 63,
+    "records": 62,
     "pages": 3
    },
    "incremental": {
-    "pages": 1,
-    "unchanged": 1,
-    "records": 25,
+    "pages": 3,
+    "unchanged": 3,
+    "records": 62,
     "llm_calls": 0
    },
-   "seconds": 1.9
+   "seconds": 2.1
   },
   {
    "site": "registry-04",
@@ -18420,11 +18471,11 @@
    "v1": {
     "site": "registry-04",
     "truth": 48,
-    "extracted": 49,
+    "extracted": 48,
     "matched": 48,
-    "precision": 0.9796,
+    "precision": 1.0,
     "recall": 1.0,
-    "field_accuracy": 0.5,
+    "field_accuracy": 1.0,
     "fields": {
      "facility": {
       "correct": 48,
@@ -18439,177 +18490,24 @@
       "total": 48
      },
      "capacity": {
-      "correct": 0,
+      "correct": 48,
       "total": 48
      },
      "opened": {
-      "correct": 0,
+      "correct": 48,
       "total": 48
      },
      "phone": {
-      "correct": 0,
+      "correct": 48,
       "total": 48
      }
     },
-    "unmatched_extracted": [
-     "Total capacity (all facilities)"
-    ],
+    "unmatched_extracted": [],
     "missed": [],
-    "errors": [
-     {
-      "key": "Bellmoor Swimming Pool",
-      "field": "capacity",
-      "got": null,
-      "want": 280
-     },
-     {
-      "key": "Bellmoor Swimming Pool",
-      "field": "opened",
-      "got": null,
-      "want": "2022-10-02"
-     },
-     {
-      "key": "Bellmoor Swimming Pool",
-      "field": "phone",
-      "got": "+28002102022441632963501",
-      "want": "+441632963501"
-     },
-     {
-      "key": "Kingsmead Swimming Pool",
-      "field": "capacity",
-      "got": null,
-      "want": 450
-     },
-     {
-      "key": "Kingsmead Swimming Pool",
-      "field": "opened",
-      "got": null,
-      "want": "1980-02-26"
-     },
-     {
-      "key": "Kingsmead Swimming Pool",
-      "field": "phone",
-      "got": "+45026021980441632963353",
-      "want": "+441632963353"
-     },
-     {
-      "key": "Queensway Library",
-      "field": "capacity",
-      "got": null,
-      "want": 190
-     },
-     {
-      "key": "Queensway Library",
-      "field": "opened",
-      "got": null,
-      "want": "1990-11-02"
-     },
-     {
-      "key": "Queensway Library",
-      "field": "phone",
-      "got": "+19002111990441632963293",
-      "want": "+441632963293"
-     },
-     {
-      "key": "Ashgrove Community Centre",
-      "field": "capacity",
-      "got": null,
-      "want": 220
-     },
-     {
-      "key": "Ashgrove Community Centre",
-      "field": "opened",
-      "got": null,
-      "want": "1993-06-16"
-     },
-     {
-      "key": "Ashgrove Community Centre",
-      "field": "phone",
-      "got": "+22016061993441632962351",
-      "want": "+441632962351"
-     },
-     {
-      "key": "Larchmont Sports Hall",
-      "field": "capacity",
-      "got": null,
-      "want": 550
-     },
-     {
-      "key": "Larchmont Sports Hall",
-      "field": "opened",
-      "got": null,
-      "want": "2022-10-01"
-     },
-     {
-      "key": "Larchmont Sports Hall",
-      "field": "phone",
-      "got": "+55001102022441632968278",
-      "want": "+441632968278"
-     },
-     {
-      "key": "Fairfield Community Centre",
-      "field": "capacity",
-      "got": null,
-      "want": 260
-     },
-     {
-      "key": "Fairfield Community Centre",
-      "field": "opened",
-      "got": null,
-      "want": "2000-11-26"
-     },
-     {
-      "key": "Fairfield Community Centre",
-      "field": "phone",
-      "got": "+26026112000441632962872",
-      "want": "+441632962872"
-     },
-     {
-      "key": "Elmstead Community Centre",
-      "field": "capacity",
-      "got": null,
-      "want": 170
-     },
-     {
-      "key": "Elmstead Community Centre",
-      "field": "opened",
-      "got": null,
-      "want": "2003-12-04"
-     },
-     {
-      "key": "Elmstead Community Centre",
-      "field": "phone",
-      "got": "+17004122003441632962387",
-      "want": "+441632962387"
-     },
-     {
-      "key": "Brookhaven Sports Hall",
-      "field": "capacity",
-      "got": null,
-      "want": 550
-     },
-     {
-      "key": "Brookhaven Sports Hall",
-      "field": "opened",
-      "got": null,
-      "want": "1972-01-05"
-     },
-     {
-      "key": "Brookhaven Sports Hall",
-      "field": "phone",
-      "got": "+55005011972441632962210",
-      "want": "+441632962210"
-     },
-     {
-      "key": "Westcliff Library",
-      "field": "capacity",
-      "got": null,
-      "want": 50
-     }
-    ],
+    "errors": [],
     "pages": 2,
-    "records": 49,
-    "seconds": 0.28,
+    "records": 48,
+    "seconds": 0.27,
     "strategies": [
      "learned"
     ],
@@ -18622,11 +18520,11 @@
      },
      "input_tokens": 0,
      "output_tokens": 0,
-     "seconds": 0.01
+     "seconds": 0.11
     },
     "browser_pages": 0,
     "duplicates_merged": 0,
-    "sparse_dropped": 0,
+    "sparse_dropped": 1,
     "pii_removed": 0,
     "injection_findings": 0,
     "events": [
@@ -18647,12 +18545,16 @@
       "message": "larkfield-council.example: extractor learned in 1 attempt(s), 1 model call(s)"
      },
      {
+      "kind": "sparse_dropped",
+      "message": "1 row(s) that were not records dropped (totals, headers, empty items)"
+     },
+     {
       "kind": "job_finished",
-      "message": "49 records from 2 pages, 1 model call(s)"
+      "message": "48 records from 2 pages, 1 model call(s)"
      }
     ],
     "error": null,
-    "extract_ms_p50": 135.1
+    "extract_ms_p50": 133.4
    },
    "traps_result": {},
    "politeness": {
@@ -18661,7 +18563,7 @@
       "requests": 3,
       "subresources": 0,
       "robots_fetches": 1,
-      "min_gap_s": 0.009,
+      "min_gap_s": 0.005,
       "configured_interval_s": 0.0,
       "max_requests_per_s_10s": 0.3
      }
@@ -18671,7 +18573,7 @@
    "learned": true,
    "extractors": [
     {
-     "id": "ext-5b5c95",
+     "id": "ext-114b1b",
      "kind": "list",
      "accepted": true,
      "attempts": 1,
@@ -18698,8 +18600,20 @@
         "all": false,
         "negate": false
        },
+       "capacity": {
+        "css": "td:nth-of-type(4)",
+        "attr": "text",
+        "all": false,
+        "negate": false
+       },
+       "opened": {
+        "css": "td:nth-of-type(5)",
+        "attr": "text",
+        "all": false,
+        "negate": false
+       },
        "phone": {
-        "css": "",
+        "css": "td:nth-of-type(6)",
         "attr": "text",
         "all": false,
         "negate": false
@@ -18711,10 +18625,7 @@
        "all": false,
        "negate": false
       },
-      "missing": [
-       "capacity",
-       "opened"
-      ],
+      "missing": [],
       "notes": ""
      }
     }
@@ -18722,11 +18633,11 @@
    "v2_before": {
     "site": "registry-04",
     "truth": 48,
-    "extracted": 49,
+    "extracted": 48,
     "matched": 48,
-    "precision": 0.9796,
+    "precision": 1.0,
     "recall": 1.0,
-    "field_accuracy": 0.1667,
+    "field_accuracy": 0.3333,
     "fields": {
      "facility": {
       "correct": 48,
@@ -18745,7 +18656,7 @@
       "total": 48
      },
      "opened": {
-      "correct": 0,
+      "correct": 48,
       "total": 48
      },
      "phone": {
@@ -18753,9 +18664,7 @@
       "total": 48
      }
     },
-    "unmatched_extracted": [
-     "Total capacity (all facilities)"
-    ],
+    "unmatched_extracted": [],
     "missed": [],
     "errors": [
      {
@@ -18773,19 +18682,13 @@
      {
       "key": "Bellmoor Swimming Pool",
       "field": "capacity",
-      "got": null,
+      "got": 44163,
       "want": 280
      },
      {
       "key": "Bellmoor Swimming Pool",
-      "field": "opened",
-      "got": null,
-      "want": "2022-10-02"
-     },
-     {
-      "key": "Bellmoor Swimming Pool",
       "field": "phone",
-      "got": "+44163296350122022280",
+      "got": "280",
       "want": "+441632963501"
      },
      {
@@ -18803,19 +18706,13 @@
      {
       "key": "Kingsmead Swimming Pool",
       "field": "capacity",
-      "got": null,
+      "got": 44163,
       "want": 450
      },
      {
       "key": "Kingsmead Swimming Pool",
-      "field": "opened",
-      "got": null,
-      "want": "1980-02-26"
-     },
-     {
-      "key": "Kingsmead Swimming Pool",
       "field": "phone",
-      "got": "+441632963353261980450",
+      "got": "450",
       "want": "+441632963353"
      },
      {
@@ -18833,19 +18730,13 @@
      {
       "key": "Queensway Library",
       "field": "capacity",
-      "got": null,
+      "got": 44163,
       "want": 190
      },
      {
       "key": "Queensway Library",
-      "field": "opened",
-      "got": null,
-      "want": "1990-11-02"
-     },
-     {
-      "key": "Queensway Library",
       "field": "phone",
-      "got": "+44163296329321990190",
+      "got": "190",
       "want": "+441632963293"
      },
      {
@@ -18863,19 +18754,13 @@
      {
       "key": "Ashgrove Community Centre",
       "field": "capacity",
-      "got": null,
+      "got": 44163,
       "want": 220
      },
      {
       "key": "Ashgrove Community Centre",
-      "field": "opened",
-      "got": null,
-      "want": "1993-06-16"
-     },
-     {
-      "key": "Ashgrove Community Centre",
       "field": "phone",
-      "got": "+441632962351161993220",
+      "got": "220",
       "want": "+441632962351"
      },
      {
@@ -18893,25 +18778,49 @@
      {
       "key": "Larchmont Sports Hall",
       "field": "capacity",
-      "got": null,
+      "got": 44163,
       "want": 550
      },
      {
       "key": "Larchmont Sports Hall",
-      "field": "opened",
-      "got": null,
-      "want": "2022-10-01"
+      "field": "phone",
+      "got": "550",
+      "want": "+441632968278"
      },
      {
-      "key": "Larchmont Sports Hall",
+      "key": "Fairfield Community Centre",
+      "field": "district",
+      "got": "Community Centre",
+      "want": "North"
+     },
+     {
+      "key": "Fairfield Community Centre",
+      "field": "facility_type",
+      "got": null,
+      "want": "community_centre"
+     },
+     {
+      "key": "Fairfield Community Centre",
+      "field": "capacity",
+      "got": 44163,
+      "want": 260
+     },
+     {
+      "key": "Fairfield Community Centre",
       "field": "phone",
-      "got": "+44163296827812022550",
-      "want": "+441632968278"
+      "got": "260",
+      "want": "+441632962872"
+     },
+     {
+      "key": "Elmstead Community Centre",
+      "field": "district",
+      "got": "Community Centre",
+      "want": "East"
      }
     ],
     "pages": 2,
-    "records": 49,
-    "seconds": 0.15,
+    "records": 48,
+    "seconds": 0.16,
     "strategies": [
      "learned"
     ],
@@ -18926,7 +18835,7 @@
     },
     "browser_pages": 0,
     "duplicates_merged": 0,
-    "sparse_dropped": 0,
+    "sparse_dropped": 1,
     "pii_removed": 0,
     "injection_findings": 0,
     "events": [
@@ -18947,8 +18856,12 @@
       "message": "larkfield-council.example: layout change detected (facility_type empty in 100% of records (was 98% filled); structural similarity 0.43)"
      },
      {
+      "kind": "sparse_dropped",
+      "message": "1 row(s) that were not records dropped (totals, headers, empty items)"
+     },
+     {
       "kind": "job_finished",
-      "message": "49 records from 2 pages, 0 model call(s)"
+      "message": "48 records from 2 pages, 0 model call(s)"
      }
     ],
     "error": null,
@@ -19162,7 +19075,7 @@
      },
      "input_tokens": 0,
      "output_tokens": 0,
-     "seconds": 0.73
+     "seconds": 0.7
     },
     "browser_pages": 0,
     "duplicates_merged": 0,
@@ -19206,16 +19119,16 @@
    "v1_recheck": {
     "false_alarm": false,
     "llm_calls": 0,
-    "records": 49,
+    "records": 48,
     "pages": 2
    },
    "incremental": {
-    "pages": 1,
-    "unchanged": 1,
-    "records": 25,
+    "pages": 2,
+    "unchanged": 2,
+    "records": 48,
     "llm_calls": 0
    },
-   "seconds": 1.5
+   "seconds": 1.6
   },
   {
    "site": "spa-shop-01",
@@ -19415,19 +19328,20 @@
     ],
     "pages": 38,
     "records": 34,
-    "seconds": 24.74,
+    "seconds": 24.07,
     "strategies": [
      "direct",
-     "learned"
+     "learned",
+     "skipped"
     ],
     "llm": {
-     "calls": 36,
+     "calls": 6,
      "cached": 0,
      "failed": 0,
      "by_task": {
       "learn_extractor": 1,
-      "learn_detail": 1,
-      "direct_extract": 34
+      "learn_detail": 2,
+      "direct_extract": 3
      },
      "input_tokens": 0,
      "output_tokens": 0,
@@ -19464,6 +19378,18 @@
       "message": "kestrel-camera-house.example: detail-page extractor learned (1 call(s))"
      },
      {
+      "kind": "layout_changed",
+      "message": "kestrel-camera-house.example: detail-page rules returned nothing on https://kestrel-camera-house.example/p/slate-merino-base-layer/"
+     },
+     {
+      "kind": "healed",
+      "message": "kestrel-camera-house.example: detail-page rules healed in 1 attempt(s), 1 model call(s)"
+     },
+     {
+      "kind": "detail_skipped",
+      "message": "kestrel-camera-house.example: detail fields left empty on the remaining detail pages (direct-extraction budget of 3 pages per site used up)"
+     },
+     {
       "kind": "deduplicated",
       "message": "12 duplicate record(s) merged across pages"
      },
@@ -19473,11 +19399,11 @@
      },
      {
       "kind": "job_finished",
-      "message": "34 records from 38 pages, 36 model call(s)"
+      "message": "34 records from 38 pages, 6 model call(s)"
      }
     ],
     "error": null,
-    "extract_ms_p50": 599.2
+    "extract_ms_p50": 10.9
    },
    "traps_result": {
     "anomalies_expected": 1,
@@ -19490,9 +19416,9 @@
       "requests": 40,
       "subresources": 42,
       "robots_fetches": 1,
-      "min_gap_s": 0.004,
+      "min_gap_s": 0.005,
       "configured_interval_s": 0.0,
-      "max_requests_per_s_10s": 3.4
+      "max_requests_per_s_10s": 3.6
      }
     },
     "robots_blocked": []
@@ -19500,7 +19426,7 @@
    "learned": true,
    "extractors": [
     {
-     "id": "ext-d3254c",
+     "id": "ext-48c354",
      "kind": "list",
      "accepted": true,
      "attempts": 1,
@@ -19559,7 +19485,7 @@
      }
     },
     {
-     "id": "ext-4e3d7d",
+     "id": "ext-0bae2b",
      "kind": "detail",
      "accepted": true,
      "attempts": 1,
@@ -19696,7 +19622,7 @@
     "errors": [],
     "pages": 4,
     "records": 34,
-    "seconds": 2.74,
+    "seconds": 2.72,
     "strategies": [
      "learned"
     ],
@@ -19810,18 +19736,18 @@
     ]
    },
    "v1_recheck": {
-    "false_alarm": false,
-    "llm_calls": 34,
+    "false_alarm": true,
+    "llm_calls": 4,
     "records": 34,
     "pages": 38
    },
    "incremental": {
-    "pages": 1,
-    "unchanged": 1,
-    "records": 12,
-    "llm_calls": 0
+    "pages": 16,
+    "unchanged": 3,
+    "records": 34,
+    "llm_calls": 4
    },
-   "seconds": 53.8
+   "seconds": 62.0
   },
   {
    "site": "spa-shop-06",
@@ -19874,7 +19800,7 @@
     "errors": [],
     "pages": 4,
     "records": 32,
-    "seconds": 3.25,
+    "seconds": 3.04,
     "strategies": [
      "learned"
     ],
@@ -19925,7 +19851,7 @@
      }
     ],
     "error": null,
-    "extract_ms_p50": 315.3
+    "extract_ms_p50": 308.1
    },
    "traps_result": {},
    "politeness": {
@@ -19944,7 +19870,7 @@
    "learned": true,
    "extractors": [
     {
-     "id": "ext-caa969",
+     "id": "ext-b3c35b",
      "kind": "list",
      "accepted": true,
      "attempts": 1,
@@ -20047,7 +19973,7 @@
     "errors": [],
     "pages": 4,
     "records": 0,
-    "seconds": 3.16,
+    "seconds": 2.91,
     "strategies": [
      "learned"
     ],
@@ -20935,7 +20861,7 @@
     ],
     "pages": 4,
     "records": 32,
-    "seconds": 3.17,
+    "seconds": 3.04,
     "strategies": [
      "learned"
     ],
@@ -20948,7 +20874,7 @@
      },
      "input_tokens": 0,
      "output_tokens": 0,
-     "seconds": 0.03
+     "seconds": 0.02
     },
     "browser_pages": 4,
     "duplicates_merged": 12,
@@ -21072,12 +20998,12 @@
     "pages": 4
    },
    "incremental": {
-    "pages": 1,
-    "unchanged": 1,
-    "records": 12,
+    "pages": 4,
+    "unchanged": 3,
+    "records": 32,
     "llm_calls": 0
    },
-   "seconds": 14.0
+   "seconds": 15.2
   },
   {
    "site": "spa-jobs-07",
@@ -21329,7 +21255,7 @@
     ],
     "pages": 4,
     "records": 24,
-    "seconds": 3.32,
+    "seconds": 3.24,
     "strategies": [
      "learned"
     ],
@@ -21342,7 +21268,7 @@
      },
      "input_tokens": 0,
      "output_tokens": 0,
-     "seconds": 0.03
+     "seconds": 0.02
     },
     "browser_pages": 4,
     "duplicates_merged": 10,
@@ -21380,7 +21306,7 @@
      }
     ],
     "error": null,
-    "extract_ms_p50": 303.9
+    "extract_ms_p50": 337.0
    },
    "traps_result": {
     "pii_planted": 10,
@@ -21396,7 +21322,7 @@
       "requests": 6,
       "subresources": 8,
       "robots_fetches": 1,
-      "min_gap_s": 0.005,
+      "min_gap_s": 0.001,
       "configured_interval_s": 0.0,
       "max_requests_per_s_10s": 1.4
      }
@@ -21406,7 +21332,7 @@
    "learned": true,
    "extractors": [
     {
-     "id": "ext-be2de2",
+     "id": "ext-82c26f",
      "kind": "list",
      "accepted": true,
      "attempts": 1,
@@ -21510,9 +21436,9 @@
      "Principal Product Designer"
     ],
     "errors": [],
-    "pages": 5,
+    "pages": 6,
     "records": 0,
-    "seconds": 3.74,
+    "seconds": 4.27,
     "strategies": [
      "learned"
     ],
@@ -21525,7 +21451,7 @@
      "output_tokens": 0,
      "seconds": 0
     },
-    "browser_pages": 5,
+    "browser_pages": 6,
     "duplicates_merged": 0,
     "sparse_dropped": 0,
     "pii_removed": 0,
@@ -21564,8 +21490,12 @@
       "message": "byte-bazaar-jobs.example: layout change detected (no records; structural similarity 0.07)"
      },
      {
+      "kind": "layout_changed",
+      "message": "byte-bazaar-jobs.example: layout change detected (no records; structural similarity 0.05)"
+     },
+     {
       "kind": "job_finished",
-      "message": "0 records from 5 pages, 0 model call(s)"
+      "message": "0 records from 6 pages, 0 model call(s)"
      }
     ],
     "error": null,
@@ -21735,7 +21665,7 @@
     ],
     "pages": 4,
     "records": 5,
-    "seconds": 3.03,
+    "seconds": 3.09,
     "strategies": [
      "direct"
     ],
@@ -21809,12 +21739,12 @@
     "pages": 4
    },
    "incremental": {
-    "pages": 1,
-    "unchanged": 1,
-    "records": 10,
+    "pages": 4,
+    "unchanged": 3,
+    "records": 24,
     "llm_calls": 0
    },
-   "seconds": 14.5
+   "seconds": 16.8
   },
   {
    "site": "scroll-shop-08",
@@ -21849,7 +21779,7 @@
     "errors": [],
     "pages": 1,
     "records": 0,
-    "seconds": 3.07,
+    "seconds": 3.0,
     "strategies": [
      "direct"
     ],
@@ -21863,7 +21793,7 @@
      },
      "input_tokens": 0,
      "output_tokens": 0,
-     "seconds": 0.2
+     "seconds": 0.1
     },
     "browser_pages": 1,
     "duplicates_merged": 0,
@@ -21901,7 +21831,7 @@
      }
     ],
     "error": null,
-    "extract_ms_p50": 3062.3
+    "extract_ms_p50": 2993.2
    },
    "traps_result": {},
    "politeness": {
@@ -21910,7 +21840,7 @@
       "requests": 3,
       "subresources": 4,
       "robots_fetches": 1,
-      "min_gap_s": 0.001,
+      "min_gap_s": 0.003,
       "configured_interval_s": 0.0,
       "max_requests_per_s_10s": 0.7
      }
@@ -22119,7 +22049,7 @@
     ],
     "pages": 1,
     "records": 34,
-    "seconds": 2.89,
+    "seconds": 2.9,
     "strategies": [
      "learned"
     ],
@@ -22132,7 +22062,7 @@
      },
      "input_tokens": 0,
      "output_tokens": 0,
-     "seconds": 0.04
+     "seconds": 0.03
     },
     "browser_pages": 1,
     "duplicates_merged": 0,
@@ -22166,7 +22096,7 @@
      }
     ],
     "error": null,
-    "extract_ms_p50": 2887.9
+    "extract_ms_p50": 2894.0
    },
    "traps_result": {
     "relative_dates": {
@@ -22190,7 +22120,7 @@
    "learned": true,
    "extractors": [
     {
-     "id": "ext-12322a",
+     "id": "ext-080066",
      "kind": "list",
      "accepted": true,
      "attempts": 1,
@@ -22266,7 +22196,7 @@
     "errors": [],
     "pages": 6,
     "records": 0,
-    "seconds": 8.4,
+    "seconds": 8.33,
     "strategies": [
      "learned"
     ],
@@ -22359,7 +22289,7 @@
     "errors": [],
     "pages": 6,
     "records": 0,
-    "seconds": 8.18,
+    "seconds": 8.5,
     "strategies": [
      "direct"
     ],
@@ -22373,7 +22303,7 @@
      },
      "input_tokens": 0,
      "output_tokens": 0,
-     "seconds": 0.04
+     "seconds": 0.07
     },
     "browser_pages": 6,
     "duplicates_merged": 0,
@@ -22426,7 +22356,7 @@
     "records": 34,
     "llm_calls": 0
    },
-   "seconds": 24.3
+   "seconds": 24.5
   },
   {
    "site": "scroll-homes-05",
@@ -22483,7 +22413,7 @@
     "errors": [],
     "pages": 1,
     "records": 18,
-    "seconds": 2.32,
+    "seconds": 2.47,
     "strategies": [
      "learned"
     ],
@@ -22530,7 +22460,7 @@
      }
     ],
     "error": null,
-    "extract_ms_p50": 2322.4
+    "extract_ms_p50": 2469.8
    },
    "traps_result": {},
    "politeness": {
@@ -22539,7 +22469,7 @@
       "requests": 3,
       "subresources": 3,
       "robots_fetches": 1,
-      "min_gap_s": 0.001,
+      "min_gap_s": 0.0,
       "configured_interval_s": 0.0,
       "max_requests_per_s_10s": 0.6
      }
@@ -22549,7 +22479,7 @@
    "learned": true,
    "extractors": [
     {
-     "id": "ext-880944",
+     "id": "ext-a92d5b",
      "kind": "list",
      "accepted": true,
      "attempts": 1,
@@ -22637,7 +22567,7 @@
     "errors": [],
     "pages": 6,
     "records": 0,
-    "seconds": 8.02,
+    "seconds": 7.88,
     "strategies": [
      "learned"
     ],
@@ -22730,7 +22660,7 @@
     "errors": [],
     "pages": 1,
     "records": 0,
-    "seconds": 2.32,
+    "seconds": 2.46,
     "strategies": [
      "direct"
     ],
@@ -22801,8 +22731,8 @@
     "records": 18,
     "llm_calls": 0
    },
-   "seconds": 17.1
+   "seconds": 17.2
   }
  ],
- "seconds": 59.4
+ "seconds": 67.7
 }

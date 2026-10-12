@@ -18,6 +18,7 @@ const browser = await puppeteer.launch({
   executablePath: process.env.CHROME || "/usr/bin/google-chrome",
   headless: "new",
   args: ["--no-sandbox"],
+  protocolTimeout: 900000,
 });
 
 async function open(url, { width = 1500, height = 950 } = {}) {
@@ -48,12 +49,13 @@ async function clickButton(page, text) {
 }
 
 async function waitForText(page, text, timeout = 600000) {
-  await page.waitForFunction((t) => document.body.innerText.includes(t), { timeout, polling: 1000 }, text);
+  await page.waitForFunction((t) => document.body.innerText.toLowerCase().includes(t.toLowerCase()), { timeout, polling: 1000 }, text);
 }
 
 for (const shot of shots) {
   if (shot === "hero") {
     const page = await open(`${base}/?preset=${process.env.PRESET || "shop-04"}`, { height: 1100 });
+    await page.waitForFunction(() => [...document.querySelectorAll("textarea")].every((t) => t.value.length > 0), { timeout: 30000 });
     await clickButton(page, "Propose schema");
     await waitForText(page, "2 · Schema");
     await clickButton(page, "Preview first page");

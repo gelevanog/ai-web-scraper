@@ -38,13 +38,11 @@ function Builder() {
   // ?preset=books fills the form once the presets are known (state adjusted during render, not in an effect).
   const [appliedPreset, setAppliedPreset] = useState<string | null>(null);
   const preset = params.get("preset");
-  if (preset && preset !== appliedPreset && presets.length) {
-    const chosen = presets.find((p) => p.id === preset);
+  const chosenPreset = preset && preset !== appliedPreset ? presets.find((p) => p.id === preset) : undefined;
+  if (preset && chosenPreset) {
     setAppliedPreset(preset);
-    if (chosen) {
-      setUrls(chosen.url);
-      setDescription(chosen.intent);
-    }
+    setUrls(chosenPreset.url);
+    setDescription(chosenPreset.intent);
   }
 
   const firstUrl = urls.split(/\s+/).find(Boolean) ?? "";

@@ -95,8 +95,8 @@ function Overview({ job, events, pages }: { job: Job; events: EventRow[]; pages:
                       <span className="tabular-nums">{h.configured_interval_s} s</span>
                       <span>shortest real gap</span>
                       <span className="tabular-nums">{h.min_gap_s === null ? "—" : `${h.min_gap_s.toFixed(2)} s`}</span>
-                      <span>peak rate (10 s)</span>
-                      <span className="tabular-nums">{h.max_requests_per_s_10s} req/s</span>
+                      <span>average rate</span>
+                      <span className="tabular-nums">{h.mean_requests_per_s ?? "—"} req/s</span>
                     </div>
                   </div>
                 ))}

@@ -49,6 +49,13 @@ class RequestLog:
         gaps = [b - a for a, b in itertools.pairwise(times)]
         return min(gaps) if gaps else None
 
+    def mean_rate(self, host: str) -> float:
+        """Requests per second to `host` from its first to its last request."""
+        times = [e.t for e in self.per_host().get(host, [])]
+        if len(times) < 2 or times[-1] <= times[0]:
+            return 0.0
+        return (len(times) - 1) / (times[-1] - times[0])
+
     def max_rate(self, host: str, window: float = 10.0) -> float:
         """Most requests to `host` in any half-open `window`-second window, divided by the window (requests/s)."""
         times = [e.t for e in self.per_host().get(host, [])]

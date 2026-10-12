@@ -77,7 +77,7 @@ export type JobStats = {
   strategies: string[];
 };
 
-export type HostPoliteness = { requests: number; subresources: number; robots_fetches: number; min_gap_s: number | null; configured_interval_s: number; max_requests_per_s_10s: number };
+export type HostPoliteness = { requests: number; subresources: number; robots_fetches: number; min_gap_s: number | null; configured_interval_s: number; max_requests_per_s_10s: number; mean_requests_per_s?: number };
 
 export type Job = {
   id: string;

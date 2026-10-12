@@ -15,7 +15,7 @@ type Summary = {
   traps?: { counterfactuals: Record<string, unknown>[]; traps: Record<string, unknown> };
   toscrape?: { books: Agg & { pages: number; llm: { calls: number } }; quotes: Agg & { pages: number; llm: { calls: number } }; direct_first_page: Agg; live_requests: number };
   models?: { name: string; model: string; v1: Agg; robustness?: Robustness; cost?: { llm_calls: number } }[];
-  politeness?: { toscrape?: Record<string, { requests: number; min_gap_s: number | null; max_requests_per_s_10s: number; configured_interval_s: number; robots_fetches: number }> };
+  politeness?: { toscrape?: Record<string, { requests: number; min_gap_s: number | null; max_requests_per_s_10s: number; mean_requests_per_s?: number; configured_interval_s: number; robots_fetches: number }> };
   ledger?: { requests: number; ok: number; retryable_errors: number; errors: number; requested_models: Record<string, number>; served_models: Record<string, number>; all_free: boolean; first: string; last: string; input_tokens: number; output_tokens: number };
 };
 
@@ -213,7 +213,7 @@ export default function EvaluationPage() {
               <div className="space-y-1 px-4 py-3 text-xs text-ink-soft">
                 {Object.entries(data.politeness.toscrape).map(([host, h]) => (
                   <div key={host}>
-                    <span className="mono">{host}</span>: {h.requests} requests, shortest gap {h.min_gap_s?.toFixed(2) ?? "—"} s (limit {h.configured_interval_s} s), peak {h.max_requests_per_s_10s} req/s
+                    <span className="mono">{host}</span>: {h.requests} requests, shortest gap {h.min_gap_s?.toFixed(2) ?? "—"} s (limit {h.configured_interval_s} s), average {h.mean_requests_per_s ?? "—"} req/s
                   </div>
                 ))}
               </div>
@@ -222,13 +222,14 @@ export default function EvaluationPage() {
         ) : null}
         {data.models?.length ? (
           <Card title="Free model comparison (same subset)" pad={false}>
-            <Table dense head={["model", "field accuracy", "recall", "healed", "model calls"]}>
+            <Table dense head={["model", "v1 field accuracy", "recall", "healed", "after healing", "model calls (v1)"]}>
               {data.models.map((m) => (
                 <tr key={m.name}>
                   <td className="mono px-3 py-1.5 text-[11.5px]">{m.model}</td>
                   <td className="px-3 py-1.5 tabular-nums">{pct(m.v1.field_accuracy)}</td>
                   <td className="px-3 py-1.5 tabular-nums">{pct(m.v1.recall)}</td>
                   <td className="px-3 py-1.5 tabular-nums">{m.robustness ? `${m.robustness.healed} / ${m.robustness.sites}` : "—"}</td>
+                  <td className="px-3 py-1.5 tabular-nums">{m.robustness ? pct(m.robustness.after_healing.field_accuracy) : "—"}</td>
                   <td className="px-3 py-1.5 tabular-nums">{m.cost?.llm_calls ?? "—"}</td>
                 </tr>
               ))}
