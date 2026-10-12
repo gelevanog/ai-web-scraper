@@ -1,0 +1,8 @@
+{
+  "mcpServers": {
+    "sift": {
+      "command": "uv",
+      "args": ["run", "--directory", "/absolute/path/to/ai-web-scraper", "sift", "mcp"]
+    }
+  }
+}

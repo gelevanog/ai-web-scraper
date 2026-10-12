@@ -164,6 +164,70 @@ uv run sift crawl https://cobalt-audio.example/catalog/ \
 
 JavaScript pages need a Chromium: `make browser` (Playwright's own) or `SIFT_BROWSER_EXECUTABLE=/usr/bin/google-chrome`.
 
+## Use with Claude Code and Claude Desktop
+
+`sift mcp` runs an [MCP](https://modelcontextprotocol.io) server. With it, **Claude is the model**. Claude reads the page and writes the CSS/XPath rules. Sift handles the parts a model shouldn't be trusted with: fetching politely, removing hidden decoys and text aimed at AI systems, running the rules, normalizing and validating every record, keeping personal data out, storing extractors, and noticing when a site's layout changes. Only `extract` calls an LLM: it runs Sift's own pipeline with the provider set in `SIFT_LLM_PROVIDER`. That is the offline rule-based model by default, and the free-only guard stays on.
+
+| Tool | What it does |
+|---|---|
+| `fetch_page(url, view, max_chars)` | Fetches one page the way the crawler does: robots.txt first, Sift's user agent, same-site redirects only, a size cap, and one per-host rate limiter shared by every tool call. `view` picks the format: `skeleton` (condensed HTML that keeps class names, for writing selectors), `content` (compact HTML) or `text`. Hidden elements are removed, sentences addressed to AI systems are quarantined, and personal emails and phone numbers are redacted. The page comes back inside untrusted-data markers, with its pagination links and a flag for pages that need JavaScript. Pages are cached for 10 minutes. |
+| `test_extractor(extractor, schema, url or html, pages, verify_against)` | Runs Claude's rules with no model call. It applies Sift's own acceptance checks: records found on every page, fields filled and of the right type, required fields present, records not all identical, and (with `verify_against`) the rules must reproduce a saved extractor's records. It then normalizes values (money with FX, dates, absolute URLs, enums), applies the PII guard and validates every record against the schema's JSON Schema. |
+| `save_extractor(name, url, extractor, schema)` | Tests the rules again and refuses ones that fail. Passing rules are stored as a versioned extractor in a regular Sift job (`mcp:<name>`), so the dashboard shows it and `sift heal JOB_ID` can re-crawl it. The job also keeps a baseline for later comparison: a structure fingerprint, items per page, field fill rates and sample records. |
+| `run_extractor(name, url, max_pages)` | Runs a saved extractor through Sift's crawl engine with no model call (pagination, dedupe, anomaly flags, PII guard). Each page is compared with the baseline, and `layout_changed` says what moved. |
+| `list_extractors()` | Lists the saved extractors and their latest versions. |
+| `extract(url, request, schema, max_pages)` | Optional. Sift's own end-to-end pipeline (schema proposal, learned or direct extraction) with the configured provider, for comparison or for PDFs. |
+
+**Connect.** You need [uv](https://docs.astral.sh/uv/) and a clone with `uv sync` done. The demo sites (`https://<name>.example/`) are generated the first time a tool uses one, or ahead of time with `uv run sift seed`.
+
+Claude Code (everything after `--` is the command that starts the server):
+
+```bash
+claude mcp add sift -- uv run --directory /absolute/path/to/ai-web-scraper sift mcp
+# share it with a team through the project's .mcp.json instead of your local config:
+claude mcp add --scope project sift -- uv run --directory /absolute/path/to/ai-web-scraper sift mcp
+```
+
+`--scope project` writes the entry below to `.mcp.json` in the current project. This repository ships it as [`.mcp.json.example`](.mcp.json.example) rather than `.mcp.json`, so a clone doesn't load it automatically. Claude Code asks before it uses a project-scoped server. Run `/mcp` in a session to check that `sift` is connected.
+
+```json
+{
+  "mcpServers": {
+    "sift": {
+      "command": "uv",
+      "args": ["run", "--directory", "/absolute/path/to/ai-web-scraper", "sift", "mcp"]
+    }
+  }
+}
+```
+
+Claude Desktop: add the same entry to `claude_desktop_config.json`, which is at `~/Library/Application Support/Claude/` on macOS and `%APPDATA%\Claude\` on Windows. Use the absolute path of `uv` (from `which uv`), because Desktop starts servers with a minimal `PATH`. Then quit Claude Desktop completely and open it again.
+
+```json
+{
+  "mcpServers": {
+    "sift": {
+      "command": "/absolute/path/to/uv",
+      "args": ["run", "--directory", "/absolute/path/to/ai-web-scraper", "sift", "mcp"]
+    }
+  }
+}
+```
+
+Streamable HTTP is also available: `uv run sift mcp --http --port 8765` serves `http://127.0.0.1:8765/mcp`, bound to localhost with DNS-rebinding protection on. Connect with `claude mcp add --transport http sift http://127.0.0.1:8765/mcp`. Because `--directory` runs the server from the repository, it reads the same `.env` as the CLI, and saved extractors go to `SIFT_DATABASE_URL`.
+
+**Example prompts** (on the bundled demo sites, which are fictional and generated locally):
+
+1. *"Get title, price and currency for every product on https://cobalt-audio.example/catalog/, all pages, and save the extractor as cobalt."* Claude calls `fetch_page`. The skeleton shows `article.pc-crd`, `h3.pc-ttl`, `span.pc-prc` with "£196.46" and an `a.pc-nxt` link, so Claude writes `{"item": "article.pc-crd", "fields": {"title": "h3.pc-ttl", "price": ".pc-prc"}, "next_page": {"css": "a.pc-nxt", "attr": "href"}}` and a schema with `price` as `money` in GBP. `test_extractor` with `pages=3` returns `ok: true`, `items_per_page: [12, 12, 2]` and records like `{"title": "Prime Portable Speaker", "price": {"amount": 196.46, "currency": "GBP"}}`, all 26 valid against the JSON Schema. If Claude asks for USD instead, Sift converts with its FX table and keeps the source amount and currency. `save_extractor` then stores version 1. Later, *"run cobalt"* returns 26 records from 3 pages with `model_calls: 0`.
+2. *"Run cobalt again"* after the shop is redesigned (start the server with `SIFT_SYNTHETIC_LAYOUT=v2` to see this). `run_extractor` reports `layout_changed: true` with the signal "no records" and a structural similarity of 0.04 to the baseline. Claude fetches the new skeleton (`li.item-tile`, `.item-tile__title`, `.item-tile__price`) and tests the new rules with `verify_against: "cobalt"`, which requires them to reproduce the records saved before the change (`reference_agreement: 1.0`). It then saves them as version 2. Sift does the checking; Claude does the rewriting.
+3. Safety. *"Also fetch https://cobalt-audio.example/cart"* fails with "robots.txt of cobalt-audio.example disallows ... Sift does not fetch it", and no tool argument can change that. `http://localhost:8000/...`, private and cloud-metadata addresses are refused too. On https://alpine-outfitters.example/catalog/, a product description addressed to "AI scrapers" comes back as `[removed by Sift: text addressed to AI systems]`, with `injection_findings` listing the rules that fired. A hidden "Sample Product (do not ship)" decoy never appears. On https://hireloop.example/jobs/, contact persons' emails and phone numbers come back as `[email removed]` and `[phone removed]`.
+
+**Limits.**
+- `fetch_page` and `test_extractor` read the HTML as served. They flag pages that need JavaScript, while `run_extractor` and `extract` render those with headless Chromium when one is installed.
+- `run_extractor` does not visit detail pages and does not re-learn: repairing an extractor is Claude's job, checked by `test_extractor`.
+- Each `run_extractor` call fetches robots.txt again, through the same rate limiter.
+- The private-address check resolves the hostname before fetching. It blocks the obvious cases but is not a defense against DNS rebinding.
+- Output is capped at about 24,000 characters per call (`SIFT_MCP_MAX_OUTPUT_CHARS`), and longer record lists are cut with a note.
+
 ## Run with free models via OpenRouter
 
 ```bash
@@ -445,6 +509,7 @@ All settings are environment variables (or `.env`); [`.env.example`](.env.exampl
 | `SIFT_API_TOKEN` | none | require `Authorization: Bearer <token>` on the API |
 | `SIFT_TODAY` | `2026-10-01` | the date relative dates resolve against (fixed for the synthetic web); empty = today |
 | `SIFT_LLM_MAX_CALLS` / `SIFT_LLM_LEDGER` | `495` / `results/calls.jsonl` | hard cap and ledger of real API calls |
+| `SIFT_MCP_ALLOW_PRIVATE_HOSTS` / `SIFT_MCP_MAX_OUTPUT_CHARS` | `false` / `24000` | MCP server: allow localhost and private addresses (your own test site); cap on one tool result |
 
 ## Project structure
 
@@ -462,6 +527,7 @@ src/sift/
   engine.py       the job engine (crawl, strategy, learn, run, detect, heal, validate)
   services.py     jobs, re-crawls, preview, exports;  store.py  SQLAlchemy storage;  exports.py  file/webhook/table
   api/app.py      FastAPI;  worker.py  job worker;  cli.py  sift ...;  sdk.py  Python client;  demo.py  first start
+  mcp_server.py   the MCP server (sift mcp): polite fetch, extractor testing, saved extractors for Claude
 configs/fx.yaml   exchange rates
 web/src/          Next.js dashboard
 tests/            pytest (no keys, no network)
@@ -493,6 +559,7 @@ make eval-offline  # the synthetic suites with the offline model, no API calls
 | `test_llm.py` | the free-only guard and the paid-model opt-in (`compat` provider), OpenRouter and **Qwen Cloud request shapes**, error mapping, retries and the ledger, the hard cap, the 403 fallback, Anthropic with a mocked client, JSON repair |
 | `test_api.py` | jobs, records with filters, exports, events, extractors, the timeline, re-crawl after a redesign, unchanged re-crawl, schema proposal and preview, validation, cancel, delete, bearer token, the SDK |
 | `test_cli.py` | seed, schema, learn, extract, crawl, heal, jobs, export, an evaluation suite |
+| `test_mcp.py` | the MCP server through the SDK's in-memory client and a real stdio subprocess: tools and annotations, fetch with untrusted-data markers, robots.txt and private addresses refused, one rate limit across tool calls, injection, decoys and PII, rule testing with schema validation, save, run, layout change after the redesign and repair verified against saved records, the free-only guard on `extract`, legacy handshake clients |
 | `test_postgres.py` | storage, the job queue with a waiting re-crawl and the typed table on PostgreSQL (CI service container) |
 | `test_eval.py` | field equality rules, scoring, schema comparison, the cost table |
 
