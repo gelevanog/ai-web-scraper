@@ -332,6 +332,21 @@ def learn(
         if kind == "detail":
             program.item = None
         check = check_program(program, sub_schema, samples, ctx_for, examples=examples, reference=reference)
+        if previous is not None and kind == "list":
+            # A field the old rules read from these pages is still on them after a redesign (and the earlier records
+            # have it): declaring it "missing" would silently lose it.
+            lost = [
+                name
+                for name in program.missing
+                if name in previous.fields
+                and name not in previous.missing
+                and any(r.get(name) not in (None, "", []) for r in reference or [])
+            ]
+            if lost:
+                check.errors.append(
+                    f"{', '.join(lost)}: shown on these pages before the redesign (the earlier records have values); write a rule instead of listing it as missing"
+                )
+                check.ok = False
         history.append(
             {
                 "attempt": attempt,

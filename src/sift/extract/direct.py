@@ -12,7 +12,7 @@ from typing import Any
 
 from sift.extract.dom import HtmlElement, clean_html, visible_text
 from sift.extract.prompts import DIRECT
-from sift.llm.base import ChatModel, LLMError
+from sift.llm.base import ChatModel, LLMError, Message
 from sift.llm.jsonparse import JSONReplyError, parse_json_object
 from sift.schema.model import FieldType, Schema
 from sift.validate.injection import Finding, guard_dom, quarantine, scan, spotlight
@@ -61,20 +61,28 @@ def extract(
     content = content[:max_chars]
     compact = schema.model_dump_json(exclude_defaults=True)
     user = f"Schema fields:\n{schema.prompt_lines()}\nSchema JSON: {compact}\n\nPage URL: {url}\n{spotlight(content)}"
-    try:
-        reply = model.complete(
-            [{"role": "system", "content": DIRECT.format()}, {"role": "user", "content": user}], max_tokens=max_tokens
-        )
-        data = parse_json_object(reply.text)
-    except (JSONReplyError, LLMError) as exc:
-        return DirectResult([], 1, findings, error=str(exc)[:300], input_chars=len(content), truncated=truncated)
+    messages: list[Message] = [{"role": "system", "content": DIRECT.format()}, {"role": "user", "content": user}]
+    calls = 0
+    for attempt in range(2):
+        calls += 1
+        try:
+            reply = model.complete(messages, max_tokens=max_tokens)
+            data = parse_json_object(reply.text)
+            break
+        except (JSONReplyError, LLMError) as exc:
+            # Free reasoning models sometimes think until the token ceiling: one more try, then give up.
+            if attempt == 0 and "max_tokens" in str(exc):
+                continue
+            return DirectResult(
+                [], calls, findings, error=str(exc)[:300], input_chars=len(content), truncated=truncated
+            )
     records = data.get("records")
     if not isinstance(records, list):
         return DirectResult(
-            [], 1, findings, error="no records array in the answer", input_chars=len(content), truncated=truncated
+            [], calls, findings, error="no records array in the answer", input_chars=len(content), truncated=truncated
         )
     return DirectResult(
-        [r for r in records if isinstance(r, dict)], 1, findings, input_chars=len(content), truncated=truncated
+        [r for r in records if isinstance(r, dict)], calls, findings, input_chars=len(content), truncated=truncated
     )
 
 

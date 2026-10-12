@@ -156,9 +156,11 @@ def _transform(text: str | None, rule: Rule) -> str | None:
         for key, mapped in rule.value_map.items():
             if key.strip().lower() == low:
                 return mapped
-        # Longest key first: "Available for preorder" must not match the key "Available".
+        # A key inside a longer text counts only when it covers most of it: "Available" must not decide
+        # "Available for preorder" (the code's enum matcher reads that one).
         for key, mapped in sorted(rule.value_map.items(), key=lambda kv: -len(kv[0].strip())):
-            if key.strip().lower() and key.strip().lower() in low:
+            k = key.strip().lower()
+            if k and k in low and len(k) >= 0.6 * len(low):
                 return mapped
     return text.strip() if text is not None else None
 
