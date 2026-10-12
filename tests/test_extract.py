@@ -240,3 +240,32 @@ def test_offline_model_learns_a_synthetic_catalog(site: Any, web_root: Path) -> 
     assert len(records) == 12
     assert records[0]["name"] == shop["records"][0]["name"]
     assert records[0]["price"]["amount"] == shop["records"][0]["price"]
+
+
+def test_regex_cuts_are_repaired_from_the_element_text() -> None:
+    from sift.extract.program import RawRecord, RawValue, Rule, _transform, raw_values
+
+    schema = Schema(
+        fields=[
+            FieldSpec(name="area", type=FieldType.number, unit="sqm"),
+            FieldSpec(name="low", type=FieldType.money),
+            FieldSpec(name="eur", type=FieldType.money),
+        ]
+    )
+    record = RawRecord(
+        values={
+            "area": RawValue("1,200", context="3 bd · 1,200 sq ft"),
+            "low": RawValue("85", context="$85k – $110k"),
+            "eur": RawValue("60.000", context="60.000 € – 75.000 € per year"),
+        }
+    )
+    assert raw_values(record, schema) == {"area": "1,200 sq ft", "low": "85k USD", "eur": "60.000 EUR"}
+    assert (
+        _transform("Salary $85k – $110k", Rule(css="x", regex="\\\\$(\\\\d+k)")) == "85k"
+    )  # double-escaped by a model
+
+
+def test_skeleton_keeps_every_table_column() -> None:
+    row = "<tr>" + "".join(f"<td>c{i}</td>" for i in range(7)) + "</tr>"
+    out = skeleton(parse(f"<html><body><table><tbody>{row * 10}</tbody></table></body></html>"))
+    assert "c6" in out and out.count("<tr>") == 3

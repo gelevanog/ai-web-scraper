@@ -66,7 +66,9 @@ def is_sparse(record: dict[str, Any], schema: Schema, typical: float) -> bool:
     """A "record" that fills much less than its siblings (a totals row, a header row repeated in the body)."""
     required_missing = any(record.get(f.name) in (None, "", []) for f in schema.fields if f.required)
     ratio = fill_ratio(record, schema)
-    return required_missing or (typical >= 0.6 and ratio <= typical * 0.5)
+    # A real record may have several empty fields (an enterprise plan without a price); only a row that fills at
+    # most a third of the schema while its siblings fill most of it is treated as a non-record.
+    return required_missing or (typical >= 0.6 and ratio <= typical * 0.5 and ratio < 0.35)
 
 
 @dataclass

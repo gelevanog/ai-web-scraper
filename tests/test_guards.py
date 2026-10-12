@@ -200,3 +200,15 @@ def test_sparse_rows_are_not_records() -> None:
     assert not is_sparse(
         {"facility": "Library", "district": "North", "capacity": 120, "phone": None}, schema, typical=1.0
     )
+
+
+def test_records_with_some_empty_fields_are_kept() -> None:
+    schema = Schema(
+        fields=[
+            FieldSpec(name=n, type=FieldType.string, required=n == "plan")
+            for n in ("plan", "monthly", "annual", "seats", "features")
+        ]
+    )
+    assert not is_sparse(
+        {"plan": "Enterprise", "monthly": None, "annual": None, "seats": None, "features": "SSO"}, schema, typical=1.0
+    )

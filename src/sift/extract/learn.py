@@ -175,6 +175,7 @@ def check_program(
     if reference:
         by_key = {record_key(r, schema): r for r in reference}
         matched = agree = total = 0
+        misses: dict[str, list[tuple[Any, Any]]] = {}
         for record in all_records:
             data = typed(record)
             ref = by_key.get(record_key(data, schema))
@@ -182,10 +183,15 @@ def check_program(
                 continue
             matched += 1
             for spec in wanted:
-                if ref.get(spec.name) in (None, "", []):
+                want = ref.get(spec.name)
+                # Empty values and text the PII guard rewrote are not evidence either way.
+                if want in (None, "", []) or (isinstance(want, str) and "removed]" in want):
                     continue
                 total += 1
-                agree += _values_equal(data.get(spec.name), ref.get(spec.name))
+                if _values_equal(data.get(spec.name), want):
+                    agree += 1
+                else:
+                    misses.setdefault(spec.name, []).append((data.get(spec.name), want))
         check.reference_agreement = agree / total if total else 0.0
         if matched == 0:
             check.errors.append(
@@ -193,6 +199,11 @@ def check_program(
             )
         elif check.reference_agreement < 0.9:
             check.errors.append(f"only {agree} of {total} values agree with records extracted before the layout change")
+            for name, pairs in sorted(misses.items(), key=lambda kv: -len(kv[1]))[:4]:
+                got, want = pairs[0]
+                check.errors.append(
+                    f"{name}: {len(pairs)} value(s) differ from earlier records, e.g. the rule gave {got!r} where the earlier record has {want!r}"
+                )
     fill_mean = sum(check.fill.values()) / max(len(check.fill), 1)
     agreement = (
         check.reference_agreement

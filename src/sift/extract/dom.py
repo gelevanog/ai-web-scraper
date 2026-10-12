@@ -209,6 +209,9 @@ def skeleton(doc: HtmlElement, *, max_chars: int = 24_000, keep_repeats: int = 3
             else:
                 runs.append([child])
         for run in runs:
+            # Table cells are columns, not repeated records: never hide them.
+            if run[0].tag in ("td", "th"):
+                continue
             if len(run) > keep_repeats + 1:
                 extra = run[keep_repeats:]
                 note = etree.Comment(

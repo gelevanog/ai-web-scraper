@@ -248,6 +248,7 @@ class Engine:
         self.pii = PiiReport()
         self.findings: list[Finding] = []
         self._healed_detail: set[tuple[str, str]] = set()
+        self._visited: set[str] = set()
         self._detail_direct_left: dict[str, int] = {}
 
     # ------------------------------------------------------------------------------------------------ plumbing
@@ -419,6 +420,7 @@ class Engine:
                 continue
             t0 = time.monotonic()
             result, doc, pdf = prefetched.pop(url) if url in prefetched else self.fetch(url, job, browser_hosts)
+            self._visited.add(url)
             info = PageInfo(
                 url,
                 result.status,
@@ -763,7 +765,11 @@ class Engine:
             )
         raws = self._run_list(ext, url, doc)
         typed_records = [typed(normalize_record(raw_values(r, schema), schema, ctx_for(url, doc))) for r in raws]
-        is_last = not pagination_links(doc, url) and not links(doc, ext.program.next_page, url)
+        # The last page of results legitimately has fewer items: a yield drop there is not a layout change.
+        if ext.program.next_page is not None:
+            is_last = not links(doc, ext.program.next_page, url)
+        else:
+            is_last = not [link for link in pagination_links(doc, url) if link not in self._visited]
         signals, similarity = self._health(ext, raws, typed_records, schema, fp, is_last)
         info.similarity = similarity
         info.extractor = f"{ext.id}@v{ext.version}"

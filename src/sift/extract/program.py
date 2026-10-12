@@ -142,6 +142,12 @@ def _transform(text: str | None, rule: Rule) -> str | None:
         return None
     if rule.regex:
         match = re.search(rule.regex, text)
+        if not match and "\\\\" in rule.regex:
+            # A common slip in model-written JSON: backslashes escaped twice ("\\\\d" for "\\d").
+            try:
+                match = re.search(rule.regex.replace("\\\\", "\\"), text)
+            except re.error:
+                match = None
         if not match:
             return None
         text = match.group(1) if match.groups() else match.group(0)
@@ -275,9 +281,10 @@ def parse_program(data: dict[str, Any]) -> Program:
 
 
 def raw_values(record: RawRecord, schema: Any) -> dict[str, Any]:
-    """The record's raw values for normalization. A money value whose currency the rule's regex cut off ("1.299,00"
-    out of "1.299,00 €") gets the currency printed next to it in the same element back, so code, not luck, decides
-    the currency."""
+    """The record's raw values for normalization. When a rule's regex cut a number out of its element, what the regex
+    dropped is restored from the element's own text, so code, not luck, decides the meaning: the currency
+    ("1.299,00" out of "1.299,00 €"), a thousands suffix ("85" out of "$85k") and a unit ("1,200" out of
+    "1,200 sq ft")."""
     from sift.normalize.money import detect_currency
     from sift.schema.model import FieldType
 
@@ -285,15 +292,17 @@ def raw_values(record: RawRecord, schema: Any) -> dict[str, Any]:
     for name, raw in record.values.items():
         value = raw.value
         spec = schema.field(name) if hasattr(schema, "field") else None
-        if (
-            spec is not None
-            and spec.type == FieldType.money
-            and isinstance(value, str)
-            and raw.context
-            and detect_currency(value) is None
-        ):
-            code = detect_currency(raw.context)
-            if code:
-                value = f"{value} {code}"
+        if spec is not None and isinstance(value, str) and value.strip() and raw.context:
+            number = value.strip().split()[0]
+            if spec.type == FieldType.money:
+                code = detect_currency(value) or detect_currency(raw.context)
+                if re.search(re.escape(number) + r"\s?[kK]\b", raw.context) and not re.search(r"\d\s?[kK]\b", value):
+                    value = number + "k"
+                if code and detect_currency(value) is None:
+                    value = f"{value} {code}"
+            elif spec.type == FieldType.number and spec.unit and not re.search(r"[a-zA-Z²]", value):
+                unit = re.search(re.escape(value.strip()) + r"\s*([a-zA-Z²]+(?:\s[a-zA-Z²]+)?)", raw.context)
+                if unit:
+                    value = f"{value.strip()} {unit.group(1)}"
         out[name] = value
     return out
