@@ -319,3 +319,12 @@ def test_xpath_text_and_attribute_results() -> None:
     )
     values = {k: v.value for k, v in run_detail(doc, rules).values.items()}
     assert values == {"category": "Poetry", "link": "/c/poetry/", "upc": "a897fe39"}
+
+
+def test_lists_of_objects_compare_field_by_field() -> None:
+    from sift.extract.learn import _values_equal
+
+    want = [{"name": "Small", "in_stock": False}, {"name": "Large", "in_stock": True}]
+    assert _values_equal([{"name": "Large", "in_stock": True}, {"name": "Small", "in_stock": False}], want)
+    assert not _values_equal([{"name": "Small", "in_stock": False}, {"name": "Large", "in_stock": None}], want)
+    assert not _values_equal([{"name": "Small", "in_stock": False}], want)

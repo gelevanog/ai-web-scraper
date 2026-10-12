@@ -63,7 +63,8 @@ def typed(record: dict[str, FieldResult]) -> dict[str, Any]:
     return {name: result.value for name, result in record.items()}
 
 
-def _values_equal(a: Any, b: Any) -> bool:
+def _values_equal(a: Any, b: Any, *, strict: bool = True) -> bool:
+    """With strict=False (the model's own example values, which are hints) lists of objects only need the same length."""
     if isinstance(a, dict) and isinstance(b, dict) and "amount" in a and "amount" in b:
         return abs(float(a["amount"]) - float(b["amount"])) <= 0.011
     if (
@@ -74,7 +75,21 @@ def _values_equal(a: Any, b: Any) -> bool:
     ):
         return abs(float(a) - float(b)) <= max(0.011, abs(float(b)) * 0.001)
     if isinstance(a, list) and isinstance(b, list):
-        return sorted(map(str, (norm_key(x) for x in a))) == sorted(map(str, (norm_key(x) for x in b)))
+        if len(a) != len(b):
+            return False
+
+        if not strict and any(isinstance(x, dict) for x in [*a, *b]):
+            return True
+
+        def item_key(x: Any) -> str:
+            # Objects (a size with its availability) compare field by field, not as one normalized string.
+            if isinstance(x, dict):
+                return json.dumps(
+                    {k: norm_key(v) if not isinstance(v, bool) else v for k, v in sorted(x.items())}, sort_keys=True
+                )
+            return norm_key(x)
+
+        return sorted(map(item_key, a)) == sorted(map(item_key, b))
     if isinstance(a, str) and isinstance(b, str):
         return norm_key(a) == norm_key(b)
     return bool(a == b)
@@ -163,7 +178,7 @@ def check_program(
                 if exp in (None, "", []):
                     continue
                 total += 1
-                if _values_equal(got.get(spec.name), exp):
+                if _values_equal(got.get(spec.name), exp, strict=False):
                     agree += 1
                 else:
                     check.warnings.append(
