@@ -13,6 +13,10 @@
 ![mypy strict](https://img.shields.io/badge/mypy-strict-2a6db2)
 ![License: MIT](https://img.shields.io/badge/License-MIT-green)
 
+https://github.com/user-attachments/assets/5496a739-4086-48a1-bbda-6873ca8ca81a
+
+<sub>63-second walkthrough with voiceover. Can't play it? [Download the MP4](docs/demo.mp4).</sub>
+
 ![The job builder: a plain-English request and a start URL on the left, the schema the model proposed (money in USD, a number, an enum for stock status, URLs) below it, and on the right the first page's records with a provenance popover showing the source URL, the learned CSS rule, the matched node, the raw text "€22.22" and the value converted to 24.00 USD, above the learned extractor's rules](docs/screenshots/hero.png)
 
 <sub>A live session with the free `nvidia/nemotron-3-super-120b-a12b:free`: the request and URL of a fictional kitchen shop whose prices come in four currencies. The model proposed the schema (including an enum value "ready_to_ship" it saw on the page, which you can edit away) and wrote the CSS rules from the first page (bottom right); the hovered cell shows where a value came from: the page, the rule, the matched element and the raw text "€22.22", converted to 24.00 USD by code with a fixed exchange-rate table. These rules then ran on the other pages with no model call.</sub>
