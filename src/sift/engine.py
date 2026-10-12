@@ -765,11 +765,10 @@ class Engine:
             )
         raws = self._run_list(ext, url, doc)
         typed_records = [typed(normalize_record(raw_values(r, schema), schema, ctx_for(url, doc))) for r in raws]
-        # The last page of results legitimately has fewer items: a yield drop there is not a layout change.
-        if ext.program.next_page is not None:
-            is_last = not links(doc, ext.program.next_page, url)
-        else:
-            is_last = not [link for link in pagination_links(doc, url) if link not in self._visited]
+        # The last page of results legitimately has fewer items: a yield drop there is not a layout change. It is the
+        # last page when neither the learned next-page rule nor the pagination heuristics lead to an unvisited page.
+        onward = links(doc, ext.program.next_page, url) + pagination_links(doc, url)
+        is_last = not [link for link in onward if canonicalize(link) not in self._visited]
         signals, similarity = self._health(ext, raws, typed_records, schema, fp, is_last)
         info.similarity = similarity
         info.extractor = f"{ext.id}@v{ext.version}"

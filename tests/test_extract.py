@@ -269,3 +269,36 @@ def test_skeleton_keeps_every_table_column() -> None:
     row = "<tr>" + "".join(f"<td>c{i}</td>" for i in range(7)) + "</tr>"
     out = skeleton(parse(f"<html><body><table><tbody>{row * 10}</tbody></table></body></html>"))
     assert "c6" in out and out.count("<tr>") == 3
+
+
+def test_value_map_prefers_the_longest_matching_key() -> None:
+    from sift.extract.program import Rule, _transform
+
+    rule = Rule(css="x", value_map={"Available": "in_stock", "Available for preorder": "preorder"})
+    assert _transform("Available for preorder", rule) == "preorder"
+    assert _transform("Available now", rule) == "in_stock"
+
+
+def test_one_broken_field_fails_verification_even_when_overall_agreement_is_high() -> None:
+    items = "".join(
+        f'<li class="d"><b>{n}</b><i>${p}.00</i><u>{p * 2}</u></li>'
+        for n, p in [("A", 1), ("B", 2), ("C", 3), ("D", 4), ("E", 5), ("F", 6)]
+    )
+    page = parse(f"<html><body><ul>{items}</ul></body></html>")
+    schema = Schema(
+        fields=[
+            FieldSpec(name="n", type=FieldType.string, required=True, key=True),
+            FieldSpec(name="price", type=FieldType.money),
+            FieldSpec(name="x", type=FieldType.integer),
+            FieldSpec(name="y", type=FieldType.string),
+            FieldSpec(name="z", type=FieldType.string),
+            FieldSpec(name="w", type=FieldType.string),
+        ]
+    )
+    reference = [
+        {"n": n, "price": {"amount": float(p), "currency": "USD"}, "x": p * 2 + 1, "y": "k", "z": "k", "w": "k"}
+        for n, p in [("A", 1), ("B", 2), ("C", 3), ("D", 4), ("E", 5), ("F", 6)]
+    ]
+    program = parse_program({"item": "li.d", "fields": {"n": "b", "price": "i", "x": "u", "y": {"xpath": "'k'"}}})
+    check = check_program(program, schema, [Sample("https://s.example/", page)], CTX, reference=reference)
+    assert not check.ok and any(e.startswith("x: 6 of 6 value(s) differ") for e in check.errors)

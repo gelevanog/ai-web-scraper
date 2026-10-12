@@ -176,6 +176,7 @@ def check_program(
         by_key = {record_key(r, schema): r for r in reference}
         matched = agree = total = 0
         misses: dict[str, list[tuple[Any, Any]]] = {}
+        compared: dict[str, int] = {}
         for record in all_records:
             data = typed(record)
             ref = by_key.get(record_key(data, schema))
@@ -188,22 +189,33 @@ def check_program(
                 if want in (None, "", []) or (isinstance(want, str) and "removed]" in want):
                     continue
                 total += 1
+                compared[spec.name] = compared.get(spec.name, 0) + 1
                 if _values_equal(data.get(spec.name), want):
                     agree += 1
                 else:
                     misses.setdefault(spec.name, []).append((data.get(spec.name), want))
         check.reference_agreement = agree / total if total else 0.0
+        # Overall agreement can hide one completely broken field, so each field is held to a bar too.
+        weak = {
+            name: pairs
+            for name, pairs in misses.items()
+            if compared.get(name, 0) >= 5 and len(pairs) / compared[name] > 0.2
+        }
         if matched == 0:
             check.errors.append(
                 "none of the records matches a record extracted before the layout change (check the name/title rule)"
             )
-        elif check.reference_agreement < 0.9:
-            check.errors.append(f"only {agree} of {total} values agree with records extracted before the layout change")
-            for name, pairs in sorted(misses.items(), key=lambda kv: -len(kv[1]))[:4]:
-                got, want = pairs[0]
+        else:
+            if check.reference_agreement < 0.9:
                 check.errors.append(
-                    f"{name}: {len(pairs)} value(s) differ from earlier records, e.g. the rule gave {got!r} where the earlier record has {want!r}"
+                    f"only {agree} of {total} values agree with records extracted before the layout change"
                 )
+            if check.reference_agreement < 0.9 or weak:
+                for name, pairs in sorted((weak or misses).items(), key=lambda kv: -len(kv[1]))[:4]:
+                    got, want = pairs[0]
+                    check.errors.append(
+                        f"{name}: {len(pairs)} of {compared.get(name, len(pairs))} value(s) differ from earlier records, e.g. the rule gave {got!r} where the earlier record has {want!r}"
+                    )
     fill_mean = sum(check.fill.values()) / max(len(check.fill), 1)
     agreement = (
         check.reference_agreement

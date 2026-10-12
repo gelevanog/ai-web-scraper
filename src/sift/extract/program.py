@@ -156,7 +156,8 @@ def _transform(text: str | None, rule: Rule) -> str | None:
         for key, mapped in rule.value_map.items():
             if key.strip().lower() == low:
                 return mapped
-        for key, mapped in rule.value_map.items():
+        # Longest key first: "Available for preorder" must not match the key "Available".
+        for key, mapped in sorted(rule.value_map.items(), key=lambda kv: -len(kv[0].strip())):
             if key.strip().lower() and key.strip().lower() in low:
                 return mapped
     return text.strip() if text is not None else None
