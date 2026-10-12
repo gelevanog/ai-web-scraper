@@ -42,16 +42,27 @@ def _balanced(text: str, start: int) -> str | None:
     return None
 
 
+_OPEN_CURLY = re.compile(r"(?<=[:\[,{])(\s*)[“”]")
+_CLOSE_CURLY = re.compile(r"[“”](?=\s*[,}\]:])")
+
+
+def _repair_quotes(chunk: str) -> str:
+    """Typographic quotes used as JSON string delimiters ("text”: “To be...”,), a slip seen from a free model."""
+    return _TRAILING_COMMA.sub(r"\1", _CLOSE_CURLY.sub('"', _OPEN_CURLY.sub(r'\1"', chunk)))
+
+
 def parse_json_object(text: str) -> dict[str, Any]:
     """The first JSON object in a model reply. Raises JSONReplyError when there is none."""
     cleaned = _THINK.sub("", text).strip()
     candidates = [m.group(1) for m in _FENCE.finditer(cleaned)] + [cleaned]
+    if "“" in cleaned or "”" in cleaned:
+        candidates.insert(0, _repair_quotes(cleaned))
     for candidate in candidates:
         for match in re.finditer(r"\{", candidate):
             chunk = _balanced(candidate, match.start())
             if chunk is None:
                 continue
-            for attempt in (chunk, _TRAILING_COMMA.sub(r"\1", chunk)):
+            for attempt in (chunk, _TRAILING_COMMA.sub(r"\1", chunk), _repair_quotes(chunk)):
                 try:
                     value = json.loads(attempt)
                 except json.JSONDecodeError:

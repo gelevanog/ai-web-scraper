@@ -212,3 +212,18 @@ def test_records_with_some_empty_fields_are_kept() -> None:
     assert not is_sparse(
         {"plan": "Enterprise", "monthly": None, "annual": None, "seats": None, "features": "SSO"}, schema, typical=1.0
     )
+
+
+def test_year_ranges_in_titles_are_not_phone_numbers() -> None:
+    report = PiiReport()
+    title = "Our Band Could Be Your Life: Scenes from the American Indie Underground, 1981-1991"
+    assert guard_record({"title": title}, SCHEMA, site_host="books.example", report=report)["title"] == title
+    assert (
+        guard_record({"title": "Maude (1883-1993):She Grew Up"}, SCHEMA, site_host="b.example", report=report)["title"]
+        == "Maude (1883-1993):She Grew Up"
+    )
+    assert report.removed == 0
+    assert (
+        "[phone removed]"
+        in guard_record({"title": "call 415-555-0134 now"}, SCHEMA, site_host="b.example", report=report)["title"]
+    )

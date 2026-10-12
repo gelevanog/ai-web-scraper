@@ -337,3 +337,9 @@ def test_connection_errors_are_retryable() -> None:
     )
     with pytest.raises(RetryableLLMError):
         model.complete(MESSAGES, max_tokens=10)
+
+
+def test_json_with_typographic_quote_delimiters_is_repaired() -> None:
+    text = '{"records": [{"text": “The world as we have created it.”, "author": "A"}, {"text”: “It is our choices.”, "tags": ["a"]}]}'
+    assert parse_json_object(text)["records"][1] == {"text": "It is our choices.", "tags": ["a"]}
+    assert parse_json_object('{"a": "He said “hi” there"}') == {"a": "He said “hi” there"}

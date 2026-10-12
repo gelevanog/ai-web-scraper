@@ -50,11 +50,11 @@ class RequestLog:
         return min(gaps) if gaps else None
 
     def max_rate(self, host: str, window: float = 10.0) -> float:
-        """Most requests to `host` in any `window`-second window, divided by the window (requests per second)."""
+        """Most requests to `host` in any half-open `window`-second window, divided by the window (requests/s)."""
         times = [e.t for e in self.per_host().get(host, [])]
         best, start = 0, 0
         for end, t in enumerate(times):
-            while t - times[start] > window:
+            while t - times[start] >= window:
                 start += 1
             best = max(best, end - start + 1)
         return best / window if times else 0.0

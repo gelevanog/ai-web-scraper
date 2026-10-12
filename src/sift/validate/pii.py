@@ -55,6 +55,18 @@ def _digits(text: str) -> int:
     return len(re.sub(r"\D", "", text))
 
 
+_YEARS = re.compile(r"^\(?(1[5-9]\d\d|20\d\d)\)?\s?[-–/]\s?\(?(1[5-9]\d\d|20\d\d)\)?$")
+
+
+def looks_like_phone(text: str) -> bool:
+    """At least 9 digits (or 7 with a leading +), and not a range of years ("1981-1991", which a real site's book
+    titles taught us)."""
+    digits = _digits(text)
+    if _YEARS.match(text.strip()):
+        return False
+    return digits >= 9 or (text.strip().startswith("+") and digits >= 7)
+
+
 def _clean(text: str, *, business: bool, site_host: str, report: PiiReport, field_name: str) -> str | None:
     def email(match: re.Match[str]) -> str:
         address = match.group(0)
@@ -73,7 +85,7 @@ def _clean(text: str, *, business: bool, site_host: str, report: PiiReport, fiel
 
     def phone(match: re.Match[str]) -> str:
         number = match.group(0)
-        if _digits(number) < 7:
+        if not looks_like_phone(number):
             return number
         if business:
             report.kept_business += 1
