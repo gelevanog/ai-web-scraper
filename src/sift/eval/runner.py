@@ -512,7 +512,7 @@ def run_direct(
 
 SYNONYMS: dict[str, list[str]] = {
     "name": ["product_name", "title", "product_title", "product", "event_name", "event"],
-    "price": ["current_price", "price_usd", "price_in_usd", "ticket_price", "asking_price", "cost"],
+    "price": ["current_price", "price_usd", "price_in_usd", "ticket_price", "ticket_price_usd", "asking_price", "cost"],
     "rating": ["star_rating", "stars", "average_rating", "rating_out_of_5"],
     "stock_status": ["availability", "stock", "in_stock", "status", "availability_status"],
     "image_url": ["image", "image_link", "main_image", "image_src", "main_image_url"],
@@ -524,7 +524,7 @@ SYNONYMS: dict[str, list[str]] = {
     "salary_min": ["min_salary", "salary_minimum", "minimum_salary", "salary_range_min", "salary_from", "salary_low"],
     "salary_max": ["max_salary", "salary_maximum", "maximum_salary", "salary_range_max", "salary_to", "salary_high"],
     "employment_type": ["job_type", "type", "contract_type"],
-    "remote": ["is_remote", "fully_remote", "remote_work"],
+    "remote": ["is_remote", "fully_remote", "remote_work", "is_fully_remote"],
     "posted_date": ["date_posted", "posted_at", "posted", "post_date", "posting_date"],
     "job_url": ["url", "link", "posting_url", "job_link", "posting_link", "job_posting_url"],
     "address": ["street_address", "street"],

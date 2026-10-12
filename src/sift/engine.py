@@ -778,7 +778,9 @@ class Engine:
         # The last page of results legitimately has fewer items: a yield drop there is not a layout change. It is the
         # last page when neither the learned next-page rule nor the pagination heuristics lead to an unvisited page.
         onward = links(doc, ext.program.next_page, url) + pagination_links(doc, url)
-        is_last = not [link for link in onward if canonicalize(link) not in self._visited]
+        is_last = not [
+            link for link in onward if canonicalize(link) not in self._visited and self.http.robots.allowed(link)
+        ]
         signals, similarity = self._health(ext, raws, typed_records, schema, fp, is_last)
         info.similarity = similarity
         info.extractor = f"{ext.id}@v{ext.version}"

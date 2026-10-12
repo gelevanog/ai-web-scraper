@@ -153,10 +153,13 @@ def _transform(text: str | None, rule: Rule) -> str | None:
         return None
     if rule.regex:
         match = re.search(rule.regex, text)
-        if not match and "\\\\" in rule.regex:
-            # A common slip in model-written JSON: backslashes escaped twice ("\\\\d" for "\\d").
+        candidate = rule.regex
+        for _ in range(2):  # a common slip in model-written JSON: backslashes escaped twice or three times
+            if match or "\\\\" not in candidate:
+                break
+            candidate = candidate.replace("\\\\", "\\")
             try:
-                match = re.search(rule.regex.replace("\\\\", "\\"), text)
+                match = re.search(candidate, text)
             except re.error:
                 match = None
         if not match:

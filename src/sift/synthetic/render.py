@@ -509,6 +509,10 @@ def render_list_pages(spec: SiteSpec, style: Style, files: Files) -> None:
         main = list_main(spec, style, chunk, first=n == 1, heading=heading) + pager
         if spec.archived:
             main += '<p class="archive-link"><a href="/archive/">Archived products</a></p>'
+            if n == len(chunks):
+                # The last page points on to the archive, which robots.txt disallows: a crawler following "older"
+                # links must check robots.txt and stop there.
+                main += f'<p class="{style.c("pager")}"><a class="older" href="/archive/">Older products →</a></p>'
         url = urlsplit(page_url(style, base, n, per))
         files[storage_path(url.path, url.query)] = (
             "text/html",
