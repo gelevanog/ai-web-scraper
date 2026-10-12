@@ -1,0 +1,3381 @@
+{
+ "name": "qwen_b4",
+ "suite": "synthetic",
+ "run_at": "2026-10-12T09:45:45+00:00",
+ "provider": "compat",
+ "model": "qwen3.7-plus",
+ "fallbacks": [],
+ "aggregate": {
+  "v1": {
+   "sites": 6,
+   "truth_records": 158,
+   "extracted_records": 158,
+   "matched": 158,
+   "precision": 1.0,
+   "recall": 1.0,
+   "field_accuracy": 0.9549,
+   "fields_correct": 1100,
+   "fields_total": 1152
+  },
+  "by_vertical": {
+   "ecommerce": {
+    "sites": 2,
+    "truth_records": 60,
+    "extracted_records": 60,
+    "matched": 60,
+    "precision": 1.0,
+    "recall": 1.0,
+    "field_accuracy": 0.9326,
+    "fields_correct": 360,
+    "fields_total": 386
+   },
+   "events": {
+    "sites": 1,
+    "truth_records": 34,
+    "extracted_records": 34,
+    "matched": 34,
+    "precision": 1.0,
+    "recall": 1.0,
+    "field_accuracy": 1.0,
+    "fields_correct": 204,
+    "fields_total": 204
+   },
+   "jobs": {
+    "sites": 2,
+    "truth_records": 50,
+    "extracted_records": 50,
+    "matched": 50,
+    "precision": 1.0,
+    "recall": 1.0,
+    "field_accuracy": 0.9422,
+    "fields_correct": 424,
+    "fields_total": 450
+   },
+   "realestate": {
+    "sites": 1,
+    "truth_records": 14,
+    "extracted_records": 14,
+    "matched": 14,
+    "precision": 1.0,
+    "recall": 1.0,
+    "field_accuracy": 1.0,
+    "fields_correct": 112,
+    "fields_total": 112
+   }
+  },
+  "v1_learned_only": {
+   "sites": 5,
+   "truth_records": 132,
+   "extracted_records": 132,
+   "matched": 132,
+   "precision": 1.0,
+   "recall": 1.0,
+   "field_accuracy": 0.9717,
+   "fields_correct": 892,
+   "fields_total": 918
+  },
+  "v1_direct_only": {
+   "sites": 1,
+   "truth_records": 26,
+   "extracted_records": 26,
+   "matched": 26,
+   "precision": 1.0,
+   "recall": 1.0,
+   "field_accuracy": 0.8889,
+   "fields_correct": 208,
+   "fields_total": 234
+  },
+  "by_field": {
+   "address": {
+    "correct": 14,
+    "total": 14,
+    "accuracy": 1.0
+   },
+   "area_sqm": {
+    "correct": 14,
+    "total": 14,
+    "accuracy": 1.0
+   },
+   "bathrooms": {
+    "correct": 14,
+    "total": 14,
+    "accuracy": 1.0
+   },
+   "bedrooms": {
+    "correct": 14,
+    "total": 14,
+    "accuracy": 1.0
+   },
+   "category": {
+    "correct": 34,
+    "total": 34,
+    "accuracy": 1.0
+   },
+   "city": {
+    "correct": 14,
+    "total": 14,
+    "accuracy": 1.0
+   },
+   "company": {
+    "correct": 50,
+    "total": 50,
+    "accuracy": 1.0
+   },
+   "employment_type": {
+    "correct": 50,
+    "total": 50,
+    "accuracy": 1.0
+   },
+   "event_url": {
+    "correct": 34,
+    "total": 34,
+    "accuracy": 1.0
+   },
+   "image_url": {
+    "correct": 60,
+    "total": 60,
+    "accuracy": 1.0
+   },
+   "job_url": {
+    "correct": 50,
+    "total": 50,
+    "accuracy": 1.0
+   },
+   "listing_type": {
+    "correct": 14,
+    "total": 14,
+    "accuracy": 1.0
+   },
+   "listing_url": {
+    "correct": 14,
+    "total": 14,
+    "accuracy": 1.0
+   },
+   "location": {
+    "correct": 50,
+    "total": 50,
+    "accuracy": 1.0
+   },
+   "name": {
+    "correct": 94,
+    "total": 94,
+    "accuracy": 1.0
+   },
+   "posted_date": {
+    "correct": 24,
+    "total": 50,
+    "accuracy": 0.48
+   },
+   "price": {
+    "correct": 108,
+    "total": 108,
+    "accuracy": 1.0
+   },
+   "product_url": {
+    "correct": 60,
+    "total": 60,
+    "accuracy": 1.0
+   },
+   "rating": {
+    "correct": 60,
+    "total": 60,
+    "accuracy": 1.0
+   },
+   "remote": {
+    "correct": 50,
+    "total": 50,
+    "accuracy": 1.0
+   },
+   "salary_max": {
+    "correct": 50,
+    "total": 50,
+    "accuracy": 1.0
+   },
+   "salary_min": {
+    "correct": 50,
+    "total": 50,
+    "accuracy": 1.0
+   },
+   "sku": {
+    "correct": 0,
+    "total": 26,
+    "accuracy": 0.0
+   },
+   "start_date": {
+    "correct": 34,
+    "total": 34,
+    "accuracy": 1.0
+   },
+   "stock_status": {
+    "correct": 60,
+    "total": 60,
+    "accuracy": 1.0
+   },
+   "title": {
+    "correct": 50,
+    "total": 50,
+    "accuracy": 1.0
+   },
+   "venue": {
+    "correct": 34,
+    "total": 34,
+    "accuracy": 1.0
+   }
+  },
+  "robustness": {
+   "sites": 5,
+   "before_healing": {
+    "sites": 5,
+    "truth_records": 132,
+    "extracted_records": 0,
+    "matched": 0,
+    "precision": 0.0,
+    "recall": 0.0,
+    "field_accuracy": 0.0,
+    "fields_correct": 0,
+    "fields_total": 0
+   },
+   "after_healing": {
+    "sites": 5,
+    "truth_records": 132,
+    "extracted_records": 132,
+    "matched": 132,
+    "precision": 1.0,
+    "recall": 1.0,
+    "field_accuracy": 0.8867,
+    "fields_correct": 814,
+    "fields_total": 918
+   },
+   "detected": 5,
+   "healed": 2,
+   "heal_failed": 3,
+   "heal_calls": 13,
+   "fallback_direct_calls": 8,
+   "v1_same_extractors": {
+    "sites": 5,
+    "truth_records": 132,
+    "extracted_records": 132,
+    "matched": 132,
+    "precision": 1.0,
+    "recall": 1.0,
+    "field_accuracy": 0.9717,
+    "fields_correct": 892,
+    "fields_total": 918
+   },
+   "false_alarms_on_v1": 0,
+   "recheck_llm_calls": 0,
+   "incremental_unchanged_pages": 12,
+   "incremental_pages": 14,
+   "incremental_llm_calls": 0
+  },
+  "v1_cost": {
+   "llm_calls": 11,
+   "llm_calls_by_task": {
+    "learn_extractor": 8,
+    "direct_extract": 3
+   },
+   "input_tokens": 18429,
+   "output_tokens": 7957,
+   "pages": 17,
+   "learned_pages": 14,
+   "learned_calls": 5
+  }
+ },
+ "sites": [
+  {
+   "site": "shop-03",
+   "vertical": "ecommerce",
+   "mode": "static",
+   "traps": [
+    "detail_sku",
+    "lazy_images"
+   ],
+   "v1": {
+    "site": "shop-03",
+    "truth": 26,
+    "extracted": 26,
+    "matched": 26,
+    "precision": 1.0,
+    "recall": 1.0,
+    "field_accuracy": 0.8571,
+    "fields": {
+     "name": {
+      "correct": 26,
+      "total": 26
+     },
+     "price": {
+      "correct": 26,
+      "total": 26
+     },
+     "rating": {
+      "correct": 26,
+      "total": 26
+     },
+     "stock_status": {
+      "correct": 26,
+      "total": 26
+     },
+     "image_url": {
+      "correct": 26,
+      "total": 26
+     },
+     "product_url": {
+      "correct": 26,
+      "total": 26
+     },
+     "sku": {
+      "correct": 0,
+      "total": 26
+     }
+    },
+    "unmatched_extracted": [],
+    "missed": [],
+    "errors": [
+     {
+      "key": "Prime Portable Speaker",
+      "field": "sku",
+      "got": null,
+      "want": "COB-22797"
+     },
+     {
+      "key": "Everyday Portable Speaker",
+      "field": "sku",
+      "got": null,
+      "want": "COB-92952"
+     },
+     {
+      "key": "Prime Bookshelf Speakers",
+      "field": "sku",
+      "got": null,
+      "want": "COB-19719"
+     },
+     {
+      "key": "Urban Headphone Stand",
+      "field": "sku",
+      "got": null,
+      "want": "COB-64612"
+     },
+     {
+      "key": "Verde Portable Speaker",
+      "field": "sku",
+      "got": null,
+      "want": "COB-50294"
+     },
+     {
+      "key": "Aurora Cable Kit",
+      "field": "sku",
+      "got": null,
+      "want": "COB-85306"
+     },
+     {
+      "key": "Coastal Turntable",
+      "field": "sku",
+      "got": null,
+      "want": "COB-21674"
+     },
+     {
+      "key": "Slate Phono Preamp",
+      "field": "sku",
+      "got": null,
+      "want": "COB-62138"
+     },
+     {
+      "key": "Atlas Phono Preamp",
+      "field": "sku",
+      "got": null,
+      "want": "COB-99646"
+     },
+     {
+      "key": "Everyday Wireless Earbuds",
+      "field": "sku",
+      "got": null,
+      "want": "COB-54655"
+     },
+     {
+      "key": "Meridian Bookshelf Speakers",
+      "field": "sku",
+      "got": null,
+      "want": "COB-89833"
+     },
+     {
+      "key": "Urban DAC Amplifier",
+      "field": "sku",
+      "got": null,
+      "want": "COB-73950"
+     },
+     {
+      "key": "Atlas DAC Amplifier",
+      "field": "sku",
+      "got": null,
+      "want": "COB-71683"
+     },
+     {
+      "key": "Compact Headphone Stand",
+      "field": "sku",
+      "got": null,
+      "want": "COB-10309"
+     },
+     {
+      "key": "Aurora Subwoofer",
+      "field": "sku",
+      "got": null,
+      "want": "COB-95399"
+     },
+     {
+      "key": "Field Headphone Stand",
+      "field": "sku",
+      "got": null,
+      "want": "COB-58903"
+     },
+     {
+      "key": "Meridian Phono Preamp",
+      "field": "sku",
+      "got": null,
+      "want": "COB-42637"
+     },
+     {
+      "key": "Verde Studio Headphones",
+      "field": "sku",
+      "got": null,
+      "want": "COB-69334"
+     },
+     {
+      "key": "Atlas Headphone Stand",
+      "field": "sku",
+      "got": null,
+      "want": "COB-26549"
+     },
+     {
+      "key": "Summit Soundbar",
+      "field": "sku",
+      "got": null,
+      "want": "COB-74350"
+     },
+     {
+      "key": "Light Portable Speaker",
+      "field": "sku",
+      "got": null,
+      "want": "COB-32473"
+     },
+     {
+      "key": "Field Portable Speaker",
+      "field": "sku",
+      "got": null,
+      "want": "COB-81974"
+     },
+     {
+      "key": "Compact Phono Preamp",
+      "field": "sku",
+      "got": null,
+      "want": "COB-65060"
+     },
+     {
+      "key": "Studio Wireless Earbuds",
+      "field": "sku",
+      "got": null,
+      "want": "COB-27620"
+     },
+     {
+      "key": "Verde Soundbar",
+      "field": "sku",
+      "got": null,
+      "want": "COB-31679"
+     }
+    ],
+    "pages": 3,
+    "records": 26,
+    "seconds": 27.55,
+    "strategies": [
+     "learned"
+    ],
+    "llm": {
+     "calls": 1,
+     "cached": 0,
+     "failed": 0,
+     "by_task": {
+      "learn_extractor": 1
+     },
+     "input_tokens": 1758,
+     "output_tokens": 485,
+     "seconds": 27.5
+    },
+    "browser_pages": 0,
+    "duplicates_merged": 0,
+    "sparse_dropped": 0,
+    "pii_removed": 0,
+    "injection_findings": 0,
+    "events": [
+     {
+      "kind": "job_started",
+      "message": "Crawling 1 start URL(s)"
+     },
+     {
+      "kind": "strategy",
+      "message": "cobalt-audio.example: learned extractor (pagination found (1 link(s)): a repeated template)"
+     },
+     {
+      "kind": "learning",
+      "message": "cobalt-audio.example: learning an extractor from 2 sample page(s)"
+     },
+     {
+      "kind": "learned",
+      "message": "cobalt-audio.example: extractor learned in 1 attempt(s), 1 model call(s)"
+     },
+     {
+      "kind": "job_finished",
+      "message": "26 records from 3 pages, 1 model call(s)"
+     }
+    ],
+    "error": null,
+    "extract_ms_p50": 7.1
+   },
+   "traps_result": {
+    "currency_conversion": {
+     "currency": "GBP",
+     "correct": 26,
+     "total": 26
+    }
+   },
+   "politeness": {
+    "hosts": {
+     "cobalt-audio.example": {
+      "requests": 4,
+      "subresources": 0,
+      "robots_fetches": 1,
+      "min_gap_s": 0.004,
+      "configured_interval_s": 0.0,
+      "max_requests_per_s_10s": 0.3,
+      "mean_requests_per_s": 0.109
+     }
+    },
+    "robots_blocked": []
+   },
+   "learned": true,
+   "extractors": [
+    {
+     "id": "ext-90df4c",
+     "kind": "list",
+     "accepted": true,
+     "attempts": 1,
+     "calls": 1,
+     "program": {
+      "kind": "list",
+      "item": "article.pc-crd",
+      "fields": {
+       "name": {
+        "css": ".pc-ttl a",
+        "attr": "text",
+        "all": false,
+        "negate": false
+       },
+       "price": {
+        "css": ".pc-prc",
+        "attr": "text",
+        "all": false,
+        "negate": false
+       },
+       "rating": {
+        "css": ".pc-rtg",
+        "attr": "aria-label",
+        "all": false,
+        "regex": "Rated ([0-9.]+) out of 5 stars",
+        "negate": false
+       },
+       "stock_status": {
+        "css": ".pc-stk",
+        "attr": "text",
+        "all": false,
+        "value_map": {
+         "In stock": "in_stock",
+         "Ready to ship": "in_stock",
+         "Out of stock": "out_of_stock",
+         "Preorder": "preorder"
+        },
+        "negate": false
+       },
+       "image_url": {
+        "css": ".pc-img",
+        "attr": "src",
+        "all": false,
+        "negate": false
+       },
+       "product_url": {
+        "css": ".pc-ttl a",
+        "attr": "href",
+        "all": false,
+        "negate": false
+       }
+      },
+      "next_page": {
+       "css": "a.pc-nxt",
+       "attr": "href",
+       "all": false,
+       "negate": false
+      },
+      "missing": [
+       "sku"
+      ],
+      "notes": ""
+     }
+    }
+   ],
+   "v2_before": {
+    "site": "shop-03",
+    "truth": 26,
+    "extracted": 0,
+    "matched": 0,
+    "precision": 0.0,
+    "recall": 0.0,
+    "field_accuracy": 0.0,
+    "fields": {},
+    "unmatched_extracted": [],
+    "missed": [
+     "Prime Portable Speaker",
+     "Everyday Portable Speaker",
+     "Prime Bookshelf Speakers",
+     "Urban Headphone Stand",
+     "Verde Portable Speaker",
+     "Aurora Cable Kit",
+     "Coastal Turntable",
+     "Slate Phono Preamp",
+     "Atlas Phono Preamp",
+     "Everyday Wireless Earbuds"
+    ],
+    "errors": [],
+    "pages": 3,
+    "records": 0,
+    "seconds": 0.01,
+    "strategies": [
+     "learned"
+    ],
+    "llm": {
+     "calls": 0,
+     "cached": 0,
+     "failed": 0,
+     "by_task": {},
+     "input_tokens": 0,
+     "output_tokens": 0,
+     "seconds": 0
+    },
+    "browser_pages": 0,
+    "duplicates_merged": 0,
+    "sparse_dropped": 0,
+    "pii_removed": 0,
+    "injection_findings": 0,
+    "events": [
+     {
+      "kind": "job_started",
+      "message": "Crawling 1 start URL(s)"
+     },
+     {
+      "kind": "strategy",
+      "message": "cobalt-audio.example: learned extractor (set by the job)"
+     },
+     {
+      "kind": "layout_changed",
+      "message": "cobalt-audio.example: layout change detected (no records; structural similarity 0.04)"
+     },
+     {
+      "kind": "layout_changed",
+      "message": "cobalt-audio.example: layout change detected (no records; structural similarity 0.04)"
+     },
+     {
+      "kind": "layout_changed",
+      "message": "cobalt-audio.example: layout change detected (no records; structural similarity 0.05)"
+     },
+     {
+      "kind": "job_finished",
+      "message": "0 records from 3 pages, 0 model call(s)"
+     }
+    ],
+    "error": null,
+    "detected": true,
+    "signals": [
+     "cobalt-audio.example: layout change detected (no records; structural similarity 0.04)",
+     "cobalt-audio.example: layout change detected (no records; structural similarity 0.04)",
+     "cobalt-audio.example: layout change detected (no records; structural similarity 0.05)"
+    ]
+   },
+   "v2_after": {
+    "site": "shop-03",
+    "truth": 26,
+    "extracted": 26,
+    "matched": 26,
+    "precision": 1.0,
+    "recall": 1.0,
+    "field_accuracy": 0.7253,
+    "fields": {
+     "name": {
+      "correct": 26,
+      "total": 26
+     },
+     "price": {
+      "correct": 2,
+      "total": 26
+     },
+     "rating": {
+      "correct": 26,
+      "total": 26
+     },
+     "stock_status": {
+      "correct": 26,
+      "total": 26
+     },
+     "image_url": {
+      "correct": 26,
+      "total": 26
+     },
+     "product_url": {
+      "correct": 26,
+      "total": 26
+     },
+     "sku": {
+      "correct": 0,
+      "total": 26
+     }
+    },
+    "unmatched_extracted": [],
+    "missed": [],
+    "errors": [
+     {
+      "key": "Prime Portable Speaker",
+      "field": "price",
+      "got": {
+       "amount": 249.99,
+       "currency": "USD"
+      },
+      "want": 249.5
+     },
+     {
+      "key": "Prime Portable Speaker",
+      "field": "sku",
+      "got": null,
+      "want": "COB-22797"
+     },
+     {
+      "key": "Everyday Portable Speaker",
+      "field": "price",
+      "got": {
+       "amount": 60.07,
+       "currency": "USD"
+      },
+      "want": 59.94
+     },
+     {
+      "key": "Everyday Portable Speaker",
+      "field": "sku",
+      "got": null,
+      "want": "COB-92952"
+     },
+     {
+      "key": "Prime Bookshelf Speakers",
+      "field": "price",
+      "got": {
+       "amount": 79.14,
+       "currency": "USD"
+      },
+      "want": 78.99
+     },
+     {
+      "key": "Prime Bookshelf Speakers",
+      "field": "sku",
+      "got": null,
+      "want": "COB-19719"
+     },
+     {
+      "key": "Urban Headphone Stand",
+      "field": "price",
+      "got": {
+       "amount": 25.04,
+       "currency": "USD"
+      },
+      "want": 24.99
+     },
+     {
+      "key": "Urban Headphone Stand",
+      "field": "sku",
+      "got": null,
+      "want": "COB-64612"
+     },
+     {
+      "key": "Verde Portable Speaker",
+      "field": "price",
+      "got": {
+       "amount": 25.04,
+       "currency": "USD"
+      },
+      "want": 24.99
+     },
+     {
+      "key": "Verde Portable Speaker",
+      "field": "sku",
+      "got": null,
+      "want": "COB-50294"
+     },
+     {
+      "key": "Aurora Cable Kit",
+      "field": "price",
+      "got": {
+       "amount": 40.03,
+       "currency": "USD"
+      },
+      "want": 39.95
+     },
+     {
+      "key": "Aurora Cable Kit",
+      "field": "sku",
+      "got": null,
+      "want": "COB-85306"
+     },
+     {
+      "key": "Coastal Turntable",
+      "field": "price",
+      "got": {
+       "amount": 500.43,
+       "currency": "USD"
+      },
+      "want": 499.5
+     },
+     {
+      "key": "Coastal Turntable",
+      "field": "sku",
+      "got": null,
+      "want": "COB-21674"
+     },
+     {
+      "key": "Slate Phono Preamp",
+      "field": "price",
+      "got": {
+       "amount": 79.65,
+       "currency": "USD"
+      },
+      "want": 79.5
+     },
+     {
+      "key": "Slate Phono Preamp",
+      "field": "sku",
+      "got": null,
+      "want": "COB-62138"
+     },
+     {
+      "key": "Atlas Phono Preamp",
+      "field": "price",
+      "got": {
+       "amount": 100.13,
+       "currency": "USD"
+      },
+      "want": 99.95
+     },
+     {
+      "key": "Atlas Phono Preamp",
+      "field": "sku",
+      "got": null,
+      "want": "COB-99646"
+     },
+     {
+      "key": "Everyday Wireless Earbuds",
+      "field": "price",
+      "got": {
+       "amount": 46.03,
+       "currency": "USD"
+      },
+      "want": 45.95
+     },
+     {
+      "key": "Everyday Wireless Earbuds",
+      "field": "sku",
+      "got": null,
+      "want": "COB-54655"
+     },
+     {
+      "key": "Meridian Bookshelf Speakers",
+      "field": "price",
+      "got": {
+       "amount": 90.12,
+       "currency": "USD"
+      },
+      "want": 89.95
+     },
+     {
+      "key": "Meridian Bookshelf Speakers",
+      "field": "sku",
+      "got": null,
+      "want": "COB-89833"
+     },
+     {
+      "key": "Urban DAC Amplifier",
+      "field": "price",
+      "got": {
+       "amount": 29.56,
+       "currency": "USD"
+      },
+      "want": 29.5
+     },
+     {
+      "key": "Urban DAC Amplifier",
+      "field": "sku",
+      "got": null,
+      "want": "COB-73950"
+     },
+     {
+      "key": "Atlas DAC Amplifier",
+      "field": "price",
+      "got": {
+       "amount": 91.1,
+       "currency": "USD"
+      },
+      "want": 89.0
+     }
+    ],
+    "pages": 3,
+    "records": 26,
+    "seconds": 106.52,
+    "strategies": [
+     "direct"
+    ],
+    "llm": {
+     "calls": 6,
+     "cached": 0,
+     "failed": 0,
+     "by_task": {
+      "heal_extractor": 3,
+      "direct_extract": 3
+     },
+     "input_tokens": 12119,
+     "output_tokens": 4314,
+     "seconds": 106.37
+    },
+    "browser_pages": 0,
+    "duplicates_merged": 0,
+    "sparse_dropped": 0,
+    "pii_removed": 0,
+    "injection_findings": 0,
+    "events": [
+     {
+      "kind": "job_started",
+      "message": "Crawling 1 start URL(s)"
+     },
+     {
+      "kind": "strategy",
+      "message": "cobalt-audio.example: learned extractor (set by the job)"
+     },
+     {
+      "kind": "layout_changed",
+      "message": "cobalt-audio.example: layout change detected (no records; structural similarity 0.04)"
+     },
+     {
+      "kind": "heal_failed",
+      "message": "cobalt-audio.example: re-learned rules did not pass verification after 3 attempt(s) (3 call(s)); switching this site to direct extraction"
+     },
+     {
+      "kind": "job_finished",
+      "message": "26 records from 3 pages, 6 model call(s)"
+     }
+    ],
+    "error": null,
+    "detected": true,
+    "healed": false,
+    "heal_failed": true,
+    "heal_calls": 3,
+    "fallback_direct_calls": 3,
+    "healed_programs": []
+   },
+   "v1_recheck": {
+    "false_alarm": false,
+    "llm_calls": 0,
+    "records": 26,
+    "pages": 3
+   },
+   "incremental": {
+    "pages": 3,
+    "unchanged": 3,
+    "records": 26,
+    "llm_calls": 0
+   },
+   "seconds": 134.2
+  },
+  {
+   "site": "jobs-06",
+   "vertical": "jobs",
+   "mode": "static",
+   "traps": [
+    "relative_dates",
+    "injection_visible"
+   ],
+   "v1": {
+    "site": "jobs-06",
+    "truth": 26,
+    "extracted": 26,
+    "matched": 26,
+    "precision": 1.0,
+    "recall": 1.0,
+    "field_accuracy": 0.8889,
+    "fields": {
+     "title": {
+      "correct": 26,
+      "total": 26
+     },
+     "company": {
+      "correct": 26,
+      "total": 26
+     },
+     "location": {
+      "correct": 26,
+      "total": 26
+     },
+     "salary_min": {
+      "correct": 26,
+      "total": 26
+     },
+     "salary_max": {
+      "correct": 26,
+      "total": 26
+     },
+     "employment_type": {
+      "correct": 26,
+      "total": 26
+     },
+     "remote": {
+      "correct": 26,
+      "total": 26
+     },
+     "posted_date": {
+      "correct": 0,
+      "total": 26
+     },
+     "job_url": {
+      "correct": 26,
+      "total": 26
+     }
+    },
+    "unmatched_extracted": [],
+    "missed": [],
+    "errors": [
+     {
+      "key": "Finance Associate",
+      "field": "posted_date",
+      "got": "2026-05-11",
+      "want": "2026-09-29"
+     },
+     {
+      "key": "Senior Backend Engineer",
+      "field": "posted_date",
+      "got": "2026-05-08",
+      "want": "2026-09-26"
+     },
+     {
+      "key": "Marketing Coordinator",
+      "field": "posted_date",
+      "got": "2026-05-12",
+      "want": "2026-09-30"
+     },
+     {
+      "key": "Junior Finance Associate",
+      "field": "posted_date",
+      "got": "2026-05-09",
+      "want": "2026-09-27"
+     },
+     {
+      "key": "Office Manager",
+      "field": "posted_date",
+      "got": "2026-05-12",
+      "want": "2026-09-30"
+     },
+     {
+      "key": "Machine Learning Engineer",
+      "field": "posted_date",
+      "got": "2026-05-07",
+      "want": "2026-09-25"
+     },
+     {
+      "key": "Mobile Developer",
+      "field": "posted_date",
+      "got": "2026-05-12",
+      "want": "2026-09-30"
+     },
+     {
+      "key": "Data Analyst",
+      "field": "posted_date",
+      "got": "2026-05-13",
+      "want": "2026-10-01"
+     },
+     {
+      "key": "Recruiter",
+      "field": "posted_date",
+      "got": "2026-05-03",
+      "want": "2026-09-21"
+     },
+     {
+      "key": "Senior Recruiter",
+      "field": "posted_date",
+      "got": "2026-05-11",
+      "want": "2026-09-29"
+     },
+     {
+      "key": "Engineering Manager",
+      "field": "posted_date",
+      "got": null,
+      "want": "2026-09-10"
+     },
+     {
+      "key": "Junior Mobile Developer",
+      "field": "posted_date",
+      "got": null,
+      "want": "2026-09-27"
+     },
+     {
+      "key": "Security Analyst",
+      "field": "posted_date",
+      "got": null,
+      "want": "2026-09-29"
+     },
+     {
+      "key": "Lead Office Manager",
+      "field": "posted_date",
+      "got": null,
+      "want": "2026-09-29"
+     },
+     {
+      "key": "Product Designer",
+      "field": "posted_date",
+      "got": null,
+      "want": "2026-09-17"
+     },
+     {
+      "key": "DevOps Engineer",
+      "field": "posted_date",
+      "got": null,
+      "want": "2026-09-30"
+     },
+     {
+      "key": "Site Reliability Engineer",
+      "field": "posted_date",
+      "got": null,
+      "want": "2026-09-28"
+     },
+     {
+      "key": "Senior Product Designer",
+      "field": "posted_date",
+      "got": null,
+      "want": "2026-09-27"
+     },
+     {
+      "key": "Customer Success Manager",
+      "field": "posted_date",
+      "got": null,
+      "want": "2026-09-30"
+     },
+     {
+      "key": "Junior Office Manager",
+      "field": "posted_date",
+      "got": null,
+      "want": "2026-09-24"
+     },
+     {
+      "key": "Support Specialist",
+      "field": "posted_date",
+      "got": null,
+      "want": "2026-09-27"
+     },
+     {
+      "key": "Staff Engineering Manager",
+      "field": "posted_date",
+      "got": null,
+      "want": "2026-09-26"
+     },
+     {
+      "key": "Frontend Developer",
+      "field": "posted_date",
+      "got": null,
+      "want": "2026-09-10"
+     },
+     {
+      "key": "Senior Office Manager",
+      "field": "posted_date",
+      "got": null,
+      "want": "2026-09-21"
+     },
+     {
+      "key": "Junior DevOps Engineer",
+      "field": "posted_date",
+      "got": null,
+      "want": "2026-10-01"
+     }
+    ],
+    "pages": 3,
+    "records": 26,
+    "seconds": 130.4,
+    "strategies": [
+     "direct"
+    ],
+    "llm": {
+     "calls": 6,
+     "cached": 0,
+     "failed": 0,
+     "by_task": {
+      "learn_extractor": 3,
+      "direct_extract": 3
+     },
+     "input_tokens": 9588,
+     "output_tokens": 5151,
+     "seconds": 130.32
+    },
+    "browser_pages": 0,
+    "duplicates_merged": 0,
+    "sparse_dropped": 0,
+    "pii_removed": 0,
+    "injection_findings": 4,
+    "events": [
+     {
+      "kind": "job_started",
+      "message": "Crawling 1 start URL(s)"
+     },
+     {
+      "kind": "strategy",
+      "message": "tidepool-talent.example: learned extractor (pagination found (1 link(s)): a repeated template)"
+     },
+     {
+      "kind": "injection",
+      "message": "https://tidepool-talent.example/jobs/: 2 sentence(s) addressed to AI systems quarantined"
+     },
+     {
+      "kind": "learning",
+      "message": "tidepool-talent.example: learning an extractor from 2 sample page(s)"
+     },
+     {
+      "kind": "learn_failed",
+      "message": "tidepool-talent.example: no extractor passed validation after 3 attempt(s); using direct extraction"
+     },
+     {
+      "kind": "injection",
+      "message": "https://tidepool-talent.example/jobs/: 2 sentence(s) addressed to AI systems quarantined"
+     },
+     {
+      "kind": "job_finished",
+      "message": "26 records from 3 pages, 6 model call(s)"
+     }
+    ],
+    "error": null,
+    "extract_ms_p50": 21113.5
+   },
+   "traps_result": {
+    "injection_where": "visible",
+    "injection_findings": 4,
+    "zeroed_values": 0,
+    "extra_fields": [],
+    "relative_dates": {
+     "correct": 0,
+     "total": 26
+    }
+   },
+   "politeness": {
+    "hosts": {
+     "tidepool-talent.example": {
+      "requests": 4,
+      "subresources": 0,
+      "robots_fetches": 1,
+      "min_gap_s": 0.001,
+      "configured_interval_s": 0.0,
+      "max_requests_per_s_10s": 0.3,
+      "mean_requests_per_s": 0.026
+     }
+    },
+    "robots_blocked": []
+   },
+   "learned": false,
+   "extractors": [],
+   "seconds": 130.4
+  },
+  {
+   "site": "homes-06",
+   "vertical": "realestate",
+   "mode": "static",
+   "traps": [
+    "units",
+    "mixed_listing_types",
+    "hidden_item"
+   ],
+   "v1": {
+    "site": "homes-06",
+    "truth": 14,
+    "extracted": 14,
+    "matched": 14,
+    "precision": 1.0,
+    "recall": 1.0,
+    "field_accuracy": 1.0,
+    "fields": {
+     "address": {
+      "correct": 14,
+      "total": 14
+     },
+     "city": {
+      "correct": 14,
+      "total": 14
+     },
+     "price": {
+      "correct": 14,
+      "total": 14
+     },
+     "listing_type": {
+      "correct": 14,
+      "total": 14
+     },
+     "bedrooms": {
+      "correct": 14,
+      "total": 14
+     },
+     "bathrooms": {
+      "correct": 14,
+      "total": 14
+     },
+     "area_sqm": {
+      "correct": 14,
+      "total": 14
+     },
+     "listing_url": {
+      "correct": 14,
+      "total": 14
+     }
+    },
+    "unmatched_extracted": [],
+    "missed": [],
+    "errors": [],
+    "pages": 2,
+    "records": 14,
+    "seconds": 27.87,
+    "strategies": [
+     "learned"
+    ],
+    "llm": {
+     "calls": 1,
+     "cached": 0,
+     "failed": 0,
+     "by_task": {
+      "learn_extractor": 1
+     },
+     "input_tokens": 1823,
+     "output_tokens": 570,
+     "seconds": 27.83
+    },
+    "browser_pages": 0,
+    "duplicates_merged": 0,
+    "sparse_dropped": 0,
+    "pii_removed": 0,
+    "injection_findings": 0,
+    "events": [
+     {
+      "kind": "job_started",
+      "message": "Crawling 1 start URL(s)"
+     },
+     {
+      "kind": "strategy",
+      "message": "lantern-estates.example: learned extractor (pagination found (1 link(s)): a repeated template)"
+     },
+     {
+      "kind": "learning",
+      "message": "lantern-estates.example: learning an extractor from 2 sample page(s)"
+     },
+     {
+      "kind": "learned",
+      "message": "lantern-estates.example: extractor learned in 1 attempt(s), 1 model call(s)"
+     },
+     {
+      "kind": "job_finished",
+      "message": "14 records from 2 pages, 1 model call(s)"
+     }
+    ],
+    "error": null,
+    "extract_ms_p50": 13932.9
+   },
+   "traps_result": {
+    "hidden_leaked": 0,
+    "hidden_total": 1,
+    "currency_conversion": {
+     "currency": "GBP",
+     "correct": 14,
+     "total": 14
+    }
+   },
+   "politeness": {
+    "hosts": {
+     "lantern-estates.example": {
+      "requests": 3,
+      "subresources": 0,
+      "robots_fetches": 1,
+      "min_gap_s": 0.002,
+      "configured_interval_s": 0.0,
+      "max_requests_per_s_10s": 0.3,
+      "mean_requests_per_s": 180.217
+     }
+    },
+    "robots_blocked": []
+   },
+   "learned": true,
+   "extractors": [
+    {
+     "id": "ext-bfc863",
+     "kind": "list",
+     "accepted": true,
+     "attempts": 1,
+     "calls": 1,
+     "program": {
+      "kind": "list",
+      "item": "li.lc-crd",
+      "fields": {
+       "address": {
+        "css": ".lc-adr a",
+        "attr": "text",
+        "all": false,
+        "negate": false
+       },
+       "city": {
+        "css": ".lc-cty",
+        "attr": "text",
+        "all": false,
+        "negate": false
+       },
+       "price": {
+        "css": ".lc-prc",
+        "attr": "text",
+        "all": false,
+        "negate": false
+       },
+       "listing_type": {
+        "css": ".lc-lt",
+        "attr": "text",
+        "all": false,
+        "value_map": {
+         "For sale": "sale",
+         "For rent": "rent"
+        },
+        "negate": false
+       },
+       "bedrooms": {
+        "css": ".lc-bd",
+        "attr": "text",
+        "all": false,
+        "regex": "(\\d+)",
+        "negate": false
+       },
+       "bathrooms": {
+        "css": ".lc-ba",
+        "attr": "text",
+        "all": false,
+        "regex": "([\\d.]+)",
+        "negate": false
+       },
+       "area_sqm": {
+        "css": ".lc-ar",
+        "attr": "text",
+        "all": false,
+        "regex": "(\\d+)",
+        "negate": false
+       },
+       "listing_url": {
+        "css": ".lc-adr a",
+        "attr": "href",
+        "all": false,
+        "negate": false
+       }
+      },
+      "next_page": {
+       "css": "nav.lc-pgr a.lc-nxt",
+       "attr": "href",
+       "all": false,
+       "negate": false
+      },
+      "missing": [],
+      "notes": ""
+     }
+    }
+   ],
+   "v2_before": {
+    "site": "homes-06",
+    "truth": 14,
+    "extracted": 0,
+    "matched": 0,
+    "precision": 0.0,
+    "recall": 0.0,
+    "field_accuracy": 0.0,
+    "fields": {},
+    "unmatched_extracted": [],
+    "missed": [
+     "37 Station Road",
+     "206 Bakers Lane",
+     "107 Maple Avenue",
+     "17 Harbor Road",
+     "141 Riverside Walk",
+     "194 Bakers Lane",
+     "110 Riverside Walk",
+     "27 Station Road",
+     "112 Hillcrest Road",
+     "132 Foundry Street"
+    ],
+    "errors": [],
+    "pages": 12,
+    "records": 0,
+    "seconds": 0.02,
+    "strategies": [
+     "learned"
+    ],
+    "llm": {
+     "calls": 0,
+     "cached": 0,
+     "failed": 0,
+     "by_task": {},
+     "input_tokens": 0,
+     "output_tokens": 0,
+     "seconds": 0
+    },
+    "browser_pages": 0,
+    "duplicates_merged": 0,
+    "sparse_dropped": 0,
+    "pii_removed": 0,
+    "injection_findings": 0,
+    "events": [
+     {
+      "kind": "job_started",
+      "message": "Crawling 1 start URL(s)"
+     },
+     {
+      "kind": "strategy",
+      "message": "lantern-estates.example: learned extractor (set by the job)"
+     },
+     {
+      "kind": "layout_changed",
+      "message": "lantern-estates.example: layout change detected (no records; structural similarity 0.04)"
+     },
+     {
+      "kind": "layout_changed",
+      "message": "lantern-estates.example: layout change detected (no records; structural similarity 0.05)"
+     },
+     {
+      "kind": "layout_changed",
+      "message": "lantern-estates.example: layout change detected (no records; structural similarity 0.05)"
+     },
+     {
+      "kind": "layout_changed",
+      "message": "lantern-estates.example: layout change detected (no records; structural similarity 0.05)"
+     },
+     {
+      "kind": "layout_changed",
+      "message": "lantern-estates.example: layout change detected (no records; structural similarity 0.05)"
+     },
+     {
+      "kind": "layout_changed",
+      "message": "lantern-estates.example: layout change detected (no records; structural similarity 0.05)"
+     },
+     {
+      "kind": "layout_changed",
+      "message": "lantern-estates.example: layout change detected (no records; structural similarity 0.05)"
+     },
+     {
+      "kind": "layout_changed",
+      "message": "lantern-estates.example: layout change detected (no records; structural similarity 0.05)"
+     },
+     {
+      "kind": "layout_changed",
+      "message": "lantern-estates.example: layout change detected (no records; structural similarity 0.05)"
+     },
+     {
+      "kind": "layout_changed",
+      "message": "lantern-estates.example: layout change detected (no records; structural similarity 0.05)"
+     },
+     {
+      "kind": "layout_changed",
+      "message": "lantern-estates.example: layout change detected (no records; structural similarity 0.05)"
+     },
+     {
+      "kind": "layout_changed",
+      "message": "lantern-estates.example: layout change detected (no records; structural similarity 0.05)"
+     },
+     {
+      "kind": "job_finished",
+      "message": "0 records from 12 pages, 0 model call(s)"
+     }
+    ],
+    "error": null,
+    "detected": true,
+    "signals": [
+     "lantern-estates.example: layout change detected (no records; structural similarity 0.04)",
+     "lantern-estates.example: layout change detected (no records; structural similarity 0.05)",
+     "lantern-estates.example: layout change detected (no records; structural similarity 0.05)"
+    ]
+   },
+   "v2_after": {
+    "site": "homes-06",
+    "truth": 14,
+    "extracted": 14,
+    "matched": 14,
+    "precision": 1.0,
+    "recall": 1.0,
+    "field_accuracy": 1.0,
+    "fields": {
+     "address": {
+      "correct": 14,
+      "total": 14
+     },
+     "city": {
+      "correct": 14,
+      "total": 14
+     },
+     "price": {
+      "correct": 14,
+      "total": 14
+     },
+     "listing_type": {
+      "correct": 14,
+      "total": 14
+     },
+     "bedrooms": {
+      "correct": 14,
+      "total": 14
+     },
+     "bathrooms": {
+      "correct": 14,
+      "total": 14
+     },
+     "area_sqm": {
+      "correct": 14,
+      "total": 14
+     },
+     "listing_url": {
+      "correct": 14,
+      "total": 14
+     }
+    },
+    "unmatched_extracted": [],
+    "missed": [],
+    "errors": [],
+    "pages": 2,
+    "records": 14,
+    "seconds": 26.66,
+    "strategies": [
+     "learned"
+    ],
+    "llm": {
+     "calls": 1,
+     "cached": 0,
+     "failed": 0,
+     "by_task": {
+      "heal_extractor": 1
+     },
+     "input_tokens": 2469,
+     "output_tokens": 530,
+     "seconds": 26.64
+    },
+    "browser_pages": 0,
+    "duplicates_merged": 0,
+    "sparse_dropped": 0,
+    "pii_removed": 0,
+    "injection_findings": 0,
+    "events": [
+     {
+      "kind": "job_started",
+      "message": "Crawling 1 start URL(s)"
+     },
+     {
+      "kind": "strategy",
+      "message": "lantern-estates.example: learned extractor (set by the job)"
+     },
+     {
+      "kind": "layout_changed",
+      "message": "lantern-estates.example: layout change detected (no records; structural similarity 0.04)"
+     },
+     {
+      "kind": "healed",
+      "message": "lantern-estates.example: healed in 1 attempt(s), 1 model call(s); verified against 28 earlier record(s)"
+     },
+     {
+      "kind": "job_finished",
+      "message": "14 records from 2 pages, 1 model call(s)"
+     }
+    ],
+    "error": null,
+    "detected": true,
+    "healed": true,
+    "heal_failed": false,
+    "heal_calls": 1,
+    "fallback_direct_calls": 0,
+    "healed_programs": [
+     {
+      "kind": "list",
+      "item": "div.property",
+      "fields": {
+       "address": {
+        "css": ".property__address",
+        "attr": "text",
+        "all": false,
+        "negate": false
+       },
+       "city": {
+        "css": ".property__city",
+        "attr": "text",
+        "all": false,
+        "negate": false
+       },
+       "price": {
+        "css": ".property__price",
+        "attr": "text",
+        "all": false,
+        "negate": false
+       },
+       "listing_type": {
+        "css": ".property__listing",
+        "attr": "text",
+        "all": false,
+        "value_map": {
+         "To let": "rent",
+         "Buy": "sale"
+        },
+        "negate": false
+       },
+       "bedrooms": {
+        "xpath": "./dl/dd[preceding-sibling::dt[1][contains(., 'Bedrooms')]]",
+        "attr": "text",
+        "all": false,
+        "negate": false
+       },
+       "bathrooms": {
+        "xpath": "./dl/dd[preceding-sibling::dt[1][contains(., 'Bathrooms')]]",
+        "attr": "text",
+        "all": false,
+        "negate": false
+       },
+       "area_sqm": {
+        "xpath": "./dl/dd[preceding-sibling::dt[1][contains(., 'Floor area')]]",
+        "attr": "text",
+        "all": false,
+        "regex": "(\\d+)",
+        "negate": false
+       },
+       "listing_url": {
+        "css": ".property__address",
+        "attr": "href",
+        "all": false,
+        "negate": false
+       }
+      },
+      "next_page": {
+       "css": "nav.property__pager a[rel='next']",
+       "attr": "href",
+       "all": false,
+       "negate": false
+      },
+      "missing": [],
+      "notes": ""
+     }
+    ]
+   },
+   "v1_recheck": {
+    "false_alarm": false,
+    "llm_calls": 0,
+    "records": 14,
+    "pages": 2
+   },
+   "incremental": {
+    "pages": 2,
+    "unchanged": 2,
+    "records": 14,
+    "llm_calls": 0
+   },
+   "seconds": 54.6
+  },
+  {
+   "site": "spa-shop-01",
+   "vertical": "ecommerce",
+   "mode": "spa",
+   "traps": [
+    "js_rendered",
+    "anomaly"
+   ],
+   "v1": {
+    "site": "spa-shop-01",
+    "truth": 34,
+    "extracted": 34,
+    "matched": 34,
+    "precision": 1.0,
+    "recall": 1.0,
+    "field_accuracy": 1.0,
+    "fields": {
+     "name": {
+      "correct": 34,
+      "total": 34
+     },
+     "price": {
+      "correct": 34,
+      "total": 34
+     },
+     "rating": {
+      "correct": 34,
+      "total": 34
+     },
+     "stock_status": {
+      "correct": 34,
+      "total": 34
+     },
+     "image_url": {
+      "correct": 34,
+      "total": 34
+     },
+     "product_url": {
+      "correct": 34,
+      "total": 34
+     }
+    },
+    "unmatched_extracted": [],
+    "missed": [],
+    "errors": [],
+    "pages": 4,
+    "records": 34,
+    "seconds": 17.71,
+    "strategies": [
+     "learned"
+    ],
+    "llm": {
+     "calls": 1,
+     "cached": 0,
+     "failed": 0,
+     "by_task": {
+      "learn_extractor": 1
+     },
+     "input_tokens": 1875,
+     "output_tokens": 463,
+     "seconds": 14.82
+    },
+    "browser_pages": 4,
+    "duplicates_merged": 12,
+    "sparse_dropped": 0,
+    "pii_removed": 0,
+    "injection_findings": 0,
+    "events": [
+     {
+      "kind": "job_started",
+      "message": "Crawling 1 start URL(s)"
+     },
+     {
+      "kind": "browser",
+      "message": "https://kestrel-camera-house.example/catalog/: empty application shell; rendering with headless Chromium"
+     },
+     {
+      "kind": "strategy",
+      "message": "kestrel-camera-house.example: learned extractor (pagination found (3 link(s)): a repeated template)"
+     },
+     {
+      "kind": "learning",
+      "message": "kestrel-camera-house.example: learning an extractor from 3 sample page(s)"
+     },
+     {
+      "kind": "learned",
+      "message": "kestrel-camera-house.example: extractor learned in 1 attempt(s), 1 model call(s)"
+     },
+     {
+      "kind": "deduplicated",
+      "message": "12 duplicate record(s) merged across pages"
+     },
+     {
+      "kind": "anomaly",
+      "message": "Anomaly in price of 'coastal hiking boots': 24999 is 167x the median 149.745"
+     },
+     {
+      "kind": "job_finished",
+      "message": "34 records from 4 pages, 1 model call(s)"
+     }
+    ],
+    "error": null,
+    "extract_ms_p50": 303.6
+   },
+   "traps_result": {
+    "anomalies_expected": 1,
+    "anomalies_found": 1,
+    "anomalies_false": 0
+   },
+   "politeness": {
+    "hosts": {
+     "kestrel-camera-house.example": {
+      "requests": 6,
+      "subresources": 8,
+      "robots_fetches": 1,
+      "min_gap_s": 0.001,
+      "configured_interval_s": 0.0,
+      "max_requests_per_s_10s": 1.1,
+      "mean_requests_per_s": 0.757
+     }
+    },
+    "robots_blocked": []
+   },
+   "learned": true,
+   "extractors": [
+    {
+     "id": "ext-74c5a1",
+     "kind": "list",
+     "accepted": true,
+     "attempts": 1,
+     "calls": 1,
+     "program": {
+      "kind": "list",
+      "item": "section.grid > div.rounded-lg",
+      "fields": {
+       "name": {
+        "css": "h3 a",
+        "attr": "text",
+        "all": false,
+        "negate": false
+       },
+       "price": {
+        "css": "span.font-bold",
+        "attr": "text",
+        "all": false,
+        "regex": "\\$([\\d,]+\\.\\d{2})",
+        "negate": false
+       },
+       "rating": {
+        "css": "div[data-rating]",
+        "attr": "data-rating",
+        "all": false,
+        "negate": false
+       },
+       "stock_status": {
+        "css": "span.text-gray-600",
+        "attr": "text",
+        "all": false,
+        "value_map": {
+         "Out of stock": "out_of_stock",
+         "Currently unavailable": "out_of_stock"
+        },
+        "negate": false
+       },
+       "image_url": {
+        "css": "img",
+        "attr": "src",
+        "all": false,
+        "negate": false
+       },
+       "product_url": {
+        "css": "h3 a",
+        "attr": "href",
+        "all": false,
+        "negate": false
+       }
+      },
+      "next_page": {
+       "css": "nav.pager a[rel='next']",
+       "attr": "href",
+       "all": false,
+       "negate": false
+      },
+      "missing": [],
+      "notes": ""
+     }
+    }
+   ],
+   "v2_before": {
+    "site": "spa-shop-01",
+    "truth": 34,
+    "extracted": 0,
+    "matched": 0,
+    "precision": 0.0,
+    "recall": 0.0,
+    "field_accuracy": 0.0,
+    "fields": {},
+    "unmatched_extracted": [],
+    "missed": [
+     "Slate Merino Base Layer",
+     "Compact Trail Jacket",
+     "Prime Hiking Boots",
+     "Heritage Merino Base Layer",
+     "Studio Trail Jacket",
+     "Studio Trail Jacket XL",
+     "Slate Camp Stove",
+     "Summit Down Vest",
+     "Nordic Camp Stove",
+     "Compact Camp Stove"
+    ],
+    "errors": [],
+    "pages": 4,
+    "records": 0,
+    "seconds": 2.74,
+    "strategies": [
+     "learned"
+    ],
+    "llm": {
+     "calls": 0,
+     "cached": 0,
+     "failed": 0,
+     "by_task": {},
+     "input_tokens": 0,
+     "output_tokens": 0,
+     "seconds": 0
+    },
+    "browser_pages": 4,
+    "duplicates_merged": 0,
+    "sparse_dropped": 0,
+    "pii_removed": 0,
+    "injection_findings": 0,
+    "events": [
+     {
+      "kind": "job_started",
+      "message": "Crawling 1 start URL(s)"
+     },
+     {
+      "kind": "browser",
+      "message": "https://kestrel-camera-house.example/catalog/: empty application shell; rendering with headless Chromium"
+     },
+     {
+      "kind": "strategy",
+      "message": "kestrel-camera-house.example: learned extractor (set by the job)"
+     },
+     {
+      "kind": "layout_changed",
+      "message": "kestrel-camera-house.example: layout change detected (no records; structural similarity 0.08)"
+     },
+     {
+      "kind": "layout_changed",
+      "message": "kestrel-camera-house.example: layout change detected (no records; structural similarity 0.08)"
+     },
+     {
+      "kind": "layout_changed",
+      "message": "kestrel-camera-house.example: layout change detected (no records; structural similarity 0.08)"
+     },
+     {
+      "kind": "layout_changed",
+      "message": "kestrel-camera-house.example: layout change detected (no records; structural similarity 0.08)"
+     },
+     {
+      "kind": "job_finished",
+      "message": "0 records from 4 pages, 0 model call(s)"
+     }
+    ],
+    "error": null,
+    "detected": true,
+    "signals": [
+     "kestrel-camera-house.example: layout change detected (no records; structural similarity 0.08)",
+     "kestrel-camera-house.example: layout change detected (no records; structural similarity 0.08)",
+     "kestrel-camera-house.example: layout change detected (no records; structural similarity 0.08)"
+    ]
+   },
+   "v2_after": {
+    "site": "spa-shop-01",
+    "truth": 34,
+    "extracted": 34,
+    "matched": 34,
+    "precision": 1.0,
+    "recall": 1.0,
+    "field_accuracy": 1.0,
+    "fields": {
+     "name": {
+      "correct": 34,
+      "total": 34
+     },
+     "price": {
+      "correct": 34,
+      "total": 34
+     },
+     "rating": {
+      "correct": 34,
+      "total": 34
+     },
+     "stock_status": {
+      "correct": 34,
+      "total": 34
+     },
+     "image_url": {
+      "correct": 34,
+      "total": 34
+     },
+     "product_url": {
+      "correct": 34,
+      "total": 34
+     }
+    },
+    "unmatched_extracted": [],
+    "missed": [],
+    "errors": [],
+    "pages": 4,
+    "records": 34,
+    "seconds": 38.42,
+    "strategies": [
+     "learned"
+    ],
+    "llm": {
+     "calls": 3,
+     "cached": 0,
+     "failed": 0,
+     "by_task": {
+      "heal_extractor": 3
+     },
+     "input_tokens": 7244,
+     "output_tokens": 1670,
+     "seconds": 35.62
+    },
+    "browser_pages": 4,
+    "duplicates_merged": 12,
+    "sparse_dropped": 0,
+    "pii_removed": 0,
+    "injection_findings": 0,
+    "events": [
+     {
+      "kind": "job_started",
+      "message": "Crawling 1 start URL(s)"
+     },
+     {
+      "kind": "browser",
+      "message": "https://kestrel-camera-house.example/catalog/: empty application shell; rendering with headless Chromium"
+     },
+     {
+      "kind": "strategy",
+      "message": "kestrel-camera-house.example: learned extractor (set by the job)"
+     },
+     {
+      "kind": "layout_changed",
+      "message": "kestrel-camera-house.example: layout change detected (no records; structural similarity 0.08)"
+     },
+     {
+      "kind": "healed",
+      "message": "kestrel-camera-house.example: healed in 3 attempt(s), 3 model call(s); verified against 54 earlier record(s)"
+     },
+     {
+      "kind": "deduplicated",
+      "message": "12 duplicate record(s) merged across pages"
+     },
+     {
+      "kind": "anomaly",
+      "message": "Anomaly in price of 'coastal hiking boots': 24999 is 167x the median 149.745"
+     },
+     {
+      "kind": "job_finished",
+      "message": "34 records from 4 pages, 3 model call(s)"
+     }
+    ],
+    "error": null,
+    "detected": true,
+    "healed": true,
+    "heal_failed": false,
+    "heal_calls": 3,
+    "fallback_direct_calls": 0,
+    "healed_programs": [
+     {
+      "kind": "list",
+      "item": "article.item-tile",
+      "fields": {
+       "name": {
+        "css": ".item-tile__title h2",
+        "attr": "text",
+        "all": false,
+        "negate": false
+       },
+       "price": {
+        "css": ".item-tile__price",
+        "attr": "text",
+        "all": false,
+        "regex": "\\$([\\d,]+(?:\\.\\d{1,2})?)",
+        "negate": false
+       },
+       "rating": {
+        "css": ".item-tile__rating",
+        "attr": "text",
+        "all": false,
+        "negate": false,
+        "fallback": {
+         "css": ".item-tile__rating",
+         "attr": "title",
+         "all": false,
+         "regex": "(\\d(?:\\.\\d)?)\\s*star",
+         "negate": false
+        }
+       },
+       "stock_status": {
+        "css": ".item-tile__stock",
+        "attr": "text",
+        "all": false,
+        "value_map": {
+         "Unavailable": "out_of_stock",
+         "Sold out": "out_of_stock",
+         "In stock": "in_stock",
+         "Preorder": "preorder"
+        },
+        "negate": false
+       },
+       "image_url": {
+        "css": ".item-tile__image",
+        "attr": "data-src",
+        "all": false,
+        "negate": false
+       },
+       "product_url": {
+        "css": ".item-tile__title",
+        "attr": "href",
+        "all": false,
+        "negate": false
+       }
+      },
+      "next_page": {
+       "css": "nav.pager a[rel='next']",
+       "attr": "href",
+       "all": false,
+       "negate": false
+      },
+      "missing": [],
+      "notes": ""
+     }
+    ]
+   },
+   "v1_recheck": {
+    "false_alarm": false,
+    "llm_calls": 0,
+    "records": 34,
+    "pages": 4
+   },
+   "incremental": {
+    "pages": 4,
+    "unchanged": 3,
+    "records": 34,
+    "llm_calls": 0
+   },
+   "seconds": 64.6
+  },
+  {
+   "site": "spa-jobs-07",
+   "vertical": "jobs",
+   "mode": "spa",
+   "traps": [
+    "js_rendered",
+    "relative_dates",
+    "pii_contact"
+   ],
+   "v1": {
+    "site": "spa-jobs-07",
+    "truth": 24,
+    "extracted": 24,
+    "matched": 24,
+    "precision": 1.0,
+    "recall": 1.0,
+    "field_accuracy": 1.0,
+    "fields": {
+     "title": {
+      "correct": 24,
+      "total": 24
+     },
+     "company": {
+      "correct": 24,
+      "total": 24
+     },
+     "location": {
+      "correct": 24,
+      "total": 24
+     },
+     "salary_min": {
+      "correct": 24,
+      "total": 24
+     },
+     "salary_max": {
+      "correct": 24,
+      "total": 24
+     },
+     "employment_type": {
+      "correct": 24,
+      "total": 24
+     },
+     "remote": {
+      "correct": 24,
+      "total": 24
+     },
+     "posted_date": {
+      "correct": 24,
+      "total": 24
+     },
+     "job_url": {
+      "correct": 24,
+      "total": 24
+     }
+    },
+    "unmatched_extracted": [],
+    "missed": [],
+    "errors": [],
+    "pages": 4,
+    "records": 24,
+    "seconds": 18.69,
+    "strategies": [
+     "learned"
+    ],
+    "llm": {
+     "calls": 1,
+     "cached": 0,
+     "failed": 0,
+     "by_task": {
+      "learn_extractor": 1
+     },
+     "input_tokens": 1824,
+     "output_tokens": 821,
+     "seconds": 16.0
+    },
+    "browser_pages": 4,
+    "duplicates_merged": 10,
+    "sparse_dropped": 0,
+    "pii_removed": 14,
+    "injection_findings": 0,
+    "events": [
+     {
+      "kind": "job_started",
+      "message": "Crawling 1 start URL(s)"
+     },
+     {
+      "kind": "browser",
+      "message": "https://byte-bazaar-jobs.example/jobs/: empty application shell; rendering with headless Chromium"
+     },
+     {
+      "kind": "strategy",
+      "message": "byte-bazaar-jobs.example: learned extractor (pagination found (3 link(s)): a repeated template)"
+     },
+     {
+      "kind": "learning",
+      "message": "byte-bazaar-jobs.example: learning an extractor from 3 sample page(s)"
+     },
+     {
+      "kind": "learned",
+      "message": "byte-bazaar-jobs.example: extractor learned in 1 attempt(s), 1 model call(s)"
+     },
+     {
+      "kind": "deduplicated",
+      "message": "10 duplicate record(s) merged across pages"
+     },
+     {
+      "kind": "pii_removed",
+      "message": "PII guard removed 14 email address(es) or phone number(s)"
+     },
+     {
+      "kind": "job_finished",
+      "message": "24 records from 4 pages, 1 model call(s)"
+     }
+    ],
+    "error": null,
+    "extract_ms_p50": 288.8
+   },
+   "traps_result": {
+    "pii_planted": 10,
+    "pii_leaked": 0,
+    "relative_dates": {
+     "correct": 24,
+     "total": 24
+    }
+   },
+   "politeness": {
+    "hosts": {
+     "byte-bazaar-jobs.example": {
+      "requests": 6,
+      "subresources": 8,
+      "robots_fetches": 1,
+      "min_gap_s": 0.0,
+      "configured_interval_s": 0.0,
+      "max_requests_per_s_10s": 1.1,
+      "mean_requests_per_s": 0.715
+     }
+    },
+    "robots_blocked": []
+   },
+   "learned": true,
+   "extractors": [
+    {
+     "id": "ext-069c0a",
+     "kind": "list",
+     "accepted": true,
+     "attempts": 1,
+     "calls": 1,
+     "program": {
+      "kind": "list",
+      "item": "article.jc-crd",
+      "fields": {
+       "title": {
+        "css": "h3.jc-ttl a",
+        "attr": "text",
+        "all": false,
+        "negate": false
+       },
+       "company": {
+        "css": "span.jc-co",
+        "attr": "text",
+        "all": false,
+        "negate": false
+       },
+       "location": {
+        "css": "span.jc-loc",
+        "attr": "text",
+        "all": false,
+        "negate": false
+       },
+       "salary_min": {
+        "css": "span.jc-sal",
+        "attr": "text",
+        "all": false,
+        "regex": "^\\$([\\d,]+)",
+        "negate": false
+       },
+       "salary_max": {
+        "css": "span.jc-sal",
+        "attr": "text",
+        "all": false,
+        "regex": "\\$[\\d,]+\\s*–\\s*\\$([\\d,]+)",
+        "negate": false
+       },
+       "employment_type": {
+        "css": "span.jc-typ",
+        "attr": "text",
+        "all": false,
+        "value_map": {
+         "Full-time": "full_time",
+         "Part-time": "part_time",
+         "Contract": "contract",
+         "Internship": "internship"
+        },
+        "negate": false
+       },
+       "remote": {
+        "css": "span.jc-rmt",
+        "attr": "text",
+        "all": false,
+        "value_map": {
+         "Remote": "True",
+         "Fully Remote": "True",
+         "Hybrid": "False",
+         "On-site": "False",
+         "Office": "False"
+        },
+        "negate": false
+       },
+       "posted_date": {
+        "css": "span.jc-pst",
+        "attr": "text",
+        "all": false,
+        "negate": false
+       },
+       "job_url": {
+        "css": "h3.jc-ttl a",
+        "attr": "href",
+        "all": false,
+        "negate": false
+       },
+       "contact": {
+        "css": "p.jc-dsc",
+        "attr": "text",
+        "all": false,
+        "negate": false,
+        "fallback": {
+         "css": "",
+         "attr": "text",
+         "all": false,
+         "negate": true
+        }
+       }
+      },
+      "next_page": {
+       "css": "nav.pager a[rel='next']",
+       "attr": "href",
+       "all": false,
+       "negate": false
+      },
+      "missing": [],
+      "notes": ""
+     }
+    }
+   ],
+   "v2_before": {
+    "site": "spa-jobs-07",
+    "truth": 24,
+    "extracted": 0,
+    "matched": 0,
+    "precision": 0.0,
+    "recall": 0.0,
+    "field_accuracy": 0.0,
+    "fields": {},
+    "unmatched_extracted": [],
+    "missed": [
+     "Product Designer",
+     "Senior Backend Engineer",
+     "Site Reliability Engineer",
+     "Lead Product Designer",
+     "Machine Learning Engineer",
+     "Lead Machine Learning Engineer",
+     "Mobile Developer",
+     "UX Researcher",
+     "Technical Writer",
+     "Principal Product Designer"
+    ],
+    "errors": [],
+    "pages": 6,
+    "records": 0,
+    "seconds": 3.81,
+    "strategies": [
+     "learned"
+    ],
+    "llm": {
+     "calls": 0,
+     "cached": 0,
+     "failed": 0,
+     "by_task": {},
+     "input_tokens": 0,
+     "output_tokens": 0,
+     "seconds": 0
+    },
+    "browser_pages": 6,
+    "duplicates_merged": 0,
+    "sparse_dropped": 0,
+    "pii_removed": 0,
+    "injection_findings": 0,
+    "events": [
+     {
+      "kind": "job_started",
+      "message": "Crawling 1 start URL(s)"
+     },
+     {
+      "kind": "browser",
+      "message": "https://byte-bazaar-jobs.example/jobs/: empty application shell; rendering with headless Chromium"
+     },
+     {
+      "kind": "strategy",
+      "message": "byte-bazaar-jobs.example: learned extractor (set by the job)"
+     },
+     {
+      "kind": "layout_changed",
+      "message": "byte-bazaar-jobs.example: layout change detected (no records; structural similarity 0.09)"
+     },
+     {
+      "kind": "layout_changed",
+      "message": "byte-bazaar-jobs.example: layout change detected (no records; structural similarity 0.09)"
+     },
+     {
+      "kind": "layout_changed",
+      "message": "byte-bazaar-jobs.example: layout change detected (no records; structural similarity 0.09)"
+     },
+     {
+      "kind": "layout_changed",
+      "message": "byte-bazaar-jobs.example: layout change detected (no records; structural similarity 0.10)"
+     },
+     {
+      "kind": "layout_changed",
+      "message": "byte-bazaar-jobs.example: layout change detected (no records; structural similarity 0.07)"
+     },
+     {
+      "kind": "layout_changed",
+      "message": "byte-bazaar-jobs.example: layout change detected (no records; structural similarity 0.05)"
+     },
+     {
+      "kind": "job_finished",
+      "message": "0 records from 6 pages, 0 model call(s)"
+     }
+    ],
+    "error": null,
+    "detected": true,
+    "signals": [
+     "byte-bazaar-jobs.example: layout change detected (no records; structural similarity 0.09)",
+     "byte-bazaar-jobs.example: layout change detected (no records; structural similarity 0.09)",
+     "byte-bazaar-jobs.example: layout change detected (no records; structural similarity 0.09)"
+    ]
+   },
+   "v2_after": {
+    "site": "spa-jobs-07",
+    "truth": 24,
+    "extracted": 24,
+    "matched": 24,
+    "precision": 1.0,
+    "recall": 1.0,
+    "field_accuracy": 0.8889,
+    "fields": {
+     "title": {
+      "correct": 24,
+      "total": 24
+     },
+     "company": {
+      "correct": 24,
+      "total": 24
+     },
+     "location": {
+      "correct": 24,
+      "total": 24
+     },
+     "salary_min": {
+      "correct": 24,
+      "total": 24
+     },
+     "salary_max": {
+      "correct": 24,
+      "total": 24
+     },
+     "employment_type": {
+      "correct": 24,
+      "total": 24
+     },
+     "remote": {
+      "correct": 24,
+      "total": 24
+     },
+     "posted_date": {
+      "correct": 0,
+      "total": 24
+     },
+     "job_url": {
+      "correct": 24,
+      "total": 24
+     }
+    },
+    "unmatched_extracted": [],
+    "missed": [],
+    "errors": [
+     {
+      "key": "Product Designer",
+      "field": "posted_date",
+      "got": null,
+      "want": "2026-09-26"
+     },
+     {
+      "key": "Senior Backend Engineer",
+      "field": "posted_date",
+      "got": null,
+      "want": "2026-09-10"
+     },
+     {
+      "key": "Site Reliability Engineer",
+      "field": "posted_date",
+      "got": null,
+      "want": "2026-09-17"
+     },
+     {
+      "key": "Lead Product Designer",
+      "field": "posted_date",
+      "got": null,
+      "want": "2026-09-26"
+     },
+     {
+      "key": "Machine Learning Engineer",
+      "field": "posted_date",
+      "got": null,
+      "want": "2026-09-30"
+     },
+     {
+      "key": "Lead Machine Learning Engineer",
+      "field": "posted_date",
+      "got": null,
+      "want": "2026-09-10"
+     },
+     {
+      "key": "Mobile Developer",
+      "field": "posted_date",
+      "got": null,
+      "want": "2026-09-30"
+     },
+     {
+      "key": "UX Researcher",
+      "field": "posted_date",
+      "got": null,
+      "want": "2026-09-10"
+     },
+     {
+      "key": "Technical Writer",
+      "field": "posted_date",
+      "got": null,
+      "want": "2026-10-01"
+     },
+     {
+      "key": "Principal Product Designer",
+      "field": "posted_date",
+      "got": null,
+      "want": "2026-09-28"
+     },
+     {
+      "key": "Junior Mobile Developer",
+      "field": "posted_date",
+      "got": null,
+      "want": "2026-09-24"
+     },
+     {
+      "key": "Recruiter",
+      "field": "posted_date",
+      "got": null,
+      "want": "2026-09-26"
+     },
+     {
+      "key": "Frontend Developer",
+      "field": "posted_date",
+      "got": null,
+      "want": "2026-09-29"
+     },
+     {
+      "key": "Senior Frontend Developer",
+      "field": "posted_date",
+      "got": null,
+      "want": "2026-09-30"
+     },
+     {
+      "key": "Junior Backend Engineer",
+      "field": "posted_date",
+      "got": null,
+      "want": "2026-09-17"
+     },
+     {
+      "key": "Staff Site Reliability Engineer",
+      "field": "posted_date",
+      "got": null,
+      "want": "2026-09-30"
+     },
+     {
+      "key": "Marketing Coordinator",
+      "field": "posted_date",
+      "got": null,
+      "want": "2026-09-30"
+     },
+     {
+      "key": "Junior Marketing Coordinator",
+      "field": "posted_date",
+      "got": null,
+      "want": "2026-09-26"
+     },
+     {
+      "key": "Lead Technical Writer",
+      "field": "posted_date",
+      "got": null,
+      "want": "2026-09-27"
+     },
+     {
+      "key": "Data Analyst",
+      "field": "posted_date",
+      "got": null,
+      "want": "2026-09-25"
+     },
+     {
+      "key": "Lead Site Reliability Engineer",
+      "field": "posted_date",
+      "got": null,
+      "want": "2026-09-10"
+     },
+     {
+      "key": "Principal Machine Learning Engineer",
+      "field": "posted_date",
+      "got": null,
+      "want": "2026-09-28"
+     },
+     {
+      "key": "Sales Development Representative",
+      "field": "posted_date",
+      "got": null,
+      "want": "2026-09-21"
+     },
+     {
+      "key": "DevOps Engineer",
+      "field": "posted_date",
+      "got": null,
+      "want": "2026-09-27"
+     }
+    ],
+    "pages": 4,
+    "records": 24,
+    "seconds": 117.12,
+    "strategies": [
+     "direct"
+    ],
+    "llm": {
+     "calls": 7,
+     "cached": 1,
+     "failed": 0,
+     "by_task": {
+      "heal_extractor": 3,
+      "direct_extract": 4
+     },
+     "input_tokens": 13975,
+     "output_tokens": 6693,
+     "seconds": 114.29
+    },
+    "browser_pages": 4,
+    "duplicates_merged": 10,
+    "sparse_dropped": 0,
+    "pii_removed": 14,
+    "injection_findings": 0,
+    "events": [
+     {
+      "kind": "job_started",
+      "message": "Crawling 1 start URL(s)"
+     },
+     {
+      "kind": "browser",
+      "message": "https://byte-bazaar-jobs.example/jobs/: empty application shell; rendering with headless Chromium"
+     },
+     {
+      "kind": "strategy",
+      "message": "byte-bazaar-jobs.example: learned extractor (set by the job)"
+     },
+     {
+      "kind": "layout_changed",
+      "message": "byte-bazaar-jobs.example: layout change detected (no records; structural similarity 0.09)"
+     },
+     {
+      "kind": "heal_failed",
+      "message": "byte-bazaar-jobs.example: re-learned rules did not pass verification after 3 attempt(s) (3 call(s)); switching this site to direct extraction"
+     },
+     {
+      "kind": "deduplicated",
+      "message": "10 duplicate record(s) merged across pages"
+     },
+     {
+      "kind": "pii_removed",
+      "message": "PII guard removed 14 email address(es) or phone number(s)"
+     },
+     {
+      "kind": "job_finished",
+      "message": "24 records from 4 pages, 7 model call(s)"
+     }
+    ],
+    "error": null,
+    "detected": true,
+    "healed": false,
+    "heal_failed": true,
+    "heal_calls": 3,
+    "fallback_direct_calls": 4,
+    "healed_programs": []
+   },
+   "v1_recheck": {
+    "false_alarm": false,
+    "llm_calls": 0,
+    "records": 24,
+    "pages": 4
+   },
+   "incremental": {
+    "pages": 4,
+    "unchanged": 3,
+    "records": 24,
+    "llm_calls": 0
+   },
+   "seconds": 145.4
+  },
+  {
+   "site": "scroll-events-06",
+   "vertical": "events",
+   "mode": "infinite_scroll",
+   "traps": [
+    "infinite_scroll",
+    "relative_dates"
+   ],
+   "v1": {
+    "site": "scroll-events-06",
+    "truth": 34,
+    "extracted": 34,
+    "matched": 34,
+    "precision": 1.0,
+    "recall": 1.0,
+    "field_accuracy": 1.0,
+    "fields": {
+     "name": {
+      "correct": 34,
+      "total": 34
+     },
+     "start_date": {
+      "correct": 34,
+      "total": 34
+     },
+     "venue": {
+      "correct": 34,
+      "total": 34
+     },
+     "price": {
+      "correct": 34,
+      "total": 34
+     },
+     "category": {
+      "correct": 34,
+      "total": 34
+     },
+     "event_url": {
+      "correct": 34,
+      "total": 34
+     }
+    },
+    "unmatched_extracted": [],
+    "missed": [],
+    "errors": [],
+    "pages": 1,
+    "records": 34,
+    "seconds": 12.26,
+    "strategies": [
+     "learned"
+    ],
+    "llm": {
+     "calls": 1,
+     "cached": 0,
+     "failed": 0,
+     "by_task": {
+      "learn_extractor": 1
+     },
+     "input_tokens": 1561,
+     "output_tokens": 467,
+     "seconds": 9.95
+    },
+    "browser_pages": 1,
+    "duplicates_merged": 0,
+    "sparse_dropped": 0,
+    "pii_removed": 0,
+    "injection_findings": 0,
+    "events": [
+     {
+      "kind": "job_started",
+      "message": "Crawling 1 start URL(s)"
+     },
+     {
+      "kind": "browser",
+      "message": "https://moonlit-market-events.example/events/: infinite scroll; rendering with headless Chromium"
+     },
+     {
+      "kind": "strategy",
+      "message": "moonlit-market-events.example: learned extractor (34 similar items on the page: a repeated template)"
+     },
+     {
+      "kind": "learning",
+      "message": "moonlit-market-events.example: learning an extractor from 1 sample page(s)"
+     },
+     {
+      "kind": "learned",
+      "message": "moonlit-market-events.example: extractor learned in 1 attempt(s), 1 model call(s)"
+     },
+     {
+      "kind": "job_finished",
+      "message": "34 records from 1 pages, 1 model call(s)"
+     }
+    ],
+    "error": null,
+    "extract_ms_p50": 12255.3
+   },
+   "traps_result": {
+    "relative_dates": {
+     "correct": 34,
+     "total": 34
+    }
+   },
+   "politeness": {
+    "hosts": {
+     "moonlit-market-events.example": {
+      "requests": 3,
+      "subresources": 4,
+      "robots_fetches": 1,
+      "min_gap_s": 0.0,
+      "configured_interval_s": 0.0,
+      "max_requests_per_s_10s": 0.7,
+      "mean_requests_per_s": 3.988
+     }
+    },
+    "robots_blocked": []
+   },
+   "learned": true,
+   "extractors": [
+    {
+     "id": "ext-bfb418",
+     "kind": "list",
+     "accepted": true,
+     "attempts": 1,
+     "calls": 1,
+     "program": {
+      "kind": "list",
+      "item": "#feed > li",
+      "fields": {
+       "name": {
+        "css": "h3 a",
+        "attr": "text",
+        "all": false,
+        "negate": false
+       },
+       "start_date": {
+        "css": "span:nth-of-type(1)",
+        "attr": "text",
+        "all": false,
+        "negate": false
+       },
+       "venue": {
+        "css": "span:nth-of-type(2)",
+        "attr": "text",
+        "all": false,
+        "negate": false
+       },
+       "price": {
+        "css": "span:nth-of-type(3)",
+        "attr": "text",
+        "all": false,
+        "negate": false
+       },
+       "category": {
+        "css": "span:nth-of-type(4)",
+        "attr": "text",
+        "all": false,
+        "value_map": {
+         "Music": "music",
+         "Theatre": "theatre",
+         "Comedy": "comedy",
+         "Food": "food",
+         "Tech": "tech",
+         "Family": "family",
+         "Art": "art",
+         "Sports": "sports"
+        },
+        "negate": false
+       },
+       "event_url": {
+        "css": "h3 a",
+        "attr": "href",
+        "all": false,
+        "negate": false
+       }
+      },
+      "missing": [],
+      "notes": ""
+     }
+    }
+   ],
+   "v2_before": {
+    "site": "scroll-events-06",
+    "truth": 34,
+    "extracted": 0,
+    "matched": 0,
+    "precision": 0.0,
+    "recall": 0.0,
+    "field_accuracy": 0.0,
+    "fields": {},
+    "unmatched_extracted": [],
+    "missed": [
+     "Autumn Tech Meetup",
+     "Downtown Board Game Social",
+     "Downtown Startup Pitch Night",
+     "Little Choir Festival",
+     "Downtown Craft Market",
+     "Downtown Salsa Workshop",
+     "Grand Craft Market",
+     "Grand Indie Showcase",
+     "Late Board Game Social",
+     "Late Indie Showcase"
+    ],
+    "errors": [],
+    "pages": 6,
+    "records": 0,
+    "seconds": 7.93,
+    "strategies": [
+     "learned"
+    ],
+    "llm": {
+     "calls": 0,
+     "cached": 0,
+     "failed": 0,
+     "by_task": {},
+     "input_tokens": 0,
+     "output_tokens": 0,
+     "seconds": 0
+    },
+    "browser_pages": 6,
+    "duplicates_merged": 0,
+    "sparse_dropped": 0,
+    "pii_removed": 0,
+    "injection_findings": 0,
+    "events": [
+     {
+      "kind": "job_started",
+      "message": "Crawling 1 start URL(s)"
+     },
+     {
+      "kind": "browser",
+      "message": "https://moonlit-market-events.example/events/: load-more button; rendering with headless Chromium"
+     },
+     {
+      "kind": "strategy",
+      "message": "moonlit-market-events.example: learned extractor (set by the job)"
+     },
+     {
+      "kind": "layout_changed",
+      "message": "moonlit-market-events.example: layout change detected (no records; structural similarity 0.04)"
+     },
+     {
+      "kind": "layout_changed",
+      "message": "moonlit-market-events.example: layout change detected (no records; structural similarity 0.07)"
+     },
+     {
+      "kind": "layout_changed",
+      "message": "moonlit-market-events.example: layout change detected (no records; structural similarity 0.05)"
+     },
+     {
+      "kind": "layout_changed",
+      "message": "moonlit-market-events.example: layout change detected (no records; structural similarity 0.05)"
+     },
+     {
+      "kind": "layout_changed",
+      "message": "moonlit-market-events.example: layout change detected (no records; structural similarity 0.05)"
+     },
+     {
+      "kind": "layout_changed",
+      "message": "moonlit-market-events.example: layout change detected (no records; structural similarity 0.05)"
+     },
+     {
+      "kind": "job_finished",
+      "message": "0 records from 6 pages, 0 model call(s)"
+     }
+    ],
+    "error": null,
+    "detected": true,
+    "signals": [
+     "moonlit-market-events.example: layout change detected (no records; structural similarity 0.04)",
+     "moonlit-market-events.example: layout change detected (no records; structural similarity 0.07)",
+     "moonlit-market-events.example: layout change detected (no records; structural similarity 0.05)"
+    ]
+   },
+   "v2_after": {
+    "site": "scroll-events-06",
+    "truth": 34,
+    "extracted": 34,
+    "matched": 34,
+    "precision": 1.0,
+    "recall": 1.0,
+    "field_accuracy": 0.8529,
+    "fields": {
+     "name": {
+      "correct": 34,
+      "total": 34
+     },
+     "start_date": {
+      "correct": 34,
+      "total": 34
+     },
+     "venue": {
+      "correct": 4,
+      "total": 34
+     },
+     "price": {
+      "correct": 34,
+      "total": 34
+     },
+     "category": {
+      "correct": 34,
+      "total": 34
+     },
+     "event_url": {
+      "correct": 34,
+      "total": 34
+     }
+    },
+    "unmatched_extracted": [],
+    "missed": [],
+    "errors": [
+     {
+      "key": "Downtown Board Game Social",
+      "field": "venue",
+      "got": "Civic Gardens",
+      "want": "Lantern Rooms"
+     },
+     {
+      "key": "Downtown Startup Pitch Night",
+      "field": "venue",
+      "got": "St. Brigid's Hall",
+      "want": "Civic Gardens"
+     },
+     {
+      "key": "Little Choir Festival",
+      "field": "venue",
+      "got": "Glasshouse Arts Centre",
+      "want": "St. Brigid's Hall"
+     },
+     {
+      "key": "Downtown Craft Market",
+      "field": "venue",
+      "got": "Harbour Stage",
+      "want": "Glasshouse Arts Centre"
+     },
+     {
+      "key": "Downtown Salsa Workshop",
+      "field": "venue",
+      "got": "The Foundry Hall",
+      "want": "Harbour Stage"
+     },
+     {
+      "key": "Grand Craft Market",
+      "field": "venue",
+      "got": "Old Mill Theatre",
+      "want": "The Foundry Hall"
+     },
+     {
+      "key": "Grand Indie Showcase",
+      "field": "venue",
+      "got": "St. Brigid's Hall",
+      "want": "Old Mill Theatre"
+     },
+     {
+      "key": "Late Board Game Social",
+      "field": "venue",
+      "got": "Old Mill Theatre",
+      "want": "St. Brigid's Hall"
+     },
+     {
+      "key": "Late Indie Showcase",
+      "field": "venue",
+      "got": "The Foundry Hall",
+      "want": "Old Mill Theatre"
+     },
+     {
+      "key": "Late Wine Tasting",
+      "field": "venue",
+      "got": "The Copper Kettle",
+      "want": "The Foundry Hall"
+     },
+     {
+      "key": "Little Photography Walk",
+      "field": "venue",
+      "got": "Riverside Pavilion",
+      "want": "The Copper Kettle"
+     },
+     {
+      "key": "Autumn Startup Pitch Night",
+      "field": "venue",
+      "got": "The Foundry Hall",
+      "want": "Riverside Pavilion"
+     },
+     {
+      "key": "Harvest Craft Market",
+      "field": "venue",
+      "got": "The Copper Kettle",
+      "want": "The Foundry Hall"
+     },
+     {
+      "key": "Grand Poetry Slam",
+      "field": "venue",
+      "got": "Lantern Rooms",
+      "want": "The Copper Kettle"
+     },
+     {
+      "key": "Grand Tech Meetup",
+      "field": "venue",
+      "got": "Civic Gardens",
+      "want": "Lantern Rooms"
+     },
+     {
+      "key": "Harvest Tech Meetup",
+      "field": "venue",
+      "got": "Old Mill Theatre",
+      "want": "Civic Gardens"
+     },
+     {
+      "key": "Little Startup Pitch Night",
+      "field": "venue",
+      "got": "The Copper Kettle",
+      "want": "Old Mill Theatre"
+     },
+     {
+      "key": "Moonlit Half Marathon",
+      "field": "venue",
+      "got": "Glasshouse Arts Centre",
+      "want": "The Copper Kettle"
+     },
+     {
+      "key": "Downtown Choir Festival",
+      "field": "venue",
+      "got": "Civic Gardens",
+      "want": "Glasshouse Arts Centre"
+     },
+     {
+      "key": "Grand Startup Pitch Night",
+      "field": "venue",
+      "got": "Union Warehouse",
+      "want": "Civic Gardens"
+     },
+     {
+      "key": "Midweek Photography Walk",
+      "field": "venue",
+      "got": "Lantern Rooms",
+      "want": "Union Warehouse"
+     },
+     {
+      "key": "Downtown Poetry Slam",
+      "field": "venue",
+      "got": "St. Brigid's Hall",
+      "want": "Lantern Rooms"
+     },
+     {
+      "key": "Downtown Wine Tasting",
+      "field": "venue",
+      "got": "Glasshouse Arts Centre",
+      "want": "St. Brigid's Hall"
+     },
+     {
+      "key": "Grand Chamber Concert",
+      "field": "venue",
+      "got": "The Copper Kettle",
+      "want": "Glasshouse Arts Centre"
+     },
+     {
+      "key": "Midweek Food Truck Rally",
+      "field": "venue",
+      "got": "Harbour Stage",
+      "want": "The Copper Kettle"
+     }
+    ],
+    "pages": 1,
+    "records": 34,
+    "seconds": 75.14,
+    "strategies": [
+     "direct"
+    ],
+    "llm": {
+     "calls": 4,
+     "cached": 1,
+     "failed": 0,
+     "by_task": {
+      "heal_extractor": 3,
+      "direct_extract": 1
+     },
+     "input_tokens": 9362,
+     "output_tokens": 4392,
+     "seconds": 72.81
+    },
+    "browser_pages": 1,
+    "duplicates_merged": 0,
+    "sparse_dropped": 0,
+    "pii_removed": 0,
+    "injection_findings": 0,
+    "events": [
+     {
+      "kind": "job_started",
+      "message": "Crawling 1 start URL(s)"
+     },
+     {
+      "kind": "browser",
+      "message": "https://moonlit-market-events.example/events/: load-more button; rendering with headless Chromium"
+     },
+     {
+      "kind": "strategy",
+      "message": "moonlit-market-events.example: learned extractor (set by the job)"
+     },
+     {
+      "kind": "layout_changed",
+      "message": "moonlit-market-events.example: layout change detected (no records; structural similarity 0.04)"
+     },
+     {
+      "kind": "heal_failed",
+      "message": "moonlit-market-events.example: re-learned rules did not pass verification after 3 attempt(s) (3 call(s)); switching this site to direct extraction"
+     },
+     {
+      "kind": "job_finished",
+      "message": "34 records from 1 pages, 4 model call(s)"
+     }
+    ],
+    "error": null,
+    "detected": true,
+    "healed": false,
+    "heal_failed": true,
+    "heal_calls": 3,
+    "fallback_direct_calls": 1,
+    "healed_programs": []
+   },
+   "v1_recheck": {
+    "false_alarm": false,
+    "llm_calls": 0,
+    "records": 34,
+    "pages": 1
+   },
+   "incremental": {
+    "pages": 1,
+    "unchanged": 1,
+    "records": 34,
+    "llm_calls": 0
+   },
+   "seconds": 100.1
+  }
+ ],
+ "seconds": 264.7
+}

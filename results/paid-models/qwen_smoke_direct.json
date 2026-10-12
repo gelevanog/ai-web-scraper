@@ -1,0 +1,163 @@
+{
+ "name": "qwen_smoke",
+ "suite": "direct",
+ "run_at": "2026-10-12T08:47:44+00:00",
+ "provider": "compat",
+ "model": "qwen3.7-plus",
+ "fallbacks": [],
+ "aggregate": {
+  "sites": 1,
+  "truth_records": 3,
+  "extracted_records": 3,
+  "matched": 3,
+  "precision": 1.0,
+  "recall": 1.0,
+  "field_accuracy": 0.6,
+  "fields_correct": 9,
+  "fields_total": 15,
+  "pages": 1,
+  "llm_calls": 1,
+  "input_tokens": 899,
+  "output_tokens": 285,
+  "call_seconds_p50": 8.1,
+  "call_seconds_p95": 8.1,
+  "not_on_page_flags": 0
+ },
+ "sites": [
+  {
+   "site": "saas-02",
+   "vertical": "saas",
+   "mode": "onepage",
+   "truth": 3,
+   "extracted": 3,
+   "matched": 3,
+   "precision": 1.0,
+   "recall": 1.0,
+   "field_accuracy": 0.6,
+   "fields": {
+    "plan": {
+     "correct": 3,
+     "total": 3
+    },
+    "monthly_price": {
+     "correct": 0,
+     "total": 3
+    },
+    "annual_monthly_price": {
+     "correct": 0,
+     "total": 3
+    },
+    "seats": {
+     "correct": 3,
+     "total": 3
+    },
+    "features": {
+     "correct": 3,
+     "total": 3
+    }
+   },
+   "unmatched_extracted": [],
+   "missed": [],
+   "errors": [
+    {
+     "key": "Basic",
+     "field": "monthly_price",
+     "got": {
+      "amount": 19.0,
+      "currency": "USD"
+     },
+     "want": 20.52
+    },
+    {
+     "key": "Basic",
+     "field": "annual_monthly_price",
+     "got": {
+      "amount": 15.0,
+      "currency": "USD"
+     },
+     "want": 16.2
+    },
+    {
+     "key": "Pro",
+     "field": "monthly_price",
+     "got": {
+      "amount": 48.0,
+      "currency": "USD"
+     },
+     "want": 51.84
+    },
+    {
+     "key": "Pro",
+     "field": "annual_monthly_price",
+     "got": {
+      "amount": 38.0,
+      "currency": "USD"
+     },
+     "want": 41.04
+    },
+    {
+     "key": "Business",
+     "field": "monthly_price",
+     "got": {
+      "amount": 119.0,
+      "currency": "USD"
+     },
+     "want": 128.52
+    },
+    {
+     "key": "Business",
+     "field": "annual_monthly_price",
+     "got": {
+      "amount": 95.0,
+      "currency": "USD"
+     },
+     "want": 102.6
+    }
+   ],
+   "pages": 1,
+   "records": 3,
+   "seconds": 8.11,
+   "strategies": [
+    "direct"
+   ],
+   "llm": {
+    "calls": 1,
+    "cached": 0,
+    "failed": 0,
+    "by_task": {
+     "direct_extract": 1
+    },
+    "input_tokens": 899,
+    "output_tokens": 285,
+    "seconds": 8.1
+   },
+   "browser_pages": 0,
+   "duplicates_merged": 0,
+   "sparse_dropped": 0,
+   "pii_removed": 0,
+   "injection_findings": 0,
+   "events": [
+    {
+     "kind": "job_started",
+     "message": "Crawling 1 start URL(s)"
+    },
+    {
+     "kind": "strategy",
+     "message": "pingwell.example: direct LLM extraction (set by the job)"
+    },
+    {
+     "kind": "job_finished",
+     "message": "3 records from 1 pages, 1 model call(s)"
+    }
+   ],
+   "error": null,
+   "pages_extracted": 1,
+   "call_seconds": [
+    8.1
+   ],
+   "input_tokens": 899,
+   "output_tokens": 285,
+   "not_on_page_flags": 0
+  }
+ ]
+}

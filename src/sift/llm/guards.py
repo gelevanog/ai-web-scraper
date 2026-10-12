@@ -1,7 +1,8 @@
 """The free-only guard (on by default): refuses any OpenRouter model id that does not end in ``:free``, checks the
 fallback list too, refuses paid features (``:online`` web search, the ``web`` plugin) and rejects an answer that
-OpenRouter served from a non-free model. A client who wants paid models turns it off deliberately with
-SIFT_REQUIRE_FREE_MODELS=false."""
+OpenRouter served from a non-free model. The same guard covers the generic `compat` provider (any OpenAI-compatible
+endpoint). A client who wants paid models turns it off deliberately with SIFT_ALLOW_PAID_MODELS=true (or the older
+SIFT_REQUIRE_FREE_MODELS=false)."""
 
 from __future__ import annotations
 
@@ -17,7 +18,7 @@ def ensure_free_models(model_ids: Iterable[str]) -> None:
     if paid:
         raise PolicyViolationError(
             f"free-only guard: refusing non-free OpenRouter model id(s): {', '.join(paid)} "
-            "(set SIFT_REQUIRE_FREE_MODELS=false to allow paid models)"
+            "(set SIFT_ALLOW_PAID_MODELS=true to allow paid models)"
         )
 
 

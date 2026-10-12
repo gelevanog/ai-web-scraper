@@ -1,0 +1,603 @@
+{
+ "name": "qwen_b7",
+ "suite": "synthetic",
+ "run_at": "2026-10-12T09:49:55+00:00",
+ "provider": "compat",
+ "model": "qwen3.7-plus",
+ "fallbacks": [],
+ "aggregate": {
+  "v1": {
+   "sites": 1,
+   "truth_records": 20,
+   "extracted_records": 20,
+   "matched": 20,
+   "precision": 1.0,
+   "recall": 1.0,
+   "field_accuracy": 1.0,
+   "fields_correct": 120,
+   "fields_total": 120
+  },
+  "by_vertical": {
+   "events": {
+    "sites": 1,
+    "truth_records": 20,
+    "extracted_records": 20,
+    "matched": 20,
+    "precision": 1.0,
+    "recall": 1.0,
+    "field_accuracy": 1.0,
+    "fields_correct": 120,
+    "fields_total": 120
+   }
+  },
+  "v1_learned_only": {
+   "sites": 1,
+   "truth_records": 20,
+   "extracted_records": 20,
+   "matched": 20,
+   "precision": 1.0,
+   "recall": 1.0,
+   "field_accuracy": 1.0,
+   "fields_correct": 120,
+   "fields_total": 120
+  },
+  "v1_direct_only": {
+   "sites": 0,
+   "truth_records": 0,
+   "extracted_records": 0,
+   "matched": 0,
+   "precision": 0.0,
+   "recall": 0.0,
+   "field_accuracy": 0.0,
+   "fields_correct": 0,
+   "fields_total": 0
+  },
+  "by_field": {
+   "category": {
+    "correct": 20,
+    "total": 20,
+    "accuracy": 1.0
+   },
+   "event_url": {
+    "correct": 20,
+    "total": 20,
+    "accuracy": 1.0
+   },
+   "name": {
+    "correct": 20,
+    "total": 20,
+    "accuracy": 1.0
+   },
+   "price": {
+    "correct": 20,
+    "total": 20,
+    "accuracy": 1.0
+   },
+   "start_date": {
+    "correct": 20,
+    "total": 20,
+    "accuracy": 1.0
+   },
+   "venue": {
+    "correct": 20,
+    "total": 20,
+    "accuracy": 1.0
+   }
+  },
+  "robustness": {
+   "sites": 1,
+   "before_healing": {
+    "sites": 1,
+    "truth_records": 20,
+    "extracted_records": 0,
+    "matched": 0,
+    "precision": 0.0,
+    "recall": 0.0,
+    "field_accuracy": 0.0,
+    "fields_correct": 0,
+    "fields_total": 0
+   },
+   "after_healing": {
+    "sites": 1,
+    "truth_records": 20,
+    "extracted_records": 20,
+    "matched": 20,
+    "precision": 1.0,
+    "recall": 1.0,
+    "field_accuracy": 1.0,
+    "fields_correct": 120,
+    "fields_total": 120
+   },
+   "detected": 1,
+   "healed": 1,
+   "heal_failed": 0,
+   "heal_calls": 1,
+   "fallback_direct_calls": 0,
+   "v1_same_extractors": {
+    "sites": 1,
+    "truth_records": 20,
+    "extracted_records": 20,
+    "matched": 20,
+    "precision": 1.0,
+    "recall": 1.0,
+    "field_accuracy": 1.0,
+    "fields_correct": 120,
+    "fields_total": 120
+   },
+   "false_alarms_on_v1": 0,
+   "recheck_llm_calls": 0,
+   "incremental_unchanged_pages": 2,
+   "incremental_pages": 2,
+   "incremental_llm_calls": 0
+  },
+  "v1_cost": {
+   "llm_calls": 1,
+   "llm_calls_by_task": {
+    "learn_extractor": 1
+   },
+   "input_tokens": 1645,
+   "output_tokens": 445,
+   "pages": 2,
+   "learned_pages": 2,
+   "learned_calls": 1
+  }
+ },
+ "sites": [
+  {
+   "site": "events-05",
+   "vertical": "events",
+   "mode": "static",
+   "traps": [
+    "relative_dates",
+    "free_events"
+   ],
+   "v1": {
+    "site": "events-05",
+    "truth": 20,
+    "extracted": 20,
+    "matched": 20,
+    "precision": 1.0,
+    "recall": 1.0,
+    "field_accuracy": 1.0,
+    "fields": {
+     "name": {
+      "correct": 20,
+      "total": 20
+     },
+     "start_date": {
+      "correct": 20,
+      "total": 20
+     },
+     "venue": {
+      "correct": 20,
+      "total": 20
+     },
+     "price": {
+      "correct": 20,
+      "total": 20
+     },
+     "category": {
+      "correct": 20,
+      "total": 20
+     },
+     "event_url": {
+      "correct": 20,
+      "total": 20
+     }
+    },
+    "unmatched_extracted": [],
+    "missed": [],
+    "errors": [],
+    "pages": 2,
+    "records": 20,
+    "seconds": 24.77,
+    "strategies": [
+     "learned"
+    ],
+    "llm": {
+     "calls": 1,
+     "cached": 0,
+     "failed": 0,
+     "by_task": {
+      "learn_extractor": 1
+     },
+     "input_tokens": 1645,
+     "output_tokens": 445,
+     "seconds": 24.74
+    },
+    "browser_pages": 0,
+    "duplicates_merged": 0,
+    "sparse_dropped": 0,
+    "pii_removed": 0,
+    "injection_findings": 0,
+    "events": [
+     {
+      "kind": "job_started",
+      "message": "Crawling 1 start URL(s)"
+     },
+     {
+      "kind": "strategy",
+      "message": "riverside-arts-calendar.example: learned extractor (pagination found (1 link(s)): a repeated template)"
+     },
+     {
+      "kind": "learning",
+      "message": "riverside-arts-calendar.example: learning an extractor from 2 sample page(s)"
+     },
+     {
+      "kind": "learned",
+      "message": "riverside-arts-calendar.example: extractor learned in 1 attempt(s), 1 model call(s)"
+     },
+     {
+      "kind": "job_finished",
+      "message": "20 records from 2 pages, 1 model call(s)"
+     }
+    ],
+    "error": null,
+    "extract_ms_p50": 12382.6
+   },
+   "traps_result": {
+    "relative_dates": {
+     "correct": 20,
+     "total": 20
+    }
+   },
+   "politeness": {
+    "hosts": {
+     "riverside-arts-calendar.example": {
+      "requests": 3,
+      "subresources": 0,
+      "robots_fetches": 1,
+      "min_gap_s": 0.003,
+      "configured_interval_s": 0.0,
+      "max_requests_per_s_10s": 0.3,
+      "mean_requests_per_s": 392.621
+     }
+    },
+    "robots_blocked": []
+   },
+   "learned": true,
+   "extractors": [
+    {
+     "id": "ext-677a1d",
+     "kind": "list",
+     "accepted": true,
+     "attempts": 1,
+     "calls": 1,
+     "program": {
+      "kind": "list",
+      "item": "article.rounded-lg",
+      "fields": {
+       "name": {
+        "css": "h3 a",
+        "attr": "text",
+        "all": false,
+        "negate": false
+       },
+       "start_date": {
+        "css": "span.text-sm.font-medium",
+        "attr": "text",
+        "all": false,
+        "negate": false
+       },
+       "venue": {
+        "css": "span.text-gray-600",
+        "attr": "text",
+        "all": false,
+        "negate": false
+       },
+       "price": {
+        "css": "span.font-bold",
+        "attr": "text",
+        "all": false,
+        "negate": false
+       },
+       "category": {
+        "css": "span.uppercase",
+        "attr": "text",
+        "all": false,
+        "value_map": {
+         "Music": "music",
+         "Food & drink": "food",
+         "Family": "family"
+        },
+        "negate": false
+       },
+       "event_url": {
+        "css": "h3 a",
+        "attr": "href",
+        "all": false,
+        "negate": false
+       }
+      },
+      "next_page": {
+       "css": "nav[aria-label='Pagination'] a[rel='next']",
+       "attr": "href",
+       "all": false,
+       "negate": false
+      },
+      "missing": [],
+      "notes": ""
+     }
+    }
+   ],
+   "v2_before": {
+    "site": "events-05",
+    "truth": 20,
+    "extracted": 0,
+    "matched": 0,
+    "precision": 0.0,
+    "recall": 0.0,
+    "field_accuracy": 0.0,
+    "fields": {},
+    "unmatched_extracted": [],
+    "missed": [
+     "Harvest Indie Showcase",
+     "Little Food Truck Rally",
+     "Northern Family Science Day",
+     "Downtown Comedy Hour",
+     "Little Tech Meetup",
+     "Little Wine Tasting",
+     "Downtown Jazz Night",
+     "Downtown Chamber Concert",
+     "Midweek Indie Showcase",
+     "Midweek Photography Walk"
+    ],
+    "errors": [],
+    "pages": 12,
+    "records": 0,
+    "seconds": 0.02,
+    "strategies": [
+     "learned"
+    ],
+    "llm": {
+     "calls": 0,
+     "cached": 0,
+     "failed": 0,
+     "by_task": {},
+     "input_tokens": 0,
+     "output_tokens": 0,
+     "seconds": 0
+    },
+    "browser_pages": 0,
+    "duplicates_merged": 0,
+    "sparse_dropped": 0,
+    "pii_removed": 0,
+    "injection_findings": 0,
+    "events": [
+     {
+      "kind": "job_started",
+      "message": "Crawling 1 start URL(s)"
+     },
+     {
+      "kind": "strategy",
+      "message": "riverside-arts-calendar.example: learned extractor (set by the job)"
+     },
+     {
+      "kind": "layout_changed",
+      "message": "riverside-arts-calendar.example: layout change detected (no records; structural similarity 0.06)"
+     },
+     {
+      "kind": "layout_changed",
+      "message": "riverside-arts-calendar.example: layout change detected (no records; structural similarity 0.06)"
+     },
+     {
+      "kind": "layout_changed",
+      "message": "riverside-arts-calendar.example: layout change detected (no records; structural similarity 0.06)"
+     },
+     {
+      "kind": "layout_changed",
+      "message": "riverside-arts-calendar.example: layout change detected (no records; structural similarity 0.06)"
+     },
+     {
+      "kind": "layout_changed",
+      "message": "riverside-arts-calendar.example: layout change detected (no records; structural similarity 0.06)"
+     },
+     {
+      "kind": "layout_changed",
+      "message": "riverside-arts-calendar.example: layout change detected (no records; structural similarity 0.06)"
+     },
+     {
+      "kind": "layout_changed",
+      "message": "riverside-arts-calendar.example: layout change detected (no records; structural similarity 0.06)"
+     },
+     {
+      "kind": "layout_changed",
+      "message": "riverside-arts-calendar.example: layout change detected (no records; structural similarity 0.06)"
+     },
+     {
+      "kind": "layout_changed",
+      "message": "riverside-arts-calendar.example: layout change detected (no records; structural similarity 0.06)"
+     },
+     {
+      "kind": "layout_changed",
+      "message": "riverside-arts-calendar.example: layout change detected (no records; structural similarity 0.06)"
+     },
+     {
+      "kind": "layout_changed",
+      "message": "riverside-arts-calendar.example: layout change detected (no records; structural similarity 0.06)"
+     },
+     {
+      "kind": "layout_changed",
+      "message": "riverside-arts-calendar.example: layout change detected (no records; structural similarity 0.06)"
+     },
+     {
+      "kind": "job_finished",
+      "message": "0 records from 12 pages, 0 model call(s)"
+     }
+    ],
+    "error": null,
+    "detected": true,
+    "signals": [
+     "riverside-arts-calendar.example: layout change detected (no records; structural similarity 0.06)",
+     "riverside-arts-calendar.example: layout change detected (no records; structural similarity 0.06)",
+     "riverside-arts-calendar.example: layout change detected (no records; structural similarity 0.06)"
+    ]
+   },
+   "v2_after": {
+    "site": "events-05",
+    "truth": 20,
+    "extracted": 20,
+    "matched": 20,
+    "precision": 1.0,
+    "recall": 1.0,
+    "field_accuracy": 1.0,
+    "fields": {
+     "name": {
+      "correct": 20,
+      "total": 20
+     },
+     "start_date": {
+      "correct": 20,
+      "total": 20
+     },
+     "venue": {
+      "correct": 20,
+      "total": 20
+     },
+     "price": {
+      "correct": 20,
+      "total": 20
+     },
+     "category": {
+      "correct": 20,
+      "total": 20
+     },
+     "event_url": {
+      "correct": 20,
+      "total": 20
+     }
+    },
+    "unmatched_extracted": [],
+    "missed": [],
+    "errors": [],
+    "pages": 2,
+    "records": 20,
+    "seconds": 25.99,
+    "strategies": [
+     "learned"
+    ],
+    "llm": {
+     "calls": 1,
+     "cached": 0,
+     "failed": 0,
+     "by_task": {
+      "heal_extractor": 1
+     },
+     "input_tokens": 2240,
+     "output_tokens": 534,
+     "seconds": 25.97
+    },
+    "browser_pages": 0,
+    "duplicates_merged": 0,
+    "sparse_dropped": 0,
+    "pii_removed": 0,
+    "injection_findings": 0,
+    "events": [
+     {
+      "kind": "job_started",
+      "message": "Crawling 1 start URL(s)"
+     },
+     {
+      "kind": "strategy",
+      "message": "riverside-arts-calendar.example: learned extractor (set by the job)"
+     },
+     {
+      "kind": "layout_changed",
+      "message": "riverside-arts-calendar.example: layout change detected (no records; structural similarity 0.06)"
+     },
+     {
+      "kind": "healed",
+      "message": "riverside-arts-calendar.example: healed in 1 attempt(s), 1 model call(s); verified against 40 earlier record(s)"
+     },
+     {
+      "kind": "job_finished",
+      "message": "20 records from 2 pages, 1 model call(s)"
+     }
+    ],
+    "error": null,
+    "detected": true,
+    "healed": true,
+    "heal_failed": false,
+    "heal_calls": 1,
+    "fallback_direct_calls": 0,
+    "healed_programs": [
+     {
+      "kind": "list",
+      "item": "li.Happening_card__773e4",
+      "fields": {
+       "name": {
+        "css": "a.Happening_title__186ff strong",
+        "attr": "text",
+        "all": false,
+        "negate": false
+       },
+       "start_date": {
+        "css": "time.Happening_date__b85fd",
+        "attr": "datetime",
+        "all": false,
+        "negate": false
+       },
+       "venue": {
+        "css": "span.Happening_venue__69193",
+        "attr": "text",
+        "all": false,
+        "negate": false
+       },
+       "price": {
+        "css": "span.Happening_price__89d20",
+        "attr": "text",
+        "all": false,
+        "regex": "(\\$[\\d.]+|Free)",
+        "negate": false
+       },
+       "category": {
+        "css": "span.Happening_category__1d73e",
+        "attr": "text",
+        "all": false,
+        "value_map": {
+         "Live music": "music",
+         "Food": "food",
+         "Kids & family": "family",
+         "Comedy": "comedy",
+         "Theatre": "theatre",
+         "Tech": "tech",
+         "Art": "art",
+         "Sports": "sports"
+        },
+        "negate": false
+       },
+       "event_url": {
+        "css": "a.Happening_title__186ff",
+        "attr": "href",
+        "all": false,
+        "negate": false
+       }
+      },
+      "next_page": {
+       "css": "nav.Happening_pager__1d94f a.Happening_next__14273",
+       "attr": "href",
+       "all": false,
+       "negate": false
+      },
+      "missing": [],
+      "notes": ""
+     }
+    ]
+   },
+   "v1_recheck": {
+    "false_alarm": false,
+    "llm_calls": 0,
+    "records": 20,
+    "pages": 2
+   },
+   "incremental": {
+    "pages": 2,
+    "unchanged": 2,
+    "records": 20,
+    "llm_calls": 0
+   },
+   "seconds": 50.9
+  }
+ ],
+ "seconds": 50.9
+}

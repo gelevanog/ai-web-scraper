@@ -103,6 +103,63 @@ def test_guard_does_not_apply_to_other_providers() -> None:
     assert model.complete(MESSAGES, max_tokens=100).model == "qwen3.7-plus"
 
 
+def test_paid_models_are_refused_by_default_on_the_compat_provider() -> None:
+    defaults = Settings(_env_file=None)  # type: ignore[call-arg]
+    assert defaults.allow_paid_models is False and defaults.free_only is True
+    compat = {"llm_provider": "compat", "llm_base_url": "http://gateway.test/v1", "llm_api_key": TEST_KEY}
+    for model in ("claude-haiku-5-5", "anthropic/claude-opus-5-5", "qwen3.7-plus", ""):
+        with pytest.raises(PolicyViolationError):
+            build_chat_model(Settings(_env_file=None, llm_model=model, **compat))  # type: ignore[call-arg, arg-type]
+    built = build_chat_model(Settings(_env_file=None, llm_model="a/b:free", **compat))  # type: ignore[call-arg, arg-type]
+    assert isinstance(built, OpenAICompatibleModel) and built.require_free
+    transport, _ = capture(ok_reply("a/b"))
+    model = OpenAICompatibleModel(
+        kind="compat", base_url="http://gateway.test/v1", model="a/b:free", api_key=TEST_KEY, transport=transport
+    )
+    with pytest.raises(PolicyViolationError):
+        model.complete(MESSAGES, max_tokens=100)  # a paid model answered: rejected
+
+
+def test_allow_paid_models_is_an_explicit_opt_in() -> None:
+    settings = Settings(
+        _env_file=None,
+        llm_provider="compat",
+        llm_model="claude-haiku-5-5",
+        llm_base_url="http://gateway.test/v1",
+        llm_api_key=TEST_KEY,
+        allow_paid_models=True,
+        llm_send_temperature=False,
+    )  # type: ignore[call-arg]
+    assert settings.free_only is False
+    built = build_chat_model(settings)
+    assert isinstance(built, OpenAICompatibleModel) and not built.require_free
+    assert built.label == "compat/claude-haiku-5-5"
+    transport, seen = capture(ok_reply("claude-haiku-5-5"))
+    model = OpenAICompatibleModel(
+        kind="compat", base_url="http://gateway.test/v1", model="claude-haiku-5-5", api_key=TEST_KEY,
+        require_free=settings.free_only, send_temperature=False, transport=transport,
+    )  # fmt: skip
+    assert model.complete(MESSAGES, max_tokens=50).model == "claude-haiku-5-5"
+    request = seen[0]
+    body = json.loads(request.content)
+    assert str(request.url) == "http://gateway.test/v1/chat/completions"
+    assert request.headers["authorization"] == f"Bearer {TEST_KEY}" and "x-title" not in request.headers
+    assert body["model"] == "claude-haiku-5-5" and "temperature" not in body and "models" not in body
+    # The same opt-in lifts the OpenRouter guard; without it the paid id is refused as before.
+    paid = {"llm_provider": "openrouter", "llm_model": "openai/gpt-5", "openrouter_api_key": TEST_KEY}
+    with pytest.raises(PolicyViolationError):
+        build_chat_model(Settings(_env_file=None, **paid))  # type: ignore[call-arg, arg-type]
+    assert isinstance(build_chat_model(Settings(_env_file=None, allow_paid_models=True, **paid)), OpenAICompatibleModel)  # type: ignore[call-arg, arg-type]
+
+
+def test_compat_provider_needs_an_endpoint_and_a_key() -> None:
+    base = {"llm_provider": "compat", "llm_model": "m", "allow_paid_models": True}
+    with pytest.raises(LLMError, match="SIFT_LLM_API_KEY"):
+        build_chat_model(Settings(_env_file=None, llm_base_url="http://gateway.test/v1", **base))  # type: ignore[call-arg, arg-type]
+    with pytest.raises(LLMError, match="base URL"):
+        build_chat_model(Settings(_env_file=None, llm_api_key=TEST_KEY, **base))  # type: ignore[call-arg, arg-type]
+
+
 # ------------------------------------------------------------------ request shapes
 def test_openrouter_request_shape() -> None:
     transport, seen = capture(ok_reply("a/b:free"))

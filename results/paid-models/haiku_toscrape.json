@@ -1,0 +1,804 @@
+{
+ "name": "haiku",
+ "suite": "toscrape",
+ "run_at": "2026-10-12T08:57:26+00:00",
+ "provider": "compat",
+ "model": "claude-haiku-5-5",
+ "fallbacks": [],
+ "aggregate": {
+  "learned": {
+   "sites": 2,
+   "truth_records": 160,
+   "extracted_records": 160,
+   "matched": 160,
+   "precision": 1.0,
+   "recall": 1.0,
+   "field_accuracy": 1.0,
+   "fields_correct": 660,
+   "fields_total": 660
+  },
+  "direct_first_page": {
+   "sites": 2,
+   "truth_records": 30,
+   "extracted_records": 30,
+   "matched": 30,
+   "precision": 1.0,
+   "recall": 1.0,
+   "field_accuracy": 0.6,
+   "fields_correct": 90,
+   "fields_total": 150
+  },
+  "live_requests": 0,
+  "replayed_from_snapshot": 81,
+  "crawled_live": false,
+  "books": {
+   "truth": 60,
+   "extracted": 60,
+   "matched": 60,
+   "precision": 1.0,
+   "recall": 1.0,
+   "field_accuracy": 1.0,
+   "fields": {
+    "title": {
+     "correct": 60,
+     "total": 60
+    },
+    "price": {
+     "correct": 60,
+     "total": 60
+    },
+    "availability": {
+     "correct": 60,
+     "total": 60
+    },
+    "rating": {
+     "correct": 60,
+     "total": 60
+    },
+    "category": {
+     "correct": 60,
+     "total": 60
+    },
+    "upc": {
+     "correct": 60,
+     "total": 60
+    }
+   },
+   "pages": 63,
+   "llm": {
+    "calls": 3,
+    "cached": 0,
+    "failed": 0,
+    "by_task": {
+     "learn_extractor": 1,
+     "learn_detail": 2
+    },
+    "input_tokens": 6020,
+    "output_tokens": 2719,
+    "seconds": 16.83
+   }
+  },
+  "quotes": {
+   "truth": 100,
+   "extracted": 100,
+   "matched": 100,
+   "precision": 1.0,
+   "recall": 1.0,
+   "field_accuracy": 1.0,
+   "fields": {
+    "text": {
+     "correct": 100,
+     "total": 100
+    },
+    "author": {
+     "correct": 100,
+     "total": 100
+    },
+    "tags": {
+     "correct": 100,
+     "total": 100
+    }
+   },
+   "pages": 10,
+   "llm": {
+    "calls": 1,
+    "cached": 0,
+    "failed": 0,
+    "by_task": {
+     "learn_extractor": 1
+    },
+    "input_tokens": 2342,
+    "output_tokens": 669,
+    "seconds": 3.89
+   }
+  }
+ },
+ "sites": {
+  "books": {
+   "start_url": "https://books.toscrape.com/",
+   "intent": "Every book with its title, price in GBP, availability (in stock or not), star rating from 1 to 5, its category and its UPC from the book's own page. Follow the pagination.",
+   "learned": {
+    "site": "books",
+    "truth": 60,
+    "extracted": 60,
+    "matched": 60,
+    "precision": 1.0,
+    "recall": 1.0,
+    "field_accuracy": 1.0,
+    "fields": {
+     "title": {
+      "correct": 60,
+      "total": 60
+     },
+     "price": {
+      "correct": 60,
+      "total": 60
+     },
+     "availability": {
+      "correct": 60,
+      "total": 60
+     },
+     "rating": {
+      "correct": 60,
+      "total": 60
+     },
+     "category": {
+      "correct": 60,
+      "total": 60
+     },
+     "upc": {
+      "correct": 60,
+      "total": 60
+     }
+    },
+    "unmatched_extracted": [],
+    "missed": [],
+    "errors": [],
+    "pages": 63,
+    "llm": {
+     "calls": 3,
+     "cached": 0,
+     "failed": 0,
+     "by_task": {
+      "learn_extractor": 1,
+      "learn_detail": 2
+     },
+     "input_tokens": 6020,
+     "output_tokens": 2719,
+     "seconds": 16.83
+    },
+    "strategies": [
+     "learned"
+    ],
+    "crawl_seconds": 77.9,
+    "events": [
+     "books.toscrape.com: learned extractor (pagination found (1 link(s)): a repeated template)",
+     "books.toscrape.com: extractor learned in 1 attempt(s), 1 model call(s)",
+     "books.toscrape.com: detail-page extractor learned (2 call(s))"
+    ]
+   },
+   "extractors": [
+    {
+     "kind": "list",
+     "item": "article.product_pod",
+     "fields": {
+      "title": {
+       "css": "h3 a",
+       "attr": "title",
+       "all": false,
+       "negate": false
+      },
+      "price": {
+       "css": "p.price_color",
+       "attr": "text",
+       "all": false,
+       "negate": false
+      },
+      "availability": {
+       "css": "p.availability",
+       "attr": "text",
+       "all": false,
+       "value_map": {
+        "In stock": "in_stock",
+        "Out of stock": "out_of_stock"
+       },
+       "negate": false
+      },
+      "rating": {
+       "css": "p.star-rating",
+       "attr": "class",
+       "all": false,
+       "regex": "star-rating (\\w+)",
+       "value_map": {
+        "One": "1",
+        "Two": "2",
+        "Three": "3",
+        "Four": "4",
+        "Five": "5"
+       },
+       "negate": false
+      },
+      "category": {
+       "css": "",
+       "attr": "text",
+       "all": false,
+       "negate": false
+      },
+      "upc": {
+       "css": "",
+       "attr": "text",
+       "all": false,
+       "negate": false
+      }
+     },
+     "next_page": {
+      "css": "li.next a",
+      "attr": "href",
+      "all": false,
+      "negate": false
+     },
+     "detail_link": {
+      "css": "h3 a",
+      "attr": "href",
+      "all": false,
+      "negate": false
+     },
+     "missing": [
+      "category",
+      "upc"
+     ],
+     "notes": ""
+    },
+    {
+     "kind": "detail",
+     "fields": {
+      "category": {
+       "xpath": "//ul[contains(@class,'breadcrumb')]/li[last()-1]/a",
+       "attr": "text",
+       "all": false,
+       "negate": false
+      },
+      "upc": {
+       "xpath": "//th[normalize-space()='UPC']/following-sibling::td[1]",
+       "attr": "text",
+       "all": false,
+       "negate": false
+      }
+     },
+     "missing": [],
+     "notes": ""
+    }
+   ],
+   "direct_first_page": {
+    "site": "books",
+    "truth": 20,
+    "extracted": 20,
+    "matched": 20,
+    "precision": 1.0,
+    "recall": 1.0,
+    "field_accuracy": 0.5,
+    "fields": {
+     "title": {
+      "correct": 20,
+      "total": 20
+     },
+     "price": {
+      "correct": 20,
+      "total": 20
+     },
+     "availability": {
+      "correct": 20,
+      "total": 20
+     },
+     "rating": {
+      "correct": 0,
+      "total": 20
+     },
+     "category": {
+      "correct": 0,
+      "total": 20
+     },
+     "upc": {
+      "correct": 0,
+      "total": 20
+     }
+    },
+    "unmatched_extracted": [],
+    "missed": [],
+    "errors": [
+     {
+      "key": "A Light in the Attic",
+      "field": "rating",
+      "got": null,
+      "want": 3
+     },
+     {
+      "key": "A Light in the Attic",
+      "field": "category",
+      "got": null,
+      "want": "Poetry"
+     },
+     {
+      "key": "A Light in the Attic",
+      "field": "upc",
+      "got": null,
+      "want": "a897fe39b1053632"
+     },
+     {
+      "key": "Tipping the Velvet",
+      "field": "rating",
+      "got": null,
+      "want": 1
+     },
+     {
+      "key": "Tipping the Velvet",
+      "field": "category",
+      "got": null,
+      "want": "Historical Fiction"
+     },
+     {
+      "key": "Tipping the Velvet",
+      "field": "upc",
+      "got": null,
+      "want": "90fa61229261140a"
+     },
+     {
+      "key": "Soumission",
+      "field": "rating",
+      "got": null,
+      "want": 1
+     },
+     {
+      "key": "Soumission",
+      "field": "category",
+      "got": null,
+      "want": "Fiction"
+     },
+     {
+      "key": "Soumission",
+      "field": "upc",
+      "got": null,
+      "want": "6957f44c3847a760"
+     },
+     {
+      "key": "Sharp Objects",
+      "field": "rating",
+      "got": null,
+      "want": 4
+     },
+     {
+      "key": "Sharp Objects",
+      "field": "category",
+      "got": null,
+      "want": "Mystery"
+     },
+     {
+      "key": "Sharp Objects",
+      "field": "upc",
+      "got": null,
+      "want": "e00eb4fd7b871a48"
+     },
+     {
+      "key": "Sapiens: A Brief History of Humankind",
+      "field": "rating",
+      "got": null,
+      "want": 5
+     },
+     {
+      "key": "Sapiens: A Brief History of Humankind",
+      "field": "category",
+      "got": null,
+      "want": "History"
+     },
+     {
+      "key": "Sapiens: A Brief History of Humankind",
+      "field": "upc",
+      "got": null,
+      "want": "4165285e1663650f"
+     },
+     {
+      "key": "The Requiem Red",
+      "field": "rating",
+      "got": null,
+      "want": 1
+     },
+     {
+      "key": "The Requiem Red",
+      "field": "category",
+      "got": null,
+      "want": "Young Adult"
+     },
+     {
+      "key": "The Requiem Red",
+      "field": "upc",
+      "got": null,
+      "want": "f77dbf2323deb740"
+     },
+     {
+      "key": "The Dirty Little Secrets of Getting Your Dream Job",
+      "field": "rating",
+      "got": null,
+      "want": 4
+     },
+     {
+      "key": "The Dirty Little Secrets of Getting Your Dream Job",
+      "field": "category",
+      "got": null,
+      "want": "Business"
+     },
+     {
+      "key": "The Dirty Little Secrets of Getting Your Dream Job",
+      "field": "upc",
+      "got": null,
+      "want": "2597b5a345f45e1b"
+     },
+     {
+      "key": "The Coming Woman: A Novel Based on the Life of the Infamous Feminist, Victoria Woodhull",
+      "field": "rating",
+      "got": null,
+      "want": 3
+     },
+     {
+      "key": "The Coming Woman: A Novel Based on the Life of the Infamous Feminist, Victoria Woodhull",
+      "field": "category",
+      "got": null,
+      "want": "Default"
+     },
+     {
+      "key": "The Coming Woman: A Novel Based on the Life of the Infamous Feminist, Victoria Woodhull",
+      "field": "upc",
+      "got": null,
+      "want": "e72a5dfc7e9267b2"
+     },
+     {
+      "key": "The Boys in the Boat: Nine Americans and Their Epic Quest for Gold at the 1936 Berlin Olympics",
+      "field": "rating",
+      "got": null,
+      "want": 4
+     }
+    ],
+    "llm": {
+     "calls": 1,
+     "cached": 0,
+     "failed": 0,
+     "by_task": {
+      "direct_extract": 1
+     },
+     "input_tokens": 7486,
+     "output_tokens": 1855,
+     "seconds": 7.15
+    }
+   },
+   "schema_inference": {
+    "fields": 6,
+    "found": 6,
+    "right_type": 6,
+    "extra": [],
+    "details": [
+     {
+      "field": "title",
+      "proposed": "title",
+      "type": "string",
+      "want": "string",
+      "type_ok": true,
+      "enum": null,
+      "currency": null,
+      "unit": null
+     },
+     {
+      "field": "price",
+      "proposed": "price",
+      "type": "money",
+      "want": "money",
+      "type_ok": true,
+      "enum": null,
+      "currency": "GBP",
+      "unit": null
+     },
+     {
+      "field": "availability",
+      "proposed": "availability",
+      "type": "enum",
+      "want": "enum",
+      "type_ok": true,
+      "enum": [
+       "in_stock",
+       "out_of_stock"
+      ],
+      "currency": null,
+      "unit": null
+     },
+     {
+      "field": "rating",
+      "proposed": "star_rating",
+      "type": "integer",
+      "want": "integer",
+      "type_ok": true,
+      "enum": null,
+      "currency": null,
+      "unit": null
+     },
+     {
+      "field": "category",
+      "proposed": "category",
+      "type": "string",
+      "want": "string",
+      "type_ok": true,
+      "enum": null,
+      "currency": null,
+      "unit": null
+     },
+     {
+      "field": "upc",
+      "proposed": "upc",
+      "type": "string",
+      "want": "string",
+      "type_ok": true,
+      "enum": null,
+      "currency": null,
+      "unit": null
+     }
+    ],
+    "proposed": {
+     "name": "book",
+     "description": "Every book with its title, price in GBP, availability (in stock or not), star rating from 1 to 5, its category and its UPC from the book's own page. Follow the pagination.",
+     "fields": [
+      {
+       "name": "title",
+       "type": "string",
+       "description": "Book title",
+       "required": true
+      },
+      {
+       "name": "price",
+       "type": "money",
+       "description": "Price of the book",
+       "currency": "GBP"
+      },
+      {
+       "name": "availability",
+       "type": "enum",
+       "description": "Whether the book is in stock",
+       "enum": [
+        "in_stock",
+        "out_of_stock"
+       ]
+      },
+      {
+       "name": "star_rating",
+       "type": "integer",
+       "description": "Star rating from 1 to 5"
+      },
+      {
+       "name": "category",
+       "type": "string",
+       "description": "Book category from the book's own page"
+      },
+      {
+       "name": "upc",
+       "type": "string",
+       "description": "Universal Product Code from the book's own page"
+      }
+     ]
+    }
+   },
+   "politeness": {
+    "hosts": {
+     "books.toscrape.com": {
+      "requests": 64,
+      "subresources": 0,
+      "robots_fetches": 1,
+      "min_gap_s": 1.0,
+      "configured_interval_s": 1.0,
+      "max_requests_per_s_10s": 1.1,
+      "mean_requests_per_s": 0.809
+     }
+    },
+    "robots_blocked": []
+   },
+   "truth_records": 60,
+   "sample_errors": []
+  },
+  "quotes": {
+   "start_url": "https://quotes.toscrape.com/",
+   "intent": "Every quote with its text, the author and the list of tags. Follow the pagination.",
+   "learned": {
+    "site": "quotes",
+    "truth": 100,
+    "extracted": 100,
+    "matched": 100,
+    "precision": 1.0,
+    "recall": 1.0,
+    "field_accuracy": 1.0,
+    "fields": {
+     "text": {
+      "correct": 100,
+      "total": 100
+     },
+     "author": {
+      "correct": 100,
+      "total": 100
+     },
+     "tags": {
+      "correct": 100,
+      "total": 100
+     }
+    },
+    "unmatched_extracted": [],
+    "missed": [],
+    "errors": [],
+    "pages": 10,
+    "llm": {
+     "calls": 1,
+     "cached": 0,
+     "failed": 0,
+     "by_task": {
+      "learn_extractor": 1
+     },
+     "input_tokens": 2342,
+     "output_tokens": 669,
+     "seconds": 3.89
+    },
+    "strategies": [
+     "learned"
+    ],
+    "crawl_seconds": 12.9,
+    "events": [
+     "quotes.toscrape.com: learned extractor (pagination found (1 link(s)): a repeated template)",
+     "quotes.toscrape.com: extractor learned in 1 attempt(s), 1 model call(s)"
+    ]
+   },
+   "extractors": [
+    {
+     "kind": "list",
+     "item": "div.quote",
+     "fields": {
+      "text": {
+       "css": "span.text",
+       "attr": "text",
+       "all": false,
+       "negate": false
+      },
+      "author": {
+       "css": "small.author",
+       "attr": "text",
+       "all": false,
+       "negate": false
+      },
+      "tags": {
+       "css": "div.tags a.tag",
+       "attr": "text",
+       "all": true,
+       "negate": false
+      }
+     },
+     "next_page": {
+      "css": "li.next a",
+      "attr": "href",
+      "all": false,
+      "negate": false
+     },
+     "missing": [],
+     "notes": ""
+    }
+   ],
+   "direct_first_page": {
+    "site": "quotes",
+    "truth": 10,
+    "extracted": 10,
+    "matched": 10,
+    "precision": 1.0,
+    "recall": 1.0,
+    "field_accuracy": 1.0,
+    "fields": {
+     "text": {
+      "correct": 10,
+      "total": 10
+     },
+     "author": {
+      "correct": 10,
+      "total": 10
+     },
+     "tags": {
+      "correct": 10,
+      "total": 10
+     }
+    },
+    "unmatched_extracted": [],
+    "missed": [],
+    "errors": [],
+    "llm": {
+     "calls": 1,
+     "cached": 0,
+     "failed": 0,
+     "by_task": {
+      "direct_extract": 1
+     },
+     "input_tokens": 2258,
+     "output_tokens": 718,
+     "seconds": 3.28
+    }
+   },
+   "schema_inference": {
+    "fields": 3,
+    "found": 3,
+    "right_type": 3,
+    "extra": [],
+    "details": [
+     {
+      "field": "text",
+      "proposed": "text",
+      "type": "string",
+      "want": "string",
+      "type_ok": true,
+      "enum": null,
+      "currency": null,
+      "unit": null
+     },
+     {
+      "field": "author",
+      "proposed": "author",
+      "type": "string",
+      "want": "string",
+      "type_ok": true,
+      "enum": null,
+      "currency": null,
+      "unit": null
+     },
+     {
+      "field": "tags",
+      "proposed": "tags",
+      "type": "list",
+      "want": "list",
+      "type_ok": true,
+      "enum": null,
+      "currency": null,
+      "unit": null
+     }
+    ],
+    "proposed": {
+     "name": "quote",
+     "description": "Every quote with its text, the author and the list of tags. Follow the pagination.",
+     "fields": [
+      {
+       "name": "text",
+       "type": "string",
+       "description": "The full quote text",
+       "required": true
+      },
+      {
+       "name": "author",
+       "type": "string",
+       "description": "Name of the person who said the quote"
+      },
+      {
+       "name": "tags",
+       "type": "list",
+       "description": "Tags attached to the quote",
+       "items": {
+        "name": "tag",
+        "type": "string"
+       }
+      }
+     ]
+    }
+   },
+   "politeness": {
+    "hosts": {
+     "quotes.toscrape.com": {
+      "requests": 11,
+      "subresources": 0,
+      "robots_fetches": 1,
+      "min_gap_s": 1.0,
+      "configured_interval_s": 1.0,
+      "max_requests_per_s_10s": 0.8,
+      "mean_requests_per_s": 0.774
+     }
+    },
+    "robots_blocked": []
+   },
+   "truth_records": 100,
+   "sample_errors": []
+  }
+ }
+}

@@ -120,7 +120,7 @@ def create_app(
         return {
             "provider": settings.llm_provider,
             "model": svc.model("config").label,
-            "require_free_models": settings.require_free_models,
+            "require_free_models": settings.free_only,
             "browser": settings.browser,
             "browser_available": browser_available(settings.browser_executable),
             "respect_robots": settings.respect_robots,

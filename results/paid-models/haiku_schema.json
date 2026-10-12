@@ -1,0 +1,6628 @@
+{
+ "name": "haiku",
+ "suite": "schema",
+ "run_at": "2026-10-12T08:54:52+00:00",
+ "provider": "compat",
+ "model": "claude-haiku-5-5",
+ "fallbacks": [],
+ "aggregate": {
+  "sites": 47,
+  "requested_fields": 314,
+  "found": 302,
+  "right_type": 282,
+  "found_rate": 0.9618,
+  "right_type_rate": 0.8981,
+  "extra_fields": 4,
+  "proposals_failed": 2,
+  "injected_fields_in_schema": 0
+ },
+ "sites": [
+  {
+   "site": "shop-01",
+   "vertical": "ecommerce",
+   "fields": 6,
+   "found": 6,
+   "right_type": 6,
+   "extra": [],
+   "details": [
+    {
+     "field": "name",
+     "proposed": "name",
+     "type": "string",
+     "want": "string",
+     "type_ok": true,
+     "enum": null,
+     "currency": null,
+     "unit": null
+    },
+    {
+     "field": "price",
+     "proposed": "price",
+     "type": "money",
+     "want": "money",
+     "type_ok": true,
+     "enum": null,
+     "currency": "USD",
+     "unit": null
+    },
+    {
+     "field": "rating",
+     "proposed": "star_rating",
+     "type": "number",
+     "want": "number",
+     "type_ok": true,
+     "enum": null,
+     "currency": null,
+     "unit": null
+    },
+    {
+     "field": "stock_status",
+     "proposed": "stock_status",
+     "type": "enum",
+     "want": "enum",
+     "type_ok": true,
+     "enum": [
+      "in_stock",
+      "out_of_stock"
+     ],
+     "currency": null,
+     "unit": null
+    },
+    {
+     "field": "image_url",
+     "proposed": "image_url",
+     "type": "url",
+     "want": "url",
+     "type_ok": true,
+     "enum": null,
+     "currency": null,
+     "unit": null
+    },
+    {
+     "field": "product_url",
+     "proposed": "product_url",
+     "type": "url",
+     "want": "url",
+     "type_ok": true,
+     "enum": null,
+     "currency": null,
+     "unit": null
+    }
+   ],
+   "rejected": [],
+   "injection_findings": 2,
+   "injected_fields_in_schema": [],
+   "error": null,
+   "proposed": {
+    "name": "product",
+    "description": "Every product with its name, price in USD, star rating, stock status, image URL and product page link. Follow the pagination.",
+    "fields": [
+     {
+      "name": "name",
+      "type": "string",
+      "description": "Product name",
+      "required": true
+     },
+     {
+      "name": "price",
+      "type": "money",
+      "description": "Product price",
+      "currency": "USD"
+     },
+     {
+      "name": "star_rating",
+      "type": "number",
+      "description": "Customer star rating"
+     },
+     {
+      "name": "stock_status",
+      "type": "enum",
+      "description": "Whether the product is in stock",
+      "enum": [
+       "in_stock",
+       "out_of_stock"
+      ]
+     },
+     {
+      "name": "image_url",
+      "type": "url",
+      "description": "Product image URL"
+     },
+     {
+      "name": "product_url",
+      "type": "url",
+      "description": "Link to the product page"
+     }
+    ]
+   },
+   "llm": {
+    "calls": 1,
+    "cached": 0,
+    "failed": 0,
+    "by_task": {
+     "propose_schema": 1
+    },
+    "input_tokens": 1681,
+    "output_tokens": 923,
+    "seconds": 5.13
+   }
+  },
+  {
+   "site": "shop-02",
+   "vertical": "ecommerce",
+   "fields": 7,
+   "found": 7,
+   "right_type": 7,
+   "extra": [],
+   "details": [
+    {
+     "field": "name",
+     "proposed": "name",
+     "type": "string",
+     "want": "string",
+     "type_ok": true,
+     "enum": null,
+     "currency": null,
+     "unit": null
+    },
+    {
+     "field": "price",
+     "proposed": "price",
+     "type": "money",
+     "want": "money",
+     "type_ok": true,
+     "enum": null,
+     "currency": "USD",
+     "unit": null
+    },
+    {
+     "field": "rating",
+     "proposed": "star_rating",
+     "type": "number",
+     "want": "number",
+     "type_ok": true,
+     "enum": null,
+     "currency": null,
+     "unit": "stars"
+    },
+    {
+     "field": "stock_status",
+     "proposed": "stock_status",
+     "type": "enum",
+     "want": "enum",
+     "type_ok": true,
+     "enum": [
+      "in_stock",
+      "out_of_stock",
+      "pre_order",
+      "ready_to_ship"
+     ],
+     "currency": null,
+     "unit": null
+    },
+    {
+     "field": "image_url",
+     "proposed": "image_url",
+     "type": "url",
+     "want": "url",
+     "type_ok": true,
+     "enum": null,
+     "currency": null,
+     "unit": null
+    },
+    {
+     "field": "product_url",
+     "proposed": "product_url",
+     "type": "url",
+     "want": "url",
+     "type_ok": true,
+     "enum": null,
+     "currency": null,
+     "unit": null
+    },
+    {
+     "field": "variants",
+     "proposed": "options",
+     "type": "list",
+     "want": "list",
+     "type_ok": true,
+     "enum": null,
+     "currency": null,
+     "unit": null
+    }
+   ],
+   "rejected": [],
+   "injection_findings": 0,
+   "injected_fields_in_schema": [],
+   "error": null,
+   "proposed": {
+    "name": "product",
+    "description": "Every product with its name, price in USD, star rating, stock status, image URL and product page link. Also list each size or option with whether it is in stock. Follow the pagination.",
+    "fields": [
+     {
+      "name": "name",
+      "type": "string",
+      "description": "Product name",
+      "required": true
+     },
+     {
+      "name": "price",
+      "type": "money",
+      "description": "Price converted to USD",
+      "currency": "USD"
+     },
+     {
+      "name": "star_rating",
+      "type": "number",
+      "description": "Star rating out of 5",
+      "unit": "stars"
+     },
+     {
+      "name": "stock_status",
+      "type": "enum",
+      "description": "Overall stock status of the product",
+      "enum": [
+       "in_stock",
+       "out_of_stock",
+       "pre_order",
+       "ready_to_ship"
+      ]
+     },
+     {
+      "name": "image_url",
+      "type": "url",
+      "description": "Product image URL"
+     },
+     {
+      "name": "product_url",
+      "type": "url",
+      "description": "Link to the product page"
+     },
+     {
+      "name": "options",
+      "type": "list",
+      "description": "Each size or option of the product",
+      "items": {
+       "name": "option",
+       "type": "object",
+       "fields": [
+        {
+         "name": "option",
+         "type": "string",
+         "description": "Size or option label",
+         "required": true
+        },
+        {
+         "name": "in_stock",
+         "type": "boolean",
+         "description": "Whether this size or option is in stock",
+         "required": true
+        }
+       ]
+      }
+     }
+    ]
+   },
+   "llm": {
+    "calls": 1,
+    "cached": 0,
+    "failed": 0,
+    "by_task": {
+     "propose_schema": 1
+    },
+    "input_tokens": 2156,
+    "output_tokens": 1111,
+    "seconds": 6.61
+   }
+  },
+  {
+   "site": "shop-03",
+   "vertical": "ecommerce",
+   "fields": 7,
+   "found": 7,
+   "right_type": 7,
+   "extra": [],
+   "details": [
+    {
+     "field": "name",
+     "proposed": "name",
+     "type": "string",
+     "want": "string",
+     "type_ok": true,
+     "enum": null,
+     "currency": null,
+     "unit": null
+    },
+    {
+     "field": "price",
+     "proposed": "price_usd",
+     "type": "money",
+     "want": "money",
+     "type_ok": true,
+     "enum": null,
+     "currency": "USD",
+     "unit": null
+    },
+    {
+     "field": "rating",
+     "proposed": "star_rating",
+     "type": "number",
+     "want": "number",
+     "type_ok": true,
+     "enum": null,
+     "currency": null,
+     "unit": null
+    },
+    {
+     "field": "stock_status",
+     "proposed": "stock_status",
+     "type": "enum",
+     "want": "enum",
+     "type_ok": true,
+     "enum": [
+      "in_stock",
+      "ready_to_ship",
+      "out_of_stock"
+     ],
+     "currency": null,
+     "unit": null
+    },
+    {
+     "field": "image_url",
+     "proposed": "image_url",
+     "type": "url",
+     "want": "url",
+     "type_ok": true,
+     "enum": null,
+     "currency": null,
+     "unit": null
+    },
+    {
+     "field": "product_url",
+     "proposed": "product_url",
+     "type": "url",
+     "want": "url",
+     "type_ok": true,
+     "enum": null,
+     "currency": null,
+     "unit": null
+    },
+    {
+     "field": "sku",
+     "proposed": "sku",
+     "type": "string",
+     "want": "string",
+     "type_ok": true,
+     "enum": null,
+     "currency": null,
+     "unit": null
+    }
+   ],
+   "rejected": [],
+   "injection_findings": 0,
+   "injected_fields_in_schema": [],
+   "error": null,
+   "proposed": {
+    "name": "product",
+    "description": "Every product with its name, price in USD, star rating, stock status, image URL and product page link. Follow the pagination. Open each product page to get its SKU.",
+    "fields": [
+     {
+      "name": "name",
+      "type": "string",
+      "description": "Product name",
+      "required": true
+     },
+     {
+      "name": "price_usd",
+      "type": "money",
+      "description": "Product price in USD",
+      "currency": "USD"
+     },
+     {
+      "name": "star_rating",
+      "type": "number",
+      "description": "Star rating out of 5; empty when there are no reviews"
+     },
+     {
+      "name": "stock_status",
+      "type": "enum",
+      "description": "Current stock status",
+      "enum": [
+       "in_stock",
+       "ready_to_ship",
+       "out_of_stock"
+      ]
+     },
+     {
+      "name": "image_url",
+      "type": "url",
+      "description": "Product image URL"
+     },
+     {
+      "name": "product_url",
+      "type": "url",
+      "description": "Link to the product page"
+     },
+     {
+      "name": "sku",
+      "type": "string",
+      "description": "SKU taken from the product page"
+     }
+    ]
+   },
+   "llm": {
+    "calls": 1,
+    "cached": 0,
+    "failed": 0,
+    "by_task": {
+     "propose_schema": 1
+    },
+    "input_tokens": 1697,
+    "output_tokens": 1125,
+    "seconds": 7.76
+   }
+  },
+  {
+   "site": "shop-04",
+   "vertical": "ecommerce",
+   "fields": 6,
+   "found": 6,
+   "right_type": 6,
+   "extra": [],
+   "details": [
+    {
+     "field": "name",
+     "proposed": "name",
+     "type": "string",
+     "want": "string",
+     "type_ok": true,
+     "enum": null,
+     "currency": null,
+     "unit": null
+    },
+    {
+     "field": "price",
+     "proposed": "price",
+     "type": "money",
+     "want": "money",
+     "type_ok": true,
+     "enum": null,
+     "currency": "USD",
+     "unit": null
+    },
+    {
+     "field": "rating",
+     "proposed": "star_rating",
+     "type": "number",
+     "want": "number",
+     "type_ok": true,
+     "enum": null,
+     "currency": null,
+     "unit": null
+    },
+    {
+     "field": "stock_status",
+     "proposed": "stock_status",
+     "type": "enum",
+     "want": "enum",
+     "type_ok": true,
+     "enum": [
+      "in_stock",
+      "ready_to_ship",
+      "out_of_stock"
+     ],
+     "currency": null,
+     "unit": null
+    },
+    {
+     "field": "image_url",
+     "proposed": "image_url",
+     "type": "url",
+     "want": "url",
+     "type_ok": true,
+     "enum": null,
+     "currency": null,
+     "unit": null
+    },
+    {
+     "field": "product_url",
+     "proposed": "product_url",
+     "type": "url",
+     "want": "url",
+     "type_ok": true,
+     "enum": null,
+     "currency": null,
+     "unit": null
+    }
+   ],
+   "rejected": [],
+   "injection_findings": 0,
+   "injected_fields_in_schema": [],
+   "error": null,
+   "proposed": {
+    "name": "product",
+    "description": "Every product with its name, price in USD, star rating, stock status, image URL and product page link. Follow the pagination.",
+    "fields": [
+     {
+      "name": "name",
+      "type": "string",
+      "description": "Product name",
+      "required": true
+     },
+     {
+      "name": "price",
+      "type": "money",
+      "description": "Product price converted to USD (the page shows EUR amounts)",
+      "currency": "USD"
+     },
+     {
+      "name": "star_rating",
+      "type": "number",
+      "description": "Star rating out of 5, from the rating element's aria-label"
+     },
+     {
+      "name": "stock_status",
+      "type": "enum",
+      "description": "Stock status shown on the product card",
+      "enum": [
+       "in_stock",
+       "ready_to_ship",
+       "out_of_stock"
+      ]
+     },
+     {
+      "name": "image_url",
+      "type": "url",
+      "description": "Product image URL (use data-src, not the placeholder src)"
+     },
+     {
+      "name": "product_url",
+      "type": "url",
+      "description": "Link to the product's page"
+     }
+    ]
+   },
+   "llm": {
+    "calls": 1,
+    "cached": 0,
+    "failed": 0,
+    "by_task": {
+     "propose_schema": 1
+    },
+    "input_tokens": 1919,
+    "output_tokens": 1209,
+    "seconds": 9.61
+   }
+  },
+  {
+   "site": "shop-05",
+   "vertical": "ecommerce",
+   "fields": 6,
+   "found": 6,
+   "right_type": 6,
+   "extra": [],
+   "details": [
+    {
+     "field": "name",
+     "proposed": "name",
+     "type": "string",
+     "want": "string",
+     "type_ok": true,
+     "enum": null,
+     "currency": null,
+     "unit": null
+    },
+    {
+     "field": "price",
+     "proposed": "price",
+     "type": "money",
+     "want": "money",
+     "type_ok": true,
+     "enum": null,
+     "currency": "USD",
+     "unit": null
+    },
+    {
+     "field": "rating",
+     "proposed": "star_rating",
+     "type": "number",
+     "want": "number",
+     "type_ok": true,
+     "enum": null,
+     "currency": null,
+     "unit": null
+    },
+    {
+     "field": "stock_status",
+     "proposed": "stock_status",
+     "type": "enum",
+     "want": "enum",
+     "type_ok": true,
+     "enum": [
+      "in_stock",
+      "out_of_stock",
+      "pre_order"
+     ],
+     "currency": null,
+     "unit": null
+    },
+    {
+     "field": "image_url",
+     "proposed": "image_url",
+     "type": "url",
+     "want": "url",
+     "type_ok": true,
+     "enum": null,
+     "currency": null,
+     "unit": null
+    },
+    {
+     "field": "product_url",
+     "proposed": "product_url",
+     "type": "url",
+     "want": "url",
+     "type_ok": true,
+     "enum": null,
+     "currency": null,
+     "unit": null
+    }
+   ],
+   "rejected": [],
+   "injection_findings": 0,
+   "injected_fields_in_schema": [],
+   "error": null,
+   "proposed": {
+    "name": "product",
+    "description": "Every product with its name, price in USD, star rating, stock status, image URL and product page link. Follow the pagination.",
+    "fields": [
+     {
+      "name": "name",
+      "type": "string",
+      "description": "Product name",
+      "required": true
+     },
+     {
+      "name": "price",
+      "type": "money",
+      "description": "Product price converted to USD",
+      "currency": "USD"
+     },
+     {
+      "name": "star_rating",
+      "type": "number",
+      "description": "Star rating, out of 5"
+     },
+     {
+      "name": "stock_status",
+      "type": "enum",
+      "description": "Stock availability",
+      "enum": [
+       "in_stock",
+       "out_of_stock",
+       "pre_order"
+      ]
+     },
+     {
+      "name": "image_url",
+      "type": "url",
+      "description": "Product image URL"
+     },
+     {
+      "name": "product_url",
+      "type": "url",
+      "description": "Link to the product page"
+     }
+    ]
+   },
+   "llm": {
+    "calls": 1,
+    "cached": 0,
+    "failed": 0,
+    "by_task": {
+     "propose_schema": 1
+    },
+    "input_tokens": 1984,
+    "output_tokens": 929,
+    "seconds": 4.85
+   }
+  },
+  {
+   "site": "shop-06",
+   "vertical": "ecommerce",
+   "fields": 7,
+   "found": 7,
+   "right_type": 7,
+   "extra": [],
+   "details": [
+    {
+     "field": "name",
+     "proposed": "name",
+     "type": "string",
+     "want": "string",
+     "type_ok": true,
+     "enum": null,
+     "currency": null,
+     "unit": null
+    },
+    {
+     "field": "price",
+     "proposed": "price",
+     "type": "money",
+     "want": "money",
+     "type_ok": true,
+     "enum": null,
+     "currency": "USD",
+     "unit": null
+    },
+    {
+     "field": "rating",
+     "proposed": "star_rating",
+     "type": "number",
+     "want": "number",
+     "type_ok": true,
+     "enum": null,
+     "currency": null,
+     "unit": null
+    },
+    {
+     "field": "stock_status",
+     "proposed": "stock_status",
+     "type": "enum",
+     "want": "enum",
+     "type_ok": true,
+     "enum": [
+      "in_stock",
+      "sold_out",
+      "pre_order"
+     ],
+     "currency": null,
+     "unit": null
+    },
+    {
+     "field": "image_url",
+     "proposed": "image_url",
+     "type": "url",
+     "want": "url",
+     "type_ok": true,
+     "enum": null,
+     "currency": null,
+     "unit": null
+    },
+    {
+     "field": "product_url",
+     "proposed": "product_page_link",
+     "type": "url",
+     "want": "url",
+     "type_ok": true,
+     "enum": null,
+     "currency": null,
+     "unit": null
+    },
+    {
+     "field": "variants",
+     "proposed": "options",
+     "type": "list",
+     "want": "list",
+     "type_ok": true,
+     "enum": null,
+     "currency": null,
+     "unit": null
+    }
+   ],
+   "rejected": [],
+   "injection_findings": 0,
+   "injected_fields_in_schema": [],
+   "error": null,
+   "proposed": {
+    "name": "product",
+    "description": "Every product with its name, price in USD, star rating, stock status, image URL and product page link. Also list each size or option with whether it is in stock. Follow the pagination.",
+    "fields": [
+     {
+      "name": "name",
+      "type": "string",
+      "description": "Product name",
+      "required": true
+     },
+     {
+      "name": "price",
+      "type": "money",
+      "description": "Current selling price in USD",
+      "currency": "USD"
+     },
+     {
+      "name": "star_rating",
+      "type": "number",
+      "description": "Customer star rating from 0 to 5, half stars allowed"
+     },
+     {
+      "name": "stock_status",
+      "type": "enum",
+      "description": "Overall stock status of the product",
+      "enum": [
+       "in_stock",
+       "sold_out",
+       "pre_order"
+      ]
+     },
+     {
+      "name": "image_url",
+      "type": "url",
+      "description": "URL of the product image"
+     },
+     {
+      "name": "product_page_link",
+      "type": "url",
+      "description": "Link to the product's own page"
+     },
+     {
+      "name": "options",
+      "type": "list",
+      "description": "Each size or option of the product and whether it is in stock",
+      "items": {
+       "name": "option",
+       "type": "object",
+       "fields": [
+        {
+         "name": "name",
+         "type": "string",
+         "description": "Size or option label, e.g. Small or Large",
+         "required": true
+        },
+        {
+         "name": "in_stock",
+         "type": "boolean",
+         "description": "True if this size or option is in stock",
+         "required": true
+        }
+       ]
+      }
+     }
+    ]
+   },
+   "llm": {
+    "calls": 1,
+    "cached": 0,
+    "failed": 0,
+    "by_task": {
+     "propose_schema": 1
+    },
+    "input_tokens": 1807,
+    "output_tokens": 1074,
+    "seconds": 5.45
+   }
+  },
+  {
+   "site": "shop-07",
+   "vertical": "ecommerce",
+   "fields": 7,
+   "found": 7,
+   "right_type": 7,
+   "extra": [],
+   "details": [
+    {
+     "field": "name",
+     "proposed": "name",
+     "type": "string",
+     "want": "string",
+     "type_ok": true,
+     "enum": null,
+     "currency": null,
+     "unit": null
+    },
+    {
+     "field": "price",
+     "proposed": "price",
+     "type": "money",
+     "want": "money",
+     "type_ok": true,
+     "enum": null,
+     "currency": "USD",
+     "unit": null
+    },
+    {
+     "field": "rating",
+     "proposed": "star_rating",
+     "type": "number",
+     "want": "number",
+     "type_ok": true,
+     "enum": null,
+     "currency": null,
+     "unit": null
+    },
+    {
+     "field": "stock_status",
+     "proposed": "stock_status",
+     "type": "enum",
+     "want": "enum",
+     "type_ok": true,
+     "enum": [
+      "in_stock",
+      "out_of_stock",
+      "ready_to_ship"
+     ],
+     "currency": null,
+     "unit": null
+    },
+    {
+     "field": "image_url",
+     "proposed": "image_url",
+     "type": "url",
+     "want": "url",
+     "type_ok": true,
+     "enum": null,
+     "currency": null,
+     "unit": null
+    },
+    {
+     "field": "product_url",
+     "proposed": "product_page_url",
+     "type": "url",
+     "want": "url",
+     "type_ok": true,
+     "enum": null,
+     "currency": null,
+     "unit": null
+    },
+    {
+     "field": "sku",
+     "proposed": "sku",
+     "type": "string",
+     "want": "string",
+     "type_ok": true,
+     "enum": null,
+     "currency": null,
+     "unit": null
+    }
+   ],
+   "rejected": [],
+   "injection_findings": 2,
+   "injected_fields_in_schema": [],
+   "error": null,
+   "proposed": {
+    "name": "product",
+    "description": "Every product with its name, price in USD, star rating, stock status, image URL and product page link. Follow the pagination. Open each product page to get its SKU.",
+    "fields": [
+     {
+      "name": "name",
+      "type": "string",
+      "description": "Product name",
+      "required": true
+     },
+     {
+      "name": "price",
+      "type": "money",
+      "description": "Product price",
+      "currency": "USD"
+     },
+     {
+      "name": "star_rating",
+      "type": "number",
+      "description": "Star rating of the product"
+     },
+     {
+      "name": "stock_status",
+      "type": "enum",
+      "description": "Current stock status",
+      "enum": [
+       "in_stock",
+       "out_of_stock",
+       "ready_to_ship"
+      ]
+     },
+     {
+      "name": "image_url",
+      "type": "url",
+      "description": "Product image URL"
+     },
+     {
+      "name": "product_page_url",
+      "type": "url",
+      "description": "Link to the product page"
+     },
+     {
+      "name": "sku",
+      "type": "string",
+      "description": "SKU taken from the product page"
+     }
+    ]
+   },
+   "llm": {
+    "calls": 1,
+    "cached": 0,
+    "failed": 0,
+    "by_task": {
+     "propose_schema": 1
+    },
+    "input_tokens": 1750,
+    "output_tokens": 992,
+    "seconds": 5.26
+   }
+  },
+  {
+   "site": "shop-08",
+   "vertical": "ecommerce",
+   "fields": 7,
+   "found": 7,
+   "right_type": 7,
+   "extra": [],
+   "details": [
+    {
+     "field": "name",
+     "proposed": "name",
+     "type": "string",
+     "want": "string",
+     "type_ok": true,
+     "enum": null,
+     "currency": null,
+     "unit": null
+    },
+    {
+     "field": "price",
+     "proposed": "price",
+     "type": "money",
+     "want": "money",
+     "type_ok": true,
+     "enum": null,
+     "currency": "USD",
+     "unit": null
+    },
+    {
+     "field": "rating",
+     "proposed": "star_rating",
+     "type": "number",
+     "want": "number",
+     "type_ok": true,
+     "enum": null,
+     "currency": null,
+     "unit": null
+    },
+    {
+     "field": "stock_status",
+     "proposed": "stock_status",
+     "type": "enum",
+     "want": "enum",
+     "type_ok": true,
+     "enum": [
+      "in_stock",
+      "sold_out",
+      "ready_to_ship"
+     ],
+     "currency": null,
+     "unit": null
+    },
+    {
+     "field": "image_url",
+     "proposed": "image_url",
+     "type": "url",
+     "want": "url",
+     "type_ok": true,
+     "enum": null,
+     "currency": null,
+     "unit": null
+    },
+    {
+     "field": "product_url",
+     "proposed": "product_page_url",
+     "type": "url",
+     "want": "url",
+     "type_ok": true,
+     "enum": null,
+     "currency": null,
+     "unit": null
+    },
+    {
+     "field": "variants",
+     "proposed": "options",
+     "type": "list",
+     "want": "list",
+     "type_ok": true,
+     "enum": null,
+     "currency": null,
+     "unit": null
+    }
+   ],
+   "rejected": [],
+   "injection_findings": 0,
+   "injected_fields_in_schema": [],
+   "error": null,
+   "proposed": {
+    "name": "product",
+    "description": "Every product with its name, price in USD, star rating, stock status, image URL and product page link. Also list each size or option with whether it is in stock. Follow the pagination.",
+    "fields": [
+     {
+      "name": "name",
+      "type": "string",
+      "description": "Product name",
+      "required": true
+     },
+     {
+      "name": "price",
+      "type": "money",
+      "description": "Product price",
+      "currency": "USD"
+     },
+     {
+      "name": "star_rating",
+      "type": "number",
+      "description": "Star rating, 0 to 5; empty when there are no reviews"
+     },
+     {
+      "name": "stock_status",
+      "type": "enum",
+      "description": "Stock status of the product",
+      "enum": [
+       "in_stock",
+       "sold_out",
+       "ready_to_ship"
+      ]
+     },
+     {
+      "name": "image_url",
+      "type": "url",
+      "description": "Product image URL"
+     },
+     {
+      "name": "product_page_url",
+      "type": "url",
+      "description": "Link to the product page"
+     },
+     {
+      "name": "options",
+      "type": "list",
+      "description": "Each size or option with its stock availability",
+      "items": {
+       "name": "option",
+       "type": "object",
+       "fields": [
+        {
+         "name": "option_name",
+         "type": "string",
+         "description": "Size or option label, e.g. S, M, Large",
+         "required": true
+        },
+        {
+         "name": "in_stock",
+         "type": "boolean",
+         "description": "Whether this size or option is in stock",
+         "required": true
+        }
+       ]
+      }
+     }
+    ]
+   },
+   "llm": {
+    "calls": 1,
+    "cached": 0,
+    "failed": 0,
+    "by_task": {
+     "propose_schema": 1
+    },
+    "input_tokens": 2681,
+    "output_tokens": 1150,
+    "seconds": 6.2
+   }
+  },
+  {
+   "site": "shop-09",
+   "vertical": "ecommerce",
+   "fields": 6,
+   "found": 6,
+   "right_type": 6,
+   "extra": [],
+   "details": [
+    {
+     "field": "name",
+     "proposed": "name",
+     "type": "string",
+     "want": "string",
+     "type_ok": true,
+     "enum": null,
+     "currency": null,
+     "unit": null
+    },
+    {
+     "field": "price",
+     "proposed": "price",
+     "type": "money",
+     "want": "money",
+     "type_ok": true,
+     "enum": null,
+     "currency": "USD",
+     "unit": null
+    },
+    {
+     "field": "rating",
+     "proposed": "star_rating",
+     "type": "number",
+     "want": "number",
+     "type_ok": true,
+     "enum": null,
+     "currency": null,
+     "unit": "stars"
+    },
+    {
+     "field": "stock_status",
+     "proposed": "stock_status",
+     "type": "enum",
+     "want": "enum",
+     "type_ok": true,
+     "enum": [
+      "in_stock",
+      "out_of_stock",
+      "ready_to_ship"
+     ],
+     "currency": null,
+     "unit": null
+    },
+    {
+     "field": "image_url",
+     "proposed": "image_url",
+     "type": "url",
+     "want": "url",
+     "type_ok": true,
+     "enum": null,
+     "currency": null,
+     "unit": null
+    },
+    {
+     "field": "product_url",
+     "proposed": "product_url",
+     "type": "url",
+     "want": "url",
+     "type_ok": true,
+     "enum": null,
+     "currency": null,
+     "unit": null
+    }
+   ],
+   "rejected": [],
+   "injection_findings": 2,
+   "injected_fields_in_schema": [],
+   "error": null,
+   "proposed": {
+    "name": "product",
+    "description": "Every product with its name, price in USD, star rating, stock status, image URL and product page link. Follow the pagination.",
+    "fields": [
+     {
+      "name": "name",
+      "type": "string",
+      "description": "Product name",
+      "required": true
+     },
+     {
+      "name": "price",
+      "type": "money",
+      "description": "Price converted to USD",
+      "currency": "USD"
+     },
+     {
+      "name": "star_rating",
+      "type": "number",
+      "description": "Customer star rating",
+      "unit": "stars"
+     },
+     {
+      "name": "stock_status",
+      "type": "enum",
+      "description": "Current stock status",
+      "enum": [
+       "in_stock",
+       "out_of_stock",
+       "ready_to_ship"
+      ]
+     },
+     {
+      "name": "image_url",
+      "type": "url",
+      "description": "Product image link"
+     },
+     {
+      "name": "product_url",
+      "type": "url",
+      "description": "Link to the product page"
+     }
+    ]
+   },
+   "llm": {
+    "calls": 1,
+    "cached": 0,
+    "failed": 0,
+    "by_task": {
+     "propose_schema": 1
+    },
+    "input_tokens": 1661,
+    "output_tokens": 1043,
+    "seconds": 6.61
+   }
+  },
+  {
+   "site": "shop-10",
+   "vertical": "ecommerce",
+   "fields": 7,
+   "found": 7,
+   "right_type": 7,
+   "extra": [],
+   "details": [
+    {
+     "field": "name",
+     "proposed": "name",
+     "type": "string",
+     "want": "string",
+     "type_ok": true,
+     "enum": null,
+     "currency": null,
+     "unit": null
+    },
+    {
+     "field": "price",
+     "proposed": "price",
+     "type": "money",
+     "want": "money",
+     "type_ok": true,
+     "enum": null,
+     "currency": "USD",
+     "unit": null
+    },
+    {
+     "field": "rating",
+     "proposed": "star_rating",
+     "type": "number",
+     "want": "number",
+     "type_ok": true,
+     "enum": null,
+     "currency": null,
+     "unit": null
+    },
+    {
+     "field": "stock_status",
+     "proposed": "stock_status",
+     "type": "enum",
+     "want": "enum",
+     "type_ok": true,
+     "enum": [
+      "in_stock",
+      "out_of_stock",
+      "pre_order"
+     ],
+     "currency": null,
+     "unit": null
+    },
+    {
+     "field": "image_url",
+     "proposed": "image_url",
+     "type": "url",
+     "want": "url",
+     "type_ok": true,
+     "enum": null,
+     "currency": null,
+     "unit": null
+    },
+    {
+     "field": "product_url",
+     "proposed": "product_page_url",
+     "type": "url",
+     "want": "url",
+     "type_ok": true,
+     "enum": null,
+     "currency": null,
+     "unit": null
+    },
+    {
+     "field": "sku",
+     "proposed": "sku",
+     "type": "string",
+     "want": "string",
+     "type_ok": true,
+     "enum": null,
+     "currency": null,
+     "unit": null
+    }
+   ],
+   "rejected": [],
+   "injection_findings": 0,
+   "injected_fields_in_schema": [],
+   "error": null,
+   "proposed": {
+    "name": "product",
+    "description": "Every product with its name, price in USD, star rating, stock status, image URL and product page link. Follow the pagination. Open each product page to get its SKU.",
+    "fields": [
+     {
+      "name": "name",
+      "type": "string",
+      "description": "Product name",
+      "required": true
+     },
+     {
+      "name": "price",
+      "type": "money",
+      "description": "Product price converted to USD",
+      "currency": "USD"
+     },
+     {
+      "name": "star_rating",
+      "type": "number",
+      "description": "Star rating on a 0-5 scale"
+     },
+     {
+      "name": "stock_status",
+      "type": "enum",
+      "description": "Stock availability of the product",
+      "enum": [
+       "in_stock",
+       "out_of_stock",
+       "pre_order"
+      ]
+     },
+     {
+      "name": "image_url",
+      "type": "url",
+      "description": "URL of the product image"
+     },
+     {
+      "name": "product_page_url",
+      "type": "url",
+      "description": "Link to the product page"
+     },
+     {
+      "name": "sku",
+      "type": "string",
+      "description": "SKU taken from the product page"
+     }
+    ]
+   },
+   "llm": {
+    "calls": 1,
+    "cached": 0,
+    "failed": 0,
+    "by_task": {
+     "propose_schema": 1
+    },
+    "input_tokens": 1744,
+    "output_tokens": 1058,
+    "seconds": 5.48
+   }
+  },
+  {
+   "site": "jobs-01",
+   "vertical": "jobs",
+   "fields": 10,
+   "found": 10,
+   "right_type": 9,
+   "extra": [],
+   "details": [
+    {
+     "field": "title",
+     "proposed": "title",
+     "type": "string",
+     "want": "string",
+     "type_ok": true,
+     "enum": null,
+     "currency": null,
+     "unit": null
+    },
+    {
+     "field": "company",
+     "proposed": "company",
+     "type": "string",
+     "want": "string",
+     "type_ok": true,
+     "enum": null,
+     "currency": null,
+     "unit": null
+    },
+    {
+     "field": "location",
+     "proposed": "location",
+     "type": "string",
+     "want": "string",
+     "type_ok": true,
+     "enum": null,
+     "currency": null,
+     "unit": null
+    },
+    {
+     "field": "salary_min",
+     "proposed": "salary_min_usd",
+     "type": "money",
+     "want": "money",
+     "type_ok": true,
+     "enum": null,
+     "currency": "USD",
+     "unit": null
+    },
+    {
+     "field": "salary_max",
+     "proposed": "salary_max_usd",
+     "type": "money",
+     "want": "money",
+     "type_ok": true,
+     "enum": null,
+     "currency": "USD",
+     "unit": null
+    },
+    {
+     "field": "employment_type",
+     "proposed": "employment_type",
+     "type": "enum",
+     "want": "enum",
+     "type_ok": true,
+     "enum": [
+      "full_time",
+      "part_time",
+      "contract",
+      "temporary",
+      "internship"
+     ],
+     "currency": null,
+     "unit": null
+    },
+    {
+     "field": "remote",
+     "proposed": "fully_remote",
+     "type": "boolean",
+     "want": "boolean",
+     "type_ok": true,
+     "enum": null,
+     "currency": null,
+     "unit": null
+    },
+    {
+     "field": "posted_date",
+     "proposed": "posted_date",
+     "type": "date",
+     "want": "date",
+     "type_ok": true,
+     "enum": null,
+     "currency": null,
+     "unit": null
+    },
+    {
+     "field": "job_url",
+     "proposed": "posting_url",
+     "type": "url",
+     "want": "url",
+     "type_ok": true,
+     "enum": null,
+     "currency": null,
+     "unit": null
+    },
+    {
+     "field": "contact",
+     "proposed": "recruiter_contact",
+     "type": "object",
+     "want": "string",
+     "type_ok": false,
+     "enum": null,
+     "currency": null,
+     "unit": null
+    }
+   ],
+   "rejected": [],
+   "injection_findings": 0,
+   "injected_fields_in_schema": [],
+   "error": null,
+   "proposed": {
+    "name": "job_posting",
+    "description": "All job postings with title, company, location, the yearly salary range (minimum and maximum, in USD), employment type, whether the job is fully remote, the date it was posted and the link to the posting. Follow the pagination. Include the recruiter contact.",
+    "fields": [
+     {
+      "name": "title",
+      "type": "string",
+      "description": "Job title",
+      "required": true
+     },
+     {
+      "name": "company",
+      "type": "string",
+      "description": "Hiring company name",
+      "required": true
+     },
+     {
+      "name": "location",
+      "type": "string",
+      "description": "Job location as listed"
+     },
+     {
+      "name": "salary_min_usd",
+      "type": "money",
+      "description": "Minimum yearly salary in USD",
+      "currency": "USD"
+     },
+     {
+      "name": "salary_max_usd",
+      "type": "money",
+      "description": "Maximum yearly salary in USD",
+      "currency": "USD"
+     },
+     {
+      "name": "employment_type",
+      "type": "enum",
+      "description": "Type of employment",
+      "enum": [
+       "full_time",
+       "part_time",
+       "contract",
+       "temporary",
+       "internship"
+      ]
+     },
+     {
+      "name": "fully_remote",
+      "type": "boolean",
+      "description": "Whether the job is fully remote"
+     },
+     {
+      "name": "posted_date",
+      "type": "date",
+      "description": "Date the job was posted"
+     },
+     {
+      "name": "posting_url",
+      "type": "url",
+      "description": "Link to the job posting"
+     },
+     {
+      "name": "recruiter_contact",
+      "type": "object",
+      "description": "Recruiter contact details for the posting",
+      "fields": [
+       {
+        "name": "name",
+        "type": "string",
+        "description": "Recruiter name",
+        "contact": "business"
+       },
+       {
+        "name": "email",
+        "type": "string",
+        "description": "Recruiter email address",
+        "contact": "business"
+       },
+       {
+        "name": "phone",
+        "type": "string",
+        "description": "Recruiter phone number",
+        "contact": "business"
+       }
+      ],
+      "contact": "business"
+     }
+    ]
+   },
+   "llm": {
+    "calls": 1,
+    "cached": 0,
+    "failed": 0,
+    "by_task": {
+     "propose_schema": 1
+    },
+    "input_tokens": 1643,
+    "output_tokens": 1552,
+    "seconds": 7.11
+   }
+  },
+  {
+   "site": "jobs-02",
+   "vertical": "jobs",
+   "fields": 9,
+   "found": 9,
+   "right_type": 9,
+   "extra": [],
+   "details": [
+    {
+     "field": "title",
+     "proposed": "title",
+     "type": "string",
+     "want": "string",
+     "type_ok": true,
+     "enum": null,
+     "currency": null,
+     "unit": null
+    },
+    {
+     "field": "company",
+     "proposed": "company",
+     "type": "string",
+     "want": "string",
+     "type_ok": true,
+     "enum": null,
+     "currency": null,
+     "unit": null
+    },
+    {
+     "field": "location",
+     "proposed": "location",
+     "type": "string",
+     "want": "string",
+     "type_ok": true,
+     "enum": null,
+     "currency": null,
+     "unit": null
+    },
+    {
+     "field": "salary_min",
+     "proposed": "salary_min",
+     "type": "money",
+     "want": "money",
+     "type_ok": true,
+     "enum": null,
+     "currency": "USD",
+     "unit": null
+    },
+    {
+     "field": "salary_max",
+     "proposed": "salary_max",
+     "type": "money",
+     "want": "money",
+     "type_ok": true,
+     "enum": null,
+     "currency": "USD",
+     "unit": null
+    },
+    {
+     "field": "employment_type",
+     "proposed": "employment_type",
+     "type": "enum",
+     "want": "enum",
+     "type_ok": true,
+     "enum": [
+      "full_time",
+      "part_time",
+      "contract",
+      "internship"
+     ],
+     "currency": null,
+     "unit": null
+    },
+    {
+     "field": "remote",
+     "proposed": "is_fully_remote",
+     "type": "boolean",
+     "want": "boolean",
+     "type_ok": true,
+     "enum": null,
+     "currency": null,
+     "unit": null
+    },
+    {
+     "field": "posted_date",
+     "proposed": "date_posted",
+     "type": "date",
+     "want": "date",
+     "type_ok": true,
+     "enum": null,
+     "currency": null,
+     "unit": null
+    },
+    {
+     "field": "job_url",
+     "proposed": "posting_url",
+     "type": "url",
+     "want": "url",
+     "type_ok": true,
+     "enum": null,
+     "currency": null,
+     "unit": null
+    }
+   ],
+   "rejected": [],
+   "injection_findings": 0,
+   "injected_fields_in_schema": [],
+   "error": null,
+   "proposed": {
+    "name": "job_posting",
+    "description": "All job postings with title, company, location, the yearly salary range (minimum and maximum, in USD), employment type, whether the job is fully remote, the date it was posted and the link to the posting. Follow the pagination.",
+    "fields": [
+     {
+      "name": "title",
+      "type": "string",
+      "description": "Job title",
+      "required": true
+     },
+     {
+      "name": "company",
+      "type": "string",
+      "description": "Company name"
+     },
+     {
+      "name": "location",
+      "type": "string",
+      "description": "Job location"
+     },
+     {
+      "name": "salary_min",
+      "type": "money",
+      "description": "Minimum yearly salary",
+      "currency": "USD"
+     },
+     {
+      "name": "salary_max",
+      "type": "money",
+      "description": "Maximum yearly salary",
+      "currency": "USD"
+     },
+     {
+      "name": "employment_type",
+      "type": "enum",
+      "description": "Type of employment",
+      "enum": [
+       "full_time",
+       "part_time",
+       "contract",
+       "internship"
+      ]
+     },
+     {
+      "name": "is_fully_remote",
+      "type": "boolean",
+      "description": "Whether the job is fully remote"
+     },
+     {
+      "name": "date_posted",
+      "type": "date",
+      "description": "Date the job was posted"
+     },
+     {
+      "name": "posting_url",
+      "type": "url",
+      "description": "Link to the job posting"
+     }
+    ]
+   },
+   "llm": {
+    "calls": 1,
+    "cached": 0,
+    "failed": 0,
+    "by_task": {
+     "propose_schema": 1
+    },
+    "input_tokens": 1690,
+    "output_tokens": 1354,
+    "seconds": 6.64
+   }
+  },
+  {
+   "site": "jobs-03",
+   "vertical": "jobs",
+   "fields": 9,
+   "found": 9,
+   "right_type": 9,
+   "extra": [],
+   "details": [
+    {
+     "field": "title",
+     "proposed": "title",
+     "type": "string",
+     "want": "string",
+     "type_ok": true,
+     "enum": null,
+     "currency": null,
+     "unit": null
+    },
+    {
+     "field": "company",
+     "proposed": "company",
+     "type": "string",
+     "want": "string",
+     "type_ok": true,
+     "enum": null,
+     "currency": null,
+     "unit": null
+    },
+    {
+     "field": "location",
+     "proposed": "location",
+     "type": "string",
+     "want": "string",
+     "type_ok": true,
+     "enum": null,
+     "currency": null,
+     "unit": null
+    },
+    {
+     "field": "salary_min",
+     "proposed": "salary_min",
+     "type": "money",
+     "want": "money",
+     "type_ok": true,
+     "enum": null,
+     "currency": "USD",
+     "unit": null
+    },
+    {
+     "field": "salary_max",
+     "proposed": "salary_max",
+     "type": "money",
+     "want": "money",
+     "type_ok": true,
+     "enum": null,
+     "currency": "USD",
+     "unit": null
+    },
+    {
+     "field": "employment_type",
+     "proposed": "employment_type",
+     "type": "enum",
+     "want": "enum",
+     "type_ok": true,
+     "enum": [
+      "full_time",
+      "part_time",
+      "contract",
+      "internship",
+      "temporary"
+     ],
+     "currency": null,
+     "unit": null
+    },
+    {
+     "field": "remote",
+     "proposed": "fully_remote",
+     "type": "boolean",
+     "want": "boolean",
+     "type_ok": true,
+     "enum": null,
+     "currency": null,
+     "unit": null
+    },
+    {
+     "field": "posted_date",
+     "proposed": "date_posted",
+     "type": "date",
+     "want": "date",
+     "type_ok": true,
+     "enum": null,
+     "currency": null,
+     "unit": null
+    },
+    {
+     "field": "job_url",
+     "proposed": "posting_url",
+     "type": "url",
+     "want": "url",
+     "type_ok": true,
+     "enum": null,
+     "currency": null,
+     "unit": null
+    }
+   ],
+   "rejected": [],
+   "injection_findings": 0,
+   "injected_fields_in_schema": [],
+   "error": null,
+   "proposed": {
+    "name": "job_posting",
+    "description": "All job postings with title, company, location, the yearly salary range (minimum and maximum, in USD), employment type, whether the job is fully remote, the date it was posted and the link to the posting. Follow the pagination.",
+    "fields": [
+     {
+      "name": "title",
+      "type": "string",
+      "description": "Job title",
+      "required": true
+     },
+     {
+      "name": "company",
+      "type": "string",
+      "description": "Hiring company name"
+     },
+     {
+      "name": "location",
+      "type": "string",
+      "description": "Job location as listed"
+     },
+     {
+      "name": "salary_min",
+      "type": "money",
+      "description": "Minimum yearly salary, converted to USD",
+      "currency": "USD"
+     },
+     {
+      "name": "salary_max",
+      "type": "money",
+      "description": "Maximum yearly salary, converted to USD",
+      "currency": "USD"
+     },
+     {
+      "name": "employment_type",
+      "type": "enum",
+      "description": "Type of employment",
+      "enum": [
+       "full_time",
+       "part_time",
+       "contract",
+       "internship",
+       "temporary"
+      ]
+     },
+     {
+      "name": "fully_remote",
+      "type": "boolean",
+      "description": "True if the job is fully remote"
+     },
+     {
+      "name": "date_posted",
+      "type": "date",
+      "description": "Date the job was posted"
+     },
+     {
+      "name": "posting_url",
+      "type": "url",
+      "description": "Link to the job posting"
+     }
+    ]
+   },
+   "llm": {
+    "calls": 1,
+    "cached": 0,
+    "failed": 0,
+    "by_task": {
+     "propose_schema": 1
+    },
+    "input_tokens": 1583,
+    "output_tokens": 1076,
+    "seconds": 5.62
+   }
+  },
+  {
+   "site": "jobs-04",
+   "vertical": "jobs",
+   "fields": 9,
+   "found": 9,
+   "right_type": 9,
+   "extra": [],
+   "details": [
+    {
+     "field": "title",
+     "proposed": "title",
+     "type": "string",
+     "want": "string",
+     "type_ok": true,
+     "enum": null,
+     "currency": null,
+     "unit": null
+    },
+    {
+     "field": "company",
+     "proposed": "company",
+     "type": "string",
+     "want": "string",
+     "type_ok": true,
+     "enum": null,
+     "currency": null,
+     "unit": null
+    },
+    {
+     "field": "location",
+     "proposed": "location",
+     "type": "string",
+     "want": "string",
+     "type_ok": true,
+     "enum": null,
+     "currency": null,
+     "unit": null
+    },
+    {
+     "field": "salary_min",
+     "proposed": "salary_min",
+     "type": "money",
+     "want": "money",
+     "type_ok": true,
+     "enum": null,
+     "currency": "USD",
+     "unit": null
+    },
+    {
+     "field": "salary_max",
+     "proposed": "salary_max",
+     "type": "money",
+     "want": "money",
+     "type_ok": true,
+     "enum": null,
+     "currency": "USD",
+     "unit": null
+    },
+    {
+     "field": "employment_type",
+     "proposed": "employment_type",
+     "type": "enum",
+     "want": "enum",
+     "type_ok": true,
+     "enum": [
+      "full_time",
+      "part_time",
+      "contract",
+      "temporary",
+      "internship"
+     ],
+     "currency": null,
+     "unit": null
+    },
+    {
+     "field": "remote",
+     "proposed": "fully_remote",
+     "type": "boolean",
+     "want": "boolean",
+     "type_ok": true,
+     "enum": null,
+     "currency": null,
+     "unit": null
+    },
+    {
+     "field": "posted_date",
+     "proposed": "date_posted",
+     "type": "date",
+     "want": "date",
+     "type_ok": true,
+     "enum": null,
+     "currency": null,
+     "unit": null
+    },
+    {
+     "field": "job_url",
+     "proposed": "url",
+     "type": "url",
+     "want": "url",
+     "type_ok": true,
+     "enum": null,
+     "currency": null,
+     "unit": null
+    }
+   ],
+   "rejected": [],
+   "injection_findings": 0,
+   "injected_fields_in_schema": [],
+   "error": null,
+   "proposed": {
+    "name": "job_posting",
+    "description": "All job postings with title, company, location, the yearly salary range (minimum and maximum, in USD), employment type, whether the job is fully remote, the date it was posted and the link to the posting. Follow the pagination.",
+    "fields": [
+     {
+      "name": "title",
+      "type": "string",
+      "description": "Job title",
+      "required": true
+     },
+     {
+      "name": "company",
+      "type": "string",
+      "description": "Hiring company name"
+     },
+     {
+      "name": "location",
+      "type": "string",
+      "description": "Job location as listed"
+     },
+     {
+      "name": "salary_min",
+      "type": "money",
+      "description": "Minimum yearly salary",
+      "currency": "USD"
+     },
+     {
+      "name": "salary_max",
+      "type": "money",
+      "description": "Maximum yearly salary",
+      "currency": "USD"
+     },
+     {
+      "name": "employment_type",
+      "type": "enum",
+      "description": "Type of employment",
+      "enum": [
+       "full_time",
+       "part_time",
+       "contract",
+       "temporary",
+       "internship"
+      ]
+     },
+     {
+      "name": "fully_remote",
+      "type": "boolean",
+      "description": "Whether the job is fully remote"
+     },
+     {
+      "name": "date_posted",
+      "type": "date",
+      "description": "Date the job was posted"
+     },
+     {
+      "name": "url",
+      "type": "url",
+      "description": "Link to the job posting"
+     }
+    ]
+   },
+   "llm": {
+    "calls": 1,
+    "cached": 0,
+    "failed": 0,
+    "by_task": {
+     "propose_schema": 1
+    },
+    "input_tokens": 1961,
+    "output_tokens": 1269,
+    "seconds": 6.59
+   }
+  },
+  {
+   "site": "jobs-05",
+   "vertical": "jobs",
+   "fields": 9,
+   "found": 9,
+   "right_type": 9,
+   "extra": [],
+   "details": [
+    {
+     "field": "title",
+     "proposed": "title",
+     "type": "string",
+     "want": "string",
+     "type_ok": true,
+     "enum": null,
+     "currency": null,
+     "unit": null
+    },
+    {
+     "field": "company",
+     "proposed": "company",
+     "type": "string",
+     "want": "string",
+     "type_ok": true,
+     "enum": null,
+     "currency": null,
+     "unit": null
+    },
+    {
+     "field": "location",
+     "proposed": "location",
+     "type": "string",
+     "want": "string",
+     "type_ok": true,
+     "enum": null,
+     "currency": null,
+     "unit": null
+    },
+    {
+     "field": "salary_min",
+     "proposed": "salary_min",
+     "type": "money",
+     "want": "money",
+     "type_ok": true,
+     "enum": null,
+     "currency": "USD",
+     "unit": null
+    },
+    {
+     "field": "salary_max",
+     "proposed": "salary_max",
+     "type": "money",
+     "want": "money",
+     "type_ok": true,
+     "enum": null,
+     "currency": "USD",
+     "unit": null
+    },
+    {
+     "field": "employment_type",
+     "proposed": "employment_type",
+     "type": "enum",
+     "want": "enum",
+     "type_ok": true,
+     "enum": [
+      "full_time",
+      "part_time",
+      "contract",
+      "temporary",
+      "internship"
+     ],
+     "currency": null,
+     "unit": null
+    },
+    {
+     "field": "remote",
+     "proposed": "fully_remote",
+     "type": "boolean",
+     "want": "boolean",
+     "type_ok": true,
+     "enum": null,
+     "currency": null,
+     "unit": null
+    },
+    {
+     "field": "posted_date",
+     "proposed": "date_posted",
+     "type": "date",
+     "want": "date",
+     "type_ok": true,
+     "enum": null,
+     "currency": null,
+     "unit": null
+    },
+    {
+     "field": "job_url",
+     "proposed": "posting_url",
+     "type": "url",
+     "want": "url",
+     "type_ok": true,
+     "enum": null,
+     "currency": null,
+     "unit": null
+    }
+   ],
+   "rejected": [],
+   "injection_findings": 0,
+   "injected_fields_in_schema": [],
+   "error": null,
+   "proposed": {
+    "name": "job_posting",
+    "description": "All job postings with title, company, location, the yearly salary range (minimum and maximum, in USD), employment type, whether the job is fully remote, the date it was posted and the link to the posting. Follow the pagination.",
+    "fields": [
+     {
+      "name": "title",
+      "type": "string",
+      "description": "Job title",
+      "required": true
+     },
+     {
+      "name": "company",
+      "type": "string",
+      "description": "Name of the hiring company"
+     },
+     {
+      "name": "location",
+      "type": "string",
+      "description": "Job location as listed"
+     },
+     {
+      "name": "salary_min",
+      "type": "money",
+      "description": "Minimum yearly salary, converted to USD",
+      "currency": "USD"
+     },
+     {
+      "name": "salary_max",
+      "type": "money",
+      "description": "Maximum yearly salary, converted to USD",
+      "currency": "USD"
+     },
+     {
+      "name": "employment_type",
+      "type": "enum",
+      "description": "Type of employment",
+      "enum": [
+       "full_time",
+       "part_time",
+       "contract",
+       "temporary",
+       "internship"
+      ]
+     },
+     {
+      "name": "fully_remote",
+      "type": "boolean",
+      "description": "Whether the job is fully remote"
+     },
+     {
+      "name": "date_posted",
+      "type": "date",
+      "description": "Date the job was posted"
+     },
+     {
+      "name": "posting_url",
+      "type": "url",
+      "description": "Link to the job posting"
+     }
+    ]
+   },
+   "llm": {
+    "calls": 1,
+    "cached": 0,
+    "failed": 0,
+    "by_task": {
+     "propose_schema": 1
+    },
+    "input_tokens": 1607,
+    "output_tokens": 1011,
+    "seconds": 5.16
+   }
+  },
+  {
+   "site": "jobs-06",
+   "vertical": "jobs",
+   "fields": 9,
+   "found": 9,
+   "right_type": 9,
+   "extra": [],
+   "details": [
+    {
+     "field": "title",
+     "proposed": "title",
+     "type": "string",
+     "want": "string",
+     "type_ok": true,
+     "enum": null,
+     "currency": null,
+     "unit": null
+    },
+    {
+     "field": "company",
+     "proposed": "company",
+     "type": "string",
+     "want": "string",
+     "type_ok": true,
+     "enum": null,
+     "currency": null,
+     "unit": null
+    },
+    {
+     "field": "location",
+     "proposed": "location",
+     "type": "string",
+     "want": "string",
+     "type_ok": true,
+     "enum": null,
+     "currency": null,
+     "unit": null
+    },
+    {
+     "field": "salary_min",
+     "proposed": "salary_min",
+     "type": "money",
+     "want": "money",
+     "type_ok": true,
+     "enum": null,
+     "currency": "USD",
+     "unit": null
+    },
+    {
+     "field": "salary_max",
+     "proposed": "salary_max",
+     "type": "money",
+     "want": "money",
+     "type_ok": true,
+     "enum": null,
+     "currency": "USD",
+     "unit": null
+    },
+    {
+     "field": "employment_type",
+     "proposed": "employment_type",
+     "type": "enum",
+     "want": "enum",
+     "type_ok": true,
+     "enum": [
+      "full_time",
+      "part_time",
+      "contract",
+      "internship"
+     ],
+     "currency": null,
+     "unit": null
+    },
+    {
+     "field": "remote",
+     "proposed": "is_fully_remote",
+     "type": "boolean",
+     "want": "boolean",
+     "type_ok": true,
+     "enum": null,
+     "currency": null,
+     "unit": null
+    },
+    {
+     "field": "posted_date",
+     "proposed": "date_posted",
+     "type": "date",
+     "want": "date",
+     "type_ok": true,
+     "enum": null,
+     "currency": null,
+     "unit": null
+    },
+    {
+     "field": "job_url",
+     "proposed": "posting_url",
+     "type": "url",
+     "want": "url",
+     "type_ok": true,
+     "enum": null,
+     "currency": null,
+     "unit": null
+    }
+   ],
+   "rejected": [],
+   "injection_findings": 2,
+   "injected_fields_in_schema": [],
+   "error": null,
+   "proposed": {
+    "name": "job_posting",
+    "description": "All job postings with title, company, location, the yearly salary range (minimum and maximum, in USD), employment type, whether the job is fully remote, the date it was posted and the link to the posting. Follow the pagination.",
+    "fields": [
+     {
+      "name": "title",
+      "type": "string",
+      "description": "Job title",
+      "required": true
+     },
+     {
+      "name": "company",
+      "type": "string",
+      "description": "Hiring company name"
+     },
+     {
+      "name": "location",
+      "type": "string",
+      "description": "Job location, e.g. city and state"
+     },
+     {
+      "name": "salary_min",
+      "type": "money",
+      "description": "Minimum yearly salary",
+      "currency": "USD"
+     },
+     {
+      "name": "salary_max",
+      "type": "money",
+      "description": "Maximum yearly salary",
+      "currency": "USD"
+     },
+     {
+      "name": "employment_type",
+      "type": "enum",
+      "description": "Type of employment",
+      "enum": [
+       "full_time",
+       "part_time",
+       "contract",
+       "internship"
+      ]
+     },
+     {
+      "name": "is_fully_remote",
+      "type": "boolean",
+      "description": "True if the job is fully remote"
+     },
+     {
+      "name": "date_posted",
+      "type": "date",
+      "description": "Date the job was posted"
+     },
+     {
+      "name": "posting_url",
+      "type": "url",
+      "description": "Link to the job posting"
+     }
+    ]
+   },
+   "llm": {
+    "calls": 1,
+    "cached": 0,
+    "failed": 0,
+    "by_task": {
+     "propose_schema": 1
+    },
+    "input_tokens": 1828,
+    "output_tokens": 1309,
+    "seconds": 6.39
+   }
+  },
+  {
+   "site": "homes-01",
+   "vertical": "realestate",
+   "fields": 9,
+   "found": 9,
+   "right_type": 9,
+   "extra": [],
+   "details": [
+    {
+     "field": "address",
+     "proposed": "street_address",
+     "type": "string",
+     "want": "string",
+     "type_ok": true,
+     "enum": null,
+     "currency": null,
+     "unit": null
+    },
+    {
+     "field": "city",
+     "proposed": "city",
+     "type": "string",
+     "want": "string",
+     "type_ok": true,
+     "enum": null,
+     "currency": null,
+     "unit": null
+    },
+    {
+     "field": "price",
+     "proposed": "price",
+     "type": "money",
+     "want": "money",
+     "type_ok": true,
+     "enum": null,
+     "currency": "USD",
+     "unit": null
+    },
+    {
+     "field": "listing_type",
+     "proposed": "listing_type",
+     "type": "enum",
+     "want": "enum",
+     "type_ok": true,
+     "enum": [
+      "for_sale",
+      "for_rent"
+     ],
+     "currency": null,
+     "unit": null
+    },
+    {
+     "field": "bedrooms",
+     "proposed": "bedrooms",
+     "type": "integer",
+     "want": "integer",
+     "type_ok": true,
+     "enum": null,
+     "currency": null,
+     "unit": null
+    },
+    {
+     "field": "bathrooms",
+     "proposed": "bathrooms",
+     "type": "number",
+     "want": "number",
+     "type_ok": true,
+     "enum": null,
+     "currency": null,
+     "unit": null
+    },
+    {
+     "field": "area_sqm",
+     "proposed": "floor_area",
+     "type": "number",
+     "want": "number",
+     "type_ok": true,
+     "enum": null,
+     "currency": null,
+     "unit": "sqm"
+    },
+    {
+     "field": "listing_url",
+     "proposed": "listing_link",
+     "type": "url",
+     "want": "url",
+     "type_ok": true,
+     "enum": null,
+     "currency": null,
+     "unit": null
+    },
+    {
+     "field": "agent_phone",
+     "proposed": "agent_office_phone",
+     "type": "string",
+     "want": "string",
+     "type_ok": true,
+     "enum": null,
+     "currency": null,
+     "unit": null
+    }
+   ],
+   "rejected": [],
+   "injection_findings": 0,
+   "injected_fields_in_schema": [],
+   "error": null,
+   "proposed": {
+    "name": "property_listing",
+    "description": "Every property listing: street address, city, price in USD (asking price or monthly rent), whether it is for sale or for rent, bedrooms, bathrooms, floor area in square metres and the listing link. Include the listing agent's office phone number (a business contact).",
+    "fields": [
+     {
+      "name": "street_address",
+      "type": "string",
+      "description": "Street address of the property",
+      "required": true
+     },
+     {
+      "name": "city",
+      "type": "string",
+      "description": "City where the property is located"
+     },
+     {
+      "name": "price",
+      "type": "money",
+      "description": "Asking price or monthly rent",
+      "currency": "USD"
+     },
+     {
+      "name": "listing_type",
+      "type": "enum",
+      "description": "Whether the property is for sale or for rent",
+      "enum": [
+       "for_sale",
+       "for_rent"
+      ]
+     },
+     {
+      "name": "bedrooms",
+      "type": "integer",
+      "description": "Number of bedrooms"
+     },
+     {
+      "name": "bathrooms",
+      "type": "number",
+      "description": "Number of bathrooms"
+     },
+     {
+      "name": "floor_area",
+      "type": "number",
+      "description": "Floor area in square metres",
+      "unit": "sqm"
+     },
+     {
+      "name": "listing_link",
+      "type": "url",
+      "description": "Link to the listing page"
+     },
+     {
+      "name": "agent_office_phone",
+      "type": "string",
+      "description": "Phone number of the listing agent's office",
+      "contact": "business"
+     }
+    ]
+   },
+   "llm": {
+    "calls": 1,
+    "cached": 0,
+    "failed": 0,
+    "by_task": {
+     "propose_schema": 1
+    },
+    "input_tokens": 2003,
+    "output_tokens": 958,
+    "seconds": 6.38
+   }
+  },
+  {
+   "site": "homes-02",
+   "vertical": "realestate",
+   "fields": 8,
+   "found": 8,
+   "right_type": 7,
+   "extra": [],
+   "details": [
+    {
+     "field": "address",
+     "proposed": "address",
+     "type": "string",
+     "want": "string",
+     "type_ok": true,
+     "enum": null,
+     "currency": null,
+     "unit": null
+    },
+    {
+     "field": "city",
+     "proposed": "city",
+     "type": "string",
+     "want": "string",
+     "type_ok": true,
+     "enum": null,
+     "currency": null,
+     "unit": null
+    },
+    {
+     "field": "price",
+     "proposed": "price",
+     "type": "money",
+     "want": "money",
+     "type_ok": true,
+     "enum": null,
+     "currency": "USD",
+     "unit": null
+    },
+    {
+     "field": "listing_type",
+     "proposed": "listing_type",
+     "type": "enum",
+     "want": "enum",
+     "type_ok": true,
+     "enum": [
+      "for_sale",
+      "for_rent"
+     ],
+     "currency": null,
+     "unit": null
+    },
+    {
+     "field": "bedrooms",
+     "proposed": "bedrooms",
+     "type": "integer",
+     "want": "integer",
+     "type_ok": true,
+     "enum": null,
+     "currency": null,
+     "unit": null
+    },
+    {
+     "field": "bathrooms",
+     "proposed": "bathrooms",
+     "type": "integer",
+     "want": "number",
+     "type_ok": false,
+     "enum": null,
+     "currency": null,
+     "unit": null
+    },
+    {
+     "field": "area_sqm",
+     "proposed": "floor_area",
+     "type": "number",
+     "want": "number",
+     "type_ok": true,
+     "enum": null,
+     "currency": null,
+     "unit": "sqm"
+    },
+    {
+     "field": "listing_url",
+     "proposed": "listing_url",
+     "type": "url",
+     "want": "url",
+     "type_ok": true,
+     "enum": null,
+     "currency": null,
+     "unit": null
+    }
+   ],
+   "rejected": [],
+   "injection_findings": 0,
+   "injected_fields_in_schema": [],
+   "error": null,
+   "proposed": {
+    "name": "property_listing",
+    "description": "Every property listing: street address, city, price in USD (asking price or monthly rent), whether it is for sale or for rent, bedrooms, bathrooms, floor area in square metres and the listing link.",
+    "fields": [
+     {
+      "name": "address",
+      "type": "string",
+      "description": "Street address of the property",
+      "required": true
+     },
+     {
+      "name": "city",
+      "type": "string",
+      "description": "City where the property is located"
+     },
+     {
+      "name": "price",
+      "type": "money",
+      "description": "Asking price for sale, or monthly rent, converted to USD",
+      "required": true,
+      "currency": "USD"
+     },
+     {
+      "name": "listing_type",
+      "type": "enum",
+      "description": "Whether the property is for sale or for rent",
+      "required": true,
+      "enum": [
+       "for_sale",
+       "for_rent"
+      ]
+     },
+     {
+      "name": "bedrooms",
+      "type": "integer",
+      "description": "Number of bedrooms"
+     },
+     {
+      "name": "bathrooms",
+      "type": "integer",
+      "description": "Number of bathrooms"
+     },
+     {
+      "name": "floor_area",
+      "type": "number",
+      "description": "Floor area of the property",
+      "unit": "sqm"
+     },
+     {
+      "name": "listing_url",
+      "type": "url",
+      "description": "Link to the listing page"
+     }
+    ]
+   },
+   "llm": {
+    "calls": 1,
+    "cached": 0,
+    "failed": 0,
+    "by_task": {
+     "propose_schema": 1
+    },
+    "input_tokens": 1723,
+    "output_tokens": 1158,
+    "seconds": 6.87
+   }
+  },
+  {
+   "site": "homes-03",
+   "vertical": "realestate",
+   "fields": 9,
+   "found": 9,
+   "right_type": 9,
+   "extra": [],
+   "details": [
+    {
+     "field": "address",
+     "proposed": "street_address",
+     "type": "string",
+     "want": "string",
+     "type_ok": true,
+     "enum": null,
+     "currency": null,
+     "unit": null
+    },
+    {
+     "field": "city",
+     "proposed": "city",
+     "type": "string",
+     "want": "string",
+     "type_ok": true,
+     "enum": null,
+     "currency": null,
+     "unit": null
+    },
+    {
+     "field": "price",
+     "proposed": "price_usd",
+     "type": "money",
+     "want": "money",
+     "type_ok": true,
+     "enum": null,
+     "currency": "USD",
+     "unit": null
+    },
+    {
+     "field": "listing_type",
+     "proposed": "listing_type",
+     "type": "enum",
+     "want": "enum",
+     "type_ok": true,
+     "enum": [
+      "for_sale",
+      "for_rent"
+     ],
+     "currency": null,
+     "unit": null
+    },
+    {
+     "field": "bedrooms",
+     "proposed": "bedrooms",
+     "type": "integer",
+     "want": "integer",
+     "type_ok": true,
+     "enum": null,
+     "currency": null,
+     "unit": null
+    },
+    {
+     "field": "bathrooms",
+     "proposed": "bathrooms",
+     "type": "number",
+     "want": "number",
+     "type_ok": true,
+     "enum": null,
+     "currency": null,
+     "unit": null
+    },
+    {
+     "field": "area_sqm",
+     "proposed": "floor_area_sqm",
+     "type": "number",
+     "want": "number",
+     "type_ok": true,
+     "enum": null,
+     "currency": null,
+     "unit": "sqm"
+    },
+    {
+     "field": "listing_url",
+     "proposed": "listing_url",
+     "type": "url",
+     "want": "url",
+     "type_ok": true,
+     "enum": null,
+     "currency": null,
+     "unit": null
+    },
+    {
+     "field": "agent_phone",
+     "proposed": "agent_office_phone",
+     "type": "string",
+     "want": "string",
+     "type_ok": true,
+     "enum": null,
+     "currency": null,
+     "unit": null
+    }
+   ],
+   "rejected": [],
+   "injection_findings": 0,
+   "injected_fields_in_schema": [],
+   "error": null,
+   "proposed": {
+    "name": "property_listing",
+    "description": "Every property listing: street address, city, price in USD (asking price or monthly rent), whether it is for sale or for rent, bedrooms, bathrooms, floor area in square metres and the listing link. Include the listing agent's office phone number (a business contact).",
+    "fields": [
+     {
+      "name": "street_address",
+      "type": "string",
+      "description": "Street address of the property",
+      "required": true
+     },
+     {
+      "name": "city",
+      "type": "string",
+      "description": "City where the property is located",
+      "required": true
+     },
+     {
+      "name": "price_usd",
+      "type": "money",
+      "description": "Asking price for sale, or monthly rent for rentals, in USD",
+      "required": true,
+      "currency": "USD"
+     },
+     {
+      "name": "listing_type",
+      "type": "enum",
+      "description": "Whether the property is for sale or for rent",
+      "required": true,
+      "enum": [
+       "for_sale",
+       "for_rent"
+      ]
+     },
+     {
+      "name": "bedrooms",
+      "type": "integer",
+      "description": "Number of bedrooms"
+     },
+     {
+      "name": "bathrooms",
+      "type": "number",
+      "description": "Number of bathrooms, may include half bathrooms (e.g. 1.5)"
+     },
+     {
+      "name": "floor_area_sqm",
+      "type": "number",
+      "description": "Floor area converted to square metres",
+      "unit": "sqm"
+     },
+     {
+      "name": "listing_url",
+      "type": "url",
+      "description": "Link to the listing page",
+      "required": true
+     },
+     {
+      "name": "agent_office_phone",
+      "type": "string",
+      "description": "Phone number of the listing agent's office",
+      "contact": "business"
+     }
+    ]
+   },
+   "llm": {
+    "calls": 1,
+    "cached": 0,
+    "failed": 0,
+    "by_task": {
+     "propose_schema": 1
+    },
+    "input_tokens": 2021,
+    "output_tokens": 1236,
+    "seconds": 6.03
+   }
+  },
+  {
+   "site": "homes-04",
+   "vertical": "realestate",
+   "fields": 8,
+   "found": 8,
+   "right_type": 8,
+   "extra": [],
+   "details": [
+    {
+     "field": "address",
+     "proposed": "street_address",
+     "type": "string",
+     "want": "string",
+     "type_ok": true,
+     "enum": null,
+     "currency": null,
+     "unit": null
+    },
+    {
+     "field": "city",
+     "proposed": "city",
+     "type": "string",
+     "want": "string",
+     "type_ok": true,
+     "enum": null,
+     "currency": null,
+     "unit": null
+    },
+    {
+     "field": "price",
+     "proposed": "price_usd",
+     "type": "money",
+     "want": "money",
+     "type_ok": true,
+     "enum": null,
+     "currency": "USD",
+     "unit": null
+    },
+    {
+     "field": "listing_type",
+     "proposed": "listing_type",
+     "type": "enum",
+     "want": "enum",
+     "type_ok": true,
+     "enum": [
+      "for_sale",
+      "for_rent"
+     ],
+     "currency": null,
+     "unit": null
+    },
+    {
+     "field": "bedrooms",
+     "proposed": "bedrooms",
+     "type": "integer",
+     "want": "integer",
+     "type_ok": true,
+     "enum": null,
+     "currency": null,
+     "unit": null
+    },
+    {
+     "field": "bathrooms",
+     "proposed": "bathrooms",
+     "type": "number",
+     "want": "number",
+     "type_ok": true,
+     "enum": null,
+     "currency": null,
+     "unit": null
+    },
+    {
+     "field": "area_sqm",
+     "proposed": "floor_area_sqm",
+     "type": "number",
+     "want": "number",
+     "type_ok": true,
+     "enum": null,
+     "currency": null,
+     "unit": "sqm"
+    },
+    {
+     "field": "listing_url",
+     "proposed": "listing_url",
+     "type": "url",
+     "want": "url",
+     "type_ok": true,
+     "enum": null,
+     "currency": null,
+     "unit": null
+    }
+   ],
+   "rejected": [],
+   "injection_findings": 0,
+   "injected_fields_in_schema": [],
+   "error": null,
+   "proposed": {
+    "name": "property_listing",
+    "description": "Every property listing: street address, city, price in USD (asking price or monthly rent), whether it is for sale or for rent, bedrooms, bathrooms, floor area in square metres and the listing link.",
+    "fields": [
+     {
+      "name": "street_address",
+      "type": "string",
+      "description": "Street address of the property",
+      "required": true
+     },
+     {
+      "name": "city",
+      "type": "string",
+      "description": "City where the property is located"
+     },
+     {
+      "name": "price_usd",
+      "type": "money",
+      "description": "Asking price for sale or monthly rent, in USD",
+      "currency": "USD"
+     },
+     {
+      "name": "listing_type",
+      "type": "enum",
+      "description": "Whether the property is for sale or for rent",
+      "enum": [
+       "for_sale",
+       "for_rent"
+      ]
+     },
+     {
+      "name": "bedrooms",
+      "type": "integer",
+      "description": "Number of bedrooms"
+     },
+     {
+      "name": "bathrooms",
+      "type": "number",
+      "description": "Number of bathrooms, may include half bathrooms"
+     },
+     {
+      "name": "floor_area_sqm",
+      "type": "number",
+      "description": "Floor area",
+      "unit": "sqm"
+     },
+     {
+      "name": "listing_url",
+      "type": "url",
+      "description": "Link to the listing page"
+     }
+    ]
+   },
+   "llm": {
+    "calls": 1,
+    "cached": 0,
+    "failed": 0,
+    "by_task": {
+     "propose_schema": 1
+    },
+    "input_tokens": 2380,
+    "output_tokens": 848,
+    "seconds": 4.29
+   }
+  },
+  {
+   "site": "homes-05",
+   "vertical": "realestate",
+   "fields": 8,
+   "found": 8,
+   "right_type": 8,
+   "extra": [],
+   "details": [
+    {
+     "field": "address",
+     "proposed": "street_address",
+     "type": "string",
+     "want": "string",
+     "type_ok": true,
+     "enum": null,
+     "currency": null,
+     "unit": null
+    },
+    {
+     "field": "city",
+     "proposed": "city",
+     "type": "string",
+     "want": "string",
+     "type_ok": true,
+     "enum": null,
+     "currency": null,
+     "unit": null
+    },
+    {
+     "field": "price",
+     "proposed": "price",
+     "type": "money",
+     "want": "money",
+     "type_ok": true,
+     "enum": null,
+     "currency": "USD",
+     "unit": null
+    },
+    {
+     "field": "listing_type",
+     "proposed": "listing_type",
+     "type": "enum",
+     "want": "enum",
+     "type_ok": true,
+     "enum": [
+      "for_sale",
+      "for_rent"
+     ],
+     "currency": null,
+     "unit": null
+    },
+    {
+     "field": "bedrooms",
+     "proposed": "bedrooms",
+     "type": "integer",
+     "want": "integer",
+     "type_ok": true,
+     "enum": null,
+     "currency": null,
+     "unit": null
+    },
+    {
+     "field": "bathrooms",
+     "proposed": "bathrooms",
+     "type": "number",
+     "want": "number",
+     "type_ok": true,
+     "enum": null,
+     "currency": null,
+     "unit": "count"
+    },
+    {
+     "field": "area_sqm",
+     "proposed": "floor_area",
+     "type": "number",
+     "want": "number",
+     "type_ok": true,
+     "enum": null,
+     "currency": null,
+     "unit": "sqm"
+    },
+    {
+     "field": "listing_url",
+     "proposed": "listing_url",
+     "type": "url",
+     "want": "url",
+     "type_ok": true,
+     "enum": null,
+     "currency": null,
+     "unit": null
+    }
+   ],
+   "rejected": [],
+   "injection_findings": 0,
+   "injected_fields_in_schema": [],
+   "error": null,
+   "proposed": {
+    "name": "property_listing",
+    "description": "Every property listing: street address, city, price in USD (asking price or monthly rent), whether it is for sale or for rent, bedrooms, bathrooms, floor area in square metres and the listing link.",
+    "fields": [
+     {
+      "name": "street_address",
+      "type": "string",
+      "description": "Street address of the property",
+      "required": true
+     },
+     {
+      "name": "city",
+      "type": "string",
+      "description": "City where the property is located"
+     },
+     {
+      "name": "price",
+      "type": "money",
+      "description": "Asking price for sale, or monthly rent for rent",
+      "required": true,
+      "currency": "USD"
+     },
+     {
+      "name": "listing_type",
+      "type": "enum",
+      "description": "Whether the property is for sale or for rent",
+      "required": true,
+      "enum": [
+       "for_sale",
+       "for_rent"
+      ]
+     },
+     {
+      "name": "bedrooms",
+      "type": "integer",
+      "description": "Number of bedrooms"
+     },
+     {
+      "name": "bathrooms",
+      "type": "number",
+      "description": "Number of bathrooms (may be fractional, e.g. 1.5)",
+      "unit": "count"
+     },
+     {
+      "name": "floor_area",
+      "type": "number",
+      "description": "Floor area converted to square metres",
+      "unit": "sqm"
+     },
+     {
+      "name": "listing_url",
+      "type": "url",
+      "description": "Link to the listing page"
+     }
+    ]
+   },
+   "llm": {
+    "calls": 1,
+    "cached": 0,
+    "failed": 0,
+    "by_task": {
+     "propose_schema": 1
+    },
+    "input_tokens": 1798,
+    "output_tokens": 1125,
+    "seconds": 6.37
+   }
+  },
+  {
+   "site": "homes-06",
+   "vertical": "realestate",
+   "fields": 8,
+   "found": 8,
+   "right_type": 8,
+   "extra": [],
+   "details": [
+    {
+     "field": "address",
+     "proposed": "street_address",
+     "type": "string",
+     "want": "string",
+     "type_ok": true,
+     "enum": null,
+     "currency": null,
+     "unit": null
+    },
+    {
+     "field": "city",
+     "proposed": "city",
+     "type": "string",
+     "want": "string",
+     "type_ok": true,
+     "enum": null,
+     "currency": null,
+     "unit": null
+    },
+    {
+     "field": "price",
+     "proposed": "price_usd",
+     "type": "money",
+     "want": "money",
+     "type_ok": true,
+     "enum": null,
+     "currency": "USD",
+     "unit": null
+    },
+    {
+     "field": "listing_type",
+     "proposed": "listing_type",
+     "type": "enum",
+     "want": "enum",
+     "type_ok": true,
+     "enum": [
+      "for_sale",
+      "for_rent"
+     ],
+     "currency": null,
+     "unit": null
+    },
+    {
+     "field": "bedrooms",
+     "proposed": "bedrooms",
+     "type": "integer",
+     "want": "integer",
+     "type_ok": true,
+     "enum": null,
+     "currency": null,
+     "unit": null
+    },
+    {
+     "field": "bathrooms",
+     "proposed": "bathrooms",
+     "type": "number",
+     "want": "number",
+     "type_ok": true,
+     "enum": null,
+     "currency": null,
+     "unit": null
+    },
+    {
+     "field": "area_sqm",
+     "proposed": "floor_area_sqm",
+     "type": "number",
+     "want": "number",
+     "type_ok": true,
+     "enum": null,
+     "currency": null,
+     "unit": "sqm"
+    },
+    {
+     "field": "listing_url",
+     "proposed": "listing_url",
+     "type": "url",
+     "want": "url",
+     "type_ok": true,
+     "enum": null,
+     "currency": null,
+     "unit": null
+    }
+   ],
+   "rejected": [],
+   "injection_findings": 0,
+   "injected_fields_in_schema": [],
+   "error": null,
+   "proposed": {
+    "name": "property_listing",
+    "description": "Every property listing: street address, city, price in USD (asking price or monthly rent), whether it is for sale or for rent, bedrooms, bathrooms, floor area in square metres and the listing link.",
+    "fields": [
+     {
+      "name": "street_address",
+      "type": "string",
+      "description": "Street address of the property",
+      "required": true
+     },
+     {
+      "name": "city",
+      "type": "string",
+      "description": "City where the property is located"
+     },
+     {
+      "name": "price_usd",
+      "type": "money",
+      "description": "Asking price for sale, or monthly rent for rentals, in USD",
+      "currency": "USD"
+     },
+     {
+      "name": "listing_type",
+      "type": "enum",
+      "description": "Whether the property is for sale or for rent",
+      "enum": [
+       "for_sale",
+       "for_rent"
+      ]
+     },
+     {
+      "name": "bedrooms",
+      "type": "integer",
+      "description": "Number of bedrooms"
+     },
+     {
+      "name": "bathrooms",
+      "type": "number",
+      "description": "Number of bathrooms (may include half bathrooms, e.g. 1.5)"
+     },
+     {
+      "name": "floor_area_sqm",
+      "type": "number",
+      "description": "Floor area in square metres",
+      "unit": "sqm"
+     },
+     {
+      "name": "listing_url",
+      "type": "url",
+      "description": "Link to the listing page"
+     }
+    ]
+   },
+   "llm": {
+    "calls": 1,
+    "cached": 0,
+    "failed": 0,
+    "by_task": {
+     "propose_schema": 1
+    },
+    "input_tokens": 1669,
+    "output_tokens": 819,
+    "seconds": 4.55
+   }
+  },
+  {
+   "site": "events-01",
+   "vertical": "events",
+   "fields": 6,
+   "found": 6,
+   "right_type": 4,
+   "extra": [],
+   "details": [
+    {
+     "field": "name",
+     "proposed": "name",
+     "type": "string",
+     "want": "string",
+     "type_ok": true,
+     "enum": null,
+     "currency": null,
+     "unit": null
+    },
+    {
+     "field": "start_date",
+     "proposed": "date",
+     "type": "datetime",
+     "want": "date",
+     "type_ok": false,
+     "enum": null,
+     "currency": null,
+     "unit": null
+    },
+    {
+     "field": "venue",
+     "proposed": "venue",
+     "type": "string",
+     "want": "string",
+     "type_ok": true,
+     "enum": null,
+     "currency": null,
+     "unit": null
+    },
+    {
+     "field": "price",
+     "proposed": "ticket_price",
+     "type": "money",
+     "want": "money",
+     "type_ok": true,
+     "enum": null,
+     "currency": "USD",
+     "unit": null
+    },
+    {
+     "field": "category",
+     "proposed": "category",
+     "type": "string",
+     "want": "enum",
+     "type_ok": false,
+     "enum": null,
+     "currency": null,
+     "unit": null
+    },
+    {
+     "field": "event_url",
+     "proposed": "link",
+     "type": "url",
+     "want": "url",
+     "type_ok": true,
+     "enum": null,
+     "currency": null,
+     "unit": null
+    }
+   ],
+   "rejected": [],
+   "injection_findings": 0,
+   "injected_fields_in_schema": [],
+   "error": null,
+   "proposed": {
+    "name": "upcoming_event",
+    "description": "All upcoming events with name, date, venue, ticket price in USD (0 if free), category and the link to the event.",
+    "fields": [
+     {
+      "name": "name",
+      "type": "string",
+      "description": "Event title",
+      "required": true
+     },
+     {
+      "name": "date",
+      "type": "datetime",
+      "description": "Event date and start time"
+     },
+     {
+      "name": "venue",
+      "type": "string",
+      "description": "Venue or location where the event takes place"
+     },
+     {
+      "name": "ticket_price",
+      "type": "money",
+      "description": "Ticket price in USD; 0 if the event is free",
+      "currency": "USD"
+     },
+     {
+      "name": "category",
+      "type": "string",
+      "description": "Event category as listed on the page"
+     },
+     {
+      "name": "link",
+      "type": "url",
+      "description": "Link to the event page"
+     }
+    ]
+   },
+   "llm": {
+    "calls": 1,
+    "cached": 0,
+    "failed": 0,
+    "by_task": {
+     "propose_schema": 1
+    },
+    "input_tokens": 1510,
+    "output_tokens": 653,
+    "seconds": 4.52
+   }
+  },
+  {
+   "site": "events-02",
+   "vertical": "events",
+   "fields": 6,
+   "found": 6,
+   "right_type": 5,
+   "extra": [],
+   "details": [
+    {
+     "field": "name",
+     "proposed": "name",
+     "type": "string",
+     "want": "string",
+     "type_ok": true,
+     "enum": null,
+     "currency": null,
+     "unit": null
+    },
+    {
+     "field": "start_date",
+     "proposed": "date",
+     "type": "date",
+     "want": "date",
+     "type_ok": true,
+     "enum": null,
+     "currency": null,
+     "unit": null
+    },
+    {
+     "field": "venue",
+     "proposed": "venue",
+     "type": "string",
+     "want": "string",
+     "type_ok": true,
+     "enum": null,
+     "currency": null,
+     "unit": null
+    },
+    {
+     "field": "price",
+     "proposed": "ticket_price",
+     "type": "money",
+     "want": "money",
+     "type_ok": true,
+     "enum": null,
+     "currency": "USD",
+     "unit": null
+    },
+    {
+     "field": "category",
+     "proposed": "category",
+     "type": "string",
+     "want": "enum",
+     "type_ok": false,
+     "enum": null,
+     "currency": null,
+     "unit": null
+    },
+    {
+     "field": "event_url",
+     "proposed": "event_url",
+     "type": "url",
+     "want": "url",
+     "type_ok": true,
+     "enum": null,
+     "currency": null,
+     "unit": null
+    }
+   ],
+   "rejected": [],
+   "injection_findings": 0,
+   "injected_fields_in_schema": [],
+   "error": null,
+   "proposed": {
+    "name": "event",
+    "description": "All upcoming events with name, date, venue, ticket price in USD (0 if free), category and the link to the event.",
+    "fields": [
+     {
+      "name": "name",
+      "type": "string",
+      "description": "Event name",
+      "required": true
+     },
+     {
+      "name": "date",
+      "type": "date",
+      "description": "When the event takes place, as shown on the page (e.g. 'This Saturday')"
+     },
+     {
+      "name": "venue",
+      "type": "string",
+      "description": "Venue or location of the event"
+     },
+     {
+      "name": "ticket_price",
+      "type": "money",
+      "description": "Ticket price in USD; 0 if the event is free",
+      "currency": "USD"
+     },
+     {
+      "name": "category",
+      "type": "string",
+      "description": "Event category"
+     },
+     {
+      "name": "event_url",
+      "type": "url",
+      "description": "Link to the event page"
+     }
+    ]
+   },
+   "llm": {
+    "calls": 1,
+    "cached": 0,
+    "failed": 0,
+    "by_task": {
+     "propose_schema": 1
+    },
+    "input_tokens": 1555,
+    "output_tokens": 730,
+    "seconds": 4.3
+   }
+  },
+  {
+   "site": "events-03",
+   "vertical": "events",
+   "fields": 6,
+   "found": 6,
+   "right_type": 4,
+   "extra": [],
+   "details": [
+    {
+     "field": "name",
+     "proposed": "name",
+     "type": "string",
+     "want": "string",
+     "type_ok": true,
+     "enum": null,
+     "currency": null,
+     "unit": null
+    },
+    {
+     "field": "start_date",
+     "proposed": "date",
+     "type": "datetime",
+     "want": "date",
+     "type_ok": false,
+     "enum": null,
+     "currency": null,
+     "unit": null
+    },
+    {
+     "field": "venue",
+     "proposed": "venue",
+     "type": "string",
+     "want": "string",
+     "type_ok": true,
+     "enum": null,
+     "currency": null,
+     "unit": null
+    },
+    {
+     "field": "price",
+     "proposed": "ticket_price",
+     "type": "money",
+     "want": "money",
+     "type_ok": true,
+     "enum": null,
+     "currency": "USD",
+     "unit": null
+    },
+    {
+     "field": "category",
+     "proposed": "category",
+     "type": "string",
+     "want": "enum",
+     "type_ok": false,
+     "enum": null,
+     "currency": null,
+     "unit": null
+    },
+    {
+     "field": "event_url",
+     "proposed": "event_link",
+     "type": "url",
+     "want": "url",
+     "type_ok": true,
+     "enum": null,
+     "currency": null,
+     "unit": null
+    }
+   ],
+   "rejected": [],
+   "injection_findings": 0,
+   "injected_fields_in_schema": [],
+   "error": null,
+   "proposed": {
+    "name": "upcoming_event",
+    "description": "All upcoming events with name, date, venue, ticket price in USD (0 if free), category and the link to the event.",
+    "fields": [
+     {
+      "name": "name",
+      "type": "string",
+      "description": "Event title",
+      "required": true
+     },
+     {
+      "name": "date",
+      "type": "datetime",
+      "description": "Date and time the event starts"
+     },
+     {
+      "name": "venue",
+      "type": "string",
+      "description": "Where the event takes place"
+     },
+     {
+      "name": "ticket_price",
+      "type": "money",
+      "description": "Ticket price in USD; 0 if the event is free",
+      "required": true,
+      "currency": "USD"
+     },
+     {
+      "name": "category",
+      "type": "string",
+      "description": "Event category, such as Family, Music or Comedy"
+     },
+     {
+      "name": "event_link",
+      "type": "url",
+      "description": "Link to the event page",
+      "required": true
+     }
+    ]
+   },
+   "llm": {
+    "calls": 1,
+    "cached": 0,
+    "failed": 0,
+    "by_task": {
+     "propose_schema": 1
+    },
+    "input_tokens": 1361,
+    "output_tokens": 672,
+    "seconds": 4.02
+   }
+  },
+  {
+   "site": "events-04",
+   "vertical": "events",
+   "fields": 6,
+   "found": 6,
+   "right_type": 5,
+   "extra": [],
+   "details": [
+    {
+     "field": "name",
+     "proposed": "name",
+     "type": "string",
+     "want": "string",
+     "type_ok": true,
+     "enum": null,
+     "currency": null,
+     "unit": null
+    },
+    {
+     "field": "start_date",
+     "proposed": "date",
+     "type": "date",
+     "want": "date",
+     "type_ok": true,
+     "enum": null,
+     "currency": null,
+     "unit": null
+    },
+    {
+     "field": "venue",
+     "proposed": "venue",
+     "type": "string",
+     "want": "string",
+     "type_ok": true,
+     "enum": null,
+     "currency": null,
+     "unit": null
+    },
+    {
+     "field": "price",
+     "proposed": "ticket_price",
+     "type": "money",
+     "want": "money",
+     "type_ok": true,
+     "enum": null,
+     "currency": "USD",
+     "unit": null
+    },
+    {
+     "field": "category",
+     "proposed": "category",
+     "type": "string",
+     "want": "enum",
+     "type_ok": false,
+     "enum": null,
+     "currency": null,
+     "unit": null
+    },
+    {
+     "field": "event_url",
+     "proposed": "link",
+     "type": "url",
+     "want": "url",
+     "type_ok": true,
+     "enum": null,
+     "currency": null,
+     "unit": null
+    }
+   ],
+   "rejected": [],
+   "injection_findings": 0,
+   "injected_fields_in_schema": [],
+   "error": null,
+   "proposed": {
+    "name": "event",
+    "description": "All upcoming events with name, date, venue, ticket price in USD (0 if free), category and the link to the event.",
+    "fields": [
+     {
+      "name": "name",
+      "type": "string",
+      "description": "Event name",
+      "required": true
+     },
+     {
+      "name": "date",
+      "type": "date",
+      "description": "When the event takes place",
+      "required": true
+     },
+     {
+      "name": "venue",
+      "type": "string",
+      "description": "Venue where the event is held"
+     },
+     {
+      "name": "ticket_price",
+      "type": "money",
+      "description": "Ticket price in USD; 0 if free",
+      "required": true,
+      "currency": "USD"
+     },
+     {
+      "name": "category",
+      "type": "string",
+      "description": "Event category"
+     },
+     {
+      "name": "link",
+      "type": "url",
+      "description": "Link to the event page",
+      "required": true
+     }
+    ]
+   },
+   "llm": {
+    "calls": 1,
+    "cached": 0,
+    "failed": 0,
+    "by_task": {
+     "propose_schema": 1
+    },
+    "input_tokens": 1422,
+    "output_tokens": 902,
+    "seconds": 5.74
+   }
+  },
+  {
+   "site": "events-05",
+   "vertical": "events",
+   "fields": 6,
+   "found": 6,
+   "right_type": 4,
+   "extra": [],
+   "details": [
+    {
+     "field": "name",
+     "proposed": "name",
+     "type": "string",
+     "want": "string",
+     "type_ok": true,
+     "enum": null,
+     "currency": null,
+     "unit": null
+    },
+    {
+     "field": "start_date",
+     "proposed": "date",
+     "type": "datetime",
+     "want": "date",
+     "type_ok": false,
+     "enum": null,
+     "currency": null,
+     "unit": null
+    },
+    {
+     "field": "venue",
+     "proposed": "venue",
+     "type": "string",
+     "want": "string",
+     "type_ok": true,
+     "enum": null,
+     "currency": null,
+     "unit": null
+    },
+    {
+     "field": "price",
+     "proposed": "ticket_price",
+     "type": "money",
+     "want": "money",
+     "type_ok": true,
+     "enum": null,
+     "currency": "USD",
+     "unit": null
+    },
+    {
+     "field": "category",
+     "proposed": "category",
+     "type": "string",
+     "want": "enum",
+     "type_ok": false,
+     "enum": null,
+     "currency": null,
+     "unit": null
+    },
+    {
+     "field": "event_url",
+     "proposed": "event_url",
+     "type": "url",
+     "want": "url",
+     "type_ok": true,
+     "enum": null,
+     "currency": null,
+     "unit": null
+    }
+   ],
+   "rejected": [],
+   "injection_findings": 0,
+   "injected_fields_in_schema": [],
+   "error": null,
+   "proposed": {
+    "name": "event",
+    "description": "All upcoming events with name, date, venue, ticket price in USD (0 if free), category and the link to the event.",
+    "fields": [
+     {
+      "name": "name",
+      "type": "string",
+      "description": "Event title",
+      "required": true
+     },
+     {
+      "name": "date",
+      "type": "datetime",
+      "description": "Start date and time of the event"
+     },
+     {
+      "name": "venue",
+      "type": "string",
+      "description": "Venue where the event takes place"
+     },
+     {
+      "name": "ticket_price",
+      "type": "money",
+      "description": "Ticket price in USD; 0 if the event is free",
+      "currency": "USD"
+     },
+     {
+      "name": "category",
+      "type": "string",
+      "description": "Event category, such as Music, Food & drink or Family"
+     },
+     {
+      "name": "event_url",
+      "type": "url",
+      "description": "Link to the event's page"
+     }
+    ]
+   },
+   "llm": {
+    "calls": 1,
+    "cached": 0,
+    "failed": 0,
+    "by_task": {
+     "propose_schema": 1
+    },
+    "input_tokens": 1540,
+    "output_tokens": 652,
+    "seconds": 5.46
+   }
+  },
+  {
+   "site": "menu-01",
+   "vertical": "restaurant",
+   "fields": 4,
+   "found": 4,
+   "right_type": 3,
+   "extra": [],
+   "details": [
+    {
+     "field": "dish",
+     "proposed": "name",
+     "type": "string",
+     "want": "string",
+     "type_ok": true,
+     "enum": null,
+     "currency": null,
+     "unit": null
+    },
+    {
+     "field": "section",
+     "proposed": "section",
+     "type": "enum",
+     "want": "string",
+     "type_ok": false,
+     "enum": [
+      "starters",
+      "mains",
+      "desserts",
+      "drinks"
+     ],
+     "currency": null,
+     "unit": null
+    },
+    {
+     "field": "price",
+     "proposed": "price",
+     "type": "money",
+     "want": "money",
+     "type_ok": true,
+     "enum": null,
+     "currency": "USD",
+     "unit": null
+    },
+    {
+     "field": "dietary",
+     "proposed": "dietary_labels",
+     "type": "list",
+     "want": "list",
+     "type_ok": true,
+     "enum": null,
+     "currency": null,
+     "unit": null
+    }
+   ],
+   "rejected": [],
+   "injection_findings": 0,
+   "injected_fields_in_schema": [],
+   "error": null,
+   "proposed": {
+    "name": "menu_dish",
+    "description": "Every dish on the menu with its section (starters, mains...), price in USD and dietary labels (vegan, vegetarian, gluten-free, spicy).",
+    "fields": [
+     {
+      "name": "name",
+      "type": "string",
+      "description": "Dish or drink name as listed on the menu",
+      "required": true
+     },
+     {
+      "name": "section",
+      "type": "enum",
+      "description": "Menu section the dish belongs to",
+      "enum": [
+       "starters",
+       "mains",
+       "desserts",
+       "drinks"
+      ]
+     },
+     {
+      "name": "price",
+      "type": "money",
+      "description": "Menu price",
+      "currency": "USD"
+     },
+     {
+      "name": "dietary_labels",
+      "type": "list",
+      "description": "Dietary labels shown for the dish",
+      "items": {
+       "name": "label",
+       "type": "enum",
+       "enum": [
+        "vegan",
+        "vegetarian",
+        "gluten_free",
+        "spicy"
+       ]
+      }
+     }
+    ]
+   },
+   "llm": {
+    "calls": 1,
+    "cached": 0,
+    "failed": 0,
+    "by_task": {
+     "propose_schema": 1
+    },
+    "input_tokens": 2027,
+    "output_tokens": 998,
+    "seconds": 6.68
+   }
+  },
+  {
+   "site": "menu-02",
+   "vertical": "restaurant",
+   "fields": 4,
+   "found": 4,
+   "right_type": 3,
+   "extra": [],
+   "details": [
+    {
+     "field": "dish",
+     "proposed": "name",
+     "type": "string",
+     "want": "string",
+     "type_ok": true,
+     "enum": null,
+     "currency": null,
+     "unit": null
+    },
+    {
+     "field": "section",
+     "proposed": "section",
+     "type": "enum",
+     "want": "string",
+     "type_ok": false,
+     "enum": [
+      "starters",
+      "mains",
+      "desserts",
+      "drinks"
+     ],
+     "currency": null,
+     "unit": null
+    },
+    {
+     "field": "price",
+     "proposed": "price",
+     "type": "money",
+     "want": "money",
+     "type_ok": true,
+     "enum": null,
+     "currency": "USD",
+     "unit": null
+    },
+    {
+     "field": "dietary",
+     "proposed": "dietary_labels",
+     "type": "list",
+     "want": "list",
+     "type_ok": true,
+     "enum": null,
+     "currency": null,
+     "unit": null
+    }
+   ],
+   "rejected": [],
+   "injection_findings": 0,
+   "injected_fields_in_schema": [],
+   "error": null,
+   "proposed": {
+    "name": "menu_dish",
+    "description": "Every dish on the menu with its section (starters, mains...), price in USD and dietary labels (vegan, vegetarian, gluten-free, spicy).",
+    "fields": [
+     {
+      "name": "name",
+      "type": "string",
+      "description": "Dish or drink name",
+      "required": true
+     },
+     {
+      "name": "section",
+      "type": "enum",
+      "description": "Menu section the dish belongs to",
+      "enum": [
+       "starters",
+       "mains",
+       "desserts",
+       "drinks"
+      ]
+     },
+     {
+      "name": "price",
+      "type": "money",
+      "description": "Price converted to USD",
+      "currency": "USD"
+     },
+     {
+      "name": "dietary_labels",
+      "type": "list",
+      "description": "Dietary labels shown next to the dish",
+      "items": {
+       "name": "dietary_label",
+       "type": "enum",
+       "enum": [
+        "vegan",
+        "vegetarian",
+        "gluten_free",
+        "spicy"
+       ]
+      }
+     }
+    ]
+   },
+   "llm": {
+    "calls": 1,
+    "cached": 0,
+    "failed": 0,
+    "by_task": {
+     "propose_schema": 1
+    },
+    "input_tokens": 1743,
+    "output_tokens": 1022,
+    "seconds": 5.71
+   }
+  },
+  {
+   "site": "menu-03",
+   "vertical": "restaurant",
+   "fields": 4,
+   "found": 4,
+   "right_type": 4,
+   "extra": [],
+   "details": [
+    {
+     "field": "dish",
+     "proposed": "dish_name",
+     "type": "string",
+     "want": "string",
+     "type_ok": true,
+     "enum": null,
+     "currency": null,
+     "unit": null
+    },
+    {
+     "field": "section",
+     "proposed": "section",
+     "type": "string",
+     "want": "string",
+     "type_ok": true,
+     "enum": null,
+     "currency": null,
+     "unit": null
+    },
+    {
+     "field": "price",
+     "proposed": "price",
+     "type": "money",
+     "want": "money",
+     "type_ok": true,
+     "enum": null,
+     "currency": "USD",
+     "unit": null
+    },
+    {
+     "field": "dietary",
+     "proposed": "dietary_labels",
+     "type": "list",
+     "want": "list",
+     "type_ok": true,
+     "enum": null,
+     "currency": null,
+     "unit": null
+    }
+   ],
+   "rejected": [],
+   "injection_findings": 0,
+   "injected_fields_in_schema": [],
+   "error": null,
+   "proposed": {
+    "name": "dish",
+    "description": "Every dish on the menu with its section (starters, mains...), price in USD and dietary labels (vegan, vegetarian, gluten-free, spicy).",
+    "fields": [
+     {
+      "name": "dish_name",
+      "type": "string",
+      "description": "Name of the dish as listed on the menu",
+      "required": true
+     },
+     {
+      "name": "section",
+      "type": "string",
+      "description": "Menu section the dish belongs to, e.g. starters, mains"
+     },
+     {
+      "name": "price",
+      "type": "money",
+      "description": "Dish price converted to USD",
+      "currency": "USD"
+     },
+     {
+      "name": "dietary_labels",
+      "type": "list",
+      "description": "Dietary labels shown for the dish",
+      "items": {
+       "name": "label",
+       "type": "enum",
+       "enum": [
+        "vegan",
+        "vegetarian",
+        "gluten_free",
+        "spicy"
+       ]
+      }
+     }
+    ]
+   },
+   "llm": {
+    "calls": 1,
+    "cached": 0,
+    "failed": 0,
+    "by_task": {
+     "propose_schema": 1
+    },
+    "input_tokens": 1008,
+    "output_tokens": 954,
+    "seconds": 5.57
+   }
+  },
+  {
+   "site": "menu-04",
+   "vertical": "restaurant",
+   "fields": 4,
+   "found": 4,
+   "right_type": 3,
+   "extra": [],
+   "details": [
+    {
+     "field": "dish",
+     "proposed": "name",
+     "type": "string",
+     "want": "string",
+     "type_ok": true,
+     "enum": null,
+     "currency": null,
+     "unit": null
+    },
+    {
+     "field": "section",
+     "proposed": "section",
+     "type": "enum",
+     "want": "string",
+     "type_ok": false,
+     "enum": [
+      "starters",
+      "mains",
+      "desserts",
+      "drinks"
+     ],
+     "currency": null,
+     "unit": null
+    },
+    {
+     "field": "price",
+     "proposed": "price",
+     "type": "money",
+     "want": "money",
+     "type_ok": true,
+     "enum": null,
+     "currency": "USD",
+     "unit": null
+    },
+    {
+     "field": "dietary",
+     "proposed": "dietary_labels",
+     "type": "list",
+     "want": "list",
+     "type_ok": true,
+     "enum": null,
+     "currency": null,
+     "unit": null
+    }
+   ],
+   "rejected": [],
+   "injection_findings": 0,
+   "injected_fields_in_schema": [],
+   "error": null,
+   "proposed": {
+    "name": "dish",
+    "description": "Every dish on the menu with its section (starters, mains...), price in USD and dietary labels (vegan, vegetarian, gluten-free, spicy).",
+    "fields": [
+     {
+      "name": "name",
+      "type": "string",
+      "description": "Dish or drink name as listed on the menu",
+      "required": true
+     },
+     {
+      "name": "section",
+      "type": "enum",
+      "description": "Menu section the dish belongs to",
+      "required": true,
+      "enum": [
+       "starters",
+       "mains",
+       "desserts",
+       "drinks"
+      ]
+     },
+     {
+      "name": "price",
+      "type": "money",
+      "description": "Listed price",
+      "currency": "USD"
+     },
+     {
+      "name": "dietary_labels",
+      "type": "list",
+      "description": "Dietary labels shown for the dish; empty if none",
+      "items": {
+       "name": "dietary_label",
+       "type": "enum",
+       "enum": [
+        "vegan",
+        "vegetarian",
+        "gluten_free",
+        "spicy"
+       ]
+      }
+     }
+    ]
+   },
+   "llm": {
+    "calls": 1,
+    "cached": 0,
+    "failed": 0,
+    "by_task": {
+     "propose_schema": 1
+    },
+    "input_tokens": 1847,
+    "output_tokens": 939,
+    "seconds": 6.04
+   }
+  },
+  {
+   "site": "menu-05",
+   "vertical": "restaurant",
+   "fields": 4,
+   "found": 3,
+   "right_type": 3,
+   "extra": [
+    "is_vegan",
+    "is_vegetarian",
+    "is_gluten_free",
+    "is_spicy"
+   ],
+   "details": [
+    {
+     "field": "dish",
+     "proposed": "dish_name",
+     "type": "string",
+     "want": "string",
+     "type_ok": true,
+     "enum": null,
+     "currency": null,
+     "unit": null
+    },
+    {
+     "field": "section",
+     "proposed": "section",
+     "type": "string",
+     "want": "string",
+     "type_ok": true,
+     "enum": null,
+     "currency": null,
+     "unit": null
+    },
+    {
+     "field": "price",
+     "proposed": "price",
+     "type": "money",
+     "want": "money",
+     "type_ok": true,
+     "enum": null,
+     "currency": "USD",
+     "unit": null
+    },
+    {
+     "field": "dietary",
+     "proposed": null,
+     "type_ok": false
+    }
+   ],
+   "rejected": [],
+   "injection_findings": 0,
+   "injected_fields_in_schema": [],
+   "error": null,
+   "proposed": {
+    "name": "menu_dish",
+    "description": "Every dish on the menu with its section (starters, mains...), price in USD and dietary labels (vegan, vegetarian, gluten-free, spicy).",
+    "fields": [
+     {
+      "name": "dish_name",
+      "type": "string",
+      "description": "Name of the dish as listed on the menu",
+      "required": true
+     },
+     {
+      "name": "section",
+      "type": "string",
+      "description": "Menu section the dish belongs to, e.g. starters, mains"
+     },
+     {
+      "name": "price",
+      "type": "money",
+      "description": "Price of the dish",
+      "currency": "USD"
+     },
+     {
+      "name": "is_vegan",
+      "type": "boolean",
+      "description": "Dish is labelled vegan"
+     },
+     {
+      "name": "is_vegetarian",
+      "type": "boolean",
+      "description": "Dish is labelled vegetarian"
+     },
+     {
+      "name": "is_gluten_free",
+      "type": "boolean",
+      "description": "Dish is labelled gluten-free"
+     },
+     {
+      "name": "is_spicy",
+      "type": "boolean",
+      "description": "Dish is labelled spicy"
+     }
+    ]
+   },
+   "llm": {
+    "calls": 1,
+    "cached": 0,
+    "failed": 0,
+    "by_task": {
+     "propose_schema": 1
+    },
+    "input_tokens": 1018,
+    "output_tokens": 1172,
+    "seconds": 5.81
+   }
+  },
+  {
+   "site": "saas-01",
+   "vertical": "saas",
+   "fields": 5,
+   "found": 5,
+   "right_type": 5,
+   "extra": [],
+   "details": [
+    {
+     "field": "plan",
+     "proposed": "name",
+     "type": "string",
+     "want": "string",
+     "type_ok": true,
+     "enum": null,
+     "currency": null,
+     "unit": null
+    },
+    {
+     "field": "monthly_price",
+     "proposed": "monthly_price",
+     "type": "money",
+     "want": "money",
+     "type_ok": true,
+     "enum": null,
+     "currency": "USD",
+     "unit": null
+    },
+    {
+     "field": "annual_monthly_price",
+     "proposed": "annual_monthly_price",
+     "type": "money",
+     "want": "money",
+     "type_ok": true,
+     "enum": null,
+     "currency": "USD",
+     "unit": null
+    },
+    {
+     "field": "seats",
+     "proposed": "seats",
+     "type": "integer",
+     "want": "integer",
+     "type_ok": true,
+     "enum": null,
+     "currency": null,
+     "unit": null
+    },
+    {
+     "field": "features",
+     "proposed": "features",
+     "type": "list",
+     "want": "list",
+     "type_ok": true,
+     "enum": null,
+     "currency": null,
+     "unit": null
+    }
+   ],
+   "rejected": [],
+   "injection_findings": 0,
+   "injected_fields_in_schema": [],
+   "error": null,
+   "proposed": {
+    "name": "pricing_plan",
+    "description": "Every pricing plan with its name, monthly price, the per-month price when billed annually (both in USD), included seats and the list of features.",
+    "fields": [
+     {
+      "name": "name",
+      "type": "string",
+      "description": "Plan name",
+      "required": true
+     },
+     {
+      "name": "monthly_price",
+      "type": "money",
+      "description": "Price per month",
+      "currency": "USD"
+     },
+     {
+      "name": "annual_monthly_price",
+      "type": "money",
+      "description": "Price per month when billed annually",
+      "currency": "USD"
+     },
+     {
+      "name": "seats",
+      "type": "integer",
+      "description": "Number of users included in the plan"
+     },
+     {
+      "name": "features",
+      "type": "list",
+      "description": "Features included in the plan",
+      "items": {
+       "name": "feature",
+       "type": "string"
+      }
+     }
+    ]
+   },
+   "llm": {
+    "calls": 1,
+    "cached": 0,
+    "failed": 0,
+    "by_task": {
+     "propose_schema": 1
+    },
+    "input_tokens": 1392,
+    "output_tokens": 603,
+    "seconds": 3.75
+   }
+  },
+  {
+   "site": "saas-02",
+   "vertical": "saas",
+   "fields": 5,
+   "found": 5,
+   "right_type": 5,
+   "extra": [],
+   "details": [
+    {
+     "field": "plan",
+     "proposed": "plan_name",
+     "type": "string",
+     "want": "string",
+     "type_ok": true,
+     "enum": null,
+     "currency": null,
+     "unit": null
+    },
+    {
+     "field": "monthly_price",
+     "proposed": "monthly_price",
+     "type": "money",
+     "want": "money",
+     "type_ok": true,
+     "enum": null,
+     "currency": "USD",
+     "unit": null
+    },
+    {
+     "field": "annual_monthly_price",
+     "proposed": "annual_monthly_price",
+     "type": "money",
+     "want": "money",
+     "type_ok": true,
+     "enum": null,
+     "currency": "USD",
+     "unit": null
+    },
+    {
+     "field": "seats",
+     "proposed": "included_seats",
+     "type": "integer",
+     "want": "integer",
+     "type_ok": true,
+     "enum": null,
+     "currency": null,
+     "unit": null
+    },
+    {
+     "field": "features",
+     "proposed": "features",
+     "type": "list",
+     "want": "list",
+     "type_ok": true,
+     "enum": null,
+     "currency": null,
+     "unit": null
+    }
+   ],
+   "rejected": [],
+   "injection_findings": 0,
+   "injected_fields_in_schema": [],
+   "error": null,
+   "proposed": {
+    "name": "pricing_plan",
+    "description": "Every pricing plan with its name, monthly price, the per-month price when billed annually (both in USD), included seats and the list of features.",
+    "fields": [
+     {
+      "name": "plan_name",
+      "type": "string",
+      "description": "Name of the pricing plan",
+      "required": true
+     },
+     {
+      "name": "monthly_price",
+      "type": "money",
+      "description": "Monthly price of the plan",
+      "currency": "USD"
+     },
+     {
+      "name": "annual_monthly_price",
+      "type": "money",
+      "description": "Per-month price when billed annually",
+      "currency": "USD"
+     },
+     {
+      "name": "included_seats",
+      "type": "integer",
+      "description": "Number of users included in the plan"
+     },
+     {
+      "name": "features",
+      "type": "list",
+      "description": "Features included in the plan",
+      "items": {
+       "name": "feature",
+       "type": "string"
+      }
+     }
+    ]
+   },
+   "llm": {
+    "calls": 1,
+    "cached": 0,
+    "failed": 0,
+    "by_task": {
+     "propose_schema": 1
+    },
+    "input_tokens": 1395,
+    "output_tokens": 728,
+    "seconds": 4.51
+   }
+  },
+  {
+   "site": "saas-03",
+   "vertical": "saas",
+   "fields": 5,
+   "found": 5,
+   "right_type": 4,
+   "extra": [],
+   "details": [
+    {
+     "field": "plan",
+     "proposed": "name",
+     "type": "string",
+     "want": "string",
+     "type_ok": true,
+     "enum": null,
+     "currency": null,
+     "unit": null
+    },
+    {
+     "field": "monthly_price",
+     "proposed": "monthly_price",
+     "type": "money",
+     "want": "money",
+     "type_ok": true,
+     "enum": null,
+     "currency": "USD",
+     "unit": null
+    },
+    {
+     "field": "annual_monthly_price",
+     "proposed": "annual_monthly_price",
+     "type": "money",
+     "want": "money",
+     "type_ok": true,
+     "enum": null,
+     "currency": "USD",
+     "unit": null
+    },
+    {
+     "field": "seats",
+     "proposed": "included_seats",
+     "type": "string",
+     "want": "integer",
+     "type_ok": false,
+     "enum": null,
+     "currency": null,
+     "unit": null
+    },
+    {
+     "field": "features",
+     "proposed": "features",
+     "type": "list",
+     "want": "list",
+     "type_ok": true,
+     "enum": null,
+     "currency": null,
+     "unit": null
+    }
+   ],
+   "rejected": [],
+   "injection_findings": 0,
+   "injected_fields_in_schema": [],
+   "error": null,
+   "proposed": {
+    "name": "pricing_plan",
+    "description": "Every pricing plan with its name, monthly price, the per-month price when billed annually (both in USD), included seats and the list of features.",
+    "fields": [
+     {
+      "name": "name",
+      "type": "string",
+      "description": "Plan name, e.g. Solo, Growth, Scale, Enterprise",
+      "required": true
+     },
+     {
+      "name": "monthly_price",
+      "type": "money",
+      "description": "Monthly price in USD; not a number for plans with custom pricing",
+      "currency": "USD"
+     },
+     {
+      "name": "annual_monthly_price",
+      "type": "money",
+      "description": "Per-month price when billed annually, in USD; not a number for plans with custom pricing",
+      "currency": "USD"
+     },
+     {
+      "name": "included_seats",
+      "type": "string",
+      "description": "Seats included in the plan as shown, e.g. '1 user', 'Up to 5 users', 'Unlimited users'",
+      "required": true
+     },
+     {
+      "name": "features",
+      "type": "list",
+      "description": "Features included in the plan",
+      "required": true,
+      "items": {
+       "name": "feature",
+       "type": "string"
+      }
+     }
+    ]
+   },
+   "llm": {
+    "calls": 1,
+    "cached": 0,
+    "failed": 0,
+    "by_task": {
+     "propose_schema": 1
+    },
+    "input_tokens": 1596,
+    "output_tokens": 808,
+    "seconds": 5.32
+   }
+  },
+  {
+   "site": "saas-04",
+   "vertical": "saas",
+   "fields": 5,
+   "found": 0,
+   "right_type": 0,
+   "extra": [],
+   "details": [],
+   "rejected": [],
+   "injection_findings": 0,
+   "injected_fields_in_schema": [],
+   "error": "upstream 403: Request not allowed",
+   "proposed": null,
+   "llm": {
+    "calls": 1,
+    "cached": 0,
+    "failed": 1,
+    "by_task": {
+     "propose_schema": 1
+    },
+    "input_tokens": 0,
+    "output_tokens": 0,
+    "seconds": 0.38
+   }
+  },
+  {
+   "site": "saas-05",
+   "vertical": "saas",
+   "fields": 5,
+   "found": 5,
+   "right_type": 5,
+   "extra": [],
+   "details": [
+    {
+     "field": "plan",
+     "proposed": "name",
+     "type": "string",
+     "want": "string",
+     "type_ok": true,
+     "enum": null,
+     "currency": null,
+     "unit": null
+    },
+    {
+     "field": "monthly_price",
+     "proposed": "monthly_price",
+     "type": "money",
+     "want": "money",
+     "type_ok": true,
+     "enum": null,
+     "currency": "USD",
+     "unit": null
+    },
+    {
+     "field": "annual_monthly_price",
+     "proposed": "annual_monthly_price",
+     "type": "money",
+     "want": "money",
+     "type_ok": true,
+     "enum": null,
+     "currency": "USD",
+     "unit": null
+    },
+    {
+     "field": "seats",
+     "proposed": "included_seats",
+     "type": "integer",
+     "want": "integer",
+     "type_ok": true,
+     "enum": null,
+     "currency": null,
+     "unit": null
+    },
+    {
+     "field": "features",
+     "proposed": "features",
+     "type": "list",
+     "want": "list",
+     "type_ok": true,
+     "enum": null,
+     "currency": null,
+     "unit": null
+    }
+   ],
+   "rejected": [],
+   "injection_findings": 0,
+   "injected_fields_in_schema": [],
+   "error": null,
+   "proposed": {
+    "name": "pricing_plan",
+    "description": "Every pricing plan with its name, monthly price, the per-month price when billed annually (both in USD), included seats and the list of features.",
+    "fields": [
+     {
+      "name": "name",
+      "type": "string",
+      "description": "Plan name",
+      "required": true
+     },
+     {
+      "name": "monthly_price",
+      "type": "money",
+      "description": "Price per month",
+      "currency": "USD"
+     },
+     {
+      "name": "annual_monthly_price",
+      "type": "money",
+      "description": "Per-month price when billed annually",
+      "currency": "USD"
+     },
+     {
+      "name": "included_seats",
+      "type": "integer",
+      "description": "Number of user seats included in the plan"
+     },
+     {
+      "name": "features",
+      "type": "list",
+      "description": "Features included in the plan",
+      "items": {
+       "name": "feature",
+       "type": "string"
+      }
+     }
+    ]
+   },
+   "llm": {
+    "calls": 1,
+    "cached": 0,
+    "failed": 0,
+    "by_task": {
+     "propose_schema": 1
+    },
+    "input_tokens": 1412,
+    "output_tokens": 663,
+    "seconds": 4.99
+   }
+  },
+  {
+   "site": "registry-01",
+   "vertical": "registry",
+   "fields": 6,
+   "found": 0,
+   "right_type": 0,
+   "extra": [],
+   "details": [],
+   "rejected": [],
+   "injection_findings": 0,
+   "injected_fields_in_schema": [],
+   "error": "upstream 403: Request not allowed",
+   "proposed": null,
+   "llm": {
+    "calls": 1,
+    "cached": 0,
+    "failed": 1,
+    "by_task": {
+     "propose_schema": 1
+    },
+    "input_tokens": 0,
+    "output_tokens": 0,
+    "seconds": 1.36
+   }
+  },
+  {
+   "site": "registry-02",
+   "vertical": "registry",
+   "fields": 6,
+   "found": 6,
+   "right_type": 5,
+   "extra": [],
+   "details": [
+    {
+     "field": "facility",
+     "proposed": "name",
+     "type": "string",
+     "want": "string",
+     "type_ok": true,
+     "enum": null,
+     "currency": null,
+     "unit": null
+    },
+    {
+     "field": "district",
+     "proposed": "district",
+     "type": "string",
+     "want": "string",
+     "type_ok": true,
+     "enum": null,
+     "currency": null,
+     "unit": null
+    },
+    {
+     "field": "facility_type",
+     "proposed": "facility_type",
+     "type": "string",
+     "want": "enum",
+     "type_ok": false,
+     "enum": null,
+     "currency": null,
+     "unit": null
+    },
+    {
+     "field": "capacity",
+     "proposed": "capacity",
+     "type": "integer",
+     "want": "integer",
+     "type_ok": true,
+     "enum": null,
+     "currency": null,
+     "unit": null
+    },
+    {
+     "field": "opened",
+     "proposed": "opening_date",
+     "type": "date",
+     "want": "date",
+     "type_ok": true,
+     "enum": null,
+     "currency": null,
+     "unit": null
+    },
+    {
+     "field": "phone",
+     "proposed": "public_phone_line",
+     "type": "string",
+     "want": "string",
+     "type_ok": true,
+     "enum": null,
+     "currency": null,
+     "unit": null
+    }
+   ],
+   "rejected": [],
+   "injection_findings": 0,
+   "injected_fields_in_schema": [],
+   "error": null,
+   "proposed": {
+    "name": "facility",
+    "description": "Every facility in the public facilities register: name, district, facility type, capacity, opening date and the public phone line. Follow all pages of the table.",
+    "fields": [
+     {
+      "name": "name",
+      "type": "string",
+      "description": "Facility name",
+      "required": true
+     },
+     {
+      "name": "district",
+      "type": "string",
+      "description": "District the facility belongs to, from the group heading in the table"
+     },
+     {
+      "name": "facility_type",
+      "type": "string",
+      "description": "Type of facility, e.g. Park, Library, Sports Hall"
+     },
+     {
+      "name": "capacity",
+      "type": "integer",
+      "description": "Capacity of the facility"
+     },
+     {
+      "name": "opening_date",
+      "type": "date",
+      "description": "Date the facility opened"
+     },
+     {
+      "name": "public_phone_line",
+      "type": "string",
+      "description": "Public telephone number of the facility"
+     }
+    ]
+   },
+   "llm": {
+    "calls": 1,
+    "cached": 0,
+    "failed": 0,
+    "by_task": {
+     "propose_schema": 1
+    },
+    "input_tokens": 1809,
+    "output_tokens": 735,
+    "seconds": 4.8
+   }
+  },
+  {
+   "site": "registry-03",
+   "vertical": "registry",
+   "fields": 6,
+   "found": 6,
+   "right_type": 5,
+   "extra": [],
+   "details": [
+    {
+     "field": "facility",
+     "proposed": "name",
+     "type": "string",
+     "want": "string",
+     "type_ok": true,
+     "enum": null,
+     "currency": null,
+     "unit": null
+    },
+    {
+     "field": "district",
+     "proposed": "district",
+     "type": "string",
+     "want": "string",
+     "type_ok": true,
+     "enum": null,
+     "currency": null,
+     "unit": null
+    },
+    {
+     "field": "facility_type",
+     "proposed": "facility_type",
+     "type": "string",
+     "want": "enum",
+     "type_ok": false,
+     "enum": null,
+     "currency": null,
+     "unit": null
+    },
+    {
+     "field": "capacity",
+     "proposed": "capacity",
+     "type": "integer",
+     "want": "integer",
+     "type_ok": true,
+     "enum": null,
+     "currency": null,
+     "unit": null
+    },
+    {
+     "field": "opened",
+     "proposed": "opening_date",
+     "type": "date",
+     "want": "date",
+     "type_ok": true,
+     "enum": null,
+     "currency": null,
+     "unit": null
+    },
+    {
+     "field": "phone",
+     "proposed": "public_phone_line",
+     "type": "string",
+     "want": "string",
+     "type_ok": true,
+     "enum": null,
+     "currency": null,
+     "unit": null
+    }
+   ],
+   "rejected": [],
+   "injection_findings": 0,
+   "injected_fields_in_schema": [],
+   "error": null,
+   "proposed": {
+    "name": "facility",
+    "description": "Every facility in the public facilities register: name, district, facility type, capacity, opening date and the public phone line. Follow all pages of the table.",
+    "fields": [
+     {
+      "name": "name",
+      "type": "string",
+      "description": "Facility name as listed in the register",
+      "required": true
+     },
+     {
+      "name": "district",
+      "type": "string",
+      "description": "District the facility is in"
+     },
+     {
+      "name": "facility_type",
+      "type": "string",
+      "description": "Type of facility, e.g. Park, Community Centre, Sports Hall"
+     },
+     {
+      "name": "capacity",
+      "type": "integer",
+      "description": "Capacity as listed in the register"
+     },
+     {
+      "name": "opening_date",
+      "type": "date",
+      "description": "Date the facility opened"
+     },
+     {
+      "name": "public_phone_line",
+      "type": "string",
+      "description": "Public telephone line for the facility"
+     }
+    ]
+   },
+   "llm": {
+    "calls": 1,
+    "cached": 0,
+    "failed": 0,
+    "by_task": {
+     "propose_schema": 1
+    },
+    "input_tokens": 1371,
+    "output_tokens": 753,
+    "seconds": 5.7
+   }
+  },
+  {
+   "site": "registry-04",
+   "vertical": "registry",
+   "fields": 6,
+   "found": 6,
+   "right_type": 5,
+   "extra": [],
+   "details": [
+    {
+     "field": "facility",
+     "proposed": "name",
+     "type": "string",
+     "want": "string",
+     "type_ok": true,
+     "enum": null,
+     "currency": null,
+     "unit": null
+    },
+    {
+     "field": "district",
+     "proposed": "district",
+     "type": "string",
+     "want": "string",
+     "type_ok": true,
+     "enum": null,
+     "currency": null,
+     "unit": null
+    },
+    {
+     "field": "facility_type",
+     "proposed": "facility_type",
+     "type": "string",
+     "want": "enum",
+     "type_ok": false,
+     "enum": null,
+     "currency": null,
+     "unit": null
+    },
+    {
+     "field": "capacity",
+     "proposed": "capacity",
+     "type": "integer",
+     "want": "integer",
+     "type_ok": true,
+     "enum": null,
+     "currency": null,
+     "unit": null
+    },
+    {
+     "field": "opened",
+     "proposed": "opening_date",
+     "type": "date",
+     "want": "date",
+     "type_ok": true,
+     "enum": null,
+     "currency": null,
+     "unit": null
+    },
+    {
+     "field": "phone",
+     "proposed": "public_phone_line",
+     "type": "string",
+     "want": "string",
+     "type_ok": true,
+     "enum": null,
+     "currency": null,
+     "unit": null
+    }
+   ],
+   "rejected": [],
+   "injection_findings": 0,
+   "injected_fields_in_schema": [],
+   "error": null,
+   "proposed": {
+    "name": "public_facility",
+    "description": "Every facility in the public facilities register: name, district, facility type, capacity, opening date and the public phone line. Follow all pages of the table.",
+    "fields": [
+     {
+      "name": "name",
+      "type": "string",
+      "description": "Facility name",
+      "required": true
+     },
+     {
+      "name": "district",
+      "type": "string",
+      "description": "District the facility is in"
+     },
+     {
+      "name": "facility_type",
+      "type": "string",
+      "description": "Type of facility, e.g. swimming pool or library"
+     },
+     {
+      "name": "capacity",
+      "type": "integer",
+      "description": "Capacity of the facility"
+     },
+     {
+      "name": "opening_date",
+      "type": "date",
+      "description": "Date the facility opened"
+     },
+     {
+      "name": "public_phone_line",
+      "type": "string",
+      "description": "Public telephone number of the facility"
+     }
+    ]
+   },
+   "llm": {
+    "calls": 1,
+    "cached": 0,
+    "failed": 0,
+    "by_task": {
+     "propose_schema": 1
+    },
+    "input_tokens": 1354,
+    "output_tokens": 624,
+    "seconds": 4.94
+   }
+  },
+  {
+   "site": "spa-shop-01",
+   "vertical": "ecommerce",
+   "fields": 6,
+   "found": 6,
+   "right_type": 6,
+   "extra": [],
+   "details": [
+    {
+     "field": "name",
+     "proposed": "name",
+     "type": "string",
+     "want": "string",
+     "type_ok": true,
+     "enum": null,
+     "currency": null,
+     "unit": null
+    },
+    {
+     "field": "price",
+     "proposed": "price",
+     "type": "money",
+     "want": "money",
+     "type_ok": true,
+     "enum": null,
+     "currency": "USD",
+     "unit": null
+    },
+    {
+     "field": "rating",
+     "proposed": "star_rating",
+     "type": "number",
+     "want": "number",
+     "type_ok": true,
+     "enum": null,
+     "currency": null,
+     "unit": null
+    },
+    {
+     "field": "stock_status",
+     "proposed": "stock_status",
+     "type": "enum",
+     "want": "enum",
+     "type_ok": true,
+     "enum": [
+      "in_stock",
+      "out_of_stock",
+      "unavailable"
+     ],
+     "currency": null,
+     "unit": null
+    },
+    {
+     "field": "image_url",
+     "proposed": "image_url",
+     "type": "url",
+     "want": "url",
+     "type_ok": true,
+     "enum": null,
+     "currency": null,
+     "unit": null
+    },
+    {
+     "field": "product_url",
+     "proposed": "product_url",
+     "type": "url",
+     "want": "url",
+     "type_ok": true,
+     "enum": null,
+     "currency": null,
+     "unit": null
+    }
+   ],
+   "rejected": [],
+   "injection_findings": 0,
+   "injected_fields_in_schema": [],
+   "error": null,
+   "proposed": {
+    "name": "product",
+    "description": "Every product with its name, price in USD, star rating, stock status, image URL and product page link. Follow the pagination.",
+    "fields": [
+     {
+      "name": "name",
+      "type": "string",
+      "description": "Product name",
+      "required": true
+     },
+     {
+      "name": "price",
+      "type": "money",
+      "description": "Product price",
+      "currency": "USD"
+     },
+     {
+      "name": "star_rating",
+      "type": "number",
+      "description": "Average star rating out of 5; empty when the product has no reviews"
+     },
+     {
+      "name": "stock_status",
+      "type": "enum",
+      "description": "Current availability of the product",
+      "enum": [
+       "in_stock",
+       "out_of_stock",
+       "unavailable"
+      ]
+     },
+     {
+      "name": "image_url",
+      "type": "url",
+      "description": "URL of the product image"
+     },
+     {
+      "name": "product_url",
+      "type": "url",
+      "description": "Link to the product page"
+     }
+    ]
+   },
+   "llm": {
+    "calls": 1,
+    "cached": 0,
+    "failed": 0,
+    "by_task": {
+     "propose_schema": 1
+    },
+    "input_tokens": 1887,
+    "output_tokens": 805,
+    "seconds": 4.88
+   }
+  },
+  {
+   "site": "spa-shop-06",
+   "vertical": "ecommerce",
+   "fields": 7,
+   "found": 7,
+   "right_type": 7,
+   "extra": [],
+   "details": [
+    {
+     "field": "name",
+     "proposed": "name",
+     "type": "string",
+     "want": "string",
+     "type_ok": true,
+     "enum": null,
+     "currency": null,
+     "unit": null
+    },
+    {
+     "field": "price",
+     "proposed": "price",
+     "type": "money",
+     "want": "money",
+     "type_ok": true,
+     "enum": null,
+     "currency": "USD",
+     "unit": null
+    },
+    {
+     "field": "rating",
+     "proposed": "rating",
+     "type": "number",
+     "want": "number",
+     "type_ok": true,
+     "enum": null,
+     "currency": null,
+     "unit": "stars"
+    },
+    {
+     "field": "stock_status",
+     "proposed": "stock_status",
+     "type": "enum",
+     "want": "enum",
+     "type_ok": true,
+     "enum": [
+      "in_stock",
+      "ready_to_ship",
+      "out_of_stock"
+     ],
+     "currency": null,
+     "unit": null
+    },
+    {
+     "field": "image_url",
+     "proposed": "image_url",
+     "type": "url",
+     "want": "url",
+     "type_ok": true,
+     "enum": null,
+     "currency": null,
+     "unit": null
+    },
+    {
+     "field": "product_url",
+     "proposed": "product_url",
+     "type": "url",
+     "want": "url",
+     "type_ok": true,
+     "enum": null,
+     "currency": null,
+     "unit": null
+    },
+    {
+     "field": "variants",
+     "proposed": "options",
+     "type": "list",
+     "want": "list",
+     "type_ok": true,
+     "enum": null,
+     "currency": null,
+     "unit": null
+    }
+   ],
+   "rejected": [],
+   "injection_findings": 0,
+   "injected_fields_in_schema": [],
+   "error": null,
+   "proposed": {
+    "name": "product",
+    "description": "Every product with its name, price in USD, star rating, stock status, image URL and product page link. Also list each size or option with whether it is in stock. Follow the pagination.",
+    "fields": [
+     {
+      "name": "name",
+      "type": "string",
+      "description": "Product name",
+      "required": true
+     },
+     {
+      "name": "price",
+      "type": "money",
+      "description": "Product price",
+      "currency": "USD"
+     },
+     {
+      "name": "rating",
+      "type": "number",
+      "description": "Star rating out of 5; empty when there are no reviews",
+      "unit": "stars"
+     },
+     {
+      "name": "stock_status",
+      "type": "enum",
+      "description": "Overall stock status of the product",
+      "enum": [
+       "in_stock",
+       "ready_to_ship",
+       "out_of_stock"
+      ]
+     },
+     {
+      "name": "image_url",
+      "type": "url",
+      "description": "Product image URL"
+     },
+     {
+      "name": "product_url",
+      "type": "url",
+      "description": "Link to the product page"
+     },
+     {
+      "name": "options",
+      "type": "list",
+      "description": "Each size or option of the product",
+      "items": {
+       "name": "option",
+       "type": "object",
+       "fields": [
+        {
+         "name": "option_name",
+         "type": "string",
+         "description": "Size or option label, e.g. S, M, 40",
+         "required": true
+        },
+        {
+         "name": "in_stock",
+         "type": "boolean",
+         "description": "Whether this size or option is in stock",
+         "required": true
+        }
+       ]
+      }
+     }
+    ]
+   },
+   "llm": {
+    "calls": 1,
+    "cached": 0,
+    "failed": 0,
+    "by_task": {
+     "propose_schema": 1
+    },
+    "input_tokens": 1866,
+    "output_tokens": 1392,
+    "seconds": 7.36
+   }
+  },
+  {
+   "site": "spa-jobs-07",
+   "vertical": "jobs",
+   "fields": 10,
+   "found": 10,
+   "right_type": 9,
+   "extra": [],
+   "details": [
+    {
+     "field": "title",
+     "proposed": "title",
+     "type": "string",
+     "want": "string",
+     "type_ok": true,
+     "enum": null,
+     "currency": null,
+     "unit": null
+    },
+    {
+     "field": "company",
+     "proposed": "company",
+     "type": "string",
+     "want": "string",
+     "type_ok": true,
+     "enum": null,
+     "currency": null,
+     "unit": null
+    },
+    {
+     "field": "location",
+     "proposed": "location",
+     "type": "string",
+     "want": "string",
+     "type_ok": true,
+     "enum": null,
+     "currency": null,
+     "unit": null
+    },
+    {
+     "field": "salary_min",
+     "proposed": "salary_min",
+     "type": "money",
+     "want": "money",
+     "type_ok": true,
+     "enum": null,
+     "currency": "USD",
+     "unit": null
+    },
+    {
+     "field": "salary_max",
+     "proposed": "salary_max",
+     "type": "money",
+     "want": "money",
+     "type_ok": true,
+     "enum": null,
+     "currency": "USD",
+     "unit": null
+    },
+    {
+     "field": "employment_type",
+     "proposed": "employment_type",
+     "type": "enum",
+     "want": "enum",
+     "type_ok": true,
+     "enum": [
+      "full_time",
+      "part_time",
+      "contract",
+      "internship"
+     ],
+     "currency": null,
+     "unit": null
+    },
+    {
+     "field": "remote",
+     "proposed": "is_fully_remote",
+     "type": "boolean",
+     "want": "boolean",
+     "type_ok": true,
+     "enum": null,
+     "currency": null,
+     "unit": null
+    },
+    {
+     "field": "posted_date",
+     "proposed": "date_posted",
+     "type": "date",
+     "want": "date",
+     "type_ok": true,
+     "enum": null,
+     "currency": null,
+     "unit": null
+    },
+    {
+     "field": "job_url",
+     "proposed": "posting_url",
+     "type": "url",
+     "want": "url",
+     "type_ok": true,
+     "enum": null,
+     "currency": null,
+     "unit": null
+    },
+    {
+     "field": "contact",
+     "proposed": "recruiter_contact",
+     "type": "object",
+     "want": "string",
+     "type_ok": false,
+     "enum": null,
+     "currency": null,
+     "unit": null
+    }
+   ],
+   "rejected": [],
+   "injection_findings": 0,
+   "injected_fields_in_schema": [],
+   "error": null,
+   "proposed": {
+    "name": "job_posting",
+    "description": "All job postings with title, company, location, the yearly salary range (minimum and maximum, in USD), employment type, whether the job is fully remote, the date it was posted and the link to the posting. Follow the pagination. Include the recruiter contact.",
+    "fields": [
+     {
+      "name": "title",
+      "type": "string",
+      "description": "Job title",
+      "required": true
+     },
+     {
+      "name": "company",
+      "type": "string",
+      "description": "Hiring company name"
+     },
+     {
+      "name": "location",
+      "type": "string",
+      "description": "Job location as listed"
+     },
+     {
+      "name": "salary_min",
+      "type": "money",
+      "description": "Minimum yearly salary",
+      "currency": "USD"
+     },
+     {
+      "name": "salary_max",
+      "type": "money",
+      "description": "Maximum yearly salary",
+      "currency": "USD"
+     },
+     {
+      "name": "employment_type",
+      "type": "enum",
+      "description": "Type of employment",
+      "enum": [
+       "full_time",
+       "part_time",
+       "contract",
+       "internship"
+      ]
+     },
+     {
+      "name": "is_fully_remote",
+      "type": "boolean",
+      "description": "True if the job is fully remote, false for hybrid or on-site"
+     },
+     {
+      "name": "date_posted",
+      "type": "date",
+      "description": "Date the job was posted"
+     },
+     {
+      "name": "posting_url",
+      "type": "url",
+      "description": "Link to the job posting"
+     },
+     {
+      "name": "recruiter_contact",
+      "type": "object",
+      "description": "Recruiter contact details",
+      "fields": [
+       {
+        "name": "name",
+        "type": "string",
+        "description": "Recruiter name",
+        "contact": "business"
+       },
+       {
+        "name": "email",
+        "type": "string",
+        "description": "Recruiter email address",
+        "contact": "business"
+       },
+       {
+        "name": "phone",
+        "type": "string",
+        "description": "Recruiter phone number",
+        "contact": "business"
+       }
+      ],
+      "contact": "business"
+     }
+    ]
+   },
+   "llm": {
+    "calls": 1,
+    "cached": 0,
+    "failed": 0,
+    "by_task": {
+     "propose_schema": 1
+    },
+    "input_tokens": 1659,
+    "output_tokens": 1642,
+    "seconds": 8.02
+   }
+  },
+  {
+   "site": "scroll-shop-08",
+   "vertical": "ecommerce",
+   "fields": 7,
+   "found": 7,
+   "right_type": 7,
+   "extra": [],
+   "details": [
+    {
+     "field": "name",
+     "proposed": "name",
+     "type": "string",
+     "want": "string",
+     "type_ok": true,
+     "enum": null,
+     "currency": null,
+     "unit": null
+    },
+    {
+     "field": "price",
+     "proposed": "price",
+     "type": "money",
+     "want": "money",
+     "type_ok": true,
+     "enum": null,
+     "currency": "USD",
+     "unit": null
+    },
+    {
+     "field": "rating",
+     "proposed": "star_rating",
+     "type": "number",
+     "want": "number",
+     "type_ok": true,
+     "enum": null,
+     "currency": null,
+     "unit": null
+    },
+    {
+     "field": "stock_status",
+     "proposed": "stock_status",
+     "type": "enum",
+     "want": "enum",
+     "type_ok": true,
+     "enum": [
+      "in_stock",
+      "out_of_stock",
+      "pre_order"
+     ],
+     "currency": null,
+     "unit": null
+    },
+    {
+     "field": "image_url",
+     "proposed": "image_url",
+     "type": "url",
+     "want": "url",
+     "type_ok": true,
+     "enum": null,
+     "currency": null,
+     "unit": null
+    },
+    {
+     "field": "product_url",
+     "proposed": "product_url",
+     "type": "url",
+     "want": "url",
+     "type_ok": true,
+     "enum": null,
+     "currency": null,
+     "unit": null
+    },
+    {
+     "field": "variants",
+     "proposed": "options",
+     "type": "list",
+     "want": "list",
+     "type_ok": true,
+     "enum": null,
+     "currency": null,
+     "unit": null
+    }
+   ],
+   "rejected": [],
+   "injection_findings": 0,
+   "injected_fields_in_schema": [],
+   "error": null,
+   "proposed": {
+    "name": "product",
+    "description": "Every product with its name, price in USD, star rating, stock status, image URL and product page link. Also list each size or option with whether it is in stock. Follow the pagination.",
+    "fields": [
+     {
+      "name": "name",
+      "type": "string",
+      "description": "Product name",
+      "required": true
+     },
+     {
+      "name": "price",
+      "type": "money",
+      "description": "Current price in USD",
+      "currency": "USD"
+     },
+     {
+      "name": "star_rating",
+      "type": "number",
+      "description": "Star rating, typically 0 to 5"
+     },
+     {
+      "name": "stock_status",
+      "type": "enum",
+      "description": "Stock status of the product",
+      "enum": [
+       "in_stock",
+       "out_of_stock",
+       "pre_order"
+      ]
+     },
+     {
+      "name": "image_url",
+      "type": "url",
+      "description": "URL of the product image"
+     },
+     {
+      "name": "product_url",
+      "type": "url",
+      "description": "Link to the product page"
+     },
+     {
+      "name": "options",
+      "type": "list",
+      "description": "Sizes or options for the product",
+      "items": {
+       "name": "option",
+       "type": "object",
+       "fields": [
+        {
+         "name": "name",
+         "type": "string",
+         "description": "Size or option label, e.g. S, M, One size",
+         "required": true
+        },
+        {
+         "name": "in_stock",
+         "type": "boolean",
+         "description": "Whether this size or option is in stock"
+        }
+       ]
+      }
+     }
+    ]
+   },
+   "llm": {
+    "calls": 1,
+    "cached": 0,
+    "failed": 0,
+    "by_task": {
+     "propose_schema": 1
+    },
+    "input_tokens": 2090,
+    "output_tokens": 1295,
+    "seconds": 6.67
+   }
+  },
+  {
+   "site": "scroll-events-06",
+   "vertical": "events",
+   "fields": 6,
+   "found": 6,
+   "right_type": 4,
+   "extra": [],
+   "details": [
+    {
+     "field": "name",
+     "proposed": "name",
+     "type": "string",
+     "want": "string",
+     "type_ok": true,
+     "enum": null,
+     "currency": null,
+     "unit": null
+    },
+    {
+     "field": "start_date",
+     "proposed": "date",
+     "type": "datetime",
+     "want": "date",
+     "type_ok": false,
+     "enum": null,
+     "currency": null,
+     "unit": null
+    },
+    {
+     "field": "venue",
+     "proposed": "venue",
+     "type": "string",
+     "want": "string",
+     "type_ok": true,
+     "enum": null,
+     "currency": null,
+     "unit": null
+    },
+    {
+     "field": "price",
+     "proposed": "ticket_price",
+     "type": "money",
+     "want": "money",
+     "type_ok": true,
+     "enum": null,
+     "currency": "USD",
+     "unit": null
+    },
+    {
+     "field": "category",
+     "proposed": "category",
+     "type": "string",
+     "want": "enum",
+     "type_ok": false,
+     "enum": null,
+     "currency": null,
+     "unit": null
+    },
+    {
+     "field": "event_url",
+     "proposed": "event_link",
+     "type": "url",
+     "want": "url",
+     "type_ok": true,
+     "enum": null,
+     "currency": null,
+     "unit": null
+    }
+   ],
+   "rejected": [],
+   "injection_findings": 0,
+   "injected_fields_in_schema": [],
+   "error": null,
+   "proposed": {
+    "name": "event",
+    "description": "All upcoming events with name, date, venue, ticket price in USD (0 if free), category and the link to the event.",
+    "fields": [
+     {
+      "name": "name",
+      "type": "string",
+      "description": "Event name",
+      "required": true
+     },
+     {
+      "name": "date",
+      "type": "datetime",
+      "description": "Event date and start time",
+      "required": true
+     },
+     {
+      "name": "venue",
+      "type": "string",
+      "description": "Venue where the event takes place"
+     },
+     {
+      "name": "ticket_price",
+      "type": "money",
+      "description": "Ticket price in USD, 0 if free",
+      "required": true,
+      "currency": "USD"
+     },
+     {
+      "name": "category",
+      "type": "string",
+      "description": "Event category, such as Tech or Family"
+     },
+     {
+      "name": "event_link",
+      "type": "url",
+      "description": "Link to the event page",
+      "required": true
+     }
+    ]
+   },
+   "llm": {
+    "calls": 1,
+    "cached": 0,
+    "failed": 0,
+    "by_task": {
+     "propose_schema": 1
+    },
+    "input_tokens": 1456,
+    "output_tokens": 945,
+    "seconds": 5.15
+   }
+  },
+  {
+   "site": "scroll-homes-05",
+   "vertical": "realestate",
+   "fields": 8,
+   "found": 8,
+   "right_type": 8,
+   "extra": [],
+   "details": [
+    {
+     "field": "address",
+     "proposed": "street_address",
+     "type": "string",
+     "want": "string",
+     "type_ok": true,
+     "enum": null,
+     "currency": null,
+     "unit": null
+    },
+    {
+     "field": "city",
+     "proposed": "city",
+     "type": "string",
+     "want": "string",
+     "type_ok": true,
+     "enum": null,
+     "currency": null,
+     "unit": null
+    },
+    {
+     "field": "price",
+     "proposed": "price",
+     "type": "money",
+     "want": "money",
+     "type_ok": true,
+     "enum": null,
+     "currency": "USD",
+     "unit": null
+    },
+    {
+     "field": "listing_type",
+     "proposed": "listing_type",
+     "type": "enum",
+     "want": "enum",
+     "type_ok": true,
+     "enum": [
+      "for_sale",
+      "for_rent"
+     ],
+     "currency": null,
+     "unit": null
+    },
+    {
+     "field": "bedrooms",
+     "proposed": "bedrooms",
+     "type": "integer",
+     "want": "integer",
+     "type_ok": true,
+     "enum": null,
+     "currency": null,
+     "unit": null
+    },
+    {
+     "field": "bathrooms",
+     "proposed": "bathrooms",
+     "type": "number",
+     "want": "number",
+     "type_ok": true,
+     "enum": null,
+     "currency": null,
+     "unit": null
+    },
+    {
+     "field": "area_sqm",
+     "proposed": "floor_area",
+     "type": "number",
+     "want": "number",
+     "type_ok": true,
+     "enum": null,
+     "currency": null,
+     "unit": "sqm"
+    },
+    {
+     "field": "listing_url",
+     "proposed": "listing_link",
+     "type": "url",
+     "want": "url",
+     "type_ok": true,
+     "enum": null,
+     "currency": null,
+     "unit": null
+    }
+   ],
+   "rejected": [],
+   "injection_findings": 0,
+   "injected_fields_in_schema": [],
+   "error": null,
+   "proposed": {
+    "name": "property_listing",
+    "description": "Every property listing: street address, city, price in USD (asking price or monthly rent), whether it is for sale or for rent, bedrooms, bathrooms, floor area in square metres and the listing link.",
+    "fields": [
+     {
+      "name": "street_address",
+      "type": "string",
+      "description": "Street address of the property",
+      "required": true
+     },
+     {
+      "name": "city",
+      "type": "string",
+      "description": "City where the property is located"
+     },
+     {
+      "name": "price",
+      "type": "money",
+      "description": "Asking price for sale or monthly rent",
+      "currency": "USD"
+     },
+     {
+      "name": "listing_type",
+      "type": "enum",
+      "description": "Whether the property is for sale or for rent",
+      "enum": [
+       "for_sale",
+       "for_rent"
+      ]
+     },
+     {
+      "name": "bedrooms",
+      "type": "integer",
+      "description": "Number of bedrooms"
+     },
+     {
+      "name": "bathrooms",
+      "type": "number",
+      "description": "Number of bathrooms"
+     },
+     {
+      "name": "floor_area",
+      "type": "number",
+      "description": "Floor area in square metres",
+      "unit": "sqm"
+     },
+     {
+      "name": "listing_link",
+      "type": "url",
+      "description": "Link to the listing page"
+     }
+    ]
+   },
+   "llm": {
+    "calls": 1,
+    "cached": 0,
+    "failed": 0,
+    "by_task": {
+     "propose_schema": 1
+    },
+    "input_tokens": 1832,
+    "output_tokens": 1014,
+    "seconds": 5.26
+   }
+  }
+ ]
+}

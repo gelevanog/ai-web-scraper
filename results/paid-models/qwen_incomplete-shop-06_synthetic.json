@@ -1,0 +1,237 @@
+{
+ "name": "qwen_b8",
+ "suite": "synthetic",
+ "run_at": "2026-10-12T09:51:26+00:00",
+ "provider": "compat",
+ "model": "qwen3.7-plus",
+ "fallbacks": [],
+ "aggregate": {
+  "v1": {
+   "sites": 1,
+   "truth_records": 32,
+   "extracted_records": 24,
+   "matched": 24,
+   "precision": 1.0,
+   "recall": 0.75,
+   "field_accuracy": 1.0,
+   "fields_correct": 168,
+   "fields_total": 168
+  },
+  "by_vertical": {
+   "ecommerce": {
+    "sites": 1,
+    "truth_records": 32,
+    "extracted_records": 24,
+    "matched": 24,
+    "precision": 1.0,
+    "recall": 0.75,
+    "field_accuracy": 1.0,
+    "fields_correct": 168,
+    "fields_total": 168
+   }
+  },
+  "v1_learned_only": {
+   "sites": 0,
+   "truth_records": 0,
+   "extracted_records": 0,
+   "matched": 0,
+   "precision": 0.0,
+   "recall": 0.0,
+   "field_accuracy": 0.0,
+   "fields_correct": 0,
+   "fields_total": 0
+  },
+  "v1_direct_only": {
+   "sites": 1,
+   "truth_records": 32,
+   "extracted_records": 24,
+   "matched": 24,
+   "precision": 1.0,
+   "recall": 0.75,
+   "field_accuracy": 1.0,
+   "fields_correct": 168,
+   "fields_total": 168
+  },
+  "by_field": {
+   "image_url": {
+    "correct": 24,
+    "total": 24,
+    "accuracy": 1.0
+   },
+   "name": {
+    "correct": 24,
+    "total": 24,
+    "accuracy": 1.0
+   },
+   "price": {
+    "correct": 24,
+    "total": 24,
+    "accuracy": 1.0
+   },
+   "product_url": {
+    "correct": 24,
+    "total": 24,
+    "accuracy": 1.0
+   },
+   "rating": {
+    "correct": 24,
+    "total": 24,
+    "accuracy": 1.0
+   },
+   "stock_status": {
+    "correct": 24,
+    "total": 24,
+    "accuracy": 1.0
+   },
+   "variants": {
+    "correct": 24,
+    "total": 24,
+    "accuracy": 1.0
+   }
+  },
+  "v1_cost": {
+   "llm_calls": 6,
+   "llm_calls_by_task": {
+    "learn_extractor": 3,
+    "direct_extract": 3
+   },
+   "input_tokens": 10067,
+   "output_tokens": 5439,
+   "pages": 3,
+   "learned_pages": 0,
+   "learned_calls": 0
+  }
+ },
+ "sites": [
+  {
+   "site": "shop-06",
+   "vertical": "ecommerce",
+   "mode": "static",
+   "traps": [
+    "variants",
+    "sale_prices"
+   ],
+   "v1": {
+    "site": "shop-06",
+    "truth": 32,
+    "extracted": 24,
+    "matched": 24,
+    "precision": 1.0,
+    "recall": 0.75,
+    "field_accuracy": 1.0,
+    "fields": {
+     "name": {
+      "correct": 24,
+      "total": 24
+     },
+     "price": {
+      "correct": 24,
+      "total": 24
+     },
+     "rating": {
+      "correct": 24,
+      "total": 24
+     },
+     "stock_status": {
+      "correct": 24,
+      "total": 24
+     },
+     "image_url": {
+      "correct": 24,
+      "total": 24
+     },
+     "product_url": {
+      "correct": 24,
+      "total": 24
+     },
+     "variants": {
+      "correct": 24,
+      "total": 24
+     }
+    },
+    "unmatched_extracted": [],
+    "missed": [
+     "Everyday Rain Barrel",
+     "Prime Garden Hose",
+     "Field Seed Starter Tray",
+     "Prime Bird Feeder",
+     "Heritage Compost Bin",
+     "Heritage Plant Stand",
+     "Aurora Pruning Shears II",
+     "Studio Watering Can"
+    ],
+    "errors": [],
+    "pages": 3,
+    "records": 24,
+    "seconds": 88.89,
+    "strategies": [
+     "direct"
+    ],
+    "llm": {
+     "calls": 6,
+     "cached": 1,
+     "failed": 1,
+     "by_task": {
+      "learn_extractor": 3,
+      "direct_extract": 3
+     },
+     "input_tokens": 10067,
+     "output_tokens": 5439,
+     "seconds": 88.81
+    },
+    "browser_pages": 0,
+    "duplicates_merged": 0,
+    "sparse_dropped": 0,
+    "pii_removed": 0,
+    "injection_findings": 0,
+    "events": [
+     {
+      "kind": "job_started",
+      "message": "Crawling 1 start URL(s)"
+     },
+     {
+      "kind": "strategy",
+      "message": "fernway-garden-co.example: learned extractor (pagination found (1 link(s)): a repeated template)"
+     },
+     {
+      "kind": "learning",
+      "message": "fernway-garden-co.example: learning an extractor from 2 sample page(s)"
+     },
+     {
+      "kind": "learn_failed",
+      "message": "fernway-garden-co.example: no extractor passed validation after 3 attempt(s); using direct extraction"
+     },
+     {
+      "kind": "extract_error",
+      "message": "https://fernway-garden-co.example/catalog/?p=3: direct extraction failed (rate limited: qwen token budget exhausted (project 494815/500000, global 2780720/7000000))"
+     },
+     {
+      "kind": "job_finished",
+      "message": "24 records from 3 pages, 6 model call(s)"
+     }
+    ],
+    "error": null,
+    "extract_ms_p50": 32837.5
+   },
+   "traps_result": {},
+   "politeness": {
+    "hosts": {
+     "fernway-garden-co.example": {
+      "requests": 4,
+      "subresources": 0,
+      "robots_fetches": 1,
+      "min_gap_s": 0.004,
+      "configured_interval_s": 0.0,
+      "max_requests_per_s_10s": 0.3,
+      "mean_requests_per_s": 0.034
+     }
+    },
+    "robots_blocked": []
+   },
+   "learned": false,
+   "extractors": [],
+   "seconds": 88.9
+  }
+ ],
+ "seconds": 88.9
+}

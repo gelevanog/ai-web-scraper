@@ -1,0 +1,4665 @@
+{
+ "name": "haiku",
+ "suite": "direct",
+ "run_at": "2026-10-12T08:53:34+00:00",
+ "provider": "compat",
+ "model": "claude-haiku-5-5",
+ "fallbacks": [],
+ "aggregate": {
+  "sites": 47,
+  "truth_records": 599,
+  "extracted_records": 563,
+  "matched": 559,
+  "precision": 0.9929,
+  "recall": 0.9332,
+  "field_accuracy": 0.9823,
+  "fields_correct": 3558,
+  "fields_total": 3622,
+  "pages": 49,
+  "llm_calls": 49,
+  "input_tokens": 99728,
+  "output_tokens": 79311,
+  "call_seconds_p50": 6.5,
+  "call_seconds_p95": 9.7,
+  "not_on_page_flags": 8
+ },
+ "sites": [
+  {
+   "site": "shop-01",
+   "vertical": "ecommerce",
+   "mode": "static",
+   "truth": 12,
+   "extracted": 12,
+   "matched": 12,
+   "precision": 1.0,
+   "recall": 1.0,
+   "field_accuracy": 1.0,
+   "fields": {
+    "name": {
+     "correct": 12,
+     "total": 12
+    },
+    "price": {
+     "correct": 12,
+     "total": 12
+    },
+    "rating": {
+     "correct": 12,
+     "total": 12
+    },
+    "stock_status": {
+     "correct": 12,
+     "total": 12
+    },
+    "image_url": {
+     "correct": 12,
+     "total": 12
+    },
+    "product_url": {
+     "correct": 12,
+     "total": 12
+    }
+   },
+   "unmatched_extracted": [],
+   "missed": [],
+   "errors": [],
+   "pages": 1,
+   "records": 12,
+   "seconds": 9.46,
+   "strategies": [
+    "direct"
+   ],
+   "llm": {
+    "calls": 1,
+    "cached": 0,
+    "failed": 0,
+    "by_task": {
+     "direct_extract": 1
+    },
+    "input_tokens": 2512,
+    "output_tokens": 2060,
+    "seconds": 9.43
+   },
+   "browser_pages": 0,
+   "duplicates_merged": 0,
+   "sparse_dropped": 0,
+   "pii_removed": 0,
+   "injection_findings": 2,
+   "events": [
+    {
+     "kind": "job_started",
+     "message": "Crawling 1 start URL(s)"
+    },
+    {
+     "kind": "strategy",
+     "message": "alpine-outfitters.example: direct LLM extraction (set by the job)"
+    },
+    {
+     "kind": "injection",
+     "message": "https://alpine-outfitters.example/catalog/: 2 sentence(s) addressed to AI systems quarantined"
+    },
+    {
+     "kind": "page_cap",
+     "message": "Page cap of 1 reached; 1 queued URL(s) not visited"
+    },
+    {
+     "kind": "job_finished",
+     "message": "12 records from 1 pages, 1 model call(s)"
+    }
+   ],
+   "error": null,
+   "pages_extracted": 1,
+   "call_seconds": [
+    9.43
+   ],
+   "input_tokens": 2512,
+   "output_tokens": 2060,
+   "not_on_page_flags": 4
+  },
+  {
+   "site": "shop-02",
+   "vertical": "ecommerce",
+   "mode": "static",
+   "truth": 12,
+   "extracted": 13,
+   "matched": 12,
+   "precision": 0.9231,
+   "recall": 1.0,
+   "field_accuracy": 1.0,
+   "fields": {
+    "name": {
+     "correct": 12,
+     "total": 12
+    },
+    "price": {
+     "correct": 12,
+     "total": 12
+    },
+    "rating": {
+     "correct": 12,
+     "total": 12
+    },
+    "stock_status": {
+     "correct": 12,
+     "total": 12
+    },
+    "image_url": {
+     "correct": 12,
+     "total": 12
+    },
+    "product_url": {
+     "correct": 12,
+     "total": 12
+    },
+    "variants": {
+     "correct": 12,
+     "total": 12
+    }
+   },
+   "unmatched_extracted": [
+    "Meridian Wall Mirror"
+   ],
+   "missed": [],
+   "errors": [],
+   "pages": 1,
+   "records": 13,
+   "seconds": 11.55,
+   "strategies": [
+    "direct"
+   ],
+   "llm": {
+    "calls": 1,
+    "cached": 0,
+    "failed": 0,
+    "by_task": {
+     "direct_extract": 1
+    },
+    "input_tokens": 3160,
+    "output_tokens": 2372,
+    "seconds": 11.51
+   },
+   "browser_pages": 0,
+   "duplicates_merged": 0,
+   "sparse_dropped": 0,
+   "pii_removed": 0,
+   "injection_findings": 0,
+   "events": [
+    {
+     "kind": "job_started",
+     "message": "Crawling 1 start URL(s)"
+    },
+    {
+     "kind": "strategy",
+     "message": "brightloom-home.example: direct LLM extraction (set by the job)"
+    },
+    {
+     "kind": "page_cap",
+     "message": "Page cap of 1 reached; 1 queued URL(s) not visited"
+    },
+    {
+     "kind": "job_finished",
+     "message": "13 records from 1 pages, 1 model call(s)"
+    }
+   ],
+   "error": null,
+   "pages_extracted": 1,
+   "call_seconds": [
+    11.51
+   ],
+   "input_tokens": 3160,
+   "output_tokens": 2372,
+   "not_on_page_flags": 0
+  },
+  {
+   "site": "shop-03",
+   "vertical": "ecommerce",
+   "mode": "static",
+   "truth": 12,
+   "extracted": 12,
+   "matched": 12,
+   "precision": 1.0,
+   "recall": 1.0,
+   "field_accuracy": 0.8571,
+   "fields": {
+    "name": {
+     "correct": 12,
+     "total": 12
+    },
+    "price": {
+     "correct": 12,
+     "total": 12
+    },
+    "rating": {
+     "correct": 12,
+     "total": 12
+    },
+    "stock_status": {
+     "correct": 12,
+     "total": 12
+    },
+    "image_url": {
+     "correct": 12,
+     "total": 12
+    },
+    "product_url": {
+     "correct": 12,
+     "total": 12
+    },
+    "sku": {
+     "correct": 0,
+     "total": 12
+    }
+   },
+   "unmatched_extracted": [],
+   "missed": [],
+   "errors": [
+    {
+     "key": "Prime Portable Speaker",
+     "field": "sku",
+     "got": null,
+     "want": "COB-22797"
+    },
+    {
+     "key": "Everyday Portable Speaker",
+     "field": "sku",
+     "got": null,
+     "want": "COB-92952"
+    },
+    {
+     "key": "Prime Bookshelf Speakers",
+     "field": "sku",
+     "got": null,
+     "want": "COB-19719"
+    },
+    {
+     "key": "Urban Headphone Stand",
+     "field": "sku",
+     "got": null,
+     "want": "COB-64612"
+    },
+    {
+     "key": "Verde Portable Speaker",
+     "field": "sku",
+     "got": null,
+     "want": "COB-50294"
+    },
+    {
+     "key": "Aurora Cable Kit",
+     "field": "sku",
+     "got": null,
+     "want": "COB-85306"
+    },
+    {
+     "key": "Coastal Turntable",
+     "field": "sku",
+     "got": null,
+     "want": "COB-21674"
+    },
+    {
+     "key": "Slate Phono Preamp",
+     "field": "sku",
+     "got": null,
+     "want": "COB-62138"
+    },
+    {
+     "key": "Atlas Phono Preamp",
+     "field": "sku",
+     "got": null,
+     "want": "COB-99646"
+    },
+    {
+     "key": "Everyday Wireless Earbuds",
+     "field": "sku",
+     "got": null,
+     "want": "COB-54655"
+    },
+    {
+     "key": "Meridian Bookshelf Speakers",
+     "field": "sku",
+     "got": null,
+     "want": "COB-89833"
+    },
+    {
+     "key": "Urban DAC Amplifier",
+     "field": "sku",
+     "got": null,
+     "want": "COB-73950"
+    }
+   ],
+   "pages": 1,
+   "records": 12,
+   "seconds": 8.55,
+   "strategies": [
+    "direct"
+   ],
+   "llm": {
+    "calls": 1,
+    "cached": 0,
+    "failed": 0,
+    "by_task": {
+     "direct_extract": 1
+    },
+    "input_tokens": 2632,
+    "output_tokens": 2156,
+    "seconds": 8.52
+   },
+   "browser_pages": 0,
+   "duplicates_merged": 0,
+   "sparse_dropped": 0,
+   "pii_removed": 0,
+   "injection_findings": 0,
+   "events": [
+    {
+     "kind": "job_started",
+     "message": "Crawling 1 start URL(s)"
+    },
+    {
+     "kind": "strategy",
+     "message": "cobalt-audio.example: direct LLM extraction (set by the job)"
+    },
+    {
+     "kind": "page_cap",
+     "message": "Page cap of 1 reached; 1 queued URL(s) not visited"
+    },
+    {
+     "kind": "job_finished",
+     "message": "12 records from 1 pages, 1 model call(s)"
+    }
+   ],
+   "error": null,
+   "pages_extracted": 1,
+   "call_seconds": [
+    8.52
+   ],
+   "input_tokens": 2632,
+   "output_tokens": 2156,
+   "not_on_page_flags": 0
+  },
+  {
+   "site": "shop-04",
+   "vertical": "ecommerce",
+   "mode": "static",
+   "truth": 12,
+   "extracted": 12,
+   "matched": 12,
+   "precision": 1.0,
+   "recall": 1.0,
+   "field_accuracy": 1.0,
+   "fields": {
+    "name": {
+     "correct": 12,
+     "total": 12
+    },
+    "price": {
+     "correct": 12,
+     "total": 12
+    },
+    "rating": {
+     "correct": 12,
+     "total": 12
+    },
+    "stock_status": {
+     "correct": 12,
+     "total": 12
+    },
+    "image_url": {
+     "correct": 12,
+     "total": 12
+    },
+    "product_url": {
+     "correct": 12,
+     "total": 12
+    }
+   },
+   "unmatched_extracted": [],
+   "missed": [],
+   "errors": [],
+   "pages": 1,
+   "records": 12,
+   "seconds": 7.14,
+   "strategies": [
+    "direct"
+   ],
+   "llm": {
+    "calls": 1,
+    "cached": 0,
+    "failed": 0,
+    "by_task": {
+     "direct_extract": 1
+    },
+    "input_tokens": 2765,
+    "output_tokens": 1980,
+    "seconds": 7.11
+   },
+   "browser_pages": 0,
+   "duplicates_merged": 0,
+   "sparse_dropped": 0,
+   "pii_removed": 0,
+   "injection_findings": 0,
+   "events": [
+    {
+     "kind": "job_started",
+     "message": "Crawling 1 start URL(s)"
+    },
+    {
+     "kind": "strategy",
+     "message": "driftwood-kitchen-supply.example: direct LLM extraction (set by the job)"
+    },
+    {
+     "kind": "page_cap",
+     "message": "Page cap of 1 reached; 1 queued URL(s) not visited"
+    },
+    {
+     "kind": "job_finished",
+     "message": "12 records from 1 pages, 1 model call(s)"
+    }
+   ],
+   "error": null,
+   "pages_extracted": 1,
+   "call_seconds": [
+    7.11
+   ],
+   "input_tokens": 2765,
+   "output_tokens": 1980,
+   "not_on_page_flags": 0
+  },
+  {
+   "site": "shop-05",
+   "vertical": "ecommerce",
+   "mode": "static",
+   "truth": 12,
+   "extracted": 12,
+   "matched": 12,
+   "precision": 1.0,
+   "recall": 1.0,
+   "field_accuracy": 1.0,
+   "fields": {
+    "name": {
+     "correct": 12,
+     "total": 12
+    },
+    "price": {
+     "correct": 12,
+     "total": 12
+    },
+    "rating": {
+     "correct": 12,
+     "total": 12
+    },
+    "stock_status": {
+     "correct": 12,
+     "total": 12
+    },
+    "image_url": {
+     "correct": 12,
+     "total": 12
+    },
+    "product_url": {
+     "correct": 12,
+     "total": 12
+    }
+   },
+   "unmatched_extracted": [],
+   "missed": [],
+   "errors": [],
+   "pages": 1,
+   "records": 12,
+   "seconds": 7.04,
+   "strategies": [
+    "direct"
+   ],
+   "llm": {
+    "calls": 1,
+    "cached": 0,
+    "failed": 0,
+    "by_task": {
+     "direct_extract": 1
+    },
+    "input_tokens": 2819,
+    "output_tokens": 2025,
+    "seconds": 7.03
+   },
+   "browser_pages": 0,
+   "duplicates_merged": 0,
+   "sparse_dropped": 0,
+   "pii_removed": 0,
+   "injection_findings": 0,
+   "events": [
+    {
+     "kind": "job_started",
+     "message": "Crawling 1 start URL(s)"
+    },
+    {
+     "kind": "strategy",
+     "message": "ember-and-oak-furniture.example: direct LLM extraction (set by the job)"
+    },
+    {
+     "kind": "page_cap",
+     "message": "Page cap of 1 reached; 1 queued URL(s) not visited"
+    },
+    {
+     "kind": "job_finished",
+     "message": "12 records from 1 pages, 1 model call(s)"
+    }
+   ],
+   "error": null,
+   "pages_extracted": 1,
+   "call_seconds": [
+    7.03
+   ],
+   "input_tokens": 2819,
+   "output_tokens": 2025,
+   "not_on_page_flags": 0
+  },
+  {
+   "site": "shop-06",
+   "vertical": "ecommerce",
+   "mode": "static",
+   "truth": 12,
+   "extracted": 12,
+   "matched": 12,
+   "precision": 1.0,
+   "recall": 1.0,
+   "field_accuracy": 1.0,
+   "fields": {
+    "name": {
+     "correct": 12,
+     "total": 12
+    },
+    "price": {
+     "correct": 12,
+     "total": 12
+    },
+    "rating": {
+     "correct": 12,
+     "total": 12
+    },
+    "stock_status": {
+     "correct": 12,
+     "total": 12
+    },
+    "image_url": {
+     "correct": 12,
+     "total": 12
+    },
+    "product_url": {
+     "correct": 12,
+     "total": 12
+    },
+    "variants": {
+     "correct": 12,
+     "total": 12
+    }
+   },
+   "unmatched_extracted": [],
+   "missed": [],
+   "errors": [],
+   "pages": 1,
+   "records": 12,
+   "seconds": 8.54,
+   "strategies": [
+    "direct"
+   ],
+   "llm": {
+    "calls": 1,
+    "cached": 0,
+    "failed": 0,
+    "by_task": {
+     "direct_extract": 1
+    },
+    "input_tokens": 2924,
+    "output_tokens": 2437,
+    "seconds": 8.52
+   },
+   "browser_pages": 0,
+   "duplicates_merged": 0,
+   "sparse_dropped": 0,
+   "pii_removed": 0,
+   "injection_findings": 0,
+   "events": [
+    {
+     "kind": "job_started",
+     "message": "Crawling 1 start URL(s)"
+    },
+    {
+     "kind": "strategy",
+     "message": "fernway-garden-co.example: direct LLM extraction (set by the job)"
+    },
+    {
+     "kind": "page_cap",
+     "message": "Page cap of 1 reached; 1 queued URL(s) not visited"
+    },
+    {
+     "kind": "job_finished",
+     "message": "12 records from 1 pages, 1 model call(s)"
+    }
+   ],
+   "error": null,
+   "pages_extracted": 1,
+   "call_seconds": [
+    8.52
+   ],
+   "input_tokens": 2924,
+   "output_tokens": 2437,
+   "not_on_page_flags": 2
+  },
+  {
+   "site": "shop-07",
+   "vertical": "ecommerce",
+   "mode": "static",
+   "truth": 12,
+   "extracted": 12,
+   "matched": 12,
+   "precision": 1.0,
+   "recall": 1.0,
+   "field_accuracy": 0.8571,
+   "fields": {
+    "name": {
+     "correct": 12,
+     "total": 12
+    },
+    "price": {
+     "correct": 12,
+     "total": 12
+    },
+    "rating": {
+     "correct": 12,
+     "total": 12
+    },
+    "stock_status": {
+     "correct": 12,
+     "total": 12
+    },
+    "image_url": {
+     "correct": 12,
+     "total": 12
+    },
+    "product_url": {
+     "correct": 12,
+     "total": 12
+    },
+    "sku": {
+     "correct": 0,
+     "total": 12
+    }
+   },
+   "unmatched_extracted": [],
+   "missed": [],
+   "errors": [
+    {
+     "key": "Pro Chain Lube",
+     "field": "sku",
+     "got": null,
+     "want": "GRA-51185"
+    },
+    {
+     "key": "Compact Mudguard Set",
+     "field": "sku",
+     "got": null,
+     "want": "GRA-83119"
+    },
+    {
+     "key": "Aurora Saddle Bag",
+     "field": "sku",
+     "got": null,
+     "want": "GRA-65097"
+    },
+    {
+     "key": "Summit Floor Pump",
+     "field": "sku",
+     "got": null,
+     "want": "GRA-34021"
+    },
+    {
+     "key": "Slate City Bike",
+     "field": "sku",
+     "got": null,
+     "want": "GRA-13932"
+    },
+    {
+     "key": "Urban City Bike",
+     "field": "sku",
+     "got": null,
+     "want": "GRA-21456"
+    },
+    {
+     "key": "Coastal Bike Helmet",
+     "field": "sku",
+     "got": null,
+     "want": "GRA-61677"
+    },
+    {
+     "key": "Aurora Gravel Bike",
+     "field": "sku",
+     "got": null,
+     "want": "GRA-88920"
+    },
+    {
+     "key": "Compact Saddle Bag",
+     "field": "sku",
+     "got": null,
+     "want": "GRA-23083"
+    },
+    {
+     "key": "Heritage Mudguard Set",
+     "field": "sku",
+     "got": null,
+     "want": "GRA-76850"
+    },
+    {
+     "key": "Slate City Bike Plus",
+     "field": "sku",
+     "got": null,
+     "want": "GRA-20705"
+    },
+    {
+     "key": "Heritage Kickstand",
+     "field": "sku",
+     "got": null,
+     "want": "GRA-27881"
+    }
+   ],
+   "pages": 1,
+   "records": 12,
+   "seconds": 6.49,
+   "strategies": [
+    "direct"
+   ],
+   "llm": {
+    "calls": 1,
+    "cached": 0,
+    "failed": 0,
+    "by_task": {
+     "direct_extract": 1
+    },
+    "input_tokens": 2619,
+    "output_tokens": 1764,
+    "seconds": 6.47
+   },
+   "browser_pages": 0,
+   "duplicates_merged": 0,
+   "sparse_dropped": 0,
+   "pii_removed": 0,
+   "injection_findings": 2,
+   "events": [
+    {
+     "kind": "job_started",
+     "message": "Crawling 1 start URL(s)"
+    },
+    {
+     "kind": "strategy",
+     "message": "granite-cycles.example: direct LLM extraction (set by the job)"
+    },
+    {
+     "kind": "injection",
+     "message": "https://granite-cycles.example/catalog/: 2 sentence(s) addressed to AI systems quarantined"
+    },
+    {
+     "kind": "page_cap",
+     "message": "Page cap of 1 reached; 1 queued URL(s) not visited"
+    },
+    {
+     "kind": "job_finished",
+     "message": "12 records from 1 pages, 1 model call(s)"
+    }
+   ],
+   "error": null,
+   "pages_extracted": 1,
+   "call_seconds": [
+    6.47
+   ],
+   "input_tokens": 2619,
+   "output_tokens": 1764,
+   "not_on_page_flags": 0
+  },
+  {
+   "site": "shop-08",
+   "vertical": "ecommerce",
+   "mode": "static",
+   "truth": 12,
+   "extracted": 13,
+   "matched": 12,
+   "precision": 0.9231,
+   "recall": 1.0,
+   "field_accuracy": 1.0,
+   "fields": {
+    "name": {
+     "correct": 12,
+     "total": 12
+    },
+    "price": {
+     "correct": 12,
+     "total": 12
+    },
+    "rating": {
+     "correct": 12,
+     "total": 12
+    },
+    "stock_status": {
+     "correct": 12,
+     "total": 12
+    },
+    "image_url": {
+     "correct": 12,
+     "total": 12
+    },
+    "product_url": {
+     "correct": 12,
+     "total": 12
+    },
+    "variants": {
+     "correct": 12,
+     "total": 12
+    }
+   },
+   "unmatched_extracted": [
+    "Coastal Denim Jacket 2.0"
+   ],
+   "missed": [],
+   "errors": [],
+   "pages": 1,
+   "records": 13,
+   "seconds": 10.07,
+   "strategies": [
+    "direct"
+   ],
+   "llm": {
+    "calls": 1,
+    "cached": 0,
+    "failed": 0,
+    "by_task": {
+     "direct_extract": 1
+    },
+    "input_tokens": 3384,
+    "output_tokens": 2861,
+    "seconds": 10.05
+   },
+   "browser_pages": 0,
+   "duplicates_merged": 0,
+   "sparse_dropped": 0,
+   "pii_removed": 0,
+   "injection_findings": 0,
+   "events": [
+    {
+     "kind": "job_started",
+     "message": "Crawling 1 start URL(s)"
+    },
+    {
+     "kind": "strategy",
+     "message": "harbor-lane-apparel.example: direct LLM extraction (set by the job)"
+    },
+    {
+     "kind": "page_cap",
+     "message": "Page cap of 1 reached; 1 queued URL(s) not visited"
+    },
+    {
+     "kind": "job_finished",
+     "message": "13 records from 1 pages, 1 model call(s)"
+    }
+   ],
+   "error": null,
+   "pages_extracted": 1,
+   "call_seconds": [
+    10.05
+   ],
+   "input_tokens": 3384,
+   "output_tokens": 2861,
+   "not_on_page_flags": 0
+  },
+  {
+   "site": "shop-09",
+   "vertical": "ecommerce",
+   "mode": "static",
+   "truth": 12,
+   "extracted": 12,
+   "matched": 12,
+   "precision": 1.0,
+   "recall": 1.0,
+   "field_accuracy": 1.0,
+   "fields": {
+    "name": {
+     "correct": 12,
+     "total": 12
+    },
+    "price": {
+     "correct": 12,
+     "total": 12
+    },
+    "rating": {
+     "correct": 12,
+     "total": 12
+    },
+    "stock_status": {
+     "correct": 12,
+     "total": 12
+    },
+    "image_url": {
+     "correct": 12,
+     "total": 12
+    },
+    "product_url": {
+     "correct": 12,
+     "total": 12
+    }
+   },
+   "unmatched_extracted": [],
+   "missed": [],
+   "errors": [],
+   "pages": 1,
+   "records": 12,
+   "seconds": 6.53,
+   "strategies": [
+    "direct"
+   ],
+   "llm": {
+    "calls": 1,
+    "cached": 0,
+    "failed": 0,
+    "by_task": {
+     "direct_extract": 1
+    },
+    "input_tokens": 2500,
+    "output_tokens": 1748,
+    "seconds": 6.52
+   },
+   "browser_pages": 0,
+   "duplicates_merged": 0,
+   "sparse_dropped": 0,
+   "pii_removed": 0,
+   "injection_findings": 2,
+   "events": [
+    {
+     "kind": "job_started",
+     "message": "Crawling 1 start URL(s)"
+    },
+    {
+     "kind": "strategy",
+     "message": "ironvale-tools.example: direct LLM extraction (set by the job)"
+    },
+    {
+     "kind": "injection",
+     "message": "https://ironvale-tools.example/catalog/: 2 sentence(s) addressed to AI systems quarantined"
+    },
+    {
+     "kind": "page_cap",
+     "message": "Page cap of 1 reached; 1 queued URL(s) not visited"
+    },
+    {
+     "kind": "job_finished",
+     "message": "12 records from 1 pages, 1 model call(s)"
+    }
+   ],
+   "error": null,
+   "pages_extracted": 1,
+   "call_seconds": [
+    6.52
+   ],
+   "input_tokens": 2500,
+   "output_tokens": 1748,
+   "not_on_page_flags": 2
+  },
+  {
+   "site": "shop-10",
+   "vertical": "ecommerce",
+   "mode": "static",
+   "truth": 12,
+   "extracted": 12,
+   "matched": 12,
+   "precision": 1.0,
+   "recall": 1.0,
+   "field_accuracy": 0.8571,
+   "fields": {
+    "name": {
+     "correct": 12,
+     "total": 12
+    },
+    "price": {
+     "correct": 12,
+     "total": 12
+    },
+    "rating": {
+     "correct": 12,
+     "total": 12
+    },
+    "stock_status": {
+     "correct": 12,
+     "total": 12
+    },
+    "image_url": {
+     "correct": 12,
+     "total": 12
+    },
+    "product_url": {
+     "correct": 12,
+     "total": 12
+    },
+    "sku": {
+     "correct": 0,
+     "total": 12
+    }
+   },
+   "unmatched_extracted": [],
+   "missed": [],
+   "errors": [
+    {
+     "key": "Field Laptop Stand",
+     "field": "sku",
+     "got": null,
+     "want": "JUN-10958"
+    },
+    {
+     "key": "Verde Wireless Mouse",
+     "field": "sku",
+     "got": null,
+     "want": "JUN-80256"
+    },
+    {
+     "key": "Studio Mechanical Keyboard",
+     "field": "sku",
+     "got": null,
+     "want": "JUN-31423"
+    },
+    {
+     "key": "Light Desk Charger",
+     "field": "sku",
+     "got": null,
+     "want": "JUN-46568"
+    },
+    {
+     "key": "Aurora Portable SSD",
+     "field": "sku",
+     "got": null,
+     "want": "JUN-73975"
+    },
+    {
+     "key": "Prime USB-C Hub",
+     "field": "sku",
+     "got": null,
+     "want": "JUN-26612"
+    },
+    {
+     "key": "Aurora Smart Plug",
+     "field": "sku",
+     "got": null,
+     "want": "JUN-13274"
+    },
+    {
+     "key": "Compact Smart Plug",
+     "field": "sku",
+     "got": null,
+     "want": "JUN-10118"
+    },
+    {
+     "key": "Slate Power Bank",
+     "field": "sku",
+     "got": null,
+     "want": "JUN-97225"
+    },
+    {
+     "key": "Coastal Smart Plug",
+     "field": "sku",
+     "got": null,
+     "want": "JUN-66542"
+    },
+    {
+     "key": "Atlas Monitor Arm",
+     "field": "sku",
+     "got": null,
+     "want": "JUN-20993"
+    },
+    {
+     "key": "Heritage Noise Machine",
+     "field": "sku",
+     "got": null,
+     "want": "JUN-74233"
+    }
+   ],
+   "pages": 1,
+   "records": 12,
+   "seconds": 9.87,
+   "strategies": [
+    "direct"
+   ],
+   "llm": {
+    "calls": 1,
+    "cached": 0,
+    "failed": 0,
+    "by_task": {
+     "direct_extract": 1
+    },
+    "input_tokens": 2602,
+    "output_tokens": 2161,
+    "seconds": 7.85
+   },
+   "browser_pages": 0,
+   "duplicates_merged": 0,
+   "sparse_dropped": 0,
+   "pii_removed": 0,
+   "injection_findings": 0,
+   "events": [
+    {
+     "kind": "job_started",
+     "message": "Crawling 1 start URL(s)"
+    },
+    {
+     "kind": "strategy",
+     "message": "juniper-tech-market.example: direct LLM extraction (set by the job)"
+    },
+    {
+     "kind": "page_cap",
+     "message": "Page cap of 1 reached; 1 queued URL(s) not visited"
+    },
+    {
+     "kind": "job_finished",
+     "message": "12 records from 1 pages, 1 model call(s)"
+    }
+   ],
+   "error": null,
+   "pages_extracted": 1,
+   "call_seconds": [
+    7.85
+   ],
+   "input_tokens": 2602,
+   "output_tokens": 2161,
+   "not_on_page_flags": 0
+  },
+  {
+   "site": "jobs-01",
+   "vertical": "jobs",
+   "mode": "static",
+   "truth": 10,
+   "extracted": 10,
+   "matched": 10,
+   "precision": 1.0,
+   "recall": 1.0,
+   "field_accuracy": 1.0,
+   "fields": {
+    "title": {
+     "correct": 10,
+     "total": 10
+    },
+    "company": {
+     "correct": 10,
+     "total": 10
+    },
+    "location": {
+     "correct": 10,
+     "total": 10
+    },
+    "salary_min": {
+     "correct": 10,
+     "total": 10
+    },
+    "salary_max": {
+     "correct": 10,
+     "total": 10
+    },
+    "employment_type": {
+     "correct": 10,
+     "total": 10
+    },
+    "remote": {
+     "correct": 10,
+     "total": 10
+    },
+    "posted_date": {
+     "correct": 10,
+     "total": 10
+    },
+    "job_url": {
+     "correct": 10,
+     "total": 10
+    }
+   },
+   "unmatched_extracted": [],
+   "missed": [],
+   "errors": [],
+   "pages": 1,
+   "records": 10,
+   "seconds": 7.56,
+   "strategies": [
+    "direct"
+   ],
+   "llm": {
+    "calls": 1,
+    "cached": 0,
+    "failed": 0,
+    "by_task": {
+     "direct_extract": 1
+    },
+    "input_tokens": 2051,
+    "output_tokens": 2032,
+    "seconds": 7.54
+   },
+   "browser_pages": 0,
+   "duplicates_merged": 0,
+   "sparse_dropped": 0,
+   "pii_removed": 4,
+   "injection_findings": 0,
+   "events": [
+    {
+     "kind": "job_started",
+     "message": "Crawling 1 start URL(s)"
+    },
+    {
+     "kind": "strategy",
+     "message": "hireloop.example: direct LLM extraction (set by the job)"
+    },
+    {
+     "kind": "page_cap",
+     "message": "Page cap of 1 reached; 1 queued URL(s) not visited"
+    },
+    {
+     "kind": "pii_removed",
+     "message": "PII guard removed 4 email address(es) or phone number(s)"
+    },
+    {
+     "kind": "job_finished",
+     "message": "10 records from 1 pages, 1 model call(s)"
+    }
+   ],
+   "error": null,
+   "pages_extracted": 1,
+   "call_seconds": [
+    7.54
+   ],
+   "input_tokens": 2051,
+   "output_tokens": 2032,
+   "not_on_page_flags": 0
+  },
+  {
+   "site": "jobs-02",
+   "vertical": "jobs",
+   "mode": "static",
+   "truth": 10,
+   "extracted": 10,
+   "matched": 10,
+   "precision": 1.0,
+   "recall": 1.0,
+   "field_accuracy": 1.0,
+   "fields": {
+    "title": {
+     "correct": 10,
+     "total": 10
+    },
+    "company": {
+     "correct": 10,
+     "total": 10
+    },
+    "location": {
+     "correct": 10,
+     "total": 10
+    },
+    "salary_min": {
+     "correct": 10,
+     "total": 10
+    },
+    "salary_max": {
+     "correct": 10,
+     "total": 10
+    },
+    "employment_type": {
+     "correct": 10,
+     "total": 10
+    },
+    "remote": {
+     "correct": 10,
+     "total": 10
+    },
+    "posted_date": {
+     "correct": 10,
+     "total": 10
+    },
+    "job_url": {
+     "correct": 10,
+     "total": 10
+    }
+   },
+   "unmatched_extracted": [],
+   "missed": [],
+   "errors": [],
+   "pages": 1,
+   "records": 10,
+   "seconds": 6.38,
+   "strategies": [
+    "direct"
+   ],
+   "llm": {
+    "calls": 1,
+    "cached": 0,
+    "failed": 0,
+    "by_task": {
+     "direct_extract": 1
+    },
+    "input_tokens": 1909,
+    "output_tokens": 1599,
+    "seconds": 6.37
+   },
+   "browser_pages": 0,
+   "duplicates_merged": 0,
+   "sparse_dropped": 0,
+   "pii_removed": 0,
+   "injection_findings": 0,
+   "events": [
+    {
+     "kind": "job_started",
+     "message": "Crawling 1 start URL(s)"
+    },
+    {
+     "kind": "strategy",
+     "message": "kettle-jobs.example: direct LLM extraction (set by the job)"
+    },
+    {
+     "kind": "page_cap",
+     "message": "Page cap of 1 reached; 1 queued URL(s) not visited"
+    },
+    {
+     "kind": "job_finished",
+     "message": "10 records from 1 pages, 1 model call(s)"
+    }
+   ],
+   "error": null,
+   "pages_extracted": 1,
+   "call_seconds": [
+    6.37
+   ],
+   "input_tokens": 1909,
+   "output_tokens": 1599,
+   "not_on_page_flags": 0
+  },
+  {
+   "site": "jobs-03",
+   "vertical": "jobs",
+   "mode": "static",
+   "truth": 10,
+   "extracted": 10,
+   "matched": 10,
+   "precision": 1.0,
+   "recall": 1.0,
+   "field_accuracy": 1.0,
+   "fields": {
+    "title": {
+     "correct": 10,
+     "total": 10
+    },
+    "company": {
+     "correct": 10,
+     "total": 10
+    },
+    "location": {
+     "correct": 10,
+     "total": 10
+    },
+    "salary_min": {
+     "correct": 10,
+     "total": 10
+    },
+    "salary_max": {
+     "correct": 10,
+     "total": 10
+    },
+    "employment_type": {
+     "correct": 10,
+     "total": 10
+    },
+    "remote": {
+     "correct": 10,
+     "total": 10
+    },
+    "posted_date": {
+     "correct": 10,
+     "total": 10
+    },
+    "job_url": {
+     "correct": 10,
+     "total": 10
+    }
+   },
+   "unmatched_extracted": [],
+   "missed": [],
+   "errors": [],
+   "pages": 1,
+   "records": 10,
+   "seconds": 7.91,
+   "strategies": [
+    "direct"
+   ],
+   "llm": {
+    "calls": 1,
+    "cached": 0,
+    "failed": 0,
+    "by_task": {
+     "direct_extract": 1
+    },
+    "input_tokens": 1955,
+    "output_tokens": 2210,
+    "seconds": 7.89
+   },
+   "browser_pages": 0,
+   "duplicates_merged": 0,
+   "sparse_dropped": 0,
+   "pii_removed": 0,
+   "injection_findings": 0,
+   "events": [
+    {
+     "kind": "job_started",
+     "message": "Crawling 1 start URL(s)"
+    },
+    {
+     "kind": "strategy",
+     "message": "northstar-careers.example: direct LLM extraction (set by the job)"
+    },
+    {
+     "kind": "page_cap",
+     "message": "Page cap of 1 reached; 1 queued URL(s) not visited"
+    },
+    {
+     "kind": "job_finished",
+     "message": "10 records from 1 pages, 1 model call(s)"
+    }
+   ],
+   "error": null,
+   "pages_extracted": 1,
+   "call_seconds": [
+    7.89
+   ],
+   "input_tokens": 1955,
+   "output_tokens": 2210,
+   "not_on_page_flags": 0
+  },
+  {
+   "site": "jobs-04",
+   "vertical": "jobs",
+   "mode": "static",
+   "truth": 10,
+   "extracted": 11,
+   "matched": 10,
+   "precision": 0.9091,
+   "recall": 1.0,
+   "field_accuracy": 1.0,
+   "fields": {
+    "title": {
+     "correct": 10,
+     "total": 10
+    },
+    "company": {
+     "correct": 10,
+     "total": 10
+    },
+    "location": {
+     "correct": 10,
+     "total": 10
+    },
+    "salary_min": {
+     "correct": 10,
+     "total": 10
+    },
+    "salary_max": {
+     "correct": 10,
+     "total": 10
+    },
+    "employment_type": {
+     "correct": 10,
+     "total": 10
+    },
+    "remote": {
+     "correct": 10,
+     "total": 10
+    },
+    "posted_date": {
+     "correct": 10,
+     "total": 10
+    },
+    "job_url": {
+     "correct": 10,
+     "total": 10
+    }
+   },
+   "unmatched_extracted": [
+    "Staff Marketing Coordinator"
+   ],
+   "missed": [],
+   "errors": [],
+   "pages": 1,
+   "records": 11,
+   "seconds": 6.91,
+   "strategies": [
+    "direct"
+   ],
+   "llm": {
+    "calls": 1,
+    "cached": 0,
+    "failed": 0,
+    "by_task": {
+     "direct_extract": 1
+    },
+    "input_tokens": 2011,
+    "output_tokens": 1912,
+    "seconds": 6.9
+   },
+   "browser_pages": 0,
+   "duplicates_merged": 0,
+   "sparse_dropped": 0,
+   "pii_removed": 0,
+   "injection_findings": 0,
+   "events": [
+    {
+     "kind": "job_started",
+     "message": "Crawling 1 start URL(s)"
+    },
+    {
+     "kind": "strategy",
+     "message": "remote-ridge.example: direct LLM extraction (set by the job)"
+    },
+    {
+     "kind": "page_cap",
+     "message": "Page cap of 1 reached; 1 queued URL(s) not visited"
+    },
+    {
+     "kind": "job_finished",
+     "message": "11 records from 1 pages, 1 model call(s)"
+    }
+   ],
+   "error": null,
+   "pages_extracted": 1,
+   "call_seconds": [
+    6.9
+   ],
+   "input_tokens": 2011,
+   "output_tokens": 1912,
+   "not_on_page_flags": 0
+  },
+  {
+   "site": "jobs-05",
+   "vertical": "jobs",
+   "mode": "static",
+   "truth": 10,
+   "extracted": 10,
+   "matched": 10,
+   "precision": 1.0,
+   "recall": 1.0,
+   "field_accuracy": 0.9667,
+   "fields": {
+    "title": {
+     "correct": 10,
+     "total": 10
+    },
+    "company": {
+     "correct": 10,
+     "total": 10
+    },
+    "location": {
+     "correct": 7,
+     "total": 10
+    },
+    "salary_min": {
+     "correct": 10,
+     "total": 10
+    },
+    "salary_max": {
+     "correct": 10,
+     "total": 10
+    },
+    "employment_type": {
+     "correct": 10,
+     "total": 10
+    },
+    "remote": {
+     "correct": 10,
+     "total": 10
+    },
+    "posted_date": {
+     "correct": 10,
+     "total": 10
+    },
+    "job_url": {
+     "correct": 10,
+     "total": 10
+    }
+   },
+   "unmatched_extracted": [],
+   "missed": [],
+   "errors": [
+    {
+     "key": "Machine Learning Engineer",
+     "field": "location",
+     "got": null,
+     "want": "Remote"
+    },
+    {
+     "key": "Recruiter",
+     "field": "location",
+     "got": null,
+     "want": "Remote"
+    },
+    {
+     "key": "Product Designer",
+     "field": "location",
+     "got": null,
+     "want": "Remote"
+    }
+   ],
+   "pages": 1,
+   "records": 10,
+   "seconds": 6.95,
+   "strategies": [
+    "direct"
+   ],
+   "llm": {
+    "calls": 1,
+    "cached": 0,
+    "failed": 0,
+    "by_task": {
+     "direct_extract": 1
+    },
+    "input_tokens": 1951,
+    "output_tokens": 1775,
+    "seconds": 6.94
+   },
+   "browser_pages": 0,
+   "duplicates_merged": 0,
+   "sparse_dropped": 0,
+   "pii_removed": 0,
+   "injection_findings": 0,
+   "events": [
+    {
+     "kind": "job_started",
+     "message": "Crawling 1 start URL(s)"
+    },
+    {
+     "kind": "strategy",
+     "message": "shamrock-roles.example: direct LLM extraction (set by the job)"
+    },
+    {
+     "kind": "page_cap",
+     "message": "Page cap of 1 reached; 1 queued URL(s) not visited"
+    },
+    {
+     "kind": "job_finished",
+     "message": "10 records from 1 pages, 1 model call(s)"
+    }
+   ],
+   "error": null,
+   "pages_extracted": 1,
+   "call_seconds": [
+    6.94
+   ],
+   "input_tokens": 1951,
+   "output_tokens": 1775,
+   "not_on_page_flags": 0
+  },
+  {
+   "site": "jobs-06",
+   "vertical": "jobs",
+   "mode": "static",
+   "truth": 10,
+   "extracted": 10,
+   "matched": 10,
+   "precision": 1.0,
+   "recall": 1.0,
+   "field_accuracy": 1.0,
+   "fields": {
+    "title": {
+     "correct": 10,
+     "total": 10
+    },
+    "company": {
+     "correct": 10,
+     "total": 10
+    },
+    "location": {
+     "correct": 10,
+     "total": 10
+    },
+    "salary_min": {
+     "correct": 10,
+     "total": 10
+    },
+    "salary_max": {
+     "correct": 10,
+     "total": 10
+    },
+    "employment_type": {
+     "correct": 10,
+     "total": 10
+    },
+    "remote": {
+     "correct": 10,
+     "total": 10
+    },
+    "posted_date": {
+     "correct": 10,
+     "total": 10
+    },
+    "job_url": {
+     "correct": 10,
+     "total": 10
+    }
+   },
+   "unmatched_extracted": [],
+   "missed": [],
+   "errors": [],
+   "pages": 1,
+   "records": 10,
+   "seconds": 7.03,
+   "strategies": [
+    "direct"
+   ],
+   "llm": {
+    "calls": 1,
+    "cached": 0,
+    "failed": 0,
+    "by_task": {
+     "direct_extract": 1
+    },
+    "input_tokens": 1944,
+    "output_tokens": 1757,
+    "seconds": 7.02
+   },
+   "browser_pages": 0,
+   "duplicates_merged": 0,
+   "sparse_dropped": 0,
+   "pii_removed": 0,
+   "injection_findings": 2,
+   "events": [
+    {
+     "kind": "job_started",
+     "message": "Crawling 1 start URL(s)"
+    },
+    {
+     "kind": "strategy",
+     "message": "tidepool-talent.example: direct LLM extraction (set by the job)"
+    },
+    {
+     "kind": "injection",
+     "message": "https://tidepool-talent.example/jobs/: 2 sentence(s) addressed to AI systems quarantined"
+    },
+    {
+     "kind": "page_cap",
+     "message": "Page cap of 1 reached; 1 queued URL(s) not visited"
+    },
+    {
+     "kind": "job_finished",
+     "message": "10 records from 1 pages, 1 model call(s)"
+    }
+   ],
+   "error": null,
+   "pages_extracted": 1,
+   "call_seconds": [
+    7.02
+   ],
+   "input_tokens": 1944,
+   "output_tokens": 1757,
+   "not_on_page_flags": 0
+  },
+  {
+   "site": "homes-01",
+   "vertical": "realestate",
+   "mode": "static",
+   "truth": 8,
+   "extracted": 8,
+   "matched": 8,
+   "precision": 1.0,
+   "recall": 1.0,
+   "field_accuracy": 1.0,
+   "fields": {
+    "address": {
+     "correct": 8,
+     "total": 8
+    },
+    "city": {
+     "correct": 8,
+     "total": 8
+    },
+    "price": {
+     "correct": 8,
+     "total": 8
+    },
+    "listing_type": {
+     "correct": 8,
+     "total": 8
+    },
+    "bedrooms": {
+     "correct": 8,
+     "total": 8
+    },
+    "bathrooms": {
+     "correct": 8,
+     "total": 8
+    },
+    "area_sqm": {
+     "correct": 8,
+     "total": 8
+    },
+    "listing_url": {
+     "correct": 8,
+     "total": 8
+    },
+    "agent_phone": {
+     "correct": 8,
+     "total": 8
+    }
+   },
+   "unmatched_extracted": [],
+   "missed": [],
+   "errors": [],
+   "pages": 1,
+   "records": 8,
+   "seconds": 5.56,
+   "strategies": [
+    "direct"
+   ],
+   "llm": {
+    "calls": 1,
+    "cached": 0,
+    "failed": 0,
+    "by_task": {
+     "direct_extract": 1
+    },
+    "input_tokens": 2345,
+    "output_tokens": 1383,
+    "seconds": 5.54
+   },
+   "browser_pages": 0,
+   "duplicates_merged": 0,
+   "sparse_dropped": 0,
+   "pii_removed": 0,
+   "injection_findings": 0,
+   "events": [
+    {
+     "kind": "job_started",
+     "message": "Crawling 1 start URL(s)"
+    },
+    {
+     "kind": "strategy",
+     "message": "keystone-realty.example: direct LLM extraction (set by the job)"
+    },
+    {
+     "kind": "page_cap",
+     "message": "Page cap of 1 reached; 1 queued URL(s) not visited"
+    },
+    {
+     "kind": "job_finished",
+     "message": "8 records from 1 pages, 1 model call(s)"
+    }
+   ],
+   "error": null,
+   "pages_extracted": 1,
+   "call_seconds": [
+    5.54
+   ],
+   "input_tokens": 2345,
+   "output_tokens": 1383,
+   "not_on_page_flags": 0
+  },
+  {
+   "site": "homes-02",
+   "vertical": "realestate",
+   "mode": "static",
+   "truth": 8,
+   "extracted": 8,
+   "matched": 8,
+   "precision": 1.0,
+   "recall": 1.0,
+   "field_accuracy": 1.0,
+   "fields": {
+    "address": {
+     "correct": 8,
+     "total": 8
+    },
+    "city": {
+     "correct": 8,
+     "total": 8
+    },
+    "price": {
+     "correct": 8,
+     "total": 8
+    },
+    "listing_type": {
+     "correct": 8,
+     "total": 8
+    },
+    "bedrooms": {
+     "correct": 8,
+     "total": 8
+    },
+    "bathrooms": {
+     "correct": 8,
+     "total": 8
+    },
+    "area_sqm": {
+     "correct": 8,
+     "total": 8
+    },
+    "listing_url": {
+     "correct": 8,
+     "total": 8
+    }
+   },
+   "unmatched_extracted": [],
+   "missed": [],
+   "errors": [],
+   "pages": 1,
+   "records": 8,
+   "seconds": 5.09,
+   "strategies": [
+    "direct"
+   ],
+   "llm": {
+    "calls": 1,
+    "cached": 0,
+    "failed": 0,
+    "by_task": {
+     "direct_extract": 1
+    },
+    "input_tokens": 1870,
+    "output_tokens": 1080,
+    "seconds": 5.08
+   },
+   "browser_pages": 0,
+   "duplicates_merged": 0,
+   "sparse_dropped": 0,
+   "pii_removed": 0,
+   "injection_findings": 0,
+   "events": [
+    {
+     "kind": "job_started",
+     "message": "Crawling 1 start URL(s)"
+    },
+    {
+     "kind": "strategy",
+     "message": "hausfinder-berlin.example: direct LLM extraction (set by the job)"
+    },
+    {
+     "kind": "page_cap",
+     "message": "Page cap of 1 reached; 1 queued URL(s) not visited"
+    },
+    {
+     "kind": "job_finished",
+     "message": "8 records from 1 pages, 1 model call(s)"
+    }
+   ],
+   "error": null,
+   "pages_extracted": 1,
+   "call_seconds": [
+    5.08
+   ],
+   "input_tokens": 1870,
+   "output_tokens": 1080,
+   "not_on_page_flags": 0
+  },
+  {
+   "site": "homes-03",
+   "vertical": "realestate",
+   "mode": "static",
+   "truth": 8,
+   "extracted": 8,
+   "matched": 8,
+   "precision": 1.0,
+   "recall": 1.0,
+   "field_accuracy": 1.0,
+   "fields": {
+    "address": {
+     "correct": 8,
+     "total": 8
+    },
+    "city": {
+     "correct": 8,
+     "total": 8
+    },
+    "price": {
+     "correct": 8,
+     "total": 8
+    },
+    "listing_type": {
+     "correct": 8,
+     "total": 8
+    },
+    "bedrooms": {
+     "correct": 8,
+     "total": 8
+    },
+    "bathrooms": {
+     "correct": 8,
+     "total": 8
+    },
+    "area_sqm": {
+     "correct": 8,
+     "total": 8
+    },
+    "listing_url": {
+     "correct": 8,
+     "total": 8
+    },
+    "agent_phone": {
+     "correct": 8,
+     "total": 8
+    }
+   },
+   "unmatched_extracted": [],
+   "missed": [],
+   "errors": [],
+   "pages": 1,
+   "records": 8,
+   "seconds": 5.87,
+   "strategies": [
+    "direct"
+   ],
+   "llm": {
+    "calls": 1,
+    "cached": 0,
+    "failed": 0,
+    "by_task": {
+     "direct_extract": 1
+    },
+    "input_tokens": 2351,
+    "output_tokens": 1505,
+    "seconds": 5.86
+   },
+   "browser_pages": 0,
+   "duplicates_merged": 0,
+   "sparse_dropped": 0,
+   "pii_removed": 0,
+   "injection_findings": 0,
+   "events": [
+    {
+     "kind": "job_started",
+     "message": "Crawling 1 start URL(s)"
+    },
+    {
+     "kind": "strategy",
+     "message": "brick-and-bay-lettings.example: direct LLM extraction (set by the job)"
+    },
+    {
+     "kind": "page_cap",
+     "message": "Page cap of 1 reached; 1 queued URL(s) not visited"
+    },
+    {
+     "kind": "job_finished",
+     "message": "8 records from 1 pages, 1 model call(s)"
+    }
+   ],
+   "error": null,
+   "pages_extracted": 1,
+   "call_seconds": [
+    5.86
+   ],
+   "input_tokens": 2351,
+   "output_tokens": 1505,
+   "not_on_page_flags": 0
+  },
+  {
+   "site": "homes-04",
+   "vertical": "realestate",
+   "mode": "static",
+   "truth": 8,
+   "extracted": 9,
+   "matched": 8,
+   "precision": 0.8889,
+   "recall": 1.0,
+   "field_accuracy": 1.0,
+   "fields": {
+    "address": {
+     "correct": 8,
+     "total": 8
+    },
+    "city": {
+     "correct": 8,
+     "total": 8
+    },
+    "price": {
+     "correct": 8,
+     "total": 8
+    },
+    "listing_type": {
+     "correct": 8,
+     "total": 8
+    },
+    "bedrooms": {
+     "correct": 8,
+     "total": 8
+    },
+    "bathrooms": {
+     "correct": 8,
+     "total": 8
+    },
+    "area_sqm": {
+     "correct": 8,
+     "total": 8
+    },
+    "listing_url": {
+     "correct": 8,
+     "total": 8
+    }
+   },
+   "unmatched_extracted": [
+    "77 Bakers Lane"
+   ],
+   "missed": [],
+   "errors": [],
+   "pages": 1,
+   "records": 9,
+   "seconds": 6.18,
+   "strategies": [
+    "direct"
+   ],
+   "llm": {
+    "calls": 1,
+    "cached": 0,
+    "failed": 0,
+    "by_task": {
+     "direct_extract": 1
+    },
+    "input_tokens": 2132,
+    "output_tokens": 1496,
+    "seconds": 6.17
+   },
+   "browser_pages": 0,
+   "duplicates_merged": 0,
+   "sparse_dropped": 0,
+   "pii_removed": 0,
+   "injection_findings": 0,
+   "events": [
+    {
+     "kind": "job_started",
+     "message": "Crawling 1 start URL(s)"
+    },
+    {
+     "kind": "strategy",
+     "message": "porto-casa-imoveis.example: direct LLM extraction (set by the job)"
+    },
+    {
+     "kind": "page_cap",
+     "message": "Page cap of 1 reached; 1 queued URL(s) not visited"
+    },
+    {
+     "kind": "job_finished",
+     "message": "9 records from 1 pages, 1 model call(s)"
+    }
+   ],
+   "error": null,
+   "pages_extracted": 1,
+   "call_seconds": [
+    6.17
+   ],
+   "input_tokens": 2132,
+   "output_tokens": 1496,
+   "not_on_page_flags": 0
+  },
+  {
+   "site": "homes-05",
+   "vertical": "realestate",
+   "mode": "static",
+   "truth": 8,
+   "extracted": 8,
+   "matched": 8,
+   "precision": 1.0,
+   "recall": 1.0,
+   "field_accuracy": 1.0,
+   "fields": {
+    "address": {
+     "correct": 8,
+     "total": 8
+    },
+    "city": {
+     "correct": 8,
+     "total": 8
+    },
+    "price": {
+     "correct": 8,
+     "total": 8
+    },
+    "listing_type": {
+     "correct": 8,
+     "total": 8
+    },
+    "bedrooms": {
+     "correct": 8,
+     "total": 8
+    },
+    "bathrooms": {
+     "correct": 8,
+     "total": 8
+    },
+    "area_sqm": {
+     "correct": 8,
+     "total": 8
+    },
+    "listing_url": {
+     "correct": 8,
+     "total": 8
+    }
+   },
+   "unmatched_extracted": [],
+   "missed": [],
+   "errors": [],
+   "pages": 1,
+   "records": 8,
+   "seconds": 5.94,
+   "strategies": [
+    "direct"
+   ],
+   "llm": {
+    "calls": 1,
+    "cached": 0,
+    "failed": 0,
+    "by_task": {
+     "direct_extract": 1
+    },
+    "input_tokens": 1898,
+    "output_tokens": 1452,
+    "seconds": 5.93
+   },
+   "browser_pages": 0,
+   "duplicates_merged": 0,
+   "sparse_dropped": 0,
+   "pii_removed": 0,
+   "injection_findings": 0,
+   "events": [
+    {
+     "kind": "job_started",
+     "message": "Crawling 1 start URL(s)"
+    },
+    {
+     "kind": "strategy",
+     "message": "cascade-homes.example: direct LLM extraction (set by the job)"
+    },
+    {
+     "kind": "page_cap",
+     "message": "Page cap of 1 reached; 1 queued URL(s) not visited"
+    },
+    {
+     "kind": "job_finished",
+     "message": "8 records from 1 pages, 1 model call(s)"
+    }
+   ],
+   "error": null,
+   "pages_extracted": 1,
+   "call_seconds": [
+    5.93
+   ],
+   "input_tokens": 1898,
+   "output_tokens": 1452,
+   "not_on_page_flags": 0
+  },
+  {
+   "site": "homes-06",
+   "vertical": "realestate",
+   "mode": "static",
+   "truth": 8,
+   "extracted": 8,
+   "matched": 8,
+   "precision": 1.0,
+   "recall": 1.0,
+   "field_accuracy": 1.0,
+   "fields": {
+    "address": {
+     "correct": 8,
+     "total": 8
+    },
+    "city": {
+     "correct": 8,
+     "total": 8
+    },
+    "price": {
+     "correct": 8,
+     "total": 8
+    },
+    "listing_type": {
+     "correct": 8,
+     "total": 8
+    },
+    "bedrooms": {
+     "correct": 8,
+     "total": 8
+    },
+    "bathrooms": {
+     "correct": 8,
+     "total": 8
+    },
+    "area_sqm": {
+     "correct": 8,
+     "total": 8
+    },
+    "listing_url": {
+     "correct": 8,
+     "total": 8
+    }
+   },
+   "unmatched_extracted": [],
+   "missed": [],
+   "errors": [],
+   "pages": 1,
+   "records": 8,
+   "seconds": 4.78,
+   "strategies": [
+    "direct"
+   ],
+   "llm": {
+    "calls": 1,
+    "cached": 0,
+    "failed": 0,
+    "by_task": {
+     "direct_extract": 1
+    },
+    "input_tokens": 1860,
+    "output_tokens": 1174,
+    "seconds": 4.77
+   },
+   "browser_pages": 0,
+   "duplicates_merged": 0,
+   "sparse_dropped": 0,
+   "pii_removed": 0,
+   "injection_findings": 0,
+   "events": [
+    {
+     "kind": "job_started",
+     "message": "Crawling 1 start URL(s)"
+    },
+    {
+     "kind": "strategy",
+     "message": "lantern-estates.example: direct LLM extraction (set by the job)"
+    },
+    {
+     "kind": "page_cap",
+     "message": "Page cap of 1 reached; 1 queued URL(s) not visited"
+    },
+    {
+     "kind": "job_finished",
+     "message": "8 records from 1 pages, 1 model call(s)"
+    }
+   ],
+   "error": null,
+   "pages_extracted": 1,
+   "call_seconds": [
+    4.77
+   ],
+   "input_tokens": 1860,
+   "output_tokens": 1174,
+   "not_on_page_flags": 0
+  },
+  {
+   "site": "events-01",
+   "vertical": "events",
+   "mode": "static",
+   "truth": 10,
+   "extracted": 10,
+   "matched": 10,
+   "precision": 1.0,
+   "recall": 1.0,
+   "field_accuracy": 1.0,
+   "fields": {
+    "name": {
+     "correct": 10,
+     "total": 10
+    },
+    "start_date": {
+     "correct": 10,
+     "total": 10
+    },
+    "venue": {
+     "correct": 10,
+     "total": 10
+    },
+    "price": {
+     "correct": 10,
+     "total": 10
+    },
+    "category": {
+     "correct": 10,
+     "total": 10
+    },
+    "event_url": {
+     "correct": 10,
+     "total": 10
+    }
+   },
+   "unmatched_extracted": [],
+   "missed": [],
+   "errors": [],
+   "pages": 1,
+   "records": 10,
+   "seconds": 6.03,
+   "strategies": [
+    "direct"
+   ],
+   "llm": {
+    "calls": 1,
+    "cached": 0,
+    "failed": 0,
+    "by_task": {
+     "direct_extract": 1
+    },
+    "input_tokens": 1586,
+    "output_tokens": 1371,
+    "seconds": 6.02
+   },
+   "browser_pages": 0,
+   "duplicates_merged": 0,
+   "sparse_dropped": 0,
+   "pii_removed": 0,
+   "injection_findings": 0,
+   "events": [
+    {
+     "kind": "job_started",
+     "message": "Crawling 1 start URL(s)"
+    },
+    {
+     "kind": "strategy",
+     "message": "whats-on-norbridge.example: direct LLM extraction (set by the job)"
+    },
+    {
+     "kind": "page_cap",
+     "message": "Page cap of 1 reached; 1 queued URL(s) not visited"
+    },
+    {
+     "kind": "job_finished",
+     "message": "10 records from 1 pages, 1 model call(s)"
+    }
+   ],
+   "error": null,
+   "pages_extracted": 1,
+   "call_seconds": [
+    6.02
+   ],
+   "input_tokens": 1586,
+   "output_tokens": 1371,
+   "not_on_page_flags": 0
+  },
+  {
+   "site": "events-02",
+   "vertical": "events",
+   "mode": "static",
+   "truth": 10,
+   "extracted": 10,
+   "matched": 10,
+   "precision": 1.0,
+   "recall": 1.0,
+   "field_accuracy": 1.0,
+   "fields": {
+    "name": {
+     "correct": 10,
+     "total": 10
+    },
+    "start_date": {
+     "correct": 10,
+     "total": 10
+    },
+    "venue": {
+     "correct": 10,
+     "total": 10
+    },
+    "price": {
+     "correct": 10,
+     "total": 10
+    },
+    "category": {
+     "correct": 10,
+     "total": 10
+    },
+    "event_url": {
+     "correct": 10,
+     "total": 10
+    }
+   },
+   "unmatched_extracted": [],
+   "missed": [],
+   "errors": [],
+   "pages": 1,
+   "records": 10,
+   "seconds": 5.49,
+   "strategies": [
+    "direct"
+   ],
+   "llm": {
+    "calls": 1,
+    "cached": 0,
+    "failed": 0,
+    "by_task": {
+     "direct_extract": 1
+    },
+    "input_tokens": 1561,
+    "output_tokens": 1362,
+    "seconds": 5.48
+   },
+   "browser_pages": 0,
+   "duplicates_merged": 0,
+   "sparse_dropped": 0,
+   "pii_removed": 0,
+   "injection_findings": 0,
+   "events": [
+    {
+     "kind": "job_started",
+     "message": "Crawling 1 start URL(s)"
+    },
+    {
+     "kind": "strategy",
+     "message": "kulturkalender-lindau.example: direct LLM extraction (set by the job)"
+    },
+    {
+     "kind": "page_cap",
+     "message": "Page cap of 1 reached; 1 queued URL(s) not visited"
+    },
+    {
+     "kind": "job_finished",
+     "message": "10 records from 1 pages, 1 model call(s)"
+    }
+   ],
+   "error": null,
+   "pages_extracted": 1,
+   "call_seconds": [
+    5.48
+   ],
+   "input_tokens": 1561,
+   "output_tokens": 1362,
+   "not_on_page_flags": 0
+  },
+  {
+   "site": "events-03",
+   "vertical": "events",
+   "mode": "static",
+   "truth": 10,
+   "extracted": 10,
+   "matched": 10,
+   "precision": 1.0,
+   "recall": 1.0,
+   "field_accuracy": 1.0,
+   "fields": {
+    "name": {
+     "correct": 10,
+     "total": 10
+    },
+    "start_date": {
+     "correct": 10,
+     "total": 10
+    },
+    "venue": {
+     "correct": 10,
+     "total": 10
+    },
+    "price": {
+     "correct": 10,
+     "total": 10
+    },
+    "category": {
+     "correct": 10,
+     "total": 10
+    },
+    "event_url": {
+     "correct": 10,
+     "total": 10
+    }
+   },
+   "unmatched_extracted": [],
+   "missed": [],
+   "errors": [],
+   "pages": 1,
+   "records": 10,
+   "seconds": 5.47,
+   "strategies": [
+    "direct"
+   ],
+   "llm": {
+    "calls": 1,
+    "cached": 0,
+    "failed": 0,
+    "by_task": {
+     "direct_extract": 1
+    },
+    "input_tokens": 1608,
+    "output_tokens": 1303,
+    "seconds": 5.46
+   },
+   "browser_pages": 0,
+   "duplicates_merged": 0,
+   "sparse_dropped": 0,
+   "pii_removed": 0,
+   "injection_findings": 0,
+   "events": [
+    {
+     "kind": "job_started",
+     "message": "Crawling 1 start URL(s)"
+    },
+    {
+     "kind": "strategy",
+     "message": "glasgow-after-dark.example: direct LLM extraction (set by the job)"
+    },
+    {
+     "kind": "page_cap",
+     "message": "Page cap of 1 reached; 1 queued URL(s) not visited"
+    },
+    {
+     "kind": "job_finished",
+     "message": "10 records from 1 pages, 1 model call(s)"
+    }
+   ],
+   "error": null,
+   "pages_extracted": 1,
+   "call_seconds": [
+    5.46
+   ],
+   "input_tokens": 1608,
+   "output_tokens": 1303,
+   "not_on_page_flags": 0
+  },
+  {
+   "site": "events-04",
+   "vertical": "events",
+   "mode": "static",
+   "truth": 10,
+   "extracted": 10,
+   "matched": 10,
+   "precision": 1.0,
+   "recall": 1.0,
+   "field_accuracy": 1.0,
+   "fields": {
+    "name": {
+     "correct": 10,
+     "total": 10
+    },
+    "start_date": {
+     "correct": 10,
+     "total": 10
+    },
+    "venue": {
+     "correct": 10,
+     "total": 10
+    },
+    "price": {
+     "correct": 10,
+     "total": 10
+    },
+    "category": {
+     "correct": 10,
+     "total": 10
+    },
+    "event_url": {
+     "correct": 10,
+     "total": 10
+    }
+   },
+   "unmatched_extracted": [],
+   "missed": [],
+   "errors": [],
+   "pages": 1,
+   "records": 10,
+   "seconds": 7.59,
+   "strategies": [
+    "direct"
+   ],
+   "llm": {
+    "calls": 1,
+    "cached": 0,
+    "failed": 0,
+    "by_task": {
+     "direct_extract": 1
+    },
+    "input_tokens": 1576,
+    "output_tokens": 1697,
+    "seconds": 7.59
+   },
+   "browser_pages": 0,
+   "duplicates_merged": 0,
+   "sparse_dropped": 0,
+   "pii_removed": 0,
+   "injection_findings": 0,
+   "events": [
+    {
+     "kind": "job_started",
+     "message": "Crawling 1 start URL(s)"
+    },
+    {
+     "kind": "strategy",
+     "message": "harbourfront-happenings.example: direct LLM extraction (set by the job)"
+    },
+    {
+     "kind": "page_cap",
+     "message": "Page cap of 1 reached; 1 queued URL(s) not visited"
+    },
+    {
+     "kind": "job_finished",
+     "message": "10 records from 1 pages, 1 model call(s)"
+    }
+   ],
+   "error": null,
+   "pages_extracted": 1,
+   "call_seconds": [
+    7.59
+   ],
+   "input_tokens": 1576,
+   "output_tokens": 1697,
+   "not_on_page_flags": 0
+  },
+  {
+   "site": "events-05",
+   "vertical": "events",
+   "mode": "static",
+   "truth": 10,
+   "extracted": 10,
+   "matched": 10,
+   "precision": 1.0,
+   "recall": 1.0,
+   "field_accuracy": 1.0,
+   "fields": {
+    "name": {
+     "correct": 10,
+     "total": 10
+    },
+    "start_date": {
+     "correct": 10,
+     "total": 10
+    },
+    "venue": {
+     "correct": 10,
+     "total": 10
+    },
+    "price": {
+     "correct": 10,
+     "total": 10
+    },
+    "category": {
+     "correct": 10,
+     "total": 10
+    },
+    "event_url": {
+     "correct": 10,
+     "total": 10
+    }
+   },
+   "unmatched_extracted": [],
+   "missed": [],
+   "errors": [],
+   "pages": 1,
+   "records": 10,
+   "seconds": 6.54,
+   "strategies": [
+    "direct"
+   ],
+   "llm": {
+    "calls": 1,
+    "cached": 0,
+    "failed": 0,
+    "by_task": {
+     "direct_extract": 1
+    },
+    "input_tokens": 1553,
+    "output_tokens": 1548,
+    "seconds": 6.53
+   },
+   "browser_pages": 0,
+   "duplicates_merged": 0,
+   "sparse_dropped": 0,
+   "pii_removed": 0,
+   "injection_findings": 0,
+   "events": [
+    {
+     "kind": "job_started",
+     "message": "Crawling 1 start URL(s)"
+    },
+    {
+     "kind": "strategy",
+     "message": "riverside-arts-calendar.example: direct LLM extraction (set by the job)"
+    },
+    {
+     "kind": "page_cap",
+     "message": "Page cap of 1 reached; 1 queued URL(s) not visited"
+    },
+    {
+     "kind": "job_finished",
+     "message": "10 records from 1 pages, 1 model call(s)"
+    }
+   ],
+   "error": null,
+   "pages_extracted": 1,
+   "call_seconds": [
+    6.53
+   ],
+   "input_tokens": 1553,
+   "output_tokens": 1548,
+   "not_on_page_flags": 0
+  },
+  {
+   "site": "menu-01",
+   "vertical": "restaurant",
+   "mode": "onepage",
+   "truth": 16,
+   "extracted": 16,
+   "matched": 16,
+   "precision": 1.0,
+   "recall": 1.0,
+   "field_accuracy": 1.0,
+   "fields": {
+    "dish": {
+     "correct": 16,
+     "total": 16
+    },
+    "section": {
+     "correct": 16,
+     "total": 16
+    },
+    "price": {
+     "correct": 16,
+     "total": 16
+    },
+    "dietary": {
+     "correct": 16,
+     "total": 16
+    }
+   },
+   "unmatched_extracted": [],
+   "missed": [],
+   "errors": [],
+   "pages": 1,
+   "records": 16,
+   "seconds": 0.01,
+   "strategies": [
+    "direct"
+   ],
+   "llm": {
+    "calls": 1,
+    "cached": 1,
+    "failed": 0,
+    "by_task": {
+     "direct_extract": 1
+    },
+    "input_tokens": 1587,
+    "output_tokens": 1322,
+    "seconds": 0.0
+   },
+   "browser_pages": 0,
+   "duplicates_merged": 0,
+   "sparse_dropped": 0,
+   "pii_removed": 0,
+   "injection_findings": 0,
+   "events": [
+    {
+     "kind": "job_started",
+     "message": "Crawling 1 start URL(s)"
+    },
+    {
+     "kind": "strategy",
+     "message": "saltbox-kitchen.example: direct LLM extraction (set by the job)"
+    },
+    {
+     "kind": "job_finished",
+     "message": "16 records from 1 pages, 1 model call(s)"
+    }
+   ],
+   "error": null,
+   "pages_extracted": 1,
+   "call_seconds": [
+    0.0
+   ],
+   "input_tokens": 1587,
+   "output_tokens": 1322,
+   "not_on_page_flags": 0
+  },
+  {
+   "site": "menu-02",
+   "vertical": "restaurant",
+   "mode": "onepage",
+   "truth": 14,
+   "extracted": 14,
+   "matched": 14,
+   "precision": 1.0,
+   "recall": 1.0,
+   "field_accuracy": 1.0,
+   "fields": {
+    "dish": {
+     "correct": 14,
+     "total": 14
+    },
+    "section": {
+     "correct": 14,
+     "total": 14
+    },
+    "price": {
+     "correct": 14,
+     "total": 14
+    },
+    "dietary": {
+     "correct": 14,
+     "total": 14
+    }
+   },
+   "unmatched_extracted": [],
+   "missed": [],
+   "errors": [],
+   "pages": 1,
+   "records": 14,
+   "seconds": 0.01,
+   "strategies": [
+    "direct"
+   ],
+   "llm": {
+    "calls": 1,
+    "cached": 1,
+    "failed": 0,
+    "by_task": {
+     "direct_extract": 1
+    },
+    "input_tokens": 1408,
+    "output_tokens": 1052,
+    "seconds": 0.0
+   },
+   "browser_pages": 0,
+   "duplicates_merged": 0,
+   "sparse_dropped": 0,
+   "pii_removed": 0,
+   "injection_findings": 0,
+   "events": [
+    {
+     "kind": "job_started",
+     "message": "Crawling 1 start URL(s)"
+    },
+    {
+     "kind": "strategy",
+     "message": "the-gilded-fern.example: direct LLM extraction (set by the job)"
+    },
+    {
+     "kind": "job_finished",
+     "message": "14 records from 1 pages, 1 model call(s)"
+    }
+   ],
+   "error": null,
+   "pages_extracted": 1,
+   "call_seconds": [
+    0.0
+   ],
+   "input_tokens": 1408,
+   "output_tokens": 1052,
+   "not_on_page_flags": 0
+  },
+  {
+   "site": "menu-03",
+   "vertical": "restaurant",
+   "mode": "pdf",
+   "truth": 15,
+   "extracted": 15,
+   "matched": 15,
+   "precision": 1.0,
+   "recall": 1.0,
+   "field_accuracy": 1.0,
+   "fields": {
+    "dish": {
+     "correct": 15,
+     "total": 15
+    },
+    "section": {
+     "correct": 15,
+     "total": 15
+    },
+    "price": {
+     "correct": 15,
+     "total": 15
+    },
+    "dietary": {
+     "correct": 15,
+     "total": 15
+    }
+   },
+   "unmatched_extracted": [],
+   "missed": [],
+   "errors": [],
+   "pages": 2,
+   "records": 15,
+   "seconds": 0.19,
+   "strategies": [
+    "direct"
+   ],
+   "llm": {
+    "calls": 2,
+    "cached": 2,
+    "failed": 0,
+    "by_task": {
+     "direct_extract": 2
+    },
+    "input_tokens": 2060,
+    "output_tokens": 1550,
+    "seconds": 0.0
+   },
+   "browser_pages": 0,
+   "duplicates_merged": 0,
+   "sparse_dropped": 0,
+   "pii_removed": 0,
+   "injection_findings": 0,
+   "events": [
+    {
+     "kind": "job_started",
+     "message": "Crawling 1 start URL(s)"
+    },
+    {
+     "kind": "strategy",
+     "message": "osteria-lucciola.example: direct LLM extraction (set by the job)"
+    },
+    {
+     "kind": "job_finished",
+     "message": "15 records from 2 pages, 2 model call(s)"
+    }
+   ],
+   "error": null,
+   "pages_extracted": 2,
+   "call_seconds": [
+    0.0,
+    0.0
+   ],
+   "input_tokens": 2060,
+   "output_tokens": 1550,
+   "not_on_page_flags": 0
+  },
+  {
+   "site": "menu-04",
+   "vertical": "restaurant",
+   "mode": "onepage",
+   "truth": 14,
+   "extracted": 14,
+   "matched": 14,
+   "precision": 1.0,
+   "recall": 1.0,
+   "field_accuracy": 1.0,
+   "fields": {
+    "dish": {
+     "correct": 14,
+     "total": 14
+    },
+    "section": {
+     "correct": 14,
+     "total": 14
+    },
+    "price": {
+     "correct": 14,
+     "total": 14
+    },
+    "dietary": {
+     "correct": 14,
+     "total": 14
+    }
+   },
+   "unmatched_extracted": [],
+   "missed": [],
+   "errors": [],
+   "pages": 1,
+   "records": 14,
+   "seconds": 0.0,
+   "strategies": [
+    "direct"
+   ],
+   "llm": {
+    "calls": 1,
+    "cached": 1,
+    "failed": 0,
+    "by_task": {
+     "direct_extract": 1
+    },
+    "input_tokens": 1375,
+    "output_tokens": 781,
+    "seconds": 0.0
+   },
+   "browser_pages": 0,
+   "duplicates_merged": 0,
+   "sparse_dropped": 0,
+   "pii_removed": 0,
+   "injection_findings": 0,
+   "events": [
+    {
+     "kind": "job_started",
+     "message": "Crawling 1 start URL(s)"
+    },
+    {
+     "kind": "strategy",
+     "message": "copperpot-bistro.example: direct LLM extraction (set by the job)"
+    },
+    {
+     "kind": "job_finished",
+     "message": "14 records from 1 pages, 1 model call(s)"
+    }
+   ],
+   "error": null,
+   "pages_extracted": 1,
+   "call_seconds": [
+    0.0
+   ],
+   "input_tokens": 1375,
+   "output_tokens": 781,
+   "not_on_page_flags": 0
+  },
+  {
+   "site": "menu-05",
+   "vertical": "restaurant",
+   "mode": "pdf",
+   "truth": 20,
+   "extracted": 20,
+   "matched": 20,
+   "precision": 1.0,
+   "recall": 1.0,
+   "field_accuracy": 1.0,
+   "fields": {
+    "dish": {
+     "correct": 20,
+     "total": 20
+    },
+    "section": {
+     "correct": 20,
+     "total": 20
+    },
+    "price": {
+     "correct": 20,
+     "total": 20
+    },
+    "dietary": {
+     "correct": 20,
+     "total": 20
+    }
+   },
+   "unmatched_extracted": [],
+   "missed": [],
+   "errors": [],
+   "pages": 2,
+   "records": 20,
+   "seconds": 0.01,
+   "strategies": [
+    "direct"
+   ],
+   "llm": {
+    "calls": 2,
+    "cached": 2,
+    "failed": 0,
+    "by_task": {
+     "direct_extract": 2
+    },
+    "input_tokens": 2133,
+    "output_tokens": 1262,
+    "seconds": 0.0
+   },
+   "browser_pages": 0,
+   "duplicates_merged": 0,
+   "sparse_dropped": 0,
+   "pii_removed": 0,
+   "injection_findings": 0,
+   "events": [
+    {
+     "kind": "job_started",
+     "message": "Crawling 1 start URL(s)"
+    },
+    {
+     "kind": "strategy",
+     "message": "marlow-and-thyme.example: direct LLM extraction (set by the job)"
+    },
+    {
+     "kind": "job_finished",
+     "message": "20 records from 2 pages, 2 model call(s)"
+    }
+   ],
+   "error": null,
+   "pages_extracted": 2,
+   "call_seconds": [
+    0.0,
+    0.0
+   ],
+   "input_tokens": 2133,
+   "output_tokens": 1262,
+   "not_on_page_flags": 0
+  },
+  {
+   "site": "saas-01",
+   "vertical": "saas",
+   "mode": "onepage",
+   "truth": 3,
+   "extracted": 3,
+   "matched": 3,
+   "precision": 1.0,
+   "recall": 1.0,
+   "field_accuracy": 1.0,
+   "fields": {
+    "plan": {
+     "correct": 3,
+     "total": 3
+    },
+    "monthly_price": {
+     "correct": 3,
+     "total": 3
+    },
+    "annual_monthly_price": {
+     "correct": 3,
+     "total": 3
+    },
+    "seats": {
+     "correct": 3,
+     "total": 3
+    },
+    "features": {
+     "correct": 3,
+     "total": 3
+    }
+   },
+   "unmatched_extracted": [],
+   "missed": [],
+   "errors": [],
+   "pages": 1,
+   "records": 3,
+   "seconds": 0.0,
+   "strategies": [
+    "direct"
+   ],
+   "llm": {
+    "calls": 1,
+    "cached": 1,
+    "failed": 0,
+    "by_task": {
+     "direct_extract": 1
+    },
+    "input_tokens": 1256,
+    "output_tokens": 334,
+    "seconds": 0.0
+   },
+   "browser_pages": 0,
+   "duplicates_merged": 0,
+   "sparse_dropped": 0,
+   "pii_removed": 0,
+   "injection_findings": 0,
+   "events": [
+    {
+     "kind": "job_started",
+     "message": "Crawling 1 start URL(s)"
+    },
+    {
+     "kind": "strategy",
+     "message": "ledgerly.example: direct LLM extraction (set by the job)"
+    },
+    {
+     "kind": "job_finished",
+     "message": "3 records from 1 pages, 1 model call(s)"
+    }
+   ],
+   "error": null,
+   "pages_extracted": 1,
+   "call_seconds": [
+    0.0
+   ],
+   "input_tokens": 1256,
+   "output_tokens": 334,
+   "not_on_page_flags": 0
+  },
+  {
+   "site": "saas-02",
+   "vertical": "saas",
+   "mode": "onepage",
+   "truth": 3,
+   "extracted": 3,
+   "matched": 3,
+   "precision": 1.0,
+   "recall": 1.0,
+   "field_accuracy": 1.0,
+   "fields": {
+    "plan": {
+     "correct": 3,
+     "total": 3
+    },
+    "monthly_price": {
+     "correct": 3,
+     "total": 3
+    },
+    "annual_monthly_price": {
+     "correct": 3,
+     "total": 3
+    },
+    "seats": {
+     "correct": 3,
+     "total": 3
+    },
+    "features": {
+     "correct": 3,
+     "total": 3
+    }
+   },
+   "unmatched_extracted": [],
+   "missed": [],
+   "errors": [],
+   "pages": 1,
+   "records": 3,
+   "seconds": 0.0,
+   "strategies": [
+    "direct"
+   ],
+   "llm": {
+    "calls": 1,
+    "cached": 1,
+    "failed": 0,
+    "by_task": {
+     "direct_extract": 1
+    },
+    "input_tokens": 1247,
+    "output_tokens": 501,
+    "seconds": 0.0
+   },
+   "browser_pages": 0,
+   "duplicates_merged": 0,
+   "sparse_dropped": 0,
+   "pii_removed": 0,
+   "injection_findings": 0,
+   "events": [
+    {
+     "kind": "job_started",
+     "message": "Crawling 1 start URL(s)"
+    },
+    {
+     "kind": "strategy",
+     "message": "pingwell.example: direct LLM extraction (set by the job)"
+    },
+    {
+     "kind": "job_finished",
+     "message": "3 records from 1 pages, 1 model call(s)"
+    }
+   ],
+   "error": null,
+   "pages_extracted": 1,
+   "call_seconds": [
+    0.0
+   ],
+   "input_tokens": 1247,
+   "output_tokens": 501,
+   "not_on_page_flags": 0
+  },
+  {
+   "site": "saas-03",
+   "vertical": "saas",
+   "mode": "onepage",
+   "truth": 4,
+   "extracted": 4,
+   "matched": 4,
+   "precision": 1.0,
+   "recall": 1.0,
+   "field_accuracy": 1.0,
+   "fields": {
+    "plan": {
+     "correct": 4,
+     "total": 4
+    },
+    "monthly_price": {
+     "correct": 4,
+     "total": 4
+    },
+    "annual_monthly_price": {
+     "correct": 4,
+     "total": 4
+    },
+    "seats": {
+     "correct": 4,
+     "total": 4
+    },
+    "features": {
+     "correct": 4,
+     "total": 4
+    }
+   },
+   "unmatched_extracted": [],
+   "missed": [],
+   "errors": [],
+   "pages": 1,
+   "records": 4,
+   "seconds": 0.0,
+   "strategies": [
+    "direct"
+   ],
+   "llm": {
+    "calls": 1,
+    "cached": 1,
+    "failed": 0,
+    "by_task": {
+     "direct_extract": 1
+    },
+    "input_tokens": 1416,
+    "output_tokens": 719,
+    "seconds": 0.0
+   },
+   "browser_pages": 0,
+   "duplicates_merged": 0,
+   "sparse_dropped": 0,
+   "pii_removed": 0,
+   "injection_findings": 0,
+   "events": [
+    {
+     "kind": "job_started",
+     "message": "Crawling 1 start URL(s)"
+    },
+    {
+     "kind": "strategy",
+     "message": "formstack-lite.example: direct LLM extraction (set by the job)"
+    },
+    {
+     "kind": "job_finished",
+     "message": "4 records from 1 pages, 1 model call(s)"
+    }
+   ],
+   "error": null,
+   "pages_extracted": 1,
+   "call_seconds": [
+    0.0
+   ],
+   "input_tokens": 1416,
+   "output_tokens": 719,
+   "not_on_page_flags": 0
+  },
+  {
+   "site": "saas-04",
+   "vertical": "saas",
+   "mode": "onepage",
+   "truth": 3,
+   "extracted": 3,
+   "matched": 3,
+   "precision": 1.0,
+   "recall": 1.0,
+   "field_accuracy": 1.0,
+   "fields": {
+    "plan": {
+     "correct": 3,
+     "total": 3
+    },
+    "monthly_price": {
+     "correct": 3,
+     "total": 3
+    },
+    "annual_monthly_price": {
+     "correct": 3,
+     "total": 3
+    },
+    "seats": {
+     "correct": 3,
+     "total": 3
+    },
+    "features": {
+     "correct": 3,
+     "total": 3
+    }
+   },
+   "unmatched_extracted": [],
+   "missed": [],
+   "errors": [],
+   "pages": 1,
+   "records": 3,
+   "seconds": 0.01,
+   "strategies": [
+    "direct"
+   ],
+   "llm": {
+    "calls": 1,
+    "cached": 1,
+    "failed": 0,
+    "by_task": {
+     "direct_extract": 1
+    },
+    "input_tokens": 1257,
+    "output_tokens": 535,
+    "seconds": 0.0
+   },
+   "browser_pages": 0,
+   "duplicates_merged": 0,
+   "sparse_dropped": 0,
+   "pii_removed": 0,
+   "injection_findings": 0,
+   "events": [
+    {
+     "kind": "job_started",
+     "message": "Crawling 1 start URL(s)"
+    },
+    {
+     "kind": "strategy",
+     "message": "shiplane.example: direct LLM extraction (set by the job)"
+    },
+    {
+     "kind": "job_finished",
+     "message": "3 records from 1 pages, 1 model call(s)"
+    }
+   ],
+   "error": null,
+   "pages_extracted": 1,
+   "call_seconds": [
+    0.0
+   ],
+   "input_tokens": 1257,
+   "output_tokens": 535,
+   "not_on_page_flags": 0
+  },
+  {
+   "site": "saas-05",
+   "vertical": "saas",
+   "mode": "onepage",
+   "truth": 3,
+   "extracted": 3,
+   "matched": 3,
+   "precision": 1.0,
+   "recall": 1.0,
+   "field_accuracy": 1.0,
+   "fields": {
+    "plan": {
+     "correct": 3,
+     "total": 3
+    },
+    "monthly_price": {
+     "correct": 3,
+     "total": 3
+    },
+    "annual_monthly_price": {
+     "correct": 3,
+     "total": 3
+    },
+    "seats": {
+     "correct": 3,
+     "total": 3
+    },
+    "features": {
+     "correct": 3,
+     "total": 3
+    }
+   },
+   "unmatched_extracted": [],
+   "missed": [],
+   "errors": [],
+   "pages": 1,
+   "records": 3,
+   "seconds": 0.0,
+   "strategies": [
+    "direct"
+   ],
+   "llm": {
+    "calls": 1,
+    "cached": 1,
+    "failed": 0,
+    "by_task": {
+     "direct_extract": 1
+    },
+    "input_tokens": 1268,
+    "output_tokens": 529,
+    "seconds": 0.0
+   },
+   "browser_pages": 0,
+   "duplicates_merged": 0,
+   "sparse_dropped": 0,
+   "pii_removed": 0,
+   "injection_findings": 0,
+   "events": [
+    {
+     "kind": "job_started",
+     "message": "Crawling 1 start URL(s)"
+    },
+    {
+     "kind": "strategy",
+     "message": "quotient-crm.example: direct LLM extraction (set by the job)"
+    },
+    {
+     "kind": "job_finished",
+     "message": "3 records from 1 pages, 1 model call(s)"
+    }
+   ],
+   "error": null,
+   "pages_extracted": 1,
+   "call_seconds": [
+    0.0
+   ],
+   "input_tokens": 1268,
+   "output_tokens": 529,
+   "not_on_page_flags": 0
+  },
+  {
+   "site": "registry-01",
+   "vertical": "registry",
+   "mode": "table",
+   "truth": 25,
+   "extracted": 25,
+   "matched": 25,
+   "precision": 1.0,
+   "recall": 1.0,
+   "field_accuracy": 1.0,
+   "fields": {
+    "facility": {
+     "correct": 25,
+     "total": 25
+    },
+    "district": {
+     "correct": 25,
+     "total": 25
+    },
+    "facility_type": {
+     "correct": 25,
+     "total": 25
+    },
+    "capacity": {
+     "correct": 25,
+     "total": 25
+    },
+    "opened": {
+     "correct": 25,
+     "total": 25
+    },
+    "phone": {
+     "correct": 25,
+     "total": 25
+    }
+   },
+   "unmatched_extracted": [],
+   "missed": [],
+   "errors": [],
+   "pages": 1,
+   "records": 25,
+   "seconds": 7.42,
+   "strategies": [
+    "direct"
+   ],
+   "llm": {
+    "calls": 1,
+    "cached": 0,
+    "failed": 0,
+    "by_task": {
+     "direct_extract": 1
+    },
+    "input_tokens": 2777,
+    "output_tokens": 2090,
+    "seconds": 7.4
+   },
+   "browser_pages": 0,
+   "duplicates_merged": 0,
+   "sparse_dropped": 0,
+   "pii_removed": 0,
+   "injection_findings": 0,
+   "events": [
+    {
+     "kind": "job_started",
+     "message": "Crawling 1 start URL(s)"
+    },
+    {
+     "kind": "strategy",
+     "message": "norbridge-council.example: direct LLM extraction (set by the job)"
+    },
+    {
+     "kind": "page_cap",
+     "message": "Page cap of 1 reached; 1 queued URL(s) not visited"
+    },
+    {
+     "kind": "job_finished",
+     "message": "25 records from 1 pages, 1 model call(s)"
+    }
+   ],
+   "error": null,
+   "pages_extracted": 1,
+   "call_seconds": [
+    7.4
+   ],
+   "input_tokens": 2777,
+   "output_tokens": 2090,
+   "not_on_page_flags": 0
+  },
+  {
+   "site": "registry-02",
+   "vertical": "registry",
+   "mode": "table",
+   "truth": 25,
+   "extracted": 25,
+   "matched": 25,
+   "precision": 1.0,
+   "recall": 1.0,
+   "field_accuracy": 0.8333,
+   "fields": {
+    "facility": {
+     "correct": 25,
+     "total": 25
+    },
+    "district": {
+     "correct": 0,
+     "total": 25
+    },
+    "facility_type": {
+     "correct": 25,
+     "total": 25
+    },
+    "capacity": {
+     "correct": 25,
+     "total": 25
+    },
+    "opened": {
+     "correct": 25,
+     "total": 25
+    },
+    "phone": {
+     "correct": 25,
+     "total": 25
+    }
+   },
+   "unmatched_extracted": [],
+   "missed": [],
+   "errors": [
+    {
+     "key": "Brookhaven Park",
+     "field": "district",
+     "got": "North district",
+     "want": "North"
+    },
+    {
+     "key": "Highfield Library",
+     "field": "district",
+     "got": "North district",
+     "want": "North"
+    },
+    {
+     "key": "Northside Sports Hall",
+     "field": "district",
+     "got": "North district",
+     "want": "North"
+    },
+    {
+     "key": "Queensway Library",
+     "field": "district",
+     "got": "North district",
+     "want": "North"
+    },
+    {
+     "key": "Riverbend Swimming Pool",
+     "field": "district",
+     "got": "North district",
+     "want": "North"
+    },
+    {
+     "key": "Stonebridge Community Centre",
+     "field": "district",
+     "got": "North district",
+     "want": "North"
+    },
+    {
+     "key": "Whitmore Swimming Pool",
+     "field": "district",
+     "got": "North district",
+     "want": "North"
+    },
+    {
+     "key": "Copperfield Library",
+     "field": "district",
+     "got": "South district",
+     "want": "South"
+    },
+    {
+     "key": "Elmstead Park",
+     "field": "district",
+     "got": "South district",
+     "want": "South"
+    },
+    {
+     "key": "Fairfield Library",
+     "field": "district",
+     "got": "South district",
+     "want": "South"
+    },
+    {
+     "key": "Fairfield Sports Hall",
+     "field": "district",
+     "got": "South district",
+     "want": "South"
+    },
+    {
+     "key": "Highfield Swimming Pool",
+     "field": "district",
+     "got": "South district",
+     "want": "South"
+    },
+    {
+     "key": "Kingsmead Park",
+     "field": "district",
+     "got": "South district",
+     "want": "South"
+    },
+    {
+     "key": "Northside Park",
+     "field": "district",
+     "got": "South district",
+     "want": "South"
+    },
+    {
+     "key": "Redhill Swimming Pool",
+     "field": "district",
+     "got": "South district",
+     "want": "South"
+    },
+    {
+     "key": "Yarrow Swimming Pool",
+     "field": "district",
+     "got": "South district",
+     "want": "South"
+    },
+    {
+     "key": "Bellmoor Sports Hall",
+     "field": "district",
+     "got": "East district",
+     "want": "East"
+    },
+    {
+     "key": "Copperfield Park",
+     "field": "district",
+     "got": "East district",
+     "want": "East"
+    },
+    {
+     "key": "Copperfield Sports Hall",
+     "field": "district",
+     "got": "East district",
+     "want": "East"
+    },
+    {
+     "key": "Elmstead Swimming Pool",
+     "field": "district",
+     "got": "East district",
+     "want": "East"
+    },
+    {
+     "key": "Highfield Park",
+     "field": "district",
+     "got": "East district",
+     "want": "East"
+    },
+    {
+     "key": "Northside Swimming Pool",
+     "field": "district",
+     "got": "East district",
+     "want": "East"
+    },
+    {
+     "key": "Oakridge Swimming Pool",
+     "field": "district",
+     "got": "East district",
+     "want": "East"
+    },
+    {
+     "key": "Redhill Park",
+     "field": "district",
+     "got": "East district",
+     "want": "East"
+    },
+    {
+     "key": "Riverbend Community Centre",
+     "field": "district",
+     "got": "East district",
+     "want": "East"
+    }
+   ],
+   "pages": 1,
+   "records": 25,
+   "seconds": 8.44,
+   "strategies": [
+    "direct"
+   ],
+   "llm": {
+    "calls": 1,
+    "cached": 0,
+    "failed": 0,
+    "by_task": {
+     "direct_extract": 1
+    },
+    "input_tokens": 2658,
+    "output_tokens": 2276,
+    "seconds": 8.42
+   },
+   "browser_pages": 0,
+   "duplicates_merged": 0,
+   "sparse_dropped": 0,
+   "pii_removed": 0,
+   "injection_findings": 0,
+   "events": [
+    {
+     "kind": "job_started",
+     "message": "Crawling 1 start URL(s)"
+    },
+    {
+     "kind": "strategy",
+     "message": "eastholm-council.example: direct LLM extraction (set by the job)"
+    },
+    {
+     "kind": "page_cap",
+     "message": "Page cap of 1 reached; 1 queued URL(s) not visited"
+    },
+    {
+     "kind": "job_finished",
+     "message": "25 records from 1 pages, 1 model call(s)"
+    }
+   ],
+   "error": null,
+   "pages_extracted": 1,
+   "call_seconds": [
+    8.42
+   ],
+   "input_tokens": 2658,
+   "output_tokens": 2276,
+   "not_on_page_flags": 0
+  },
+  {
+   "site": "registry-03",
+   "vertical": "registry",
+   "mode": "table",
+   "truth": 25,
+   "extracted": 25,
+   "matched": 25,
+   "precision": 1.0,
+   "recall": 1.0,
+   "field_accuracy": 1.0,
+   "fields": {
+    "facility": {
+     "correct": 25,
+     "total": 25
+    },
+    "district": {
+     "correct": 25,
+     "total": 25
+    },
+    "facility_type": {
+     "correct": 25,
+     "total": 25
+    },
+    "capacity": {
+     "correct": 25,
+     "total": 25
+    },
+    "opened": {
+     "correct": 25,
+     "total": 25
+    },
+    "phone": {
+     "correct": 25,
+     "total": 25
+    }
+   },
+   "unmatched_extracted": [],
+   "missed": [],
+   "errors": [],
+   "pages": 1,
+   "records": 25,
+   "seconds": 7.77,
+   "strategies": [
+    "direct"
+   ],
+   "llm": {
+    "calls": 1,
+    "cached": 0,
+    "failed": 0,
+    "by_task": {
+     "direct_extract": 1
+    },
+    "input_tokens": 2729,
+    "output_tokens": 2340,
+    "seconds": 7.75
+   },
+   "browser_pages": 0,
+   "duplicates_merged": 0,
+   "sparse_dropped": 0,
+   "pii_removed": 0,
+   "injection_findings": 0,
+   "events": [
+    {
+     "kind": "job_started",
+     "message": "Crawling 1 start URL(s)"
+    },
+    {
+     "kind": "strategy",
+     "message": "wexcombe-council.example: direct LLM extraction (set by the job)"
+    },
+    {
+     "kind": "page_cap",
+     "message": "Page cap of 1 reached; 1 queued URL(s) not visited"
+    },
+    {
+     "kind": "job_finished",
+     "message": "25 records from 1 pages, 1 model call(s)"
+    }
+   ],
+   "error": null,
+   "pages_extracted": 1,
+   "call_seconds": [
+    7.75
+   ],
+   "input_tokens": 2729,
+   "output_tokens": 2340,
+   "not_on_page_flags": 0
+  },
+  {
+   "site": "registry-04",
+   "vertical": "registry",
+   "mode": "table",
+   "truth": 25,
+   "extracted": 25,
+   "matched": 25,
+   "precision": 1.0,
+   "recall": 1.0,
+   "field_accuracy": 1.0,
+   "fields": {
+    "facility": {
+     "correct": 25,
+     "total": 25
+    },
+    "district": {
+     "correct": 25,
+     "total": 25
+    },
+    "facility_type": {
+     "correct": 25,
+     "total": 25
+    },
+    "capacity": {
+     "correct": 25,
+     "total": 25
+    },
+    "opened": {
+     "correct": 25,
+     "total": 25
+    },
+    "phone": {
+     "correct": 25,
+     "total": 25
+    }
+   },
+   "unmatched_extracted": [],
+   "missed": [],
+   "errors": [],
+   "pages": 1,
+   "records": 25,
+   "seconds": 7.89,
+   "strategies": [
+    "direct"
+   ],
+   "llm": {
+    "calls": 1,
+    "cached": 0,
+    "failed": 0,
+    "by_task": {
+     "direct_extract": 1
+    },
+    "input_tokens": 2746,
+    "output_tokens": 2319,
+    "seconds": 7.87
+   },
+   "browser_pages": 0,
+   "duplicates_merged": 0,
+   "sparse_dropped": 0,
+   "pii_removed": 0,
+   "injection_findings": 0,
+   "events": [
+    {
+     "kind": "job_started",
+     "message": "Crawling 1 start URL(s)"
+    },
+    {
+     "kind": "strategy",
+     "message": "larkfield-council.example: direct LLM extraction (set by the job)"
+    },
+    {
+     "kind": "page_cap",
+     "message": "Page cap of 1 reached; 1 queued URL(s) not visited"
+    },
+    {
+     "kind": "job_finished",
+     "message": "25 records from 1 pages, 1 model call(s)"
+    }
+   ],
+   "error": null,
+   "pages_extracted": 1,
+   "call_seconds": [
+    7.87
+   ],
+   "input_tokens": 2746,
+   "output_tokens": 2319,
+   "not_on_page_flags": 0
+  },
+  {
+   "site": "spa-shop-01",
+   "vertical": "ecommerce",
+   "mode": "spa",
+   "truth": 12,
+   "extracted": 12,
+   "matched": 12,
+   "precision": 1.0,
+   "recall": 1.0,
+   "field_accuracy": 1.0,
+   "fields": {
+    "name": {
+     "correct": 12,
+     "total": 12
+    },
+    "price": {
+     "correct": 12,
+     "total": 12
+    },
+    "rating": {
+     "correct": 12,
+     "total": 12
+    },
+    "stock_status": {
+     "correct": 12,
+     "total": 12
+    },
+    "image_url": {
+     "correct": 12,
+     "total": 12
+    },
+    "product_url": {
+     "correct": 12,
+     "total": 12
+    }
+   },
+   "unmatched_extracted": [],
+   "missed": [],
+   "errors": [],
+   "pages": 1,
+   "records": 12,
+   "seconds": 8.59,
+   "strategies": [
+    "direct"
+   ],
+   "llm": {
+    "calls": 1,
+    "cached": 0,
+    "failed": 0,
+    "by_task": {
+     "direct_extract": 1
+    },
+    "input_tokens": 2575,
+    "output_tokens": 2138,
+    "seconds": 7.46
+   },
+   "browser_pages": 1,
+   "duplicates_merged": 0,
+   "sparse_dropped": 0,
+   "pii_removed": 0,
+   "injection_findings": 0,
+   "events": [
+    {
+     "kind": "job_started",
+     "message": "Crawling 1 start URL(s)"
+    },
+    {
+     "kind": "browser",
+     "message": "https://kestrel-camera-house.example/catalog/: empty application shell; rendering with headless Chromium"
+    },
+    {
+     "kind": "strategy",
+     "message": "kestrel-camera-house.example: direct LLM extraction (set by the job)"
+    },
+    {
+     "kind": "page_cap",
+     "message": "Page cap of 1 reached; 3 queued URL(s) not visited"
+    },
+    {
+     "kind": "job_finished",
+     "message": "12 records from 1 pages, 1 model call(s)"
+    }
+   ],
+   "error": null,
+   "pages_extracted": 1,
+   "call_seconds": [
+    7.46
+   ],
+   "input_tokens": 2575,
+   "output_tokens": 2138,
+   "not_on_page_flags": 0
+  },
+  {
+   "site": "spa-shop-06",
+   "vertical": "ecommerce",
+   "mode": "spa",
+   "truth": 12,
+   "extracted": 12,
+   "matched": 12,
+   "precision": 1.0,
+   "recall": 1.0,
+   "field_accuracy": 1.0,
+   "fields": {
+    "name": {
+     "correct": 12,
+     "total": 12
+    },
+    "price": {
+     "correct": 12,
+     "total": 12
+    },
+    "rating": {
+     "correct": 12,
+     "total": 12
+    },
+    "stock_status": {
+     "correct": 12,
+     "total": 12
+    },
+    "image_url": {
+     "correct": 12,
+     "total": 12
+    },
+    "product_url": {
+     "correct": 12,
+     "total": 12
+    },
+    "variants": {
+     "correct": 12,
+     "total": 12
+    }
+   },
+   "unmatched_extracted": [],
+   "missed": [],
+   "errors": [],
+   "pages": 1,
+   "records": 12,
+   "seconds": 9.34,
+   "strategies": [
+    "direct"
+   ],
+   "llm": {
+    "calls": 1,
+    "cached": 0,
+    "failed": 0,
+    "by_task": {
+     "direct_extract": 1
+    },
+    "input_tokens": 2962,
+    "output_tokens": 2394,
+    "seconds": 8.38
+   },
+   "browser_pages": 1,
+   "duplicates_merged": 0,
+   "sparse_dropped": 0,
+   "pii_removed": 0,
+   "injection_findings": 0,
+   "events": [
+    {
+     "kind": "job_started",
+     "message": "Crawling 1 start URL(s)"
+    },
+    {
+     "kind": "browser",
+     "message": "https://lumen-desk-goods.example/catalog/: empty application shell; rendering with headless Chromium"
+    },
+    {
+     "kind": "strategy",
+     "message": "lumen-desk-goods.example: direct LLM extraction (set by the job)"
+    },
+    {
+     "kind": "page_cap",
+     "message": "Page cap of 1 reached; 3 queued URL(s) not visited"
+    },
+    {
+     "kind": "job_finished",
+     "message": "12 records from 1 pages, 1 model call(s)"
+    }
+   ],
+   "error": null,
+   "pages_extracted": 1,
+   "call_seconds": [
+    8.38
+   ],
+   "input_tokens": 2962,
+   "output_tokens": 2394,
+   "not_on_page_flags": 0
+  },
+  {
+   "site": "spa-jobs-07",
+   "vertical": "jobs",
+   "mode": "spa",
+   "truth": 10,
+   "extracted": 10,
+   "matched": 10,
+   "precision": 1.0,
+   "recall": 1.0,
+   "field_accuracy": 1.0,
+   "fields": {
+    "title": {
+     "correct": 10,
+     "total": 10
+    },
+    "company": {
+     "correct": 10,
+     "total": 10
+    },
+    "location": {
+     "correct": 10,
+     "total": 10
+    },
+    "salary_min": {
+     "correct": 10,
+     "total": 10
+    },
+    "salary_max": {
+     "correct": 10,
+     "total": 10
+    },
+    "employment_type": {
+     "correct": 10,
+     "total": 10
+    },
+    "remote": {
+     "correct": 10,
+     "total": 10
+    },
+    "posted_date": {
+     "correct": 10,
+     "total": 10
+    },
+    "job_url": {
+     "correct": 10,
+     "total": 10
+    }
+   },
+   "unmatched_extracted": [],
+   "missed": [],
+   "errors": [],
+   "pages": 1,
+   "records": 10,
+   "seconds": 8.85,
+   "strategies": [
+    "direct"
+   ],
+   "llm": {
+    "calls": 1,
+    "cached": 0,
+    "failed": 0,
+    "by_task": {
+     "direct_extract": 1
+    },
+    "input_tokens": 2089,
+    "output_tokens": 2158,
+    "seconds": 7.89
+   },
+   "browser_pages": 1,
+   "duplicates_merged": 0,
+   "sparse_dropped": 0,
+   "pii_removed": 4,
+   "injection_findings": 0,
+   "events": [
+    {
+     "kind": "job_started",
+     "message": "Crawling 1 start URL(s)"
+    },
+    {
+     "kind": "browser",
+     "message": "https://byte-bazaar-jobs.example/jobs/: empty application shell; rendering with headless Chromium"
+    },
+    {
+     "kind": "strategy",
+     "message": "byte-bazaar-jobs.example: direct LLM extraction (set by the job)"
+    },
+    {
+     "kind": "page_cap",
+     "message": "Page cap of 1 reached; 3 queued URL(s) not visited"
+    },
+    {
+     "kind": "pii_removed",
+     "message": "PII guard removed 4 email address(es) or phone number(s)"
+    },
+    {
+     "kind": "job_finished",
+     "message": "10 records from 1 pages, 1 model call(s)"
+    }
+   ],
+   "error": null,
+   "pages_extracted": 1,
+   "call_seconds": [
+    7.89
+   ],
+   "input_tokens": 2089,
+   "output_tokens": 2158,
+   "not_on_page_flags": 0
+  },
+  {
+   "site": "scroll-shop-08",
+   "vertical": "ecommerce",
+   "mode": "infinite_button",
+   "truth": 40,
+   "extracted": 0,
+   "matched": 0,
+   "precision": 0.0,
+   "recall": 0.0,
+   "field_accuracy": 0.0,
+   "fields": {},
+   "unmatched_extracted": [],
+   "missed": [
+    "Slate Corduroy Pants",
+    "Compact Corduroy Pants",
+    "Prime Cotton Tee",
+    "Compact Scarf",
+    "Slate Cotton Tee",
+    "Atlas Puffer Jacket",
+    "Atlas Linen Shirt",
+    "Light Corduroy Pants",
+    "Verde Knit Beanie",
+    "Atlas Puffer Jacket Lite"
+   ],
+   "errors": [],
+   "pages": 1,
+   "records": 0,
+   "seconds": 2.61,
+   "strategies": [
+    "direct"
+   ],
+   "llm": {
+    "calls": 1,
+    "cached": 0,
+    "failed": 1,
+    "by_task": {
+     "direct_extract": 1
+    },
+    "input_tokens": 0,
+    "output_tokens": 0,
+    "seconds": 0.27
+   },
+   "browser_pages": 1,
+   "duplicates_merged": 0,
+   "sparse_dropped": 0,
+   "pii_removed": 0,
+   "injection_findings": 0,
+   "events": [
+    {
+     "kind": "job_started",
+     "message": "Crawling 1 start URL(s)"
+    },
+    {
+     "kind": "browser",
+     "message": "https://marlow-supply.example/catalog/: load-more button; rendering with headless Chromium"
+    },
+    {
+     "kind": "strategy",
+     "message": "marlow-supply.example: direct LLM extraction (set by the job)"
+    },
+    {
+     "kind": "extract_error",
+     "message": "https://marlow-supply.example/catalog/: direct extraction failed (upstream 403: Request not allowed)"
+    },
+    {
+     "kind": "job_finished",
+     "message": "0 records from 1 pages, 1 model call(s)"
+    }
+   ],
+   "error": null,
+   "pages_extracted": 1,
+   "call_seconds": [
+    0.27
+   ],
+   "input_tokens": 0,
+   "output_tokens": 0,
+   "not_on_page_flags": 0
+  },
+  {
+   "site": "scroll-events-06",
+   "vertical": "events",
+   "mode": "infinite_scroll",
+   "truth": 34,
+   "extracted": 34,
+   "matched": 34,
+   "precision": 1.0,
+   "recall": 1.0,
+   "field_accuracy": 1.0,
+   "fields": {
+    "name": {
+     "correct": 34,
+     "total": 34
+    },
+    "start_date": {
+     "correct": 34,
+     "total": 34
+    },
+    "venue": {
+     "correct": 34,
+     "total": 34
+    },
+    "price": {
+     "correct": 34,
+     "total": 34
+    },
+    "category": {
+     "correct": 34,
+     "total": 34
+    },
+    "event_url": {
+     "correct": 34,
+     "total": 34
+    }
+   },
+   "unmatched_extracted": [],
+   "missed": [],
+   "errors": [],
+   "pages": 1,
+   "records": 34,
+   "seconds": 15.93,
+   "strategies": [
+    "direct"
+   ],
+   "llm": {
+    "calls": 1,
+    "cached": 0,
+    "failed": 0,
+    "by_task": {
+     "direct_extract": 1
+    },
+    "input_tokens": 3231,
+    "output_tokens": 4210,
+    "seconds": 13.6
+   },
+   "browser_pages": 1,
+   "duplicates_merged": 0,
+   "sparse_dropped": 0,
+   "pii_removed": 0,
+   "injection_findings": 0,
+   "events": [
+    {
+     "kind": "job_started",
+     "message": "Crawling 1 start URL(s)"
+    },
+    {
+     "kind": "browser",
+     "message": "https://moonlit-market-events.example/events/: infinite scroll; rendering with headless Chromium"
+    },
+    {
+     "kind": "strategy",
+     "message": "moonlit-market-events.example: direct LLM extraction (set by the job)"
+    },
+    {
+     "kind": "job_finished",
+     "message": "34 records from 1 pages, 1 model call(s)"
+    }
+   ],
+   "error": null,
+   "pages_extracted": 1,
+   "call_seconds": [
+    13.6
+   ],
+   "input_tokens": 3231,
+   "output_tokens": 4210,
+   "not_on_page_flags": 0
+  },
+  {
+   "site": "scroll-homes-05",
+   "vertical": "realestate",
+   "mode": "infinite_button",
+   "truth": 18,
+   "extracted": 18,
+   "matched": 18,
+   "precision": 1.0,
+   "recall": 1.0,
+   "field_accuracy": 1.0,
+   "fields": {
+    "address": {
+     "correct": 18,
+     "total": 18
+    },
+    "city": {
+     "correct": 18,
+     "total": 18
+    },
+    "price": {
+     "correct": 18,
+     "total": 18
+    },
+    "listing_type": {
+     "correct": 18,
+     "total": 18
+    },
+    "bedrooms": {
+     "correct": 18,
+     "total": 18
+    },
+    "bathrooms": {
+     "correct": 18,
+     "total": 18
+    },
+    "area_sqm": {
+     "correct": 18,
+     "total": 18
+    },
+    "listing_url": {
+     "correct": 18,
+     "total": 18
+    }
+   },
+   "unmatched_extracted": [],
+   "missed": [],
+   "errors": [],
+   "pages": 1,
+   "records": 18,
+   "seconds": 11.94,
+   "strategies": [
+    "direct"
+   ],
+   "llm": {
+    "calls": 1,
+    "cached": 0,
+    "failed": 0,
+    "by_task": {
+     "direct_extract": 1
+    },
+    "input_tokens": 2876,
+    "output_tokens": 2581,
+    "seconds": 9.73
+   },
+   "browser_pages": 1,
+   "duplicates_merged": 0,
+   "sparse_dropped": 0,
+   "pii_removed": 0,
+   "injection_findings": 0,
+   "events": [
+    {
+     "kind": "job_started",
+     "message": "Crawling 1 start URL(s)"
+    },
+    {
+     "kind": "browser",
+     "message": "https://summit-lettings.example/listings/: load-more button; rendering with headless Chromium"
+    },
+    {
+     "kind": "strategy",
+     "message": "summit-lettings.example: direct LLM extraction (set by the job)"
+    },
+    {
+     "kind": "job_finished",
+     "message": "18 records from 1 pages, 1 model call(s)"
+    }
+   ],
+   "error": null,
+   "pages_extracted": 1,
+   "call_seconds": [
+    9.73
+   ],
+   "input_tokens": 2876,
+   "output_tokens": 2581,
+   "not_on_page_flags": 0
+  }
+ ]
+}

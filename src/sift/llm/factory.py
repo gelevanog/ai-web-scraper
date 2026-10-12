@@ -9,7 +9,7 @@ from sift.llm.base import ChatModel
 from sift.llm.budget import BudgetedModel, DiskCache, shared_ledger, shared_throttle
 from sift.llm.fake import FakeModel
 from sift.llm.guards import ensure_free_models
-from sift.llm.openai_compat import OpenAICompatibleModel
+from sift.llm.openai_compat import GUARDED_KINDS, OpenAICompatibleModel
 
 
 def build_chat_model(
@@ -24,8 +24,8 @@ def build_chat_model(
     name = model or (settings.llm_model if provider is None else "") or DEFAULT_MODELS[kind]
     fallbacks = settings.llm_fallback_models if fallback_models is None else fallback_models
     # Guards first: nothing is constructed (no client, no key read) for a refused model.
-    if kind == "openrouter" and settings.require_free_models:
-        ensure_free_models([name, *fallbacks])
+    if kind in GUARDED_KINDS and settings.free_only:
+        ensure_free_models([name, *(fallbacks if kind == "openrouter" else [])])
     if kind == "fake":
         from sift.fake_tasks import HANDLERS  # the rule-based tasks import the extraction modules
 
@@ -41,11 +41,13 @@ def build_chat_model(
         "openrouter": settings.openrouter_base_url,
         "qwen": settings.qwen_base_url,
         "openai": settings.openai_base_url,
+        "compat": settings.llm_base_url,
     }[kind]
     api_key = {
         "openrouter": settings.openrouter_api_key,
         "qwen": settings.qwen_api_key,
         "openai": settings.openai_api_key,
+        "compat": settings.llm_api_key,
     }[kind]
     return OpenAICompatibleModel(
         kind=kind,
@@ -53,10 +55,11 @@ def build_chat_model(
         model=name,
         api_key=api_key,
         fallback_models=fallbacks if kind == "openrouter" else (),
-        require_free=settings.require_free_models,
+        require_free=settings.free_only,
         timeout_seconds=settings.llm_timeout_seconds,
         reasoning_effort=settings.llm_reasoning_effort if kind == "openrouter" else "",
         enable_thinking=settings.qwen_enable_thinking if kind == "qwen" else None,
+        send_temperature=settings.llm_send_temperature,
     )
 
 
@@ -77,7 +80,7 @@ def budgeted(model: ChatModel, settings: Settings, *, tag: str, cache: bool | No
             model=nxt,
             api_key=settings.openrouter_api_key,
             fallback_models=rest,
-            require_free=settings.require_free_models,
+            require_free=settings.free_only,
             timeout_seconds=settings.llm_timeout_seconds,
             reasoning_effort=settings.llm_reasoning_effort,
         )

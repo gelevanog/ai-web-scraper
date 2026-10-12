@@ -1,4 +1,5 @@
-"""OpenAI-compatible chat completions over HTTP: OpenRouter, Qwen Cloud (DashScope / Model Studio) and OpenAI."""
+"""OpenAI-compatible chat completions over HTTP: OpenRouter, Qwen Cloud (DashScope / Model Studio), OpenAI and any
+other OpenAI-compatible endpoint (`compat`, free-only unless paid models are allowed explicitly)."""
 
 from __future__ import annotations
 
@@ -10,13 +11,19 @@ import httpx
 from sift.llm.base import Completion, LLMError, Message, RetryableLLMError
 from sift.llm.guards import ensure_free_body, ensure_free_models, ensure_served_free
 
-Kind = Literal["openrouter", "qwen", "openai"]
+Kind = Literal["openrouter", "qwen", "openai", "compat"]
+GUARDED_KINDS = frozenset({"openrouter", "compat"})
 
 OPENROUTER_HEADERS = {
     "HTTP-Referer": "https://github.com/gelevanog/ai-web-scraper",
     "X-Title": "Sift",
 }
-_KEY_NAMES = {"openrouter": "OPENROUTER_API_KEY", "qwen": "QWEN_API_KEY", "openai": "OPENAI_API_KEY"}
+_KEY_NAMES = {
+    "openrouter": "OPENROUTER_API_KEY",
+    "qwen": "QWEN_API_KEY",
+    "openai": "OPENAI_API_KEY",
+    "compat": "SIFT_LLM_API_KEY",
+}
 
 
 class OpenAICompatibleModel:
@@ -32,6 +39,7 @@ class OpenAICompatibleModel:
         timeout_seconds: float = 120.0,
         reasoning_effort: str = "",
         enable_thinking: bool | None = None,
+        send_temperature: bool = True,
         transport: httpx.BaseTransport | None = None,
     ) -> None:
         if not api_key:
@@ -43,11 +51,12 @@ class OpenAICompatibleModel:
         self.kind = kind
         self.model = model
         self.fallback_models = list(fallback_models) if kind == "openrouter" else []
-        self.require_free = require_free and kind == "openrouter"
+        self.require_free = require_free and kind in GUARDED_KINDS
         if self.require_free:
             ensure_free_models([model, *self.fallback_models])
         self.reasoning_effort = reasoning_effort
         self.enable_thinking = enable_thinking
+        self.send_temperature = send_temperature
         self._url = base_url.rstrip("/") + "/chat/completions"
         self._headers = {"Authorization": f"Bearer {api_key}"}
         if kind == "openrouter":
@@ -68,16 +77,17 @@ class OpenAICompatibleModel:
             "model": self.model,
             "messages": list(messages),
             "max_tokens": max_tokens,
-            "temperature": temperature,
             "stream": False,
         }
+        if self.send_temperature:
+            body["temperature"] = temperature
         if self.kind == "openrouter":
             if self.fallback_models:
                 body["models"] = [self.model, *self.fallback_models]
             if self.reasoning_effort:
                 body["reasoning"] = {"effort": self.reasoning_effort}
-            if self.require_free:
-                ensure_free_body(body)
+        if self.require_free:
+            ensure_free_body(body)
         if self.kind == "qwen" and self.enable_thinking is not None:
             # Qwen3 hybrid-thinking models on DashScope's OpenAI-compatible endpoint take this extra field.
             body["enable_thinking"] = self.enable_thinking

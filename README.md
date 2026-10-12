@@ -57,7 +57,7 @@ Sift combines the two. A model reads a few sample pages once and writes the sele
 - **Personal data off by default.** A PII guard removes email addresses and phone numbers from every field unless the schema explicitly asks for business contact details, and even then keeps only phone numbers and addresses on the site's own domain.
 - **Outputs.** JSON and JSON Lines (with provenance and confidence), CSV and Parquet (flat), a signed webhook (HMAC-SHA256, batched), and a typed PostgreSQL (or SQLite) table created from the schema and upserted by record key.
 - **API, worker, CLI, SDK, dashboard.** FastAPI (jobs, schema proposal, live preview, records with filters, pages, extractor versions, events, timeline, audit log, exports, evaluation), an asyncio worker over a database job queue, a CLI (`sift seed | schema | learn | extract | crawl | heal | export | eval | serve | worker`), a small Python client, and a Next.js dashboard (job builder with a provenance preview, job progress, results with filters, the layout-change timeline, evaluation and the audit log).
-- **Providers.** `openrouter` (free models, with a free-only guard on by default), `qwen` (Qwen Cloud / DashScope, OpenAI-compatible), `openai`, `anthropic` (official SDK, `claude-sonnet-5`) and `fake`, a rule-based offline implementation of every model task (heuristic selector induction) so tests, CI and the zero-key demo run without keys.
+- **Providers.** `openrouter` (free models, with a free-only guard on by default), `qwen` (Qwen Cloud / DashScope, OpenAI-compatible), `openai`, `anthropic` (official SDK, `claude-sonnet-5`), `compat` (any OpenAI-compatible endpoint, such as a gateway) and `fake`, a rule-based offline implementation of every model task (heuristic selector induction) so tests, CI and the zero-key demo run without keys.
 
 ## How it works
 
@@ -175,9 +175,9 @@ uv run sift schema https://books.toscrape.com/ "Every book with title, price, av
 uv run sift crawl https://books.toscrape.com/ --schema schema.json --max-pages 5
 ```
 
-The **free-only guard** (`SIFT_REQUIRE_FREE_MODELS=true`, the default) refuses any OpenRouter model id that does not end in `:free` (fallbacks included), refuses `:online` and plugins, and rejects an answer that OpenRouter served from a paid model; nothing is built for a refused model. Every real request goes through a budget wrapper: one request every 3 seconds per process, retries with backoff on 429, 5xx and dropped connections, a hard cap (`SIFT_LLM_MAX_CALLS`), a disk cache, and a JSONL ledger of every request (model ids, status, latency, tokens; never prompts). `make eval-smoke` lists the current free models and tries the chosen ones on two sites.
+The **free-only guard** (on by default) refuses any OpenRouter or `compat` model id that does not end in `:free` (fallbacks included), refuses `:online` and plugins, and rejects an answer that OpenRouter served from a paid model; nothing is built for a refused model. Paid models need the explicit opt-in `SIFT_ALLOW_PAID_MODELS=true` (see [Model comparison](#model-comparison)). Every real request goes through a budget wrapper: one request every 3 seconds per process, retries with backoff on 429, 5xx and dropped connections, a hard cap (`SIFT_LLM_MAX_CALLS`), a disk cache, and a JSONL ledger of every request (model ids, status, latency, tokens; never prompts). `make eval-smoke` lists the current free models and tries the chosen ones on two sites.
 
-**Qwen Cloud** (Alibaba Model Studio / DashScope) speaks the OpenAI protocol, so the `qwen` provider is the same client with Qwen's endpoint and key: `SIFT_LLM_PROVIDER=qwen`, `QWEN_API_KEY` (or `DASHSCOPE_API_KEY`), `SIFT_LLM_MODEL=qwen3.7-plus`, `SIFT_QWEN_BASE_URL` (international endpoint by default) and `SIFT_QWEN_ENABLE_THINKING`. Its request shape is covered by tests against a recorded transport; **no Qwen Cloud request was made for this README** (no key was available). OpenAI and Anthropic (`SIFT_LLM_PROVIDER=anthropic`, official SDK, `claude-sonnet-5` by default) are wired the same way and were not called either.
+**Qwen Cloud** (Alibaba Model Studio / DashScope) speaks the OpenAI protocol, so the `qwen` provider is the same client with Qwen's endpoint and key: `SIFT_LLM_PROVIDER=qwen`, `QWEN_API_KEY` (or `DASHSCOPE_API_KEY`), `SIFT_LLM_MODEL=qwen3.7-plus`, `SIFT_QWEN_BASE_URL` (international endpoint by default) and `SIFT_QWEN_ENABLE_THINKING`. Its request shape is covered by tests against a recorded transport; this provider itself was not called for this README (the `qwen3.7-plus` numbers in [Model comparison](#model-comparison) went through the `compat` provider and a gateway). OpenAI and Anthropic (`SIFT_LLM_PROVIDER=anthropic`, official SDK, `claude-sonnet-5` by default) are wired the same way and were not called either.
 
 ## Scrape your own site (responsibly)
 
@@ -259,7 +259,7 @@ The direct suite ran strategy B on the first page of every site (two pages for t
 | Tokens per 1,000 pages | 0.98 million measured here; about 3,900 per call | 4.7 million (1.6 M in, 3.1 M out: reasoning models think before the JSON) |
 | Est. cost per 1,000 pages at paid prices of `nemotron-3-super` / `gpt-5-mini` / `claude-sonnet-5` | measured here $0.27 / $1.16 / $6.15; one-template site about **$0.003 / $0.01 / $0.07** | **$1.51 / $6.53 / $33.88** |
 
-The paid prices are OpenRouter's list prices on 2026-10-12 ([`prices.json`](results/prices.json)); no paid model was called. The one-template projection multiplies the measured tokens per learning call by 3 calls; a crawl of many small sites costs what was measured here. The trade-off is not accuracy (both are high on these pages) but cost, latency and stability: learned rules make a crawl as cheap and fast as a hand-written scraper and give the same answer every time, while direct extraction is the right tool for a one-off page, a PDF, or a site whose markup differs on every page. The direct suite also showed weaknesses the learned path does not have: the model occasionally returned no valid JSON at all (3 of 49 pages), and on one job board it returned no usable posting date for any of the 10 postings.
+The paid prices are OpenRouter's list prices on 2026-10-12 ([`prices.json`](results/prices.json)); no paid model was called in this run (measured paid runs: [Model comparison](#model-comparison)). The one-template projection multiplies the measured tokens per learning call by 3 calls; a crawl of many small sites costs what was measured here. The trade-off is not accuracy (both are high on these pages) but cost, latency and stability: learned rules make a crawl as cheap and fast as a hand-written scraper and give the same answer every time, while direct extraction is the right tool for a one-off page, a PDF, or a site whose markup differs on every page. The direct suite also showed weaknesses the learned path does not have: the model occasionally returned no valid JSON at all (3 of 49 pages), and on one job board it returned no usable posting date for any of the 10 postings.
 
 ### 3. Robustness: the v2 redesign and self-healing
 
@@ -357,7 +357,7 @@ The first full run (as run: v1 field accuracy 90.7%, 27 of 36 heals verified) fo
 
 ### API calls
 
-[`summary.json`](results/summary.json), from the [ledger](results/calls.jsonl): **418 requests** to OpenRouter between 04:04 and 07:27 UTC on 2026-10-12 (382 succeeded, 12 retried after 429/5xx/dropped connections, 24 errors: 16 answers that ran out of tokens while reasoning, 7 provider 403s answered by the fallback model, 1 dropped connection before the retry fix), about 0.73 M input and 1.05 M output tokens. By suite: synthetic web 218 (v1 learning and direct pages, healing, and the re-runs after each fix, which reused every cached answer and paid only for changed prompts), schema 51, direct 49, model smoke test 31, model comparison 50, toscrape 12, injection counterfactuals 6, and 1 for the hero screenshot's preview. Requested models: `nvidia/nemotron-3-super-120b-a12b:free` (334), `dots-studio/dots-3-note-preview:free` (34), `nvidia/nemotron-3-ultra-550b-a55b:free` (32), `poolside/laguna-s-2.1:free` (9), `cohere/north-mini-code:free` (5), `nvidia/nemotron-3.5-lightning:free` (4); served: the same six (nemotron-3-ultra also as the fallback). **Every requested and served model id ends in `:free`**, enforced by the free-only guard. No Qwen Cloud, OpenAI or Anthropic request was made.
+[`summary.json`](results/summary.json), from the [ledger](results/calls.jsonl): **418 requests** to OpenRouter between 04:04 and 07:27 UTC on 2026-10-12 (382 succeeded, 12 retried after 429/5xx/dropped connections, 24 errors: 16 answers that ran out of tokens while reasoning, 7 provider 403s answered by the fallback model, 1 dropped connection before the retry fix), about 0.73 M input and 1.05 M output tokens. By suite: synthetic web 218 (v1 learning and direct pages, healing, and the re-runs after each fix, which reused every cached answer and paid only for changed prompts), schema 51, direct 49, model smoke test 31, model comparison 50, toscrape 12, injection counterfactuals 6, and 1 for the hero screenshot's preview. Requested models: `nvidia/nemotron-3-super-120b-a12b:free` (334), `dots-studio/dots-3-note-preview:free` (34), `nvidia/nemotron-3-ultra-550b-a55b:free` (32), `poolside/laguna-s-2.1:free` (9), `cohere/north-mini-code:free` (5), `nvidia/nemotron-3.5-lightning:free` (4); served: the same six (nemotron-3-ultra also as the fallback). **Every requested and served model id ends in `:free`**, enforced by the free-only guard. No Qwen Cloud, OpenAI or Anthropic request was made in this run; the paid comparison below has its own [ledger](results/paid-models/calls.jsonl).
 
 ### Screenshots
 
@@ -371,6 +371,32 @@ Taken with headless Chrome from the running dashboard ([`capture.mjs`](docs/scre
 | **Layout changes**: detected, healed (with the rule diff) or failed | **books.toscrape.com**: 60 books, UPC and category from the book pages |
 | ![Evaluation page with the tables of this section](docs/screenshots/evaluation.png) | ![Audit log of every decision across jobs](docs/screenshots/audit-log.png) |
 | **Evaluation**: this section, rendered from `results/summary.json` | **Audit log**: strategies, learning, healing, robots.txt, injections, PII |
+
+## Model comparison
+
+The defaults stay free-only (OpenRouter `:free` models); a stronger model is an explicit opt-in through the `compat` provider (any OpenAI-compatible endpoint) or OpenRouter:
+
+```bash
+export SIFT_LLM_PROVIDER=compat SIFT_LLM_BASE_URL=https://your-gateway.example/v1 SIFT_LLM_API_KEY=...
+export SIFT_ALLOW_PAID_MODELS=true SIFT_LLM_MODEL=claude-haiku-5-5
+export SIFT_LLM_SEND_TEMPERATURE=false   # the Claude 5.5 models reject `temperature`
+```
+
+Same code, synthetic web and scoring as the free run above, on 2026-10-12; only the model changed. Qwen ran 44 of the 47 sites (its token budget ran out), so free and Haiku are restricted to the same 44; Opus ran 15 sites (the 8-site comparison set and 7 "hard" sites the free model got wrong).
+
+| Metric (sites) | Free `nemotron-3-super` | Claude Haiku 5.5 | Claude Opus 5.5 | Qwen 3.7 Plus |
+|---|---|---|---|---|
+| v1 field accuracy (44) | 99.1% | 99.2% | not run | 96.2% |
+| Self-heals verified / records found after healing (44) | 28 of 34 / 94.9% | 31 of 34 / 100% | not run | 19 of 33 / 95.7% |
+| v1 field accuracy (15 Opus sites) | 97.8% | 98.1% | 100.0% | 95.0% |
+| Self-heals verified (7 hard sites) | 3 of 7 | 5 of 7 | 7 of 7 | 3 of 7 |
+| Cost per model request | $0 | about $0.001 (216 requests, $0.21 for every suite) | about $0.03 (33 requests, $0.95) | token budget, about 2.6 k tokens per request |
+
+- **First-pass extraction is fine on the free model.** With learned rules, v1 field accuracy is within 0.1 points of Haiku, and record precision and recall are 100% for the free model, Haiku and Qwen.
+- **Self-healing is where stronger models pay off.** Haiku verified 3 more heals on the 44 sites and recovered every record after the redesign, with fewer heal and fallback calls (52 vs 69). Opus verified 7 of 7 heals on the hard subset (free: 3 of 7); that subset was picked from the free model's failures, so it favours a stronger model by construction.
+- **Haiku also fixed direct extraction** (record recall on 49 pages: 88.2% free vs 100%) at about 3.6 times lower latency (p50 7.1 s vs 25.8 s). After healing its field accuracy was slightly lower (99.5% vs 99.9%): one healed shop lost half-star ratings and still passed verification.
+- **Qwen 3.7 Plus (thinking off) scored below the free baseline.** In direct mode it labelled EUR and GBP prices as USD on every non-USD one-page site (menus and SaaS pages about 85%), never asked for product-page rules (72 SKUs empty) and verified 19 of 33 heals. Its schema proposals were its strong point (94 of 100 types right on 15 sites; free 90, Haiku 93; Opus did not run schema).
+- One run per model on a synthetic benchmark; Opus on 15 sites only. Full tables, errors, costs and the commands: [`results/paid-models/COMPARISON.md`](results/paid-models/COMPARISON.md).
 
 ## Key design decisions
 
@@ -399,9 +425,11 @@ All settings are environment variables (or `.env`); [`.env.example`](.env.exampl
 
 | Variable | Default | What it does |
 |---|---|---|
-| `SIFT_LLM_PROVIDER` / `SIFT_LLM_MODEL` | `fake` / provider default | `fake`, `openrouter`, `qwen`, `openai`, `anthropic` |
+| `SIFT_LLM_PROVIDER` / `SIFT_LLM_MODEL` | `fake` / provider default | `fake`, `openrouter`, `qwen`, `openai`, `anthropic`, `compat` |
 | `SIFT_LLM_FALLBACK_MODELS` | none | OpenRouter fallbacks (comma-separated, all `:free`) |
-| `SIFT_REQUIRE_FREE_MODELS` | `true` | refuse non-`:free` OpenRouter ids, paid plugins and paid served models |
+| `SIFT_REQUIRE_FREE_MODELS` | `true` | refuse non-`:free` OpenRouter and `compat` ids, paid plugins and paid served models |
+| `SIFT_ALLOW_PAID_MODELS` | `false` | the explicit opt-in that lifts the free-only guard |
+| `SIFT_LLM_BASE_URL` / `SIFT_LLM_API_KEY` / `SIFT_LLM_SEND_TEMPERATURE` | none / none / `true` | the `compat` provider's endpoint and key; `false` omits `temperature` for models that reject it |
 | `SIFT_STRATEGY` | `auto` | `auto`, `learned`, `direct` |
 | `SIFT_HEAL` / `SIFT_HEAL_MAX_PAGES` | `true` / `3` | self-healing and its sample size |
 | `SIFT_LEARN_SAMPLE_PAGES` / `SIFT_LEARN_MAX_ATTEMPTS` | `3` / `3` | pages used to validate learned rules; attempts with feedback |
@@ -462,7 +490,7 @@ make eval-offline  # the synthetic suites with the offline model, no API calls
 | `test_normalize.py` | money formats and ranges, FX, relative and absolute dates by locale, units, numbers, enums, booleans, phones, typed normalization |
 | `test_guards.py` | PII guard (business contacts, webmail, year ranges), injection detection and quarantine in visible, hidden and attribute text, unforgeable spotlight markers, schema fields that must quote the request, grounding, dedupe, anomalies, sparse rows |
 | `test_exports.py` | JSON, JSONL, CSV, Parquet, the signed webhook, the typed table upsert |
-| `test_llm.py` | the free-only guard, OpenRouter and **Qwen Cloud request shapes**, error mapping, retries and the ledger, the hard cap, the 403 fallback, Anthropic with a mocked client, JSON repair |
+| `test_llm.py` | the free-only guard and the paid-model opt-in (`compat` provider), OpenRouter and **Qwen Cloud request shapes**, error mapping, retries and the ledger, the hard cap, the 403 fallback, Anthropic with a mocked client, JSON repair |
 | `test_api.py` | jobs, records with filters, exports, events, extractors, the timeline, re-crawl after a redesign, unchanged re-crawl, schema proposal and preview, validation, cancel, delete, bearer token, the SDK |
 | `test_cli.py` | seed, schema, learn, extract, crawl, heal, jobs, export, an evaluation suite |
 | `test_postgres.py` | storage, the job queue with a waiting re-crawl and the typed table on PostgreSQL (CI service container) |
@@ -476,7 +504,7 @@ CI ([`.github/workflows/ci.yml`](.github/workflows/ci.yml)) runs ruff and mypy, 
 - A persistent, distributed frontier for very large crawls; sitemap discovery; conditional requests (ETag, If-Modified-Since).
 - Scheduled re-crawls with change alerts (new, removed and changed records per run).
 - Sign-in and roles for the dashboard and the API (today one deployment is one team, with an optional bearer token).
-- A stronger model behind the same checks where the free one was weakest: healing the five redesigns it could not, and the 10% of schema types that needed a person.
+- Per-task model choice: keep the free model for learning and use an opted-in stronger model only for healing, where the [paid comparison](#model-comparison) showed the gain.
 
 ## License
 
